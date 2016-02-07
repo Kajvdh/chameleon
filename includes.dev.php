@@ -14,11 +14,12 @@ require_once('smarty.php');
 
 global $config;
 $config = new Config();
-$config->setErrorMode("prd");
+$config->setErrorMode("dev");
 
 if ($config->getErrorMode() == "dev") {
     error_reporting(E_ALL);
     ini_set('display_errors', '1');
+    $config->setFullUrl("http://dev.chameleon.chattersweb.nl");
 }
 else {
     error_reporting(0);
