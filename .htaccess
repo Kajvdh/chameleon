@@ -1,0 +1,18 @@
+RewriteEngine On
+RewriteRule	^login/?$				login.php				[NC,L]
+RewriteRule ^logout/?$				logout.php				[NC,L]
+RewriteRule ^list/?$				?page=list				[NC,L]
+RewriteRule ^new/?$					?page=new				[NC,L]
+RewriteRule ^settings/?$			?page=settings			[NC,L]
+RewriteRule ^help/?$				?page=help				[NC,L]
+
+RewriteRule ^edit/?$				?page=edit				[NC,L]
+RewriteRule ^edit/([0-9]+)/?$		?page=edit&id=$1		[NC,L]
+
+RewriteRule	^transfer/?$			?page=transfer			[NC,L]
+RewriteRule	^transfer/([0-9]+)/?$	?page=transfer&id=$1	[NC,L]
+
+RewriteRule	^del/?$					?page=del				[NC,L]
+RewriteRule	^del/([0-9]+)/?$		?page=del&id=$1			[NC,L]
+
+RewriteRule ^chat/([0-9]+)/?$		chat.php?id=$1			[NC,L]
