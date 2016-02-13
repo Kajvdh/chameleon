@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
         $smarty->assign('metadata',$metadata);
         $smarty->display('chat.tpl');
 
-        if ($metadata['radio_enabled'] == "true") {
+        if ($metadata['radio'] == "true") {
             $smarty->display('chat_radio.tpl');
         } elseif ($metadata['ads_enabled'] == "true") {
             $smarty->display('chat_ads.tpl');

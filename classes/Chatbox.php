@@ -526,6 +526,7 @@ class Chatbox {
         $data['radio_name'] = $this->Radio->getName();
         $data['radio_link'] = $this->Radio->getStreamLink();
         $data['radio_player'] = $this->Radio->getPlayer();
+        $data['ads_enabled'] = $this->getAdsEnabled();
         return $data;
     }
 
