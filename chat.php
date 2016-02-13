@@ -30,6 +30,10 @@ if (isset($_GET['id'])) {
         $chat->printConfig();
 
         $metadata = $chat->getMetaData();
+
+        if (($metadata['radio'] != "true") && ($metadata['ads_enabled'] == "true"))
+            $metadata['height'] = "90";
+
         $smarty->assign('metadata',$metadata);
         $smarty->display('chat.tpl');
 
@@ -37,7 +41,6 @@ if (isset($_GET['id'])) {
             $smarty->display('chat_radio.tpl');
         } elseif ($metadata['ads_enabled'] == "true") {
             $smarty->display('chat_ads.tpl');
-            $metadata['height'] = "90";
         }
 
         $smarty->display('chat_end.tpl');
