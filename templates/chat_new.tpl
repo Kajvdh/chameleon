@@ -234,7 +234,7 @@
                 <div id="ads" class="tab-pane fade">
                     <br />
                     <div class="alert alert-info">
-                        Het is mogelijk om onder je chat een radioplayer toe te voegen om muziek af te spelen.
+                        Dankzij advertenties kunnen wij steeds de beste service blijven leveren. Maar omdat wij begrijpen dat veel chatters dit als storend kunnen ervaren voorzien wij de hier de mogelijkheid deze uit te schakelen.
                     </div>
 
                     <!-- Advertenties inschakelen -->
