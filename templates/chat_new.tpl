@@ -8,13 +8,7 @@
             e.preventDefault()
             $(this).tab('show')
         });
-
-
-
     });
-
-
-
 </script>
 {/literal}
 
@@ -233,6 +227,24 @@
                     </div>
 
                 </div>
+
+                <!-- EXTRA: ADS -->
+                <div id="ads" class="tab-pane fade">
+                    <br />
+                    <div class="alert alert-info">
+                        Het is mogelijk om onder je chat een radioplayer toe te voegen om muziek af te spelen.
+                    </div>
+
+                    <!-- Advertenties inschakelen -->
+                    <div class="form-group">
+                        <label for="textstyling" title="Ik wil Chattersweb steunen door een advertentie onder mijn chatbox te plaatsen" class="control-label col-sm-3">Steun Chattersweb door een advertentie te tonen</label>
+                        <div class="col-sm-9">
+                            <input type="checkbox" name="ads_enabled" value="true" {if $ads_enabled!="false"}checked="checked"{/if}>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
             <br /><br />
             <button class="btn btn-default" type="submit">{if isset($chat_id)}Chat opslaan{else}Chat aanmaken{/if}</button>

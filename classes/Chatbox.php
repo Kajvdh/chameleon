@@ -43,6 +43,7 @@ class Chatbox {
     private $_iconStyle;
     private $_height;
     private $_lightIRCId;
+    private $_adsEnabled;
 
     public function __construct($db) {
         $this->_dBase = $db;
@@ -100,6 +101,12 @@ class Chatbox {
     }
     public function getLastCalled() {
         return $this->_lastcalled;
+    }
+    public function setAdsEnabled($adsEnabled) {
+        $this->_adsEnabled = $adsEnabled;
+    }
+    public function getAdsEnabled() {
+        return $this->_adsEnabled;
     }
 
     public function readForm($form) {
@@ -231,12 +238,18 @@ class Chatbox {
         if (isset($form['radio_style'])) {
             $this->setRadioStyle($form['radio_style']);
         }
+        //Advertenties
+        if (isset($form['ads_enabled'])) {
+            $this->setAdsEnabled($form['ads_enabled']);
+        } else {
+            $this->setAdsEnabled(false);
+        }
     }
 
     public function save() {
         $this->LightIRC->save();
         $this->setLightIRCId($this->LightIRC->getId());
-        $qry = $this->_db->prepare("INSERT INTO ".$this->_table."(lirc_id,createdby,createrip,created,lastcalled,calls,name,height,bgcolor,style,iconstyle,radio_enabled,radio_name,radio_streamtype,radio_link,radio_type) VALUES(:lirc_id,:createdby,:createrip,NOW(),NOW(),:calls,:name,:height,:bgcolor,:style,:iconstyle,:radio_enabled,:radio_name,:radio_streamtype,:radio_link,:radio_type);");
+        $qry = $this->_db->prepare("INSERT INTO ".$this->_table."(lirc_id,createdby,createrip,created,lastcalled,calls,name,height,bgcolor,style,iconstyle,radio_enabled,radio_name,radio_streamtype,radio_link,radio_type,ads_enabled) VALUES(:lirc_id,:createdby,:createrip,NOW(),NOW(),:calls,:name,:height,:bgcolor,:style,:iconstyle,:radio_enabled,:radio_name,:radio_streamtype,:radio_link,:radio_type,:ads_enabled);");
         $data = array(
             ':lirc_id' => $this->getLightIRCId(),
             ':createdby' => $this->getOwner(),
@@ -251,7 +264,8 @@ class Chatbox {
             ':radio_name' => $this->Radio->getName(),
             ':radio_streamtype' => $this->Radio->getStreamType(),
             ':radio_link' => $this->Radio->getStreamLink(),
-            ':radio_type' => $this->Radio->getPlayer()
+            ':radio_type' => $this->Radio->getPlayer(),
+            ':ads_enabled' => $this->getAdsEnabled()
         );
 
         $qry->execute($data);
@@ -267,7 +281,7 @@ class Chatbox {
     public function update() {
         $this->LightIRC->update();
 
-        $qry = $this->_db->prepare("UPDATE ".$this->_table." SET lirc_id=:lirc_id,createdby=:createdby,createrip=:createrip,created=NOW(),lastcalled=NOW(),calls=:calls,name=:name,height=:height,bgcolor=:bgcolor,style=:style,iconstyle=:iconstyle,radio_enabled=:radio_enabled,radio_name=:radio_name,radio_streamtype=:radio_streamtype,radio_link=:radio_link,radio_type=:radio_type WHERE id=:id;");
+        $qry = $this->_db->prepare("UPDATE ".$this->_table." SET lirc_id=:lirc_id,createdby=:createdby,createrip=:createrip,created=NOW(),lastcalled=NOW(),calls=:calls,name=:name,height=:height,bgcolor=:bgcolor,style=:style,iconstyle=:iconstyle,radio_enabled=:radio_enabled,radio_name=:radio_name,radio_streamtype=:radio_streamtype,radio_link=:radio_link,radio_type=:radio_type,ads_enabled=:ads_enabled WHERE id=:id;");
         $data = array(
             ':lirc_id' => $this->getLightIRCId(),
             ':createdby' => $this->getOwner(),
@@ -283,7 +297,8 @@ class Chatbox {
             ':radio_streamtype' => $this->Radio->getStreamType(),
             ':radio_link' => $this->Radio->getStreamLink(),
             ':radio_type' => $this->Radio->getPlayer(),
-            ':id' => $this->_id
+            ':id' => $this->_id,
+            ':ads_enabled' => $this->getAdsEnabled()
         );
 
         $qry->execute($data);
@@ -341,6 +356,7 @@ class Chatbox {
             $this->Radio->setStreamLink($row['radio_link']);
             $this->Radio->setPlayer($row['radio_type']);
             $this->LightIRC->getById($this->getLightIRCId());
+            $this->setAdsEnabled($row['ads_enabled']);
             return true;
         }
         else {

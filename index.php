@@ -42,8 +42,8 @@ if ($id) {
     if (isset($_GET['page'])) {
         $page = $_GET['page'];
     }
-	
-	
+
+
     if ($page == "transfer") {
         if (isset($_POST['username'])) {
             $cId = $_POST['chat_id'];
@@ -289,6 +289,11 @@ if ($id) {
                     if ($radio_type) {
                         $smarty->assign('radio_style', $radio_type);
                     }
+                    //Advertenties
+                    $ads_enabled = $chat->getAdsEnabled();
+                    if ($ads_enabled) {
+                        $smarty->assign('ads_enabled', $ads_enabled);
+                    }
                     $smarty->assign('page','edit');
                 }
                 else {
@@ -326,6 +331,7 @@ if ($id) {
             $smarty->assign('radio_enabled', "false");
             $smarty->assign('radio_type', "shoutcast");
             $smarty->assign('radio_style', "cwflash");
+            $smarty->assign('ads_enabled', "true");
 	    $smarty->assign('page','new');
         }
     }
