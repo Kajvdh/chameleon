@@ -61,6 +61,7 @@
                                 <option value="skyblue" {if $chat_style=="skyblue"}selected="selected"{/if}>Hemelsblauw</option>
                                 <option value="yellow" {if $chat_style=="yellow"}selected="selected"{/if}>Geel</option>
                                 <option value="pink" {if $chat_style=="pink"}selected="selected"{/if}>Roze</option>
+                                <option value="darkred" {if $chat_style=="darkred"}selected="selected"{/if}>Donkerrood</option>
                             </select>
                         </div>
                     </div><br /><br /><br />

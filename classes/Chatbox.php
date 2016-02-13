@@ -425,6 +425,11 @@ class Chatbox {
                 $this->_style ='skyblue';
                 $this->setBgcolor("#0095B6");
                 break;
+            case 'darkred':
+                $this->LightIRC->setStyleURL('css/darkred.css');
+                $this->_style ='darkred';
+                $this->setBgcolor("#B40404");
+                break;
         }
     }
     public function getStyle() {
