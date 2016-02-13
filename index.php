@@ -291,8 +291,10 @@ if ($id) {
                     }
                     //Advertenties
                     $ads_enabled = $chat->getAdsEnabled();
-                    if ($ads_enabled) {
-                        $smarty->assign('ads_enabled', $ads_enabled);
+                    if ($ads_enabled == "true") {
+                        $smarty->assign('ads_enabled', "true");
+                    } else {
+                        $smarty->assign('ads_enabled', "false");
                     }
                     $smarty->assign('page','edit');
                 }
