@@ -18,7 +18,6 @@
 */
 
 require("includes.php");
-ob_start();
 $database = new Database($config);
 $db = $database->getConnection();
 $smarty->assign('fullurl', $config->getFullUrl());

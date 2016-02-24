@@ -18,7 +18,6 @@
 */
 
 require("includes.php");
-ob_start();
 $database = new Database($config);
 $db = $database->getConnection();
 $smarty->assign('fullurl', $config->getFullUrl());
@@ -32,6 +31,8 @@ if (isset($_GET['id'])) {
 
         $metadata = $chat->getMetaData();
 
+        if (($metadata['radio'] == "true") || ($metadata['ads_enabled'] != "true"))
+            header('Location: http://chameleon.chattersweb.nl/chat.php?'.$_SERVER['QUERY_STRING']);
 
         if ($metadata['ads_enabled'] == "true")
             $metadata['height'] = "90";
@@ -40,7 +41,6 @@ if (isset($_GET['id'])) {
         $smarty->display('chat.tpl');
 
         if ($metadata['radio'] == "true") {
-            header('Location: http://chameleon.chattersweb.nl/chat.php?'.$_SERVER['QUERY_STRING']);
             $smarty->display('chat_radio.tpl');
         } elseif ($metadata['ads_enabled'] == "true") {
             $smarty->display('chat_ads.tpl');
