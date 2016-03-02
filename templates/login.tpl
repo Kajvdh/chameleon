@@ -32,7 +32,7 @@
             {/if}
             <form class="form-signin" role="form" method="POST" action="{$fullurl}/login">
                 <h2 class="form-signin-heading">Log aub in</h2>
-                <sub>Gebruik hiervoor je geregistreerde nicknaam en wachtwoord van op de chat.</sub>
+                <p>Gebruik hiervoor je geregistreerde nicknaam en wachtwoord van op de chat.</p>
                 <input type="text" class="form-control" name="login" placeholder="Nicknaam" required autofocus>
                 <input type="password" class="form-control" name="pass" placeholder="Wachtwoord" required>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
