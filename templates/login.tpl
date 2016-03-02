@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- jQuery -->
         <script src="{$fullurl}/js/jquery-1.11.0.min.js"></script>
-
+        
         <!-- Bootstrap -->
         <link rel="stylesheet" href="{$fullurl}/css/bootstrap.min.css">
         <link rel="stylesheet" href="{$fullurl}/css/bootstrap-theme.min.css">
@@ -15,14 +15,14 @@
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-	<script type="text/javascript" src="../analyticstracking.js"></script>
-
-
+	<script type="text/javascript" src="../analyticstracking.js"></script>        
+        
+        
         <!-- Custom CSS -->
         <link href="{$fullurl}/css/custom_css/login.css" rel="stylesheet">
     </head>
     <body>
-
+        
         <div class="container">
             {if isset($error)}
             <div class="alert alert-danger alert-dismissable">
@@ -32,7 +32,6 @@
             {/if}
             <form class="form-signin" role="form" method="POST" action="{$fullurl}/login">
                 <h2 class="form-signin-heading">Log aub in</h2>
-                <p>Gebruik hiervoor je geregistreerde nicknaam en wachtwoord van op de chat.</p>
                 <input type="text" class="form-control" name="login" placeholder="Nicknaam" required autofocus>
                 <input type="password" class="form-control" name="pass" placeholder="Wachtwoord" required>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
