@@ -2,7 +2,7 @@
 
 /**
  * Class: LightIRC
- * 
+ *
  * Deze klasse bevat de instellingen met betrekking tot de LightIRC chat
  *
  * @author Kaj Van der Hallen
@@ -28,7 +28,7 @@ class LightIRC {
         $this->setLanguage("nl");
         $this->setStyleURL("css/blue.css");
         $this->setWebcam("true");
-        $this->setRtmp("46.105.168.133:1935");
+        $this->setRtmp("red5.chattersweb.nl:1935");
         $this->setNick("Gast%");
         $this->setShowServerWindow("true");
         $this->setShowEmoticonsButton("true");
@@ -51,12 +51,12 @@ class LightIRC {
         $this->setNavigationPosition("bottom");
         $this->setEmoticonList(":)->1.gif,:(->2.gif,;)->3.gif,:@->4.gif,:S->5.gif,:/->6.gif,(A)->7.gif,:O->8.gif,:D->9.gif,:P->10.gif,;'(->11.gif,(vloeken)->12.gif,(ziek)->13.gif,(duivel)->14.gif,(gek)->15.gif,(Y)->16.gif,(N)->17.gif,(F)->18.gif,(W)->19.gif,(lief)->20.gif,(verliefd)->21.gif,(zwaaien)->22.gif,(feest)->23.gif,(kado)->24.gif,(roken)->25.gif,(eten)->26.gif,(H)->27.gif,(ja)->28.gif,(gapen)->29.gif,(hond)->30.gif,(kat)->31.gif,(liegen)->32.gif,(loser)->33.gif,(dans)->34.gif,(K)->35.gif,(klok)->36.gif,(L)->37.gif,(U)->38.gif,(verbaasd)->39.gif,(8)->40.gif,(voetbal)->41.gif,xd->42.gif,(telefoon)->43.gif,(mobiel)->44.gif,(regen)->45.gif,:$->46.gif,(fjoew)->47.gif,(praten)->48.gif,(knor)->49.gif,(moehhh)->50.gif");
         $this->setRememberNickname("true");
-        
+
         $this->setDefaultBanmask("*!*@%host%");
         $this->setRegisterChannelCommand("/msg ChanServ register %channel% %description%");
-        
+
     }
-    
+
     /**
      * Common parameters
      */
@@ -64,7 +64,7 @@ class LightIRC {
     private $_db;
     private $_dBase;
     private $_table;
-    
+
     /**
      * Connection parameters
      */
@@ -103,7 +103,7 @@ class LightIRC {
     private $_targetFrame; //[_blank]
     private $_defaultBanmask; //∗!%ident%@∗
     private $_performContinousWhoRequests; //[false]
-    
+
     /**
      * Webcam
      */
@@ -116,35 +116,35 @@ class LightIRC {
     private $_webcamAudioOnly; //[false]
     private $_webcamChannelBlacklist;
     private $_webcamChannelWhitelist;
-    
+
     /**
      * Appearance
      */
     private $_styleURL;
     private $_navigationPosition; //[bottom]
     private $_showNavigation; //[true]
-    
+
     /**
      * Nickname identification
      */
     private $_identifyPassword;
     private $_identifyMessage; //[NickServ:This nickname is registered]
     private $_identifyCommand; //[/msg NickServ identify %pass%]
-    
+
     /**
      * Nickname registration
      */
     private $_showRegisterNicknameButton; //[false]
     private $_registerNicknameServiceName; //[NickServ]
     private $_registerNicknameCommand; //[/msg NickServ register %password% %mail%]
-    
+
     /**
      * Channel registration
      */
     private $_showRegisterChannelButton; //[false]
     private $_registerChannelServiceName; //[ChanServ]
     private $_registerChannelCommand; //[/msg ChanServ register %channel% %password% %description%]
-    
+
     /**
      * Client settings (changeable in the user options window)
      */
@@ -154,7 +154,7 @@ class LightIRC {
     private $_showJoinPartMessages; //[true]
     private $_showNewQueriesInBackground; //[false]
     private $_fontSize; //[12]
-    
+
     /**
      * Windows
      */
@@ -163,7 +163,7 @@ class LightIRC {
     private $_showIdentifySelection; //[false]
     private $_showServerPasswordSelection; //[false]
     private $_showChannelCentral; //[true]
-    
+
     /**
      * Menu buttons
      */
@@ -176,20 +176,20 @@ class LightIRC {
     private $_showPartChannelButton; //[true]
     //private $_showRegisterChannelButton; //[false]
     //private $_showRegisterNicknameButton;
-    
+
     /**
      * Sounds
      */
     private $_soundAlerts; //[true]
     private $_soundOnNewChannelMessage; //[false]
-    
+
     /**
      * Emoticons
      */
     private $_showEmoticonsButton; //[true]
     private $_emoticonPath; //[emoticons/]
     private $_emoticonList; //[:)->smile.gif,;)->wink.gif,:D->biggrin.gif,:P->tongue.gif,:(->sad.gif,:$->blushing.gif,:O->ohmy.gif,(H)->cool.gif,:|->mellow.gif,Oo->blink.gif,:'(->crying.gif,:S->unsure.gif,:[->mad.gif]
-    
+
     /**
      * Text input area
      */
@@ -198,7 +198,7 @@ class LightIRC {
     private $_showRichTextControlsBackgroundColor; //[true]
     //private $_showEmoticonsButton; //[true]
     private $_showSubmitButton; //[true]
-    
+
     /**
      * Channel settings
      */
@@ -206,7 +206,7 @@ class LightIRC {
     private $_channelHeader; //%channel% [%users%] [%mode%] %topic%
     private $_showInfoMessages; //[true]
     private $_showVerboseUserInformation; //[false]
-    
+
     /**
      * User list
      */
@@ -216,14 +216,14 @@ class LightIRC {
     private $_userListCustomFormatting;
     private $_showUserListInformationPopup; //[false]
     private $_userListInformationPopupItems; //[nick,ident,realname,host]
-    
+
     /**
      * User list context menu
      */
     private $_contextMenuInternalEvent;
     private $_contextMenuExternalEvent;
-    
-    
+
+
     /**
      * MySQL database related functions
      */
@@ -548,16 +548,16 @@ class LightIRC {
             return false;
         }
     }
-    
+
     /**
-     * 
+     *
      * Get functions
-     * 
+     *
      */
     public function getId() {
         return $this->_id;
     }
-    
+
     public function getAccessKey() {
         return $this->_accessKey;
     }
@@ -570,7 +570,7 @@ class LightIRC {
     public function getPolicyPort() {
         return $this->_policyPort;
     }
-    
+
     public function getCharset() {
         return $this->_charset;
     }
@@ -655,7 +655,7 @@ class LightIRC {
     public function getPerformContinousWhoRequests() {
         return $this->_performContinousWhoRequests;
     }
-    
+
     public function getWebcam() {
         return $this->_webcam;
     }
@@ -683,7 +683,7 @@ class LightIRC {
     public function getWebcamChannelWhitelist() {
         return $this->_webcamChannelWhitelist;
     }
-    
+
     public function getStyleURL() {
         return $this->_styleURL;
     }
@@ -693,7 +693,7 @@ class LightIRC {
     public function getShowNavigation() {
         return $this->_showNavigation;
     }
-    
+
     public function getIdentifyPassword() {
         return $this->_identifyPassword;
     }
@@ -703,7 +703,7 @@ class LightIRC {
     public function getIdentifyCommand() {
         return $this->_identifyCommand;
     }
-    
+
     public function getShowRegisterNicknameButton() {
         return $this->_showRegisterNicknameButton;
     }
@@ -713,7 +713,7 @@ class LightIRC {
     public function getRegisterNicknameCommand() {
         return $this->_registerNicknameCommand;
     }
-    
+
 //    public function getShowRegisterChannelButton() {
 //        return $this->_showRegisterChannelButton;
 //    }
@@ -723,7 +723,7 @@ class LightIRC {
     public function getRegisterChannelCommand() {
         return $this->_registerChannelCommand;
     }
-    
+
 //    public function getSoundAlerts() {
 //        return $this->_soundAlerts;
 //    }
@@ -742,7 +742,7 @@ class LightIRC {
     public function getFontSize() {
         return $this->_fontSize;
     }
-    
+
     public function getShowServerWindow() {
         return $this->_showServerWindow;
     }
@@ -758,7 +758,7 @@ class LightIRC {
     public function getShowChannelCentral() {
         return $this->_showChannelCentral;
     }
-    
+
     public function getShowMenuButton() {
         return $this->_showMenuButton;
     }
@@ -786,14 +786,14 @@ class LightIRC {
 //    public function getShowRegisterNicknameButton() {
 //        return $this->_showRegisterNicknameButton;
 //    }
-    
+
     public function getSoundAlerts() {
         return $this->_soundAlerts;
     }
     public function getSoundOnNewChannelMessage() {
         return $this->_soundOnNewChannelMessage;
     }
-    
+
     public function getShowEmoticonsButton() {
         return $this->_showEmoticonsButton;
     }
@@ -803,7 +803,7 @@ class LightIRC {
     public function getEmoticonList() {
         return $this->_emoticonList;
     }
-   
+
     public function getShowRichTextControls() {
         return $this->_showRichTextControls;
     }
@@ -819,7 +819,7 @@ class LightIRC {
     public function getShowSubmitButton() {
         return $this->_showSubmitButton;
     }
-    
+
     public function getShowChannelHeader() {
         return $this->_showChannelHeader;
     }
@@ -832,7 +832,7 @@ class LightIRC {
     public function getShowVerboseUserInformation() {
         return $this->_showVerboseUserInformation;
     }
-    
+
     public function getUserListWidth() {
         return $this->_userListWidth;
     }
@@ -851,20 +851,20 @@ class LightIRC {
     public function getUserListInformationPopupItems() {
         return $this->_userListInformationPopupItems;
     }
-    
+
     public function getContextMenuInternalEvent() {
         return $this->_contextMenuInternalEvent;
     }
     public function getContextMenuExternalEvent() {
         return $this->_contextMenuExternalEvent;
     }
-    
-    
-    
+
+
+
     /**
-     * 
+     *
      * Set functions
-     * 
+     *
      */
     public function setId($id) {
         $this->_id = $id;
@@ -881,7 +881,7 @@ class LightIRC {
     public function setPolicyPort($policyPort) {
         $this->_policyPort = $policyPort;
     }
-    
+
     public function setCharset($charset) {
         $this->_charset = $charset;
     }
@@ -966,7 +966,7 @@ class LightIRC {
     public function setPerformContinousWhoRequests($performContinousWhoRequests) {
         $this->_performContinousWhoRequests = $performContinousWhoRequests;
     }
-    
+
     public function setWebcam($webcam) {
         $this->_webcam = $webcam;
     }
@@ -994,7 +994,7 @@ class LightIRC {
     public function setWebcamChannelWhitelist($webcamChannelWhitelist) {
         $this->_webcamChannelWhitelist = $webcamChannelWhitelist;
     }
-    
+
     public function setStyleURL($styleURL) {
         $this->_styleURL = $styleURL;
     }
@@ -1004,7 +1004,7 @@ class LightIRC {
     public function setShowNavigation($showNavigation) {
         $this->_showNavigation = $showNavigation;
     }
-    
+
     public function setIdentifyPassword($identifyPassword) {
         $this->_identifyPassword = $identifyPassword;
     }
@@ -1014,7 +1014,7 @@ class LightIRC {
     public function setIdentifyCommand($identifyCommand) {
         $this->_identifyCommand = $identifyCommand;
     }
-    
+
 //    public function setShowRegisterNicknameButton($showRegisterNicknameButton) {
 //        $this->_showRegisterNicknameButton = $showRegisterNicknameButton;
 //    }
@@ -1024,7 +1024,7 @@ class LightIRC {
     public function setRegisterNicknameCommand($registerNicknameCommand) {
         $this->_registerNicknameCommand = $registerNicknameCommand;
     }
-    
+
     public function setShowRegisterChannelButton($showRegisterChannelButton) {
         $this->_showRegisterChannelButton = $showRegisterChannelButton;
     }
@@ -1034,7 +1034,7 @@ class LightIRC {
     public function setRegisterChannelCommand($registerChannelCommand) {
         $this->_registerChannelCommand = $registerChannelCommand;
     }
-    
+
 //    public function setSoundAlerts($soundAlerts) {
 //        $this->_soundAlerts = $soundAlerts;
 //    }
@@ -1053,7 +1053,7 @@ class LightIRC {
     public function setFontSize($fontSize) {
         $this->_fontSize = $fontSize;
     }
-    
+
     public function setShowServerWindow($showServerWindow) {
         $this->_showServerWindow = $showServerWindow;
     }
@@ -1069,7 +1069,7 @@ class LightIRC {
     public function setShowChannelCentral($showChannelCentral) {
         $this->_showChannelCentral = $showChannelCentral;
     }
-    
+
     public function setShowMenuButton($showMenuButton) {
         $this->_showMenuButton = $showMenuButton;
     }
@@ -1097,14 +1097,14 @@ class LightIRC {
     public function setShowRegisterNicknameButton($showRegisterNicknameButton) {
         $this->_showRegisterNicknameButton = $showRegisterNicknameButton;
     }
-    
+
     public function setSoundAlerts($soundAlerts) {
         $this->_soundAlerts = $soundAlerts;
     }
     public function setSoundOnNewChannelMessage($soundOnNewChannelMessage) {
         $this->_soundOnNewChannelMessage = $soundOnNewChannelMessage;
     }
-    
+
 //    public function setShowEmoticonsButton($showEmoticonsButton) {
 //        $this->_showEmoticonsButton = $showEmoticonsButton;
 //    }
@@ -1114,7 +1114,7 @@ class LightIRC {
     public function setEmoticonList($emoticonList) {
         $this->_emoticonList = $emoticonList;
     }
-   
+
     public function setShowRichTextControls($showRichTextControls) {
         $this->_showRichTextControls = $showRichTextControls;
     }
@@ -1130,7 +1130,7 @@ class LightIRC {
     public function setShowSubmitButton($showSubmitButton) {
         $this->_showSubmitButton = $showSubmitButton;
     }
-    
+
     public function setShowChannelHeader($showChannelHeader) {
         $this->_showChannelHeader = $showChannelHeader;
     }
@@ -1143,7 +1143,7 @@ class LightIRC {
     public function setShowVerboseUserInformation($showVerboseUserInformation) {
         $this->_showVerboseUserInformation = $showVerboseUserInformation;
     }
-    
+
     public function setUserListWidth($userListWidth) {
         $this->_userListWidth = $userListWidth;
     }
@@ -1162,18 +1162,18 @@ class LightIRC {
     public function setUserListInformationPopupItems($userListInformationPopupItems) {
         $this->_userListInformationPopupItems = $userListInformationPopupItems;
     }
-    
+
     public function setContextMenuInternalEvent($contextMenuInternalEvent) {
         $this->_contextMenuInternalEvent = $contextMenuInternalEvent;
     }
     public function setContextMenuExternalEvent($contextMenuExternalEvent) {
         $this->_contextMenuExternalEvent = $contextMenuExternalEvent;
     }
-    
-    
+
+
     private function _addParam($n,$v) {
         if ($v) {
-            echo 'params.'.$n.' = "'.$v.'";'.PHP_EOL;  
+            echo 'params.'.$n.' = "'.$v.'";'.PHP_EOL;
         }
     }
     public function printConfig() {
@@ -1279,6 +1279,6 @@ class LightIRC {
             }');
         echo "</script>";
     }
-    
+
 }
 ?>
