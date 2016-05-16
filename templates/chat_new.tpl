@@ -38,7 +38,7 @@
                     <div class="form-group">
                         <label for="chat_name" class="control-label col-sm-3">Naam Chatbox</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="chat_name" title="Dit is de naam die je chatbox zal krijgen." {literal}pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,}$"{/literal} placeholder="Naam Chatbox" value="{if isset($chat_name)}{$chat_name}{/if}" required>
+                            <input type="text" class="form-control" name="chat_name" title="Dit is de naam die je chatbox zal krijgen." {literal}pattern="^[a-zA-Z0-9][a-zA-Z0-9-_\.]{1,}$"{/literal} placeholder="Naam Chatbox" value="{if isset($chat_name)}{$chat_name}{/if}" required>
                         </div>
                     </div>
 
