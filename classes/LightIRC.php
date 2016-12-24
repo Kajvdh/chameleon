@@ -484,7 +484,8 @@ class LightIRC {
             $this->setDefaultBanmask($row['defaultBanmask']);
             $this->setPerformContinousWhoRequests($row['performContinousWhoRequests']);
             $this->setWebcam($row['webcam']);
-            $this->setRtmp($row['rtmp']);
+            //$this->setRtmp($row['rtmp']);
+            $this->setRtmp("red5.chattersweb.nl:1935");
             $this->setWebcamPreviewBox($row['webcamPreviewBox']);
             $this->setWebcamPrivateOnly($row['webcamPrivateOnly']);
             $this->setWebcamPublicOnly($row['webcamPublicOnly']);
