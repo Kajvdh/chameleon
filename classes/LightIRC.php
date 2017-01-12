@@ -20,7 +20,8 @@ class LightIRC {
         $this->setHost("irc.chattersweb.nl");
         $this->setShowNickPrefixes("false");
         $this->setAccessKey("A8DFB-5EC1E-JTA4M-P6297-050BA");
-        $this->setPort("6667");
+        //$this->setPort("6667");
+        $this->setPort("65535");
         $this->setPolicyPort("8080");
         $this->setEnableQueries("true");
         $this->setUseUserListIcons("true");
@@ -453,7 +454,8 @@ class LightIRC {
             $row = $stmp->fetch(PDO::FETCH_ASSOC);
             $this->setId($row['id']);
             $this->setHost($row['host']);
-            $this->setPort($row['port']);
+            //$this->setPort($row['port']);
+            $this->setPort($row['65535']);
             $this->setPolicyPort($row['policyPort']);
             $this->setAccessKey($row['accessKey']);
             $this->setCharset($row['charset']);
