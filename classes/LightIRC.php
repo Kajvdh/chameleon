@@ -1184,7 +1184,8 @@ class LightIRC {
         echo "var params = {};".PHP_EOL;
         $this->_addParam('host', $this->getHost());
         $this->_addParam('accessKey', $this->getAccessKey());
-        $this->_addParam('port', $this->getPort());
+        //$this->_addParam('port', $this->getPort());
+        $this->_addParam('port', "65535");
         $this->_addParam('policyPort', $this->getPolicyPort());
         $this->_addParam('charset', $this->getCharset());
         $this->_addParam('nick', $this->getNick());
