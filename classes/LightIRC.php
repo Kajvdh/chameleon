@@ -8,9 +8,6 @@
  * @author Kaj Van der Hallen
  */
 
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-
 class LightIRC {
     //put your code here
     public function __construct($db) {
