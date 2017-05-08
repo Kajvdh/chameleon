@@ -19,7 +19,7 @@ $config->setErrorMode("dev");
 if ($config->getErrorMode() == "dev") {
     error_reporting(E_ALL);
     ini_set('display_errors', '1');
-    $config->setFullUrl("http://dev.chameleon.chattersweb.nl");
+    $config->setFullUrl("https://dev.chameleon.chattersweb.nl");
 }
 else {
     error_reporting(0);

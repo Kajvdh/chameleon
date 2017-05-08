@@ -32,7 +32,7 @@ if (isset($_GET['id'])) {
         $metadata = $chat->getMetaData();
 
         if (($metadata['radio'] == "true") || ($metadata['ads_enabled'] != "true"))
-            header('Location: http://chameleon.chattersweb.nl/chat.php?'.$_SERVER['QUERY_STRING']);
+            header('Location: https://chameleon.chattersweb.nl/chat.php?'.$_SERVER['QUERY_STRING']);
 
         if ($metadata['ads_enabled'] == "true")
             $metadata['height'] = "90";
