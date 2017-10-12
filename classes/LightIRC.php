@@ -17,8 +17,7 @@ class LightIRC {
         $this->setHost("irc.chattersweb.nl");
         $this->setShowNickPrefixes("false");
         $this->setAccessKey("A8DFB-5EC1E-JTA4M-P6297-050BA");
-        //$this->setPort("6667");
-        $this->setPort("65535");
+        $this->setPort("6667");
         $this->setPolicyPort("8080");
         $this->setEnableQueries("true");
         $this->setUseUserListIcons("true");
