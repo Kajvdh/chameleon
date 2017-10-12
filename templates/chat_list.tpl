@@ -52,7 +52,7 @@
 <blockquote><pre class="text-left">&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
   $(document).ready(function() {
-    $.get('http://www.chattersweb.nl/usercount.php?channel={$names[chat]}', function(data) {
+    $.get('https://www.chattersweb.nl/usercount.php?channel={$names[chat]}', function(data) {
       $("#users").html(data);
     }, 'text');
 });
