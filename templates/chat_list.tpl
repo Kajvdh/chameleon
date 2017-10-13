@@ -49,7 +49,7 @@
 
                             <h5>Het aantal chatters op je website laten zien</h5>
                             Om het aantal chatters dat zich in je chatbox bevindt op je site weer te geven, plaats je het volgende stukje javascript code tussen de <code>&lt;HEAD&gt;</code> tags van je webpagina.
-<blockquote><pre class="text-left">&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"&gt;&lt;/script&gt;
+<blockquote><pre class="text-left">&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
   $(document).ready(function() {
     $.get('https://www.chattersweb.nl/usercount.php?channel={$names[chat]}', function(data) {

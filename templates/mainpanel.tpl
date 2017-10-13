@@ -14,8 +14,8 @@
           <script src="{$fullurl}/js/bootstrap.min.js"></script>
           <script src="{$fullurl}/js/bootstrap-switch.js"></script>
           <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+            <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
           <![endif]-->
 	<script type="text/javascript" src="../analyticstracking.js"></script>
           

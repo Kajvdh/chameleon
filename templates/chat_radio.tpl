@@ -76,7 +76,7 @@
 
 
     {elseif $metadata['radio_player'] == "cwflash"}
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript" src="radiolibs/cwflash/nativeflashradiov3.js"></script>
 
 	<center>
@@ -105,7 +105,7 @@
     {elseif $metadata['radio_player'] == "muses"}
         <center>
             <!-- BEGINS: AUTO-GENERATED MUSES RADIO PLAYER CODE -->
-            <script type="text/javascript" src="http://hosted.musesradioplayer.com/mrp.js"></script>
+            <script type="text/javascript" src="//hosted.muses.org/mrp.js"></script>
             <script type="text/javascript">
                 MRP.insert({
                 'url':'{$metadata['radio_link']}{if $metadata['radio_type'] == "shoutcast"}/;{/if}',
@@ -125,6 +125,27 @@
         </center>
     {else}
         <center>
+            <!-- BEGINS: AUTO-GENERATED MUSES RADIO PLAYER CODE -->
+            <script type="text/javascript" src="//hosted.muses.org/mrp.js"></script>
+            <script type="text/javascript">
+                MRP.insert({
+                'url':'{$metadata['radio_link']}{if $metadata['radio_type'] == "shoutcast"}/;{/if}',
+                'codec':'mp3',
+                'volume':65,
+                'autoplay':false,
+                'buffering':5,
+                'title':'{$metadata['radio_name']}',
+                'welcome':'Welcome to {$metadata['radio_name']}',
+                'bgcolor':'#FFFFFF',
+                'skin':'neonslim',
+                'width':501,
+                'height':32
+                });
+            </script>
+            <!-- ENDS: AUTO-GENERATED MUSES RADIO PLAYER CODE -->
+        </center>
+
+        <!-- NO HTTP SUPPORT SO KILL IT WITH FIRE <center>
             <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="180" height="60">
             <param name="movie" value="http://www.museter.com/ffmp3-config.swf" />
             <param name="flashvars" value="url={$metadata['radio_link']}{if $metadata['radio_type'] == "shoutcast"}/;{/if}&lang=nl&codec=mp3&volume=80&introurl=&traking=true&jsevents=false&buffering=5&skin=http://www.museter.com/skins/mcclean/ffmp3-mcclean.xml&title={$metadata['radio_name']}" />
@@ -133,7 +154,7 @@
             <param name="scale" value="noscale" />
             <embed src="http://www.museter.com/ffmp3-config.swf" flashvars="url={$metadata['radio_link']}{if $metadata['radio_type'] == "shoutcast"}/;{/if}&lang=nl&codec=mp3&volume=80&introurl=&traking=true&jsevents=false&buffering=5&skin=http://www.museter.com/skins/mcclean/ffmp3-mcclean.xml&title={$metadata['radio_name']}" width="180" scale="noscale" height="60" wmode="transparent" allowscriptaccess="always" type="application/x-shockwave-flash" />
             </object>
-        </center>
+        </center> -->
     {/if}
 
 {/if}
