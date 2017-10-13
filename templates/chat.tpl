@@ -5,7 +5,7 @@
  <meta name="language" content="de" />
  <meta name="author" content="Valentin Manthei - lightIRC.com" />
  <title>{$metadata['name']}</title>
- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+ <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
  <script type="text/javascript" src="../analyticstracking.js"></script>
 
  <style type="text/css">
@@ -19,7 +19,7 @@
 
 <body>
  <div id="lightIRC" style="height:100%; text-align:center;">
-  <p><a href="https://www.adobe.com/go/getflashplayer"><img src="https://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+  <p><a href="//www.adobe.com/go/getflashplayer"><img src="//www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
  </div>
 
  <script type="text/javascript">
