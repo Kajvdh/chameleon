@@ -46,21 +46,21 @@ class Config {
         /**
          * MySQL gegevens
          */
-        $this->_mysqlHost = "127.0.0.1";
-        $this->_mysqlUser = "root";
-        $this->_mysqlPass = "16July1984!@";
+        $this->_mysqlHost = "chameleon_db_host";
+        $this->_mysqlUser = "chameleon_db_user";
+        $this->_mysqlPass = "chameleon_db_pass";
         $this->_mysqlDbName = "chameleon";
         $this->_mysqlPrefix = "chameleon_";
 
-        $this->_mysqlHostDev = "127.0.0.1";
-        $this->_mysqlUserDev = "root";
-        $this->_mysqlPassDev = "16July1984!@";
+        $this->_mysqlHostDev = "chameleon_db_dev_host";
+        $this->_mysqlUserDev = "chameleon_db_dev_user";
+        $this->_mysqlPassDev = "chameleon_db_dev_pass";
         $this->_mysqlDbNameDev = "chameleon";
         $this->_mysqlPrefixDev = "chameleon_";
 
-        $this->_mysqlAnopeHost = "127.0.0.1";
-        $this->_mysqlAnopeUser = "root";
-        $this->_mysqlAnopePass = "16July1984!@";
+        $this->_mysqlAnopeHost = "anope_db_host";
+        $this->_mysqlAnopeUser = "anope_db_user";
+        $this->_mysqlAnopePass = "anope_db_pass";
         $this->_mysqlAnopeDbName = "anope";
     }
 
