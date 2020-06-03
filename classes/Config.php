@@ -61,7 +61,7 @@ class Config {
         $this->_mysqlAnopeHost = "anope_db_host";
         $this->_mysqlAnopeUser = "anope_db_user";
         $this->_mysqlAnopePass = "anope_db_pass";
-        $this->_mysqlAnopeDbName = "anope";
+        $this->_mysqlAnopeDbName = "Anope_DB";
     }
 
     /**
