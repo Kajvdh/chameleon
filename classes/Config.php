@@ -41,25 +41,26 @@ class Config {
          */
         $this->_errorMode = "prd";
         $this->_rootDirectory = "";
-        $this->_fullUrl = "https://chameleon.chattersweb.nl"; //zonder / achter de link
+        $this->_fullUrl = "https://chameleon.chattersworld.nl"; //zonder / achter de link
+		$this->_logo = "https://horus.chattersworld.nl/dist/img/c4all-horus.png"; //zonder / achter de link
         /**
          * MySQL gegevens
          */
-        $this->_mysqlHost = "chameleon_db_host";
-        $this->_mysqlUser = "chameleon_db_user";
-        $this->_mysqlPass = "chameleon_db_pass";
+        $this->_mysqlHost = "127.0.0.1";
+        $this->_mysqlUser = "root";
+        $this->_mysqlPass = "16July1984!@";
         $this->_mysqlDbName = "chameleon";
         $this->_mysqlPrefix = "chameleon_";
 
-        $this->_mysqlHostDev = "chameleon_db_dev_host";
-        $this->_mysqlUserDev = "chameleon_db_dev_user";
-        $this->_mysqlPassDev = "chameleon_db_dev_pass";
+        $this->_mysqlHostDev = "127.0.0.1";
+        $this->_mysqlUserDev = "root";
+        $this->_mysqlPassDev = "16July1984!@";
         $this->_mysqlDbNameDev = "chameleon";
         $this->_mysqlPrefixDev = "chameleon_";
 
-        $this->_mysqlAnopeHost = "anope_db_host";
-        $this->_mysqlAnopeUser = "anope_db_user";
-        $this->_mysqlAnopePass = "anope_db_pass";
+        $this->_mysqlAnopeHost = "127.0.0.1";
+        $this->_mysqlAnopeUser = "root";
+        $this->_mysqlAnopePass = "16July1984!@";
         $this->_mysqlAnopeDbName = "anope";
     }
 
@@ -86,10 +87,15 @@ class Config {
     public function getFullUrl() {
         return $this->_fullUrl;
     }
+	public function getLogo() {
+        return $this->_logo;
+    }
     public function setFullUrl($url) {
         $this->_fullUrl = $url;
     }
-
+	public function setLogo($logo) {
+        $this->_logo = $logo;
+    }
     public function getMysqlHost() {
         return $this->_mysqlHost;
     }

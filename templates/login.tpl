@@ -16,10 +16,35 @@
           <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 	<script type="text/javascript" src="../analyticstracking.js"></script>        
-        
+        <!-- SEO -->
+		<meta name="language" content="Dutch" />
+<meta name="keywords" content="chatten, gezellig kletsen, Chattersworld, Radio chat, Chameleon, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat, triviant," />
+<meta name="description"  content="Chattersworld De enige Chatserver waar je gratis kan chatten, chatten zonder registratie, chatten met webcams en dat allemaal gratis, Chattersworld Ares Verzoekserver, maak hem nu gratis aan!" />
+<meta name="google-site-verification" content="-hrJp-Kl7mtCVBOR5Dg45R52OfEAmnIceApYxPMluc4" />
+<meta name="robots" content="index,follow,noodp,noydir" />
+<meta name="description" content="Waar chatten, chatten is!"/>
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Chameleon | Chattersworld | Waar chatten, chatten is!" />
+<meta property="og:description" content="Chameleon" />
+<meta property="og:url" content="https://chameleon.chattersworld.nl" />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="..::Chattersworld Chameleon::.." />
+<meta property="og:site_name" content="..::Chattersworld Chameleon::.." />
+<meta property="article:publisher" content="https://www.facebook.com/chattersworld/" />
+<meta property="fb:app_id" content="699740480138507" />
+
+<meta property="og:image" content="https://horus.chattersworld.nl/webchat/img/cwobg.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Waar chatten, chatten is!" />
+<meta name="twitter:title" content="..::Chattersworld Chameleon::.." />
+<link rel="canonical" href="https://chameleon.chattersworld.nl" />
+<link rel="icon" href="https://horus.chattersworld.nl/dist/img/c4all-horus.png" sizes="32x32" />
         
         <!-- Custom CSS -->
         <link href="{$fullurl}/css/custom_css/login.css" rel="stylesheet">
+		<title>..::ChattersWorld Chameleon::.. Login</title>
     </head>
     <body>
         
@@ -31,10 +56,10 @@
             </div>
             {/if}
             <form class="form-signin" role="form" method="POST" action="{$fullurl}/login">
-                <h2 class="form-signin-heading">Log aub in</h2>
+                <h2 class="form-signin-heading">Inloggen met uw Chat gegevens:</h2>
                 <input type="text" class="form-control" name="login" placeholder="Nicknaam" required autofocus>
                 <input type="password" class="form-control" name="pass" placeholder="Wachtwoord" required>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
             </form>
 
         </div>
@@ -43,8 +68,8 @@
             <!-- Chatbottom -->
             <ins class="adsbygoogle"
                  style="display:inline-block;width:728px;height:90px"
-                 data-ad-client="ca-pub-4097649742400196"
-                 data-ad-slot="7880458067"></ins>
+                 data-ad-client="ca-pub-9106844814451489"
+                 data-ad-slot="2999842055"></ins>
             <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
             </script>

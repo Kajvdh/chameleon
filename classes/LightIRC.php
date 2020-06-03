@@ -14,10 +14,10 @@ class LightIRC {
         $this->_dBase = $db;
         $this->_db = $db['db'];
         $this->_table = $db['prefix']."lirc";
-        $this->setHost("irc.chattersweb.nl");
+        $this->setHost("irc.chattersworld.nl");
         $this->setShowNickPrefixes("false");
-        $this->setAccessKey("A8DFB-5EC1E-JTA4M-P6297-050BA");
-        $this->setPort("6667");
+        $this->setAccessKey("P0015-D03EB-OMQXF-E9072-54BC6");
+        $this->setPort("7000");
         $this->setPolicyPort("8080");
         $this->setEnableQueries("true");
         $this->setUseUserListIcons("true");
@@ -25,7 +25,7 @@ class LightIRC {
         $this->setLanguage("nl");
         $this->setStyleURL("css/blue.css");
         $this->setWebcam("true");
-        $this->setRtmp("red5.chattersweb.nl:1935");
+        $this->setRtmp("red5.chattersworld.nl:1935");
         $this->setNick("Gast%");
         $this->setShowServerWindow("true");
         $this->setShowEmoticonsButton("true");
@@ -451,7 +451,7 @@ class LightIRC {
             $this->setId($row['id']);
             $this->setHost($row['host']);
             //$this->setPort($row['port']);
-            $this->setPort($row['65535']);
+            $this->setPort($row['7000']);
             $this->setPolicyPort($row['policyPort']);
             $this->setAccessKey($row['accessKey']);
             $this->setCharset($row['charset']);
@@ -483,7 +483,7 @@ class LightIRC {
             $this->setPerformContinousWhoRequests($row['performContinousWhoRequests']);
             $this->setWebcam($row['webcam']);
             //$this->setRtmp($row['rtmp']);
-            $this->setRtmp("red5.chattersweb.nl:1935");
+            $this->setRtmp("red5.chattersworld.nl:1935");
             $this->setWebcamPreviewBox($row['webcamPreviewBox']);
             $this->setWebcamPrivateOnly($row['webcamPrivateOnly']);
             $this->setWebcamPublicOnly($row['webcamPublicOnly']);
@@ -1181,7 +1181,7 @@ class LightIRC {
         $this->_addParam('host', $this->getHost());
         $this->_addParam('accessKey', $this->getAccessKey());
         //$this->_addParam('port', $this->getPort());
-        $this->_addParam('port', "65535");
+        $this->_addParam('port', "7000");
         $this->_addParam('policyPort', $this->getPolicyPort());
         $this->_addParam('charset', $this->getCharset());
         $this->_addParam('nick', $this->getNick());

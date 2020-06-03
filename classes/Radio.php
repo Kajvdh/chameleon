@@ -30,6 +30,7 @@ class Radio {
 
     private $_streamLink;
     private $_streamType;
+	
 
     public function getEnabled() {
         return $this->_enabled;

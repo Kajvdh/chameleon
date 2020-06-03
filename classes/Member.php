@@ -101,7 +101,7 @@ class Member {
     
     public function getAllChatBoxes($id) {
         $table = $this->_prefix."chat";
-        $stmp = $this->_db->prepare("SELECT `id` FROM `".$table."` WHERE `createdby` = ? AND obsolete='0' ORDER BY name ASC;");
+        $stmp = $this->_db->prepare("SELECT `id` FROM `".$table."` WHERE `createdby` = ? AND obsolete='0' ORDER BY lastcalled DESC;");
         $stmp->execute(array($id));
         $results = $stmp->fetchAll(PDO::FETCH_ASSOC);
         $this->_chatboxes = array();
@@ -118,7 +118,7 @@ class Member {
     
     public function getAllGodChatBoxes() {
         $table = $this->_prefix."chat";
-        $stmp = $this->_db->query("SELECT `id` FROM `".$table."` WHERE obsolete='0' ORDER BY name ASC;");
+        $stmp = $this->_db->query("SELECT `id` FROM `".$table."` WHERE obsolete='0' ORDER BY lastcalled DESC;");
         $results = $stmp->fetchAll(PDO::FETCH_ASSOC);
         $this->_chatboxes = array();
         foreach ($results as $i => $dataArr) {
@@ -151,7 +151,7 @@ class Member {
     }
     
     public function isGodUser() {
-        $stmp = $this->_db->prepare("SELECT * FROM anope_db_NickCore LEFT JOIN anope_db_ChanAccess ON display=mask WHERE ci='#opers' AND display=?;");
+        $stmp = $this->_db->prepare("SELECT * FROM anope_db_NickCore LEFT JOIN anope_db_ChanAccess ON display=mask WHERE ci='#staff' AND display=?;");
         $stmp->execute(array($this->_username));
         if ($stmp->rowCount() >= "1") {
             $row = $stmp->fetch(PDO::FETCH_ASSOC);
