@@ -38,11 +38,13 @@ class Chatbox {
     private $_calls;
     private $_lastcalled;
     private $_bgcolor;
+	private $_bgurl;
     private $_style;
     private $_iconStyle;
     private $_height;
     private $_lightIRCId;
     private $_adsEnabled;
+	private $_verzoekurl;
 
     public function __construct($db) {
         $this->_dBase = $db;
@@ -69,6 +71,12 @@ class Chatbox {
     }
     public function setBgcolor($color) {
         $this->_bgcolor = $color;
+    }
+	public function getBgurl() {
+        return $this->_bgurl;
+    }
+    public function setBgurl($bgurl) {
+        $this->_bgurl = $bgurl;
     }
     public function getHeight() {
         return $this->_height;
@@ -107,7 +115,12 @@ class Chatbox {
     public function getAdsEnabled() {
         return $this->_adsEnabled;
     }
-
+	public function getVerzoekurl() {
+        return $this->_verzoekurl;
+    }
+	public function setVerzoekurl($verzoekurl) {
+        $this->_verzoekurl = $verzoekurl;
+    }
     public function readForm($form) {
         //Chatnaam
         if (isset($form['chat_name'])) {
@@ -116,6 +129,10 @@ class Chatbox {
         //Chatstijl
         if (isset($form['chat_style'])) {
             $this->setStyle($form['chat_style']);
+        }
+		//Chatstijl
+        if (isset($form['chat_bgurl'])) {
+            $this->setBgurl($form['chat_bgurl']);
         }
         //Iconstijl
         if (isset($form['icon_style'])) {
@@ -229,6 +246,10 @@ class Chatbox {
         if (isset($form['radio_type'])) {
             $this->setRadioStreamType($form['radio_type']);
         }
+		//verzoek link
+        if (isset($form['verzoek_url'])) {
+            $this->setVerzoekurl($form['verzoek_url']);
+        }
         //Radio link
         if (isset($form['radio_link'])) {
             $this->setRadioStreamLink($form['radio_link']);
@@ -248,7 +269,7 @@ class Chatbox {
     public function save() {
         $this->LightIRC->save();
         $this->setLightIRCId($this->LightIRC->getId());
-        $qry = $this->_db->prepare("INSERT INTO ".$this->_table."(lirc_id,createdby,createrip,created,lastcalled,calls,name,height,bgcolor,style,iconstyle,radio_enabled,radio_name,radio_streamtype,radio_link,radio_type,ads_enabled) VALUES(:lirc_id,:createdby,:createrip,NOW(),NOW(),:calls,:name,:height,:bgcolor,:style,:iconstyle,:radio_enabled,:radio_name,:radio_streamtype,:radio_link,:radio_type,:ads_enabled);");
+        $qry = $this->_db->prepare("INSERT INTO ".$this->_table."(lirc_id,createdby,createrip,created,lastcalled,calls,name,height,bgcolor,bgurl,style,iconstyle,radio_enabled,radio_name,verzoek_url,radio_streamtype,radio_link,radio_type,ads_enabled) VALUES(:lirc_id,:createdby,:createrip,NOW(),NOW(),:calls,:name,:height,:bgcolor,:style,:iconstyle,:radio_enabled,:radio_name,:verzoek_url,:radio_streamtype,:radio_link,:radio_type,:ads_enabled);");
         $data = array(
             ':lirc_id' => $this->getLightIRCId(),
             ':createdby' => $this->getOwner(),
@@ -257,12 +278,14 @@ class Chatbox {
             ':name' => $this->getName(),
             ':height' => $this->getHeight(),
             ':bgcolor' => $this->getBgcolor(),
+			':bgurl' => $this->getBgurl(),
             ':style' => $this->_style,
             ':iconstyle' => $this->_iconStyle,
             ':radio_enabled' => $this->Radio->getEnabled(),
             ':radio_name' => $this->Radio->getName(),
             ':radio_streamtype' => $this->Radio->getStreamType(),
             ':radio_link' => $this->Radio->getStreamLink(),
+			':verzoek_url' => $this->getVerzoekurl(),
             ':radio_type' => $this->Radio->getPlayer(),
             ':ads_enabled' => $this->getAdsEnabled()
         );
@@ -280,7 +303,7 @@ class Chatbox {
     public function update() {
         $this->LightIRC->update();
 
-        $qry = $this->_db->prepare("UPDATE ".$this->_table." SET lirc_id=:lirc_id,createdby=:createdby,createrip=:createrip,created=NOW(),lastcalled=NOW(),calls=:calls,name=:name,height=:height,bgcolor=:bgcolor,style=:style,iconstyle=:iconstyle,radio_enabled=:radio_enabled,radio_name=:radio_name,radio_streamtype=:radio_streamtype,radio_link=:radio_link,radio_type=:radio_type,ads_enabled=:ads_enabled WHERE id=:id;");
+        $qry = $this->_db->prepare("UPDATE ".$this->_table." SET lirc_id=:lirc_id,createdby=:createdby,createrip=:createrip,created=NOW(),lastcalled=NOW(),calls=:calls,name=:name,height=:height,bgcolor=:bgcolor,bgurl=:bgurl,style=:style,iconstyle=:iconstyle,radio_enabled=:radio_enabled,radio_name=:radio_name,radio_streamtype=:radio_streamtype,radio_link=:radio_link,verzoek_url=:verzoek_url,radio_type=:radio_type,ads_enabled=:ads_enabled WHERE id=:id;");
         $data = array(
             ':lirc_id' => $this->getLightIRCId(),
             ':createdby' => $this->getOwner(),
@@ -289,12 +312,14 @@ class Chatbox {
             ':name' => $this->getName(),
             ':height' => $this->getHeight(),
             ':bgcolor' => $this->getBgcolor(),
+			':bgurl' => $this->getBgurl(),
             ':style' => $this->_style,
             ':iconstyle' => $this->_iconStyle,
             ':radio_enabled' => $this->Radio->getEnabled(),
             ':radio_name' => $this->Radio->getName(),
             ':radio_streamtype' => $this->Radio->getStreamType(),
             ':radio_link' => $this->Radio->getStreamLink(),
+			':verzoek_url' => $this->getVerzoekurl(),
             ':radio_type' => $this->Radio->getPlayer(),
             ':id' => $this->_id,
             ':ads_enabled' => $this->getAdsEnabled()
@@ -347,12 +372,14 @@ class Chatbox {
             $this->setName($row['name']);
             $this->setHeight($row['height']);
             $this->setBgcolor($row['bgcolor']);
+			$this->setBgurl($row['bgurl']);
             $this->_style = $row['style'];
             $this->_iconStyle = $row['iconstyle'];
             $this->Radio->setEnabled($row['radio_enabled']);
             $this->Radio->setName($row['radio_name']);
             $this->Radio->setStreamType($row['radio_streamtype']);
             $this->Radio->setStreamLink($row['radio_link']);
+			$this->setVerzoekurl($row['verzoek_url']);
             $this->Radio->setPlayer($row['radio_type']);
             $this->LightIRC->getById($this->getLightIRCId());
             $this->setAdsEnabled($row['ads_enabled']);
@@ -428,6 +455,11 @@ class Chatbox {
                 $this->LightIRC->setStyleURL('css/darkred.css');
                 $this->_style ='darkred';
                 $this->setBgcolor("#B40404");
+                break;
+			case 'transparent':
+                $this->LightIRC->setStyleURL('css/transparent.css');
+                $this->_style ='transparent';
+                $this->setBgcolor("rgba(0,0,0,0,0.8");
                 break;
         }
     }
@@ -515,7 +547,7 @@ class Chatbox {
     public function setRadioStreamLink($radioStreamLink) {
         $this->Radio->setStreamLink($radioStreamLink);
     }
-    public function setRadioStyle($radiotype) {
+	public function setRadioStyle($radiotype) {
         $this->Radio->setPlayer($radiotype);
     }
 
@@ -524,11 +556,16 @@ class Chatbox {
         $data['name'] = $this->getName();
         $data['height'] = $this->getHeight();
         $data['bgcolor'] = $this->getBgcolor();
-
+		$data['style'] = $this->getStyle();
+		$data['bgurl'] = $this->getBgurl();
+		$data['private'] = $this->enableQueries();
+		$data['icons'] = $this->getIconStyle();
+		
         $data['radio'] = $this->Radio->getEnabled();
         $data['radio_type'] = $this->Radio->getStreamType();
         $data['radio_name'] = $this->Radio->getName();
         $data['radio_link'] = $this->Radio->getStreamLink();
+		$data['verzoek_url'] = $this->getVerzoekurl();
         $data['radio_player'] = $this->Radio->getPlayer();
         $data['ads_enabled'] = $this->getAdsEnabled();
         return $data;
