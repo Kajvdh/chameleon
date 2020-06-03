@@ -179,6 +179,11 @@ if ($id) {
                     if ($chat_style) {
                         $smarty->assign('chat_style',$chat_style);
                     }
+					//Chatstyle
+                    $chat_bgurl = $chat->getBgurl();
+                    if ($chat_bgurl) {
+                        $smarty->assign('chat_bgurl',$chat_bgurl);
+                    }
                     //Iconstyle
                     $icon_style = $chat->getIconStyle();
                     if ($icon_style) {
@@ -285,6 +290,10 @@ if ($id) {
                     if ($radio_link) {
                         $smarty->assign('radio_link', $radio_link);
                     }
+					$verzoekurl = $chat->getVerzoekurl();
+                    if ($verzoekurl) {
+                        $smarty->assign('verzoek_url', $verzoekurl);
+                    }
                     $radio_type = $chat->Radio->getPlayer();
                     if ($radio_type) {
                         $smarty->assign('radio_style', $radio_type);
@@ -319,6 +328,7 @@ if ($id) {
         else {
             //Formulier nieuwe chat aanmaken
             $smarty->assign('chat_style',"blue");
+			$smarty->assign('chat_bgurl',"");
             $smarty->assign('icon_style',"bolletje");
             $smarty->assign('icon_prefix', "false");
             $smarty->assign('timestamp', "true");
@@ -391,7 +401,7 @@ if ($id) {
 
 }
 else {
-    $smarty->assign('error', "Gelieve eerst in te loggen");
+    $smarty->assign('error', "Gelieve eerst in te loggen of registreer eerst via <a href='https://services.chattersworld.nl/' target='_blank'>hier</a>");
     $smarty->display('login.tpl');
 }
 ?>
