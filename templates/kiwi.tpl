@@ -225,9 +225,9 @@ Native Flashradio V4
 $("#lunaradio").lunaradio({
 	token: "VVpTZmZXZGVpYWReViBgXg==",
 	userinterface: "small",
-	backgroundcolor: "rgba(248,13,13,0.66)",
-	fontcolor: "#ffffff",
-	hightlightcolor: "#fa225b",
+	backgroundcolor: "{$metadata['playerkleur']}",
+	fontcolor: "{$metadata['tekstkleur']}",
+	hightlightcolor: "#13c4eb",
 	fontname: "Open Sans",
 	googlefont: "open+sans:300",
 	fontratio: "0.4",
