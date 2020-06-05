@@ -36,9 +36,20 @@
                 <div id="algemeen" class="tab-pane fade active in">
                     <!-- Naam van de chatbox -->
                     <div class="form-group">
+					<script type="text/javascript">
+
+				function CheckSpace(event)
+				{literal}{
+					if(event.which ==32)
+					{
+						event.preventDefault();
+						return false;
+					}
+				}{/literal}
+				</script>
                         <label for="chat_name" class="control-label col-sm-3">Naam Chatbox</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="chat_name" title="Dit is de naam die je chatbox zal krijgen." {literal}pattern="^[a-zA-Z0-9][a-zA-Z0-9-_\.]{1,}$"{/literal} placeholder="Naam Chatbox" value="{if isset($chat_name)}{$chat_name}{/if}" required>
+                            <input type="text" class="form-control" name="chat_name" title="Dit is de naam die je chatbox zal krijgen." {literal}pattern="^[a-zA-Z0-9][a-zA-Z0-9-_\.]{1,}$"{/literal} placeholder="Naam Chatbox" value="{if isset($chat_name)}{$chat_name}{/if}" onkeypress="CheckSpace(event)" required>
                         </div>
                     </div>
 					
