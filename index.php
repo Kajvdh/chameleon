@@ -298,6 +298,14 @@ if ($id) {
                     if ($radio_type) {
                         $smarty->assign('radio_style', $radio_type);
                     }
+					$playerkleur = $chat->getPlayerkleur();
+                    if ($playerkleur) {
+                        $smarty->assign('playerkleur', $playerkleur);
+                    }
+					$tekstkleur = $chat->getTekstkleur();
+                    if ($tekstkleur) {
+                        $smarty->assign('tekstkleur', $tekstkleur);
+                    }
                     //Advertenties
                     $ads_enabled = $chat->getAdsEnabled();
                     if ($ads_enabled == "true") {
@@ -329,6 +337,9 @@ if ($id) {
             //Formulier nieuwe chat aanmaken
             $smarty->assign('chat_style',"blue");
 			$smarty->assign('chat_bgurl',"");
+			$smarty->assign('verzoek_url',"");
+			$smarty->assign('tekstkleur', "#FFF");
+			$smarty->assign('playerkleur', "#800000");
             $smarty->assign('icon_style',"bolletje");
             $smarty->assign('icon_prefix', "false");
             $smarty->assign('timestamp', "true");
@@ -401,7 +412,7 @@ if ($id) {
 
 }
 else {
-    $smarty->assign('error', "Gelieve eerst in te loggen of registreer eerst via <a href='https://services.chattersworld.nl/' target='_blank'>hier</a>");
+    $smarty->assign('error', "Gelieve eerst in te loggen of registreer eerst via <a href='https://services.chattersworld.nl/' target='_blank'>hier</a><br />Let op, bij registreren keer je niet terug naar dit inlogscherm en je krijgt geen e-mail bevestiging.<br />Eens geregistreerd, kan je hier gelijk inloggen en beginnen met aanmaken van je chatbox!");
     $smarty->display('login.tpl');
 }
 ?>

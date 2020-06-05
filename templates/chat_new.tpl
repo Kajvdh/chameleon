@@ -223,6 +223,7 @@
                         </div>
                     </div>
                     <br /><br />
+					
 					<!-- URL van de verzoekserver -->
                     <div class="form-group">
                         <label for="verzoek_url" class="control-label col-sm-3">Verzoekserver Link</label>
@@ -243,8 +244,33 @@
 								<option value="luna" {if $radio_style=="luna"}selected="selected"{/if}>Luna Alora</option>
                             </select>
                         </div>
+                    </div><br /><br />
+				<!-- Kleur van de player -->
+                    <div class="form-group">
+                        <label for="playerkleur" class="control-label col-sm-3">Speler achtergrond</label>
+                        <div class="col-sm-9">
+                            <input id="simple-color-picker" type="text" class="form-control" name="playerkleur" title="Geef hier de kleur van je speler aan" placeholder="playerkleur" value="{if isset($playerkleur)}{$playerkleur}{/if}">
+							<script>
+								$(function () {
+									$('#simple-color-picker').colorpicker();
+								});
+							</script>
+                        </div>
                     </div>
-
+                    <br /><br />
+					<!-- Kleur van de player -->
+                    <div class="form-group">
+                        <label for="tekstkleur" class="control-label col-sm-3">Speler tekstkleur</label>
+                        <div class="col-sm-9">
+                            <input id="simple-color-picker2" type="text" class="form-control" name="tekstkleur" title="Welke kleur moet de tekst zijn van de speler" placeholder="tekstkleur" value="{if isset($tekstkleur)}{$tekstkleur}{/if}">
+							<script>
+								$(function () {
+									$('#simple-color-picker2').colorpicker();
+								});
+							</script>
+                        </div>
+                    </div>
+                    
                 </div>
 
                 <!-- EXTRA: ADS -->

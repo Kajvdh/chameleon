@@ -5,13 +5,21 @@
           <meta http-equic="X-UA-Compatible" content="IE=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <!-- jQuery -->
-          <script src="{$fullurl}/js/jquery-1.11.0.min.js"></script>
+          <!-- <script src="{$fullurl}/js/jquery-1.11.0.min.js"></script> -->
+		      <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
 
+    <link href="//cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" rel="stylesheet">
+    <link href="https://www.jquery-az.com/boots/css/bootstrap-colorpicker/bootstrap-colorpicker.css" rel="stylesheet">
+    <!-- <link href="https://www.jquery-az.com/boots/css/bootstrap-colorpicker/main.css" rel="stylesheet"> -->
+
+    <script src="//code.jquery.com/jquery-2.2.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{$fullurl}/js/bootstrap-colorpicker.js"></script>
           <!-- Bootstrap -->
           <link rel="stylesheet" href="{$fullurl}/css/bootstrap.min.css">
           <link rel="stylesheet" href="{$fullurl}/css/bootstrap-theme.min.css">
           <link rel="stylesheet" href="{$fullurl}/css/bootstrap-switch.css">
-          <script src="{$fullurl}/js/bootstrap.min.js"></script>
+          <!-- <script src="{$fullurl}/js/bootstrap.min.js"></script> -->
           <script src="{$fullurl}/js/bootstrap-switch.js"></script>
           <!--[if lt IE 9]>
             <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
