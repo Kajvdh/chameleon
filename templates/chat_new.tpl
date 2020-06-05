@@ -210,6 +210,7 @@
                         <div class="col-sm-9">
                             <select class="form-control" name="radio_type">
                                 <option value="shoutcast" {if $radio_type=="shoutcast"}selected="selected"{/if}>Shoutcast</option>
+								<option value="shoutcast2" {if $radio_type=="shoutcast2"}selected="selected"{/if}>Shoutcast v2</option>
                                 <option value="icecast" {if $radio_type=="icecast"}selected="selected"{/if}>Icecast</option>
                             </select>
                         </div>
@@ -223,7 +224,14 @@
                         </div>
                     </div>
                     <br /><br />
-					
+					<!-- URL van de radio -->
+                    <div class="form-group">
+                        <label for="mountpoint" class="control-label col-sm-3">Stream mountpoint</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="mountpoint" title="Geef hier de stream mountpoint aan (enkel bij shoutcast v2 en icecast)." placeholder="Radio URL" value="{if isset($mountpoint)}{$mountpoint}{/if}">
+                        </div>
+                    </div>
+                    <br /><br />
 					<!-- URL van de verzoekserver -->
                     <div class="form-group">
                         <label for="verzoek_url" class="control-label col-sm-3">Verzoekserver Link</label>

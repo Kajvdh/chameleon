@@ -306,6 +306,11 @@ if ($id) {
                     if ($tekstkleur) {
                         $smarty->assign('tekstkleur', $tekstkleur);
                     }
+					
+					$mountpoint = $chat->getMountpoint();
+                    if ($mountpoint) {
+                        $smarty->assign('mountpoint', $mountpoint);
+                    }
                     //Advertenties
                     $ads_enabled = $chat->getAdsEnabled();
                     if ($ads_enabled == "true") {
@@ -340,6 +345,7 @@ if ($id) {
 			$smarty->assign('verzoek_url',"");
 			$smarty->assign('tekstkleur', "#FFF");
 			$smarty->assign('playerkleur', "#800000");
+			$smarty->assign('mountpoint', "/stream");
             $smarty->assign('icon_style',"bolletje");
             $smarty->assign('icon_prefix', "false");
             $smarty->assign('timestamp', "true");

@@ -47,6 +47,7 @@ class Chatbox {
 	private $_verzoekurl;
 	private $_playerkleur;
 	private $_tekstkleur;
+	private $_mountpoint;
 
     public function __construct($db) {
         $this->_dBase = $db;
@@ -125,6 +126,12 @@ class Chatbox {
     }
 	public function getTekstkleur() {
         return $this->_tekstkleur;
+    }
+	public function setMountpoint($mountpoint) {
+        $this->_mountpoint = $mountpoint;
+    }
+	public function getMountpoint() {
+        return $this->_mountpoint;
     }
 	public function setVerzoekurl($verzoekurl) {
         $this->_verzoekurl = $verzoekurl;
@@ -272,6 +279,10 @@ class Chatbox {
         if (isset($form['radio_style'])) {
             $this->setRadioStyle($form['radio_style']);
         }
+		//Radio player type
+        if (isset($form['mountpoint'])) {
+            $this->setMountpoint($form['mountpoint']);
+        }
 		//Radio player kleur
         if (isset($form['playerkleur'])) {
             $this->setPlayerkleur($form['playerkleur']);
@@ -291,7 +302,7 @@ class Chatbox {
     public function save() {
         $this->LightIRC->save();
         $this->setLightIRCId($this->LightIRC->getId());
-        $qry = $this->_db->prepare("INSERT INTO ".$this->_table."(lirc_id,createdby,createrip,created,lastcalled,calls,name,height,bgcolor,bgurl,style,iconstyle,radio_enabled,radio_name,radio_streamtype,radio_link,verzoek_url,radio_type,playerkleur,tekstkleur,ads_enabled) VALUES(:lirc_id,:createdby,:createrip,NOW(),NOW(),:calls,:name,:height,:bgcolor,:bgurl,:style,:iconstyle,:radio_enabled,:radio_name,:radio_streamtype,:radio_link,:verzoek_url,:radio_type,:playerkleur,:tekstkleur,:ads_enabled);");
+        $qry = $this->_db->prepare("INSERT INTO ".$this->_table."(lirc_id,createdby,createrip,created,lastcalled,calls,name,height,bgcolor,bgurl,style,iconstyle,radio_enabled,radio_name,radio_streamtype,radio_link,verzoek_url,radio_type,mountpoint,playerkleur,tekstkleur,ads_enabled) VALUES(:lirc_id,:createdby,:createrip,NOW(),NOW(),:calls,:name,:height,:bgcolor,:bgurl,:style,:iconstyle,:radio_enabled,:radio_name,:radio_streamtype,:radio_link,:verzoek_url,:radio_type,:mountpoint,:playerkleur,:tekstkleur,:ads_enabled);");
         $data = array(
             ':lirc_id' => $this->getLightIRCId(),
             ':createdby' => $this->getOwner(),
@@ -309,6 +320,7 @@ class Chatbox {
             ':radio_link' => $this->Radio->getStreamLink(),
 			':verzoek_url' => $this->getVerzoekurl(),
             ':radio_type' => $this->Radio->getPlayer(),
+			':mountpoint' => $this->getMountpoint(),
 			':playerkleur' => $this->getPlayerkleur(),
 			':tekstkleur' => $this->getTekstkleur(),
             ':ads_enabled' => $this->getAdsEnabled()
@@ -327,7 +339,7 @@ class Chatbox {
     public function update() {
         $this->LightIRC->update();
 
-        $qry = $this->_db->prepare("UPDATE ".$this->_table." SET lirc_id=:lirc_id,createdby=:createdby,createrip=:createrip,created=NOW(),lastcalled=NOW(),calls=:calls,name=:name,height=:height,bgcolor=:bgcolor,bgurl=:bgurl,style=:style,iconstyle=:iconstyle,radio_enabled=:radio_enabled,radio_name=:radio_name,radio_streamtype=:radio_streamtype,radio_link=:radio_link,verzoek_url=:verzoek_url,radio_type=:radio_type,playerkleur=:playerkleur,tekstkleur=:tekstkleur,ads_enabled=:ads_enabled WHERE id=:id;");
+        $qry = $this->_db->prepare("UPDATE ".$this->_table." SET lirc_id=:lirc_id,createdby=:createdby,createrip=:createrip,created=NOW(),lastcalled=NOW(),calls=:calls,name=:name,height=:height,bgcolor=:bgcolor,bgurl=:bgurl,style=:style,iconstyle=:iconstyle,radio_enabled=:radio_enabled,radio_name=:radio_name,radio_streamtype=:radio_streamtype,radio_link=:radio_link,verzoek_url=:verzoek_url,radio_type=:radio_type,mountpoint=:mountpoint,playerkleur=:playerkleur,tekstkleur=:tekstkleur,ads_enabled=:ads_enabled WHERE id=:id;");
         $data = array(
             ':lirc_id' => $this->getLightIRCId(),
             ':createdby' => $this->getOwner(),
@@ -345,6 +357,7 @@ class Chatbox {
             ':radio_link' => $this->Radio->getStreamLink(),
 			':verzoek_url' => $this->getVerzoekurl(),
             ':radio_type' => $this->Radio->getPlayer(),
+			':mountpoint' => $this->getMountpoint(),
 			':playerkleur' => $this->getPlayerkleur(),
 			':tekstkleur' => $this->getTekstkleur(),
             ':id' => $this->_id,
@@ -408,6 +421,7 @@ class Chatbox {
 			$this->setVerzoekurl($row['verzoek_url']);
 			$this->setPlayerkleur($row['playerkleur']);
 			$this->setTekstkleur($row['tekstkleur']);
+			$this->setMountpoint($row['mountpoint']);
             $this->Radio->setPlayer($row['radio_type']);
             $this->LightIRC->getById($this->getLightIRCId());
             $this->setAdsEnabled($row['ads_enabled']);
@@ -596,6 +610,7 @@ class Chatbox {
 		$data['verzoek_url'] = $this->getVerzoekurl();
 		$data['playerkleur'] = $this->getPlayerkleur();
 		$data['tekstkleur'] = $this->getTekstkleur();
+		$data['mountpoint'] = $this->getMountpoint();
         $data['radio_player'] = $this->Radio->getPlayer();
         $data['ads_enabled'] = $this->getAdsEnabled();
         return $data;
