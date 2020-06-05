@@ -137,5 +137,17 @@
         
 
     </div>
+	<center>
+	<footer class="footer hidden-xs-down">
+                    <p>© Chattersworld Chameleon All rights reserved.</p>
+
+                    <ul class="nav footer__nav">
+                        <a class="nav-link" href="https://chattersworld.nl">Homepage</a>
+
+                        <a class="nav-link" href="https://wiki.chattersworld.nl">Support</a>
+
+                      
+                    </ul>
+                </footer></center>
   </body>
 </html>
