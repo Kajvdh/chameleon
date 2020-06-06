@@ -130,10 +130,15 @@ position: absolute;
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 <center><a target="_blank" href="https://chattersworld.nl"><img src="{$logo}" height="100" alt="Chattersworld"></a></center>
 <br>
-{if $metadata['radio'] == "true"}
+{if $metadata['verzoek_url'] != ""}
 <a href="{$metadata['verzoek_url']}" target="_new" onclick="window.open('{$metadata['verzoek_url']}','Verzoekserver Aanvragen','width=800,height=650,scrollbars=yes,toolbar=no,menubar=no,location=yes,resizable=yes,border=no'); return false"><img src="https://www.gbc-radio.nl/chat/radio/request1.png" width="25px" height="25px" alt="Verzoek Aanvragen">&nbsp;Verzoekje Doen</a>
+<br />
 {else}
 <a target="_blank" href="https://chattersworld.nl"><img src="https://www.gbc-radio.nl/chat/radio/request1.png" width="25px" height="25px" alt="Verzoek Aanvragen">&nbsp;Maak je eigen chatbox!</a>
+{/if}
+<br />
+{if $metadata['radio'] == "true"}
+<a href="http://chameleon.chattersworld.nl/webplayer.php?id={$smarty.get.id}" target="_new" onclick="window.open('http://chameleon.chattersworld.nl/webplayer.php?id={$smarty.get.id}','Chameleon Webplayer','width=1024,height=780,scrollbars=yes,toolbar=no,menubar=no,location=no,resizable=yes'); return false"><img src="https://www.gbc-radio.nl/chat/radio/regels1.png" width="25px" height="25px" alt="Chameleon Webplayer">&nbsp;Webplayer</a>
 {/if}
 <br />
 <!-- <a href="http://webplayer.gbc-radio.nl/" target="_new" onclick="window.open('http://webplayer.gbc-radio.nl/','GBC Webplayer','width=780,height=725,scrollbars=yes,toolbar=no,menubar=no,location=no,resizable=yes'); return false"><img src="https://www.gbc-radio.nl/chat/radio/regels1.png" width="25px" height="25px" alt="Webplayer GBC-Radio">&nbsp;Webplayer</a> -->

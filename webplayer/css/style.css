@@ -1,0 +1,147 @@
+body
+{
+	background:#000;
+	font-family: 'Architects Daughter', cursive;
+	font-size: 22px;
+	color: #fff;
+
+}
+
+#holder
+{
+	background-image:url(../img/Webplayer-bg.jpg);
+	background-size: 736px 413px;
+	  width: 650px;
+  	height: 374px;
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#menu-bar-holder
+{
+	width:100%;
+	height:21px;
+	 border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  box-shadow: 0px 0px 3px #171F66;
+  -webkit-box-shadow: 0px 0px 3px #171F66;
+  -moz-box-shadow: 0px 0px 3px #171F66;
+  background: #328BCF;
+  border: dotted 0px #000000;
+  margin-top: -22px;
+	
+}
+
+#logo-holder
+{
+   width: 363px;
+  height: 100px;
+  float: left;
+  margin-left: 25px;
+  margin-top: 22px;
+}
+
+#streamkeuze-holder
+{
+	  width: 360px;
+  	height: 100px;
+  	float: left;
+  	margin-left: 19px;
+  	margin-top: 28px;
+}
+
+#social-media-holder
+{
+	width: px;
+  height: 100px;
+  float: right;
+  margin-right: 10px;
+  margin-top: 154px;
+  margin-bottom: 5px;
+	
+}
+
+#now-playing-holder
+{
+	  width: 600px;
+  height: 66px;
+  float: left;
+  margin-left: 24px;
+  margin-top: 3px;
+  overflow:hidden;
+  
+}
+
+#webplayer-holder
+{
+	width:100%;
+	height:50px;
+	float:left;
+	background:#000;
+}
+
+.playerlinks {
+transition:All 0.263s ease;
+-webkit-transition:All 0.263s ease;
+-moz-transition:All 0.263s ease;
+-o-transition:All 0.263s ease;
+transform: rotate(0deg) scale(0.803) skew(3deg) translate(0px);
+-webkit-transform: rotate(0deg) scale(0.803) skew(3deg) translate(0px);
+-moz-transform: rotate(0deg) scale(0.803) skew(3deg) translate(0px);
+-o-transform: rotate(0deg) scale(0.803) skew(3deg) translate(0px);
+-ms-transform: rotate(0deg) scale(0.803) skew(3deg) translate(0px);
+  opacity: 0.2;
+}
+.playerlinks:hover{
+transform: rotate(0deg) scale(1.223) skew(1deg) translate(0px);
+-webkit-transform: rotate(0deg) scale(1.223) skew(1deg) translate(0px);
+-moz-transform: rotate(0deg) scale(1.223) skew(1deg) translate(0px);
+-o-transform: rotate(0deg) scale(1.223) skew(1deg) translate(0px);
+-ms-transform: rotate(0deg) scale(1.223) skew(1deg) translate(0px);
+  opacity: 0.9;
+}
+
+sm-btn {
+transition:All 1.9342s ease-in;
+-webkit-transition:All 1.9342s ease-in;
+-moz-transition:All 1.9342s ease-in;
+-o-transition:All 1.9342s ease-in;
+transform: rotate(0deg) scale(0.806) skew(0deg) translate(0px);
+-webkit-transform: rotate(0deg) scale(0.806) skew(0deg) translate(0px);
+-moz-transform: rotate(0deg) scale(0.806) skew(0deg) translate(0px);
+-o-transform: rotate(0deg) scale(0.806) skew(0deg) translate(0px);
+-ms-transform: rotate(0deg) scale(0.806) skew(0deg) translate(0px);
+}
+.sm-btn:hover{
+transform: rotate(16deg) scale(1.122) skew(0deg) translate(0px);
+-webkit-transform: rotate(16deg) scale(1.122) skew(0deg) translate(0px);
+-moz-transform: rotate(16deg) scale(1.122) skew(0deg) translate(0px);
+-o-transform: rotate(16deg) scale(1.122) skew(0deg) translate(0px);
+-ms-transform: rotate(16deg) scale(1.122) skew(0deg) translate(0px);
+}
+
+#content-holder
+{
+width: 650px;
+  height: 195px;
+  font-size: 16px;
+  clear: both;
+  overflow-x: auto;
+  position: relative;
+  top: 13px;
+  margin-bottom: 12px;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
