@@ -33,14 +33,22 @@
     <table id="data-table3" class="table table-hover">
 	<thead>
         <tr>
-            <td><strong>ID</strong></td><td><strong>Naam</strong></td>{if isset($god)}<td><strong>Eigenaar</strong></td><td><strong>Aantal keer bezocht</strong></td><td><strong>Laatst bezocht</strong></td>{/if}<td><strong>Acties</strong></td>
+            <td><strong>ID</strong></td><td><strong>Achtergrond</strong></td><td><strong>Naam</strong></td>{if isset($god)}<td><strong>Eigenaar</strong></td><td><strong>Speler</strong></td><td><strong>Aantal keer bezocht</strong></td><td><strong>Laatst bezocht</strong></td>{/if}<td><strong>Acties</strong></td>
         </tr>
 	</thead><tbody>
 
         {section name=chat loop=$ids}
          
 			<tr>
-                <td><span class="badge">{$ids[chat]}</span></td><td>{$names[chat]}</td>{if isset($god)}<td>{$owners[chat]}</td><td>{$calls[chat]}</td><td data-order="{$lastcalleds[chat]}">{$lastcalleds[chat]}</td>{/if}
+                <td><span class="badge">{$ids[chat]}</span></td>
+				<td>{if $bgurl[chat] != ""}<img src="{$bgurl[chat]}" height="25">{else}{$chatstyle[chat]}{/if}</td>
+				<td>{$names[chat]}</td>
+				{if isset($god)}
+				<td>{$owners[chat]}</td>
+				<td>{$playerstyle[chat]}</td>
+				<td>{$calls[chat]}</td>
+				<td data-order="{$lastcalleds[chat]}">{$lastcalleds[chat]}</td>
+				{/if}
                 <td>
                     <a href="{$fullurl}/chat.php?id={$ids[chat]}" target='_blank' class="btn btn-success btn-xs"><span class="glyphicon glyphicon-paperclip"></span></a>
                     <a href="{$fullurl}/edit/{$ids[chat]}" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-cog"></span></a>

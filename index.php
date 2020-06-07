@@ -383,6 +383,9 @@ if ($id) {
         $calls = array();
         $lastcalleds = array();
         $names = array();
+		$bgurl = array();
+		$chatstyle = array();
+		$playerstyle = array();
         foreach ($chatboxes as $chatbox) {
             $owner = new Member($aDb);
             $owner->getById($chatbox->getOwner());
@@ -391,12 +394,18 @@ if ($id) {
             array_push($calls, $chatbox->getCalls());
             array_push($lastcalleds, $chatbox->getLastCalled());
             array_push($names,$chatbox->getName());
+			array_push($bgurl,$chatbox->getBgurl());
+			array_push($chatstyle,$chatbox->getStyle());
+			array_push($playerstyle,$chatbox->Radio->getPlayer());
         }
         $smarty->assign('ids',$ids);
         $smarty->assign('owners', $owners);
         $smarty->assign('calls', $calls);
         $smarty->assign('lastcalleds', $lastcalleds);
         $smarty->assign('names', $names);
+		$smarty->assign('bgurl', $bgurl);
+		$smarty->assign('chatstyle', $chatstyle);
+		$smarty->assign('playerstyle', $playerstyle);
     }
     else {
         $member = new Member($db);
@@ -404,12 +413,20 @@ if ($id) {
         $ids = array();
         $owners = array();
         $names = array();
+		$bgurl = array();
+		$chatstyle = array();
+		$playerstyle = array();
         foreach ($chatboxes as $chatbox) {
             array_push($ids, $chatbox->getId());
             array_push($names, $chatbox->getName());
+			array_push($bgurl,$chatbox->getBgurl());
+			$smarty->assign('chatstyle', $chatstyle);
+			array_push($playerstyle,$chatbox->Radio->getPlayer());
         }
         $smarty->assign('ids', $ids);
         $smarty->assign('names', $names);
+		$smarty->assign('bgurl', $bgurl);
+		$smarty->assign('chatstyle', $chatstyle);
     }
 
     $smarty->display('mainpanel.tpl');
