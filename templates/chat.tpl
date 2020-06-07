@@ -130,11 +130,11 @@ position: absolute;
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 <center><a target="_blank" href="https://chattersworld.nl"><img src="{$logo}" height="100" alt="Chattersworld"></a></center>
 <br>
-{if $metadata['verzoek_url'] != ""}
+{if $metadata['verzoek_url'] != "" && $metadata['radio'] == "true"}
 <a href="{$metadata['verzoek_url']}" target="_new" onclick="window.open('{$metadata['verzoek_url']}','Verzoekserver Aanvragen','width=800,height=650,scrollbars=yes,toolbar=no,menubar=no,location=yes,resizable=yes,border=no'); return false"><img src="https://www.gbc-radio.nl/chat/radio/request1.png" width="25px" height="25px" alt="Verzoek Aanvragen">&nbsp;Verzoekje Doen</a>
 <br />
 {else}
-<a target="_blank" href="https://chattersworld.nl"><img src="https://www.gbc-radio.nl/chat/radio/request1.png" width="25px" height="25px" alt="Verzoek Aanvragen">&nbsp;Maak je eigen chatbox!</a>
+<a target="_blank" href="https://chattersworld.nl"><img src="https://www.gbc-radio.nl/chat/radio/request1.png" width="25px" height="25px" alt="Maak je eigen chatbox!">&nbsp;Maak je eigen chatbox!</a>
 {/if}
 <br />
 {if $metadata['radio'] == "true"}
