@@ -40,16 +40,16 @@
         {section name=chat loop=$ids}
          
 			<tr>
-                <td><span class="badge">{$ids[chat]}</span></td>
-				<td>{if $bgurl[chat] != ""}<img src="{$bgurl[chat]}" height="25">{else}{$chatstyle[chat]}{/if}</td>
-				<td>{$names[chat]}</td>
+                <td style="vertical-align:middle"><span class="badge">{$ids[chat]}</span></td>
+				<td style="vertical-align:middle">{if $bgurl[chat] != ""}<img src="{$bgurl[chat]}" style="border-radius: 50% 50% 50% 50%;height:50px;width:50px;">{else}{$chatstyle[chat]}{/if}</td>
+				<td style="vertical-align:middle">{$names[chat]}</td>
 				{if isset($god)}
-				<td>{$owners[chat]}</td>
-				<td>{$playerstyle[chat]}</td>
-				<td>{$calls[chat]}</td>
-				<td data-order="{$lastcalleds[chat]}">{$lastcalleds[chat]}</td>
+				<td style="vertical-align:middle">{$owners[chat]}</td>
+				<td style="vertical-align:middle">{$playerstyle[chat]}</td>
+				<td style="vertical-align:middle">{$calls[chat]}</td>
+				<td style="vertical-align:middle" data-order="{$lastcalleds[chat]}">{$lastcalleds[chat]}</td>
 				{/if}
-                <td>
+                <td style="vertical-align:middle">
                     <a href="{$fullurl}/chat.php?id={$ids[chat]}" target='_blank' class="btn btn-success btn-xs"><span class="glyphicon glyphicon-paperclip"></span></a>
                     <a href="{$fullurl}/edit/{$ids[chat]}" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-cog"></span></a>
                     <a href="{$fullurl}/transfer/{$ids[chat]}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-user"></span></a>
