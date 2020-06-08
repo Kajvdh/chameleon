@@ -26,7 +26,7 @@
 <meta property="og:locale" content="nl_NL" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Chameleon | Chattersworld | Waar chatten, chatten is!" />
-<meta property="og:description" content="Chameleon" />
+<meta property="og:description" content="Chameleon, de chat creator die iedereen kent, maak nu je gratis chatbox aan op chattersworld." />
 <meta property="og:url" content="https://chameleon.chattersworld.nl" />
 
 <meta property="og:type" content="article" />

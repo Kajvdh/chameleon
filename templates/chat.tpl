@@ -11,7 +11,7 @@
 <meta property="og:locale" content="nl_NL" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="#{$metadata['name']} Chameleon | Chattersworld | Waar chatten, chatten is!" />
-<meta property="og:description" content="#{$metadata['name']} Chameleon" />
+<meta property="og:description" content="#{$metadata['name']} Chattersworld Chameleon, deze chat is gemaakt door Chameleon op Chattersworld.nl" />
 <meta property="og:url" content="https://chameleon.chattersworld.nl" />
 
 <meta property="og:type" content="article" />
