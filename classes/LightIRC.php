@@ -17,7 +17,7 @@ class LightIRC {
         $this->setHost("irc.chattersworld.nl");
         $this->setShowNickPrefixes("false");
         $this->setAccessKey("P0015-D03EB-OMQXF-E9072-54BC6");
-        $this->setPort("7000");
+        $this->setPort("6697");
         $this->setPolicyPort("8080");
         $this->setEnableQueries("true");
         $this->setUseUserListIcons("true");
@@ -451,7 +451,7 @@ class LightIRC {
             $this->setId($row['id']);
             $this->setHost($row['host']);
             //$this->setPort($row['port']);
-            $this->setPort($row['7000']);
+            $this->setPort($row['6697']);
             $this->setPolicyPort($row['policyPort']);
             $this->setAccessKey($row['accessKey']);
             $this->setCharset($row['charset']);
@@ -1181,7 +1181,9 @@ class LightIRC {
         $this->_addParam('host', $this->getHost());
         $this->_addParam('accessKey', $this->getAccessKey());
         //$this->_addParam('port', $this->getPort());
-        $this->_addParam('port', "7000");
+        $this->_addParam('port', "6697");
+		$this->_addParam('realname', "..::Chattersworld Chameleon Webchat::..");
+		$this->_addParam('quitMessage', "Client Closed");
         $this->_addParam('policyPort', $this->getPolicyPort());
         $this->_addParam('charset', $this->getCharset());
         $this->_addParam('nick', $this->getNick());
