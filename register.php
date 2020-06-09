@@ -232,15 +232,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					}
 				}
 				</script>
-				<input type="email" class="form-control" name="email" placeholder="E-mail adres" required>
-                <input type="text" class="form-control" name="login" placeholder="Nicknaam" onkeypress="CheckSpace(event)" required autofocus>
-				<input type="password" class="form-control" name="pass" placeholder="Wachtwoord" required>
+				<input type="email" class="form-control" name="email" placeholder="E-mail adres" required autofocus><br />
+                <input type="text" class="form-control" name="login" placeholder="Nicknaam" onkeypress="CheckSpace(event)" required><br />
+				<input type="password" class="form-control" name="pass" placeholder="Wachtwoord" required><br />
 				<input type="password" class="form-control" name="pass2" placeholder="Herhaal Wachtwoord" required>
 				
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Registreer</button>
 				<input type="hidden" name="recaptcha_response" id="recaptchaResponse">
             </form>
-
+			<form class="form-signin" role="form" method="" action="/">
+                <h2 class="form-signin-heading">Of log in:</h2>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Registreer</button>
+				</form>
         </div>
         <center>
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
