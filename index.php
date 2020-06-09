@@ -420,7 +420,7 @@ if ($id) {
             array_push($ids, $chatbox->getId());
             array_push($names, $chatbox->getName());
 			array_push($bgurl,$chatbox->getBgurl());
-			$smarty->assign('chatstyle', $chatstyle);
+			array_push($chatstyle,$chatbox->getStyle());
 			array_push($playerstyle,$chatbox->Radio->getPlayer());
         }
         $smarty->assign('ids', $ids);
@@ -435,7 +435,7 @@ if ($id) {
 
 }
 else {
-    $smarty->assign('error', "Gelieve eerst in te loggen of registreer eerst via <a href='https://services.chattersworld.nl/' target='_blank'>hier</a><br />Let op, bij registreren keer je niet terug naar dit inlogscherm en je krijgt geen e-mail bevestiging.<br />Eens geregistreerd, kan je hier gelijk inloggen en beginnen met aanmaken van je chatbox!");
+    $smarty->assign('error', "Gelieve eerst in te loggen of registreer eerst via <a href='register.php'>hier</a><br />Let op, registreren is gelijk registreren voor je nicknaam op de chat, onthoudt je wachtwoord en nicknaam goed!");
     $smarty->display('login.tpl');
 }
 ?>

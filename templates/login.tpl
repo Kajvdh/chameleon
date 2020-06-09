@@ -60,8 +60,11 @@
                 <input type="text" class="form-control" name="login" placeholder="Nicknaam" required autofocus>
                 <input type="password" class="form-control" name="pass" placeholder="Wachtwoord" required>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+				
             </form>
-
+			<form class="form-signin" role="form" method="" action="register.php">
+			<h2 class="form-signin-heading">Nog geen account?</h2>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Registreer</button>
         </div>
         <center>
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
