@@ -94,17 +94,26 @@ overflow: hidden;
 .sidenav .closebtn {
     position: absolute;
     bottom: 50px;
+	{if $metadata['radio_player'] != "hero"}
     right: 15px;
+	{else}
+	right: 356px;
+	{/if}
     font-size: 36px;
     margin-left: 50px;
 }
 
 .right { 
+{if $metadata['radio_player'] != "hero"}
 float:right; 
+right: 5px;
+{else}
+float:right;
+right: 356px;
+{/if}
 display: block; 
 position: absolute;
-    right: 5px;
-    bottom: 2px;
+bottom: 2px;
 }
 .left { 
 float:left; 

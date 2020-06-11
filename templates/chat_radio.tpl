@@ -13,7 +13,7 @@
 					<audio id="lbg_audio8_html5_shoutcast_2" preload="metadata">
 						<div class="xaudioplaylist">
 							<ul>
-								<li class="xradiostream">{$metadata['radio_link']}</li>
+								<li class="xradiostream">{$metadata['radio_link']}{$metadata['mountpoint']}</li>
 							</ul>
 							
 						</div>
@@ -114,7 +114,7 @@
         <script type="text/javascript">
                     $("#flashradio").flashradio({
                         themecolor: "{$metadata['playerkleur']}", 
-                        channelurls: "{$metadata['radio_link']}", 
+                        channelurls: "{$metadata['radio_link']}{$metadata['mountpoint']}", 
                         radioname: "{$metadata['radio_name']}", 
                         scroll: "AUTO", 
                         autoplay: "TRUE", 
@@ -131,7 +131,7 @@
 
 {elseif $metadata['radio_player'] == "luna"}
         <script src="radiolibs/luna/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="radiolibs/luna/lunaradio.min.js"></script>
+        <script type="text/javascript" src="radiolibs/luna/lunaradio.min.js?v=5.20.06.02"></script>
 
 	<center>
         <div id="lunaradio" style='width:80%; height:70px;
@@ -167,22 +167,22 @@ $("#lunaradio").lunaradio({
 	coverimage: "https://horus.chattersworld.nl/dist/img/c4all.png",
 	coverstyle: "circle",
 	usevisualizer: "fake",
-	visualizertype: "",
+	visualizertype: "4",
 	itunestoken: "1000lIPN",
 	metadatatechnic: "stream-icy-meta",
 	ownmetadataurl: "",
 	streamurl: "{$metadata['radio_link']}",
 	streamtype: "{$metadata['radio_type']}",
-	icecastmountpoint: "",
+	icecastmountpoint: "{if $metadata['radio_type'] == "icecast2"}{$metadata['mountpoint']}{/if}",
 	radionomyid: "",
 	radionomyapikey: "",
 	radiojarid: "",
 	radiocoid: "sdef46f462",
-	shoutcastpath: "/live",
+	shoutcastpath: "{if $metadata['radio_type'] == "shoutcast2"}{$metadata['mountpoint']}{/if}",
 	shoutcastid: "1",
 	streamsuffix: "",
 	metadatainterval: "20000",
-	volume: "90",
+	volume: "50",
 	debug: "false",
 	usestreamcorsproxy: "false", 
 	corsproxy: "",
@@ -190,7 +190,75 @@ $("#lunaradio").lunaradio({
 </script>
          
         </center>
+{elseif $metadata['radio_player'] == "hero"}
+<link href="radiolibs/hero/audio6_html5.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
 
+<script src="radiolibs/hero/js/jquery.mousewheel.min.js" type="text/javascript"></script>
+<script src="radiolibs/hero/js/jquery.touchSwipe.min.js" type="text/javascript"></script>
+<script src="radiolibs/hero/js/audio6_html5.js" type="text/javascript"></script>
+<script>
+	jQuery(function() {
+		setTimeout(function(){
+				jQuery("#lbg_audio6_html5_shoutcast_1").audio6_html5({
+					radio_stream:"{$metadata['radio_link']}{$metadata['mountpoint']}",
+					radio_name:"{$metadata['radio_name']}",
+					playerWidth:355,
+					imageHeight:355,
+					skin:"whiteControllers",
+					responsive:true,
+					grabLastFmPhoto:true,
+					autoPlay:false,
+					songTitleColor:"{$metadata['tekstkleur']}",
+					authorTitleColor:"{$metadata['tekstkleur']}",
+					lineSeparatorColor:"#dba390",
+					radioStationColor:"{$metadata['tekstkleur']}",
+					frameBehindTextColor:"{$metadata['playerkleur']}",
+					frameBehindButtonsColor:"{$metadata['playerkleur']}",
+					sticky:true,
+					startMinified:true,
+					showOnlyPlayButton:false,
+					centerPlayer:true,
+					playerBorderSize:0,
+					playerBorderColor:"#000000",
+					showFacebookBut:false,
+					facebookAppID:"",
+					facebookShareTitle:"HTML5 Radio Player With History- Shoutcast and Icecast",
+					facebookShareDescription:"A top-notch responsive HTML5 Radio Player compatible with all major browsers and mobile devices.",
+					showTwitterBut:false,
+					showVolume:true,
+					showRadioStation:true,
+					showTitle:true,
+					showHistoryBut:false,
+					showHistory:false,
+					showHistoryOnInit:false,
+					translateReadingData:"reading data...",
+					historyTranslate:"HISTORY - latest played songs",
+					historyTitleColor:"#825959",
+					historyBgColor:"#ffcc99",
+					historyRecordBgColor:"transparent",
+					historyRecordBottomBorderColor:"transparent",
+					historyRecordSongColor:"#000000",
+					historyRecordSongBottomBorderColor:"#c97a7a",
+					historyRecordAuthorColor:"#525252",
+					numberOfThumbsPerScreen:3,
+					historyPadding:16,
+					historyRecordTitleLimit:28,
+					historyRecordAuthorLimit:36,
+					nowPlayingInterval:35,
+					noImageAvailable:"https://horus.chattersworld.nl/dist/img/c4all.png"
+				});
+		}, 1000);
+	});
+</script>
+
+             <div class="audio6_html5">
+             	<audio id="lbg_audio6_html5_shoutcast_1" preload="metadata">
+                No HTML5 audio playback capabilities for this browser. Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome Browser!</a>
+                </audio>
+             </div>
 
 
 
