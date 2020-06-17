@@ -222,7 +222,7 @@
                             <select class="form-control" name="radio_type">
                                 <option value="shoutcast" {if $radio_type=="shoutcast"}selected="selected"{/if}>Shoutcast</option>
 								<option value="shoutcast2" {if $radio_type=="shoutcast2"}selected="selected"{/if}>Shoutcast v2</option>
-                                <option value="icecast" {if $radio_type=="icecast"}selected="selected"{/if}>Icecast</option>
+                                <option value="icecast2" {if $radio_type=="icecast2"}selected="selected"{/if}>Icecast 2</option>
                             </select>
                         </div>
                     </div>
@@ -260,6 +260,7 @@
                                 <option value="cwflash" {if $radio_style=="cwflash"}selected="selected"{/if}>Tori Black</option>
                                 <option value="muses" {if $radio_style=="muses"}selected="selected"{/if}>Madison Ivy</option>
                                 <option value="stenly" {if $radio_style=="stenly"}selected="selected"{/if}>Jenna Jameson</option>
+								<option value="hero" {if $radio_style=="hero"}selected="selected"{/if}>Wonder Woman</option>
 								<option value="luna" {if $radio_style=="luna"}selected="selected"{/if}>Luna Alora</option>
                             </select>
                         </div>

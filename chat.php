@@ -45,18 +45,21 @@ if ($mobile_browser > 0) {
     $chat = new Chatbox($db);
     if ($chat->getById($id)) {
         $chat->setCall();
-        // $chat->printConfig();
+        //$chat->printConfig();
 
         $metadata = $chat->getMetaData();
+
+        if (($metadata['radio'] != "true") && ($metadata['ads_enabled'] == "true"))
+            header('Location: https://chameleon.chattersworld.nl/chat2.php?'.$_SERVER['QUERY_STRING']);
 
         $smarty->assign('metadata',$metadata);
         $smarty->display('kiwi.tpl');
 
-        //if ($metadata['radio'] == "true") {
-        //    $smarty->display('kiwi_radio.tpl');
-        //}
+        if ($metadata['radio'] == "true") {
+            $smarty->display('chat_radio.tpl');
+        }
 
-        //$smarty->display('kiwi_end.tpl');
+        $smarty->display('chat_end.tpl');
     }
     else {
         $smarty->display('chat_does_not_exist.tpl');

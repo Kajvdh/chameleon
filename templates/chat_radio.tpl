@@ -108,7 +108,7 @@
         <script type="text/javascript" src="radiolibs/cwflash/nativeflashradiov3.js"></script>
 
 	<center>
-        <div id="flashradio" class="socialfooter" style="height:50px; width:80%;-webkit-border-radius: 0px;-moz-border-radius: 0px; border-radius: 0px; border: 0px #81BEF7 none; -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.1)));">
+        <div id="flashradio" class="socialfooter" style="height:50px; width:50%;-webkit-border-radius: 0px;-moz-border-radius: 0px; border-radius: 0px; border: 0px #81BEF7 none; -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.1)));">
           V3 Player Chattersweb.nl
         </div>
         <script type="text/javascript">
@@ -134,7 +134,7 @@
         <script type="text/javascript" src="radiolibs/luna/lunaradio.min.js?v=5.20.06.02"></script>
 
 	<center>
-        <div id="lunaradio" style='width:80%; height:70px;
+        <div id="lunaradio" style='width:50%; height:70px;
 -webkit-border-top-left-radius: 50px;
   -webkit-border-top-right-radius: 50px;
   -webkit-border-bottom-right-radius: 50px;

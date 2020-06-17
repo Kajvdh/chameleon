@@ -55,7 +55,7 @@ class Chatbox {
         $this->_table = $db['prefix']."chat";
         $this->LightIRC = new LightIRC($db);
         $this->Radio = new Radio();
-        $this->setHeight("100");
+        $this->setHeight("90");
     }
     public function getId() {
         return $this->_id;
@@ -576,7 +576,7 @@ class Chatbox {
             $this->setHeight("90");
         }
         else {
-            $this->setHeight("100");
+            $this->setHeight("90");
         }
         $this->Radio->setEnabled($radioEnabled);
     }

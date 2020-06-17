@@ -21,15 +21,16 @@
 <meta property="fb:app_id" content="699740480138507" />
 {if $metadata['style'] != "transparent"}
 <meta property="og:image" content="{$logo}" />
+<link rel="icon" href="{$logo}" sizes="32x32" />
 {else}
 <meta property="og:image" content="{$metadata['bgurl']}" />
+<link rel="icon" href="{$metadata['bgurl']}" sizes="32x32" />
 {/if}
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:description" content="Waar chatten, chatten is!" />
 <meta name="twitter:title" content="..::Chattersworld Chameleon::.." />
 <link rel="canonical" href="https://chameleon.chattersworld.nl" />
-<link rel="icon" href="{$logo}" sizes="32x32" />
- <title>..::Chattersorld::.. #{$metadata['name']}</title>
+ <title>..::Chattersworld::.. #{$metadata['name']}</title>
  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
  <script type="text/javascript" src="../analyticstracking.js"></script>
 

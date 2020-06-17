@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
     // Build POST request:
     $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-    $recaptcha_secret = 'recaptchasecret';
+    $recaptcha_secret = '6Ld6Y4AUAAAAAFi3mHJoDQ2Pg2Mb8MduZ5GNwaH_';
     $recaptcha_response = $_POST['recaptcha_response'];
 
     // Make and decode POST request:
@@ -177,10 +177,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   gtag('config', 'UA-73408859-2', { 'anonymize_ip': true });
 </script>
-<script src="https://www.google.com/recaptcha/api.js?render=recaptchasitekey"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6Ld6Y4AUAAAAAH6uCWtHPw9psZxn8qZ7Rqy2ysWL"></script>
     <script>
         grecaptcha.ready(function () {
-            grecaptcha.execute('recaptchasitekey', { action: 'contact' }).then(function (token) {
+            grecaptcha.execute('6Ld6Y4AUAAAAAH6uCWtHPw9psZxn8qZ7Rqy2ysWL', { action: 'contact' }).then(function (token) {
                 var recaptchaResponse = document.getElementById('recaptchaResponse');
                 recaptchaResponse.value = token;
             });
@@ -242,8 +242,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
 			<form class="form-signin" role="form" method="" action="/">
                 <h2 class="form-signin-heading">Of log in:</h2>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Registreer</button>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
 				</form>
+
         </div>
         <center>
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

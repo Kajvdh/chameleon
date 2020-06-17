@@ -13,6 +13,25 @@
 
 
 </script>
+{/literal}
+{if isset($god)}
+{literal}
+<script>
+		$(document).ready(function() {
+				$('#data-table3').DataTable( {
+					"language": {
+						"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Dutch.json"
+					},
+					"pageLength" : 25,
+					"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Alles"]],
+					"order": [[ 6, "desc" ]]
+				} );
+	
+		} );
+		</script>
+{/literal}
+{else}
+{literal}
 <script>
 		$(document).ready(function() {
 				$('#data-table3').DataTable( {
@@ -27,7 +46,7 @@
 		} );
 		</script>
 {/literal}
-
+{/if}
 <div class="datacontainer" id="data">
     {if {$ids|@count} > 0}
     <table id="data-table3" class="table table-hover">
@@ -50,9 +69,10 @@
 				<td style="vertical-align:middle" data-order="{$lastcalleds[chat]}">{$lastcalleds[chat]}</td>
 				{/if}
                 <td style="vertical-align:middle">
-                    <a href="{$fullurl}/chat.php?id={$ids[chat]}" target='_blank' class="btn btn-success btn-xs"><span class="glyphicon glyphicon-paperclip"></span></a>
+                    <a href="{$fullurl}/chat.php?id={$ids[chat]}" target='_blank' class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></a>
                     <a href="{$fullurl}/edit/{$ids[chat]}" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-cog"></span></a>
                     <a href="{$fullurl}/transfer/{$ids[chat]}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-user"></span></a>
+					<a href="{$fullurl}/html5.php?id={$ids[chat]}" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-phone"></span></a>
                     <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#apiToolkit{$ids[chat]}"><span class="glyphicon glyphicon-briefcase"></span></a>
                     <a href="{$fullurl}/del/{$ids[chat]}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
                 </td>
@@ -70,6 +90,9 @@
                             <h5>Je chatbox op je website plaatsen</h5>
                             Als je je chatbox op je website wil plaatsen, kan je dit doen met het volgende stukje HTML code:
                             <blockquote><pre class="text-left">&lt;iframe src='{$fullurl}/chat.php?id={$ids[chat]}' width='710' height='500' framespacing='0' frameborder='no' scrolling='no' &gt;&lt;/iframe&gt;</pre></blockquote>
+							<h5>Je HTML5 chatbox op je website plaatsen</h5>
+                            Als je je HTML5 chatbox op je website wil plaatsen, kan je dit doen met het volgende stukje HTML code:
+                            <blockquote><pre class="text-left">&lt;iframe src='{$fullurl}/html5.php?id={$ids[chat]}' width='710' height='500' framespacing='0' frameborder='no' scrolling='no' &gt;&lt;/iframe&gt;</pre></blockquote>
 
                             <h5>Het aantal chatters op je website laten zien</h5>
                             Om het aantal chatters dat zich in je chatbox bevindt op je site weer te geven, plaats je het volgende stukje javascript code tussen de <code>&lt;HEAD&gt;</code> tags van je webpagina.

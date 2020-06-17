@@ -35,10 +35,39 @@
 
 </script>
 {/literal}
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+ <meta name="language" content="Dutch" />
+<meta name="keywords" content="chatten, gezellig kletsen, Chattersworld, Radio chat, Chameleon, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat, triviant," />
+<meta name="description"  content="Chattersworld De enige Chatserver waar je gratis kan chatten, chatten zonder registratie, chatten met webcams en dat allemaal gratis, Chattersworld Ares Verzoekserver, maak hem nu gratis aan!" />
+<meta name="google-site-verification" content="-hrJp-Kl7mtCVBOR5Dg45R52OfEAmnIceApYxPMluc4" />
+<meta name="robots" content="index,follow,noodp,noydir" />
+<meta name="description" content="Waar chatten, chatten is!"/>
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="#{$metadata['name']} Chameleon | Chattersworld | Waar chatten, chatten is!" />
+<meta property="og:description" content="#{$metadata['name']} Chattersworld Chameleon, deze chat is gemaakt door Chameleon op Chattersworld.nl" />
+<meta property="og:url" content="https://chameleon.chattersworld.nl" />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="..::Chattersworld Chameleon::.. #{$metadata['name']}" />
+<meta property="og:site_name" content="..::Chattersworld Chameleon::.." />
+<meta property="article:publisher" content="https://www.facebook.com/chattersworld/" />
+<meta property="fb:app_id" content="699740480138507" />
+{if $metadata['style'] != "transparent"}
+<meta property="og:image" content="{$logo}" />
+<link rel="icon" href="{$logo}" sizes="32x32" />
+{else}
+<meta property="og:image" content="{$metadata['bgurl']}" />
+<link rel="icon" href="{$metadata['bgurl']}" sizes="32x32" />
+{/if}
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Waar chatten, chatten is!" />
+<meta name="twitter:title" content="..::Chattersworld Chameleon::.." />
+<link rel="canonical" href="https://chameleon.chattersworld.nl" />
 {literal}
 <script name="kiwiconfig">
 {"startupScreen": "welcome",
-"windowTitle": "Chattersworld - #{/literal}{$metadata['name']}{literal} The web IRC client",
+"windowTitle": "..::Chattersworld - #{/literal}{$metadata['name']}{literal}::.. The web IRC client",
  
 "theme": "Osprey",
 "themes": [
@@ -54,18 +83,25 @@
     ],
 "startupOptions": { 
 "server": "irc.chattersworld.nl", 
-"infoBackground": "{/literal}{$metadata['bgurl']}{literal}", 
+"infoBackground": "{/literal}{if $metadata['bgurl'] != ''}{$metadata['bgurl']}{else}cwobg.jpg{/if}{literal}", 
 "infoContent": "<img src=\"https://atsiofrjlo.cloudimg.io/v7/https://chattersworld.nl/wp-content/uploads/2018/10/cropped-c4all.png\" height=\"30%\" width=\"30%\"><p>U bent terecht gekomen op de HTML5 chat van <a href=\"https://chameleon.chattersworld.nl\">Chattersworld Chameleon</a>.<br> Log gerust in of neem een kijkje op <a href=\"https://chattersworld.nl/\">onze website</a>.</p><p></p>",
 "state_key": "kiwi-state", 
 "port": 6800, 
 "tls": true, 
-"direct": true, 
+"direct": true,
+"showCaptcha": true, 
 "recaptchaSiteId": "6LdZ_nIUAAAAANK_JiB2qsRbSPnldqaYTjFwNj8G",
-"channel": "#{/literal}{$metadata['name']}{literal}", 
+"channel": "#{/literal}{$metadata['name']}{literal}",
+"remember_buffers": true, 
 "nick": "" },
 "sidebarDefault": "nicklist",
 "buffers": {
-{/literal}{if $metadata['private'] == "true"}{literal}"block_pms": false {/literal}{/if}{literal}
+{/literal}{if $metadata['private'] == "true"}{literal}"block_pms": false, {/literal}{/if}{literal}
+"coloured_nicklist": false,
+"nicklist_avatars": true,
+"inline_link_auto_previews": true,
+"inline_link_auto_preview_whitelist": ".*",
+"share_typing": true
 },
 	"plugins": [
         {
@@ -116,7 +152,7 @@
 }
 </script>
 {/literal}
-<meta charset=utf-8><meta name=viewport content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1"><link rel=icon type=image/png href=https://chattersworld.nl/images/favicon.ico><title>Kiwi IRC</title>
+<meta charset=utf-8><meta name=viewport content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1"><title>Kiwi IRC</title>
 
 <style>/* target specific styles */
     html { height: 100%; overflow: hidden; }
@@ -142,8 +178,78 @@ text-align: center;
 color: #fff;
 border-radius: 0px;
 }
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 12;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+overflow: hidden;
+}
+.sidenav span {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
 
-	</style><style class=embedly-css>.card .hdr {
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    bottom: 50px;
+	{/literal}{if $metadata['radio_player'] != "hero"}
+    right: 15px;
+	{else}
+	right: 356px;
+	{/if}
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.right { 
+{if $metadata['radio_player'] != "hero"}
+float:right; 
+right: 5px;
+{else}
+float:right;
+right: 356px;
+{/if}
+display: block; 
+position: absolute;
+bottom: 2px;
+}
+.left { 
+float:left; 
+display: block; 
+position: absolute;
+    left: 2px;
+    bottom: 2px;
+}
+
+@media screen and (max-height: 450px) {literal}{
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}{/literal}
+
+	</style>{literal}<style class=embedly-css>.card .hdr {
             display:none;
 		   }
 		   
@@ -163,126 +269,51 @@ border-radius: 0px;
 	content: url(https://chattersworld.nl/webchat/icons/{/literal}{$metadata['icons']}{literal}/voice.png)
 }
 .kiwi-messagelist {
-    background-image: linear-gradient(rgba(255,255,255, .75), rgba(255,255,255, .75)), url({/literal}{$metadata['bgurl']}{literal});
+{/literal}{if $metadata['style'] != "transparent"}{literal}
+               background-color:{/literal}{$metadata['bgcolor']}{literal};	}
+			   {/literal}{else}{literal}
+    background-image: linear-gradient(rgba(255,255,255, .75), rgba(255,255,255, .75)), url({/literal}{$metadata['bgurl']}{literal}); }
+	{/literal}{/if}{literal}
 	background-size: 100% 100%;
 	
 	 
 }
+
 </style>
 {/literal}
-<link href=static/css/app.2d629e84d2efa7075243e644916bf1e6.css rel=stylesheet></head><body><noscript><div class=kiwi-noscript-warn>Please enable JavaScript and refresh the page to use this website.</div></noscript><div id=app></div><script type=text/javascript src=static/js/manifest.60f9c2a5150c0d061277.js></script><script type=text/javascript src=static/js/vendor.faef9ab87173dcdcd03f.js></script><script type=text/javascript src=static/js/app.d5783b96a0547387e0f9.js></script>
-		{if $metadata['radio'] == "true"}
-		<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
-<div id="add" class="socialfooter" style="float:left;height:10%; width:50%;-webkit-border-radius: 0px;-moz-border-radius: 0px; border-radius: 0px; border: 0px #81BEF7 none; -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.1)));z-index:9999;">
-<div id="BbfWjPzRoMSm">
-  U laat onze advertenties niet toe
+<link href=static/css/app.0e0d0851.css rel=preload as=style><link href=static/js/app.b32a6610.js rel=preload as=script><link href=static/js/vendor.0d970857.js rel=preload as=script><link href=static/css/app.0e0d0851.css rel=stylesheet></head><body>
+<div class="left">
+<a target="_blank" href="https://chattersworld.nl"><img src="{$logo}" height="50" alt="Chattersworld"></a>
 </div>
 
-<script type="text/javascript" src="js/adblock.js?ver=1.6.2"></script>
-<script type="text/javascript">
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<center><a target="_blank" href="https://chattersworld.nl"><img src="{$logo}" height="100" alt="Chattersworld"></a></center>
+<br>
+{if $metadata['verzoek_url'] != "" && $metadata['radio'] == "true"}
+<a href="{$metadata['verzoek_url']}" target="_new" onclick="window.open('{$metadata['verzoek_url']}','Verzoekserver Aanvragen','width=800,height=650,scrollbars=yes,toolbar=no,menubar=no,location=yes,resizable=yes,border=no'); return false"><img src="https://www.gbc-radio.nl/chat/radio/request1.png" width="25px" height="25px" alt="Verzoek Aanvragen">&nbsp;Verzoekje Doen</a>
+<br />
+{else}
+<a target="_blank" href="https://chattersworld.nl"><img src="https://www.gbc-radio.nl/chat/radio/request1.png" width="25px" height="25px" alt="Maak je eigen chatbox!">&nbsp;Maak je eigen chatbox!</a>
+{/if}
+<br />
+{if $metadata['radio'] == "true"}
+<a href="http://chameleon.chattersworld.nl/webplayer.php?id={$smarty.get.id}" target="_new" onclick="window.open('http://chameleon.chattersworld.nl/webplayer.php?id={$smarty.get.id}','Chameleon Webplayer','width=1024,height=780,scrollbars=yes,toolbar=no,menubar=no,location=no,resizable=yes'); return false"><img src="https://www.gbc-radio.nl/chat/radio/regels1.png" width="25px" height="25px" alt="Chameleon Webplayer">&nbsp;Webplayer</a>
+{/if}
+<br />
+<!-- <a href="http://webplayer.gbc-radio.nl/" target="_new" onclick="window.open('http://webplayer.gbc-radio.nl/','GBC Webplayer','width=780,height=725,scrollbars=yes,toolbar=no,menubar=no,location=no,resizable=yes'); return false"><img src="https://www.gbc-radio.nl/chat/radio/regels1.png" width="25px" height="25px" alt="Webplayer GBC-Radio">&nbsp;Webplayer</a> -->
+<br>
 
-if(!document.getElementById('ehaOmEGYitqn')){
-  document.getElementById('BbfWjPzRoMSm').style.display='block';
-}
-
-</script>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- side -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-9106844814451489"
-     data-ad-slot="2999842055"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>		
-
-<script src="radiolibs/luna/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="radiolibs/luna/lunaradio.min.js"></script>
-
+</div>
+<div class="right"><span style="font-size:30px;cursor:pointer;color:#FFF;" onclick="openNav()">&#9776;</span></div>
+<noscript><div class=kiwi-noscript-warn>Please enable JavaScript and refresh the page to use this website.</div></noscript><div id=app></div><script src=static/js/vendor.0d970857.js></script><script src=static/js/app.b32a6610.js></script>
+		<script type="text/javascript">
 	
-        <div id="lunaradio" style='float:right;width:50%; height:70px;
--webkit-border-top-left-radius: 50px;
-  -webkit-border-top-right-radius: 50px;
-  -webkit-border-bottom-right-radius: 50px;
-  -webkit-border-bottom-left-radius: 50px;
-  -moz-border-radius-topleft: 50px;
-  -moz-border-radius-topright: 50px;
-  -moz-border-radius-bottomright: 50px;
-  -moz-border-radius-bottomleft: 50px;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;
-  border-bottom-left-radius: 50px;
-  border: none;'>
-<div id="flashradio" style="height:100px; width:100%;">
-Native Flashradio V4
-</div>
-</div>
-        <script>
-$("#lunaradio").lunaradio({
-	token: "VVpTZmZXZGVpYWReViBgXg==",
-	userinterface: "small",
-	backgroundcolor: "{$metadata['playerkleur']}",
-	fontcolor: "{$metadata['tekstkleur']}",
-	hightlightcolor: "#13c4eb",
-	fontname: "Open Sans",
-	googlefont: "open+sans:300",
-	fontratio: "0.4",
-	radioname: "{$metadata['radio_name']}",
-	scroll: "true",
-	coverimage: "https://horus.chattersworld.nl/dist/img/c4all.png",
-	coverstyle: "circle",
-	usevisualizer: "fake",
-	visualizertype: "",
-	itunestoken: "1000lIPN",
-	metadatatechnic: "stream-icy-meta",
-	ownmetadataurl: "",
-	streamurl: "{$metadata['radio_link']}",
-	streamtype: "{$metadata['radio_type']}",
-	icecastmountpoint: "",
-	radionomyid: "",
-	radionomyapikey: "",
-	radiojarid: "",
-	radiocoid: "sdef46f462",
-	shoutcastpath: "/live",
-	shoutcastid: "1",
-	streamsuffix: "",
-	metadatainterval: "20000",
-	volume: "90",
-	debug: "false",
-	usestreamcorsproxy: "false", 
-	corsproxy: "",
-});
-</script>
-		{else}
-	<div id="add" class="socialfooter" style="float:left;height:10%; width:100%;-webkit-border-radius: 0px;-moz-border-radius: 0px; border-radius: 0px; border: 0px #81BEF7 none; -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.1)));z-index:9999;">
-<div id="BbfWjPzRoMSm">
-  U laat onze advertenties niet toe
-</div>
-
-<script type="text/javascript" src="js/adblock.js?ver=1.6.2"></script>
-<script type="text/javascript">
-
-if(!document.getElementById('ehaOmEGYitqn')){
-  document.getElementById('BbfWjPzRoMSm').style.display='block';
+	function openNav() {
+    document.getElementById("mySidenav").style.width = "33%";
 }
 
-</script>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- side -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-9106844814451489"
-     data-ad-slot="2999842055"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
-{/if}	
-
-		</body></html>
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+ </script>
