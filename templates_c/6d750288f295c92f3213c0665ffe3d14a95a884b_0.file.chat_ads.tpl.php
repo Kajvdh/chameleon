@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2020-06-11 08:45:35
+/* Smarty version 3.1.29, created on 2020-07-02 12:30:47
   from "/home/stats/chameleon/templates/chat_ads.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5ee1d30fca22b3_38006021',
+  'unifunc' => 'content_5efdb757d298e9_98164057',
   'file_dependency' => 
   array (
     '6d750288f295c92f3213c0665ffe3d14a95a884b' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5ee1d30fca22b3_38006021 ($_smarty_tpl) {
+function content_5efdb757d298e9_98164057 ($_smarty_tpl) {
 if ($_smarty_tpl->tpl_vars['metadata']->value['ads_enabled'] == "true") {?>
     <center>
         <?php echo '<script'; ?>

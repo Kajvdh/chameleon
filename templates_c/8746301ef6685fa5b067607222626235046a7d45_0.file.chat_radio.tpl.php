@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2020-06-14 15:15:48
+/* Smarty version 3.1.29, created on 2020-07-02 21:08:23
   from "/home/stats/chameleon/templates/chat_radio.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5ee62304b4dc91_12621669',
+  'unifunc' => 'content_5efe30a7d9ac58_12461756',
   'file_dependency' => 
   array (
     '8746301ef6685fa5b067607222626235046a7d45' => 
     array (
       0 => '/home/stats/chameleon/templates/chat_radio.tpl',
-      1 => 1592140544,
+      1 => 1593716693,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5ee62304b4dc91_12621669 ($_smarty_tpl) {
+function content_5efe30a7d9ac58_12461756 ($_smarty_tpl) {
 ?>
 
 <?php if ($_smarty_tpl->tpl_vars['metadata']->value['radio'] == "true") {?>
@@ -376,6 +376,82 @@ if ($_smarty_tpl->tpl_vars['metadata']->value['radio_type'] == "shoutcast") {?>/
             <?php echo '</script'; ?>
 >
             <!-- ENDS: AUTO-GENERATED MUSES RADIO PLAYER CODE -->
+        </center>
+	<?php } elseif ($_smarty_tpl->tpl_vars['metadata']->value['radio_player'] == "internal") {?>
+        <?php echo '<script'; ?>
+ src="radiolibs/luna/jquery-3.2.1.min.js"><?php echo '</script'; ?>
+>
+        <?php echo '<script'; ?>
+ type="text/javascript" src="radiolibs/luna/lunaradio.min.js?v=5.20.06.02"><?php echo '</script'; ?>
+>
+
+	<center>
+        <div id="lunaradio" style='width:50%; height:70px;
+-webkit-border-top-left-radius: 50px;
+  -webkit-border-top-right-radius: 50px;
+  -webkit-border-bottom-right-radius: 50px;
+  -webkit-border-bottom-left-radius: 50px;
+  -moz-border-radius-topleft: 50px;
+  -moz-border-radius-topright: 50px;
+  -moz-border-radius-bottomright: 50px;
+  -moz-border-radius-bottomleft: 50px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border: none;'>
+<div id="flashradio" style="height:100px; width:100%;">
+Native Flashradio V4
+</div>
+</div>
+        <?php echo '<script'; ?>
+>
+$("#lunaradio").lunaradio({
+	token: "VVpTZmZXZGVpYWReViBgXg==",
+	userinterface: "small",
+	backgroundcolor: "<?php echo $_smarty_tpl->tpl_vars['metadata']->value['playerkleur'];?>
+",
+	fontcolor: "<?php echo $_smarty_tpl->tpl_vars['metadata']->value['tekstkleur'];?>
+",
+	hightlightcolor: "#13c4eb",
+	fontname: "Open Sans",
+	googlefont: "open+sans:300",
+	fontratio: "0.4",
+	radioname: "<?php echo $_smarty_tpl->tpl_vars['metadata']->value['radio_name'];?>
+",
+	scroll: "true",
+	coverimage: "https://horus.chattersworld.nl/dist/img/c4all.png",
+	coverstyle: "circle",
+	usevisualizer: "fake",
+	visualizertype: "4",
+	itunestoken: "1000lIPN",
+	metadatatechnic: "stream-icy-meta",
+	ownmetadataurl: "",
+	streamurl: "<?php echo $_smarty_tpl->tpl_vars['metadata']->value['radio_link'];?>
+",
+	streamtype: "<?php echo $_smarty_tpl->tpl_vars['metadata']->value['radio_type'];?>
+",
+	icecastmountpoint: "<?php if ($_smarty_tpl->tpl_vars['metadata']->value['radio_type'] == "icecast2") {
+echo $_smarty_tpl->tpl_vars['metadata']->value['mountpoint'];
+}?>",
+	radionomyid: "",
+	radionomyapikey: "",
+	radiojarid: "",
+	radiocoid: "sdef46f462",
+	shoutcastpath: "<?php if ($_smarty_tpl->tpl_vars['metadata']->value['radio_type'] == "shoutcast2") {
+echo $_smarty_tpl->tpl_vars['metadata']->value['mountpoint'];
+}?>",
+	shoutcastid: "1",
+	streamsuffix: "",
+	metadatainterval: "20000",
+	volume: "50",
+	debug: "false",
+	usestreamcorsproxy: "false", 
+	corsproxy: "",
+});
+<?php echo '</script'; ?>
+>
+         
         </center>
     <?php } else { ?>
         <center>

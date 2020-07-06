@@ -95,6 +95,8 @@
                                 <option value="ster" {if $icon_style=="ster"}selected="selected"{/if}>Ster</option>
                                 <option value="kroon" {if $icon_style=="kroon"}selected="selected"{/if}>Kroon</option>
                                 <option value="dj" {if $icon_style=="dj"}selected="selected"{/if}>DJ</option>
+								<option value="pins" {if $icon_style=="pins"}selected="selected"{/if}>Punaises</option>
+								<option value="whatsapp" {if $icon_style=="whatsapp"}selected="selected"{/if}>WhatsApp</option>
                                 <option value="none" {if $icon_style=="none"}selected="selected"{/if}>Standaard (~&@%+)</option>
                             </select>
                         </div>
@@ -260,8 +262,9 @@
                                 <option value="cwflash" {if $radio_style=="cwflash"}selected="selected"{/if}>Tori Black</option>
                                 <option value="muses" {if $radio_style=="muses"}selected="selected"{/if}>Madison Ivy</option>
                                 <option value="stenly" {if $radio_style=="stenly"}selected="selected"{/if}>Jenna Jameson</option>
-								<option value="hero" {if $radio_style=="hero"}selected="selected"{/if}>Wonder Woman</option>
+								<option value="hero" {if $radio_style=="hero"}selected="selected"{/if}>Sophie Dee</option>
 								<option value="luna" {if $radio_style=="luna"}selected="selected"{/if}>Luna Alora</option>
+								<option value="internal" {if $radio_style=="internal"}selected="selected"{/if}>Bailey Brooke</option>
                             </select>
                         </div>
                     </div><br /><br />

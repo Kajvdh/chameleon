@@ -41,7 +41,7 @@ class LightIRC {
         $this->setShowIdentifySelection("true");
         $this->setShowNickSelection("true");
         $this->setShowRegisterNicknameButton("true");
-        $this->setShowRegisterChannelButton("false");
+        $this->setShowRegisterChannelButton("true");
         $this->setShowNewQueriesInBackground("false");
         $this->setShowInfoMessages("true");
         $this->setChannelHeader("Kanaal: %channel% | Chatters: %users% | Modes: %mode% | Topic: %topic%");

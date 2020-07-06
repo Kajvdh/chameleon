@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2020-06-11 17:31:39
+/* Smarty version 3.1.29, created on 2020-07-02 18:04:10
   from "/home/stats/chameleon/templates/chat_help.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5ee24e5b401bf7_74515142',
+  'unifunc' => 'content_5efe057aee6ca2_35580965',
   'file_dependency' => 
   array (
     'adbe7c81c621ad061a752b3a33230faad8f2c46c' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5ee24e5b401bf7_74515142 ($_smarty_tpl) {
+function content_5efe057aee6ca2_35580965 ($_smarty_tpl) {
 ?>
 <div class="datacontainer" id="data"> 
 <div class="card">

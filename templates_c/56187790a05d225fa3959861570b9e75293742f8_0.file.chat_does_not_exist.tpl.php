@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2020-06-11 08:39:27
+/* Smarty version 3.1.29, created on 2020-07-02 12:18:51
   from "/home/stats/chameleon/templates/chat_does_not_exist.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5ee1d19fbb4347_02415889',
+  'unifunc' => 'content_5efdb48b60a967_92182600',
   'file_dependency' => 
   array (
     '56187790a05d225fa3959861570b9e75293742f8' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5ee1d19fbb4347_02415889 ($_smarty_tpl) {
+function content_5efdb48b60a967_92182600 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>

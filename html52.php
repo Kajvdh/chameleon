@@ -42,7 +42,11 @@ if (isset($_GET['id'])) {
         $smarty->display('kiwi.tpl');
 
         if ($metadata['radio'] == "true") {
-            $smarty->display('chat_radio.tpl');
+			if ($metadata['radio_player'] == "internal") {
+				$smarty->display('chat_ads.tpl');
+			}else{ 
+				$smarty->display('chat_radio.tpl'); 
+			}
         } elseif ($metadata['ads_enabled'] == "true") {
             $smarty->display('chat_ads.tpl');
         }

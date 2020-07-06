@@ -27,6 +27,13 @@
 		<meta name="twitter:description" content="Waar chatten, chatten is!" />
 		<meta name="twitter:title" content="Chattersworld | Waar chatten, chatten is!" />
 		<link rel="icon" href="{$logo}" sizes="32x32" />
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-9106844814451489",
+          enable_page_level_ads: true
+     });
+</script>
 		<link href="webplayer/css/bootstrap.min.css?v=1.18.03.18" rel="stylesheet" type="text/css" media="all" />
 		<link href="webplayer/css/themify-icons.min.css?v=1.18.03.18" rel="stylesheet" type="text/css" media="all" />
 		<link href="webplayer/css/flexslider.min.css?v=1.18.03.18" rel="stylesheet" type="text/css" media="all" />
@@ -50,7 +57,7 @@
     			<script language=JavaScript> var message="Sjips, werkt niet :("; function clickIE4(){ if (event.button==2){ alert(message); return false; } } function clickNS4(e){ if (document.layers||document.getElementById&&!document.all){ if (e.which==2||e.which==3){ alert(message); return false; } } } if (document.layers){ document.captureEvents(Event.MOUSEDOWN); document.onmousedown=clickNS4; } else if (document.all&&!document.getElementById){ document.onmousedown=clickIE4; } document.oncontextmenu=new Function("alert(message);return false") </script>{/literal}
 			<script>{literal} 
   				$(document).ready(function updateChatCount() {
-					$.get('https://chattersworld.nl/usercount.php?channel={/literal}{$metadata['radio_name']}{literal}', function(data) {
+					$.get('https://chattersworld.nl/usercount.php?channel={/literal}{$metadata['name']}{literal}', function(data) {
 	  				$("#users").html(data);
 					}, 'text');
 					setTimeout(updateChatCount,3000);
@@ -139,7 +146,7 @@ return true;
 								</a>
 							</li> -->
 							<li class=""> 
-								<a href="https://chameleon/chattersworld.nl/chat.php?id={$smarty.get.id}">
+								<a href="https://chameleon.chattersworld.nl/chat.php?id={$smarty.get.id}">
 									Chatters online: <span id="users"></span>
 								</a>
 							</li> 

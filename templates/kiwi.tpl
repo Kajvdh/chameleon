@@ -57,8 +57,8 @@
 <meta property="og:image" content="{$logo}" />
 <link rel="icon" href="{$logo}" sizes="32x32" />
 {else}
-<meta property="og:image" content="{$metadata['bgurl']}" />
-<link rel="icon" href="{$metadata['bgurl']}" sizes="32x32" />
+<meta property="og:image" content="{if $metadata['bgurl'] == ""}cwobg.jpg{else}{$metadata['bgurl']}{/if}" />
+<link rel="icon" href="{if $metadata['bgurl'] == ""}{$logo}{else}{$metadata['bgurl']}{/if}" sizes="32x32" />
 {/if}
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:description" content="Waar chatten, chatten is!" />
@@ -66,9 +66,9 @@
 <link rel="canonical" href="https://chameleon.chattersworld.nl" />
 {literal}
 <script name="kiwiconfig">
-{"startupScreen": "welcome",
+{"startupScreen": "plugin-asl",
 "windowTitle": "..::Chattersworld - #{/literal}{$metadata['name']}{literal}::.. The web IRC client",
- 
+
 "theme": "Osprey",
 "themes": [
         { "name": "Default", "url": "static/themes/default" },
@@ -81,17 +81,20 @@
         { "name": "Sky", "url": "static/themes/sky" },
         { "name": "Elite", "url": "static/themes/elite" }
     ],
+"showColorPicker": true,
 "startupOptions": { 
 "server": "irc.chattersworld.nl", 
 "infoBackground": "{/literal}{if $metadata['bgurl'] != ''}{$metadata['bgurl']}{else}cwobg.jpg{/if}{literal}", 
-"infoContent": "<img src=\"https://atsiofrjlo.cloudimg.io/v7/https://chattersworld.nl/wp-content/uploads/2018/10/cropped-c4all.png\" height=\"30%\" width=\"30%\"><p>U bent terecht gekomen op de HTML5 chat van <a href=\"https://chameleon.chattersworld.nl\">Chattersworld Chameleon</a>.<br> Log gerust in of neem een kijkje op <a href=\"https://chattersworld.nl/\">onze website</a>.</p><p></p>",
+"infoContent": "<a class=\"netlogo\" href=\"https://chameleon.chattersworld.nl\"><span></span><img src=\"https://atsiofrjlo.cloudimg.io/v7/https://chattersworld.nl/wp-content/uploads/2018/10/cropped-c4all.png\"></a><div><a href=\"https://chameleon.chattersworld.nl/register.php\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-lock\"></i> Registreer</a><a href=\"https://chameleon.chattersworld.nl/chat.php?id=1\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> Helpdesk</a><a href=\"https://wiki.chattersworld.nl/\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> CWO Wiki</a></div>",
 "state_key": "kiwi-state", 
 "port": 6800, 
 "tls": true, 
-"direct": true,
-"showCaptcha": true, 
+"direct": true, 
 "recaptchaSiteId": "6LdZ_nIUAAAAANK_JiB2qsRbSPnldqaYTjFwNj8G",
 "channel": "#{/literal}{$metadata['name']}{literal}",
+"age": "",
+"sex": "",
+"location": "",
 "remember_buffers": true, 
 "nick": "" },
 "sidebarDefault": "nicklist",
@@ -99,8 +102,10 @@
 {/literal}{if $metadata['private'] == "true"}{literal}"block_pms": false, {/literal}{/if}{literal}
 "coloured_nicklist": false,
 "nicklist_avatars": true,
+"colour_nicknames_in_messages": false,
 "inline_link_auto_previews": true,
 "inline_link_auto_preview_whitelist": ".*",
+"messageLayout": "inline",
 "share_typing": true
 },
 	"plugins": [
@@ -109,8 +114,44 @@
             "url": "static/plugins/conference/plugin-conference.min.js"
         },
 		{"name": "emoji", "url": "static/plugins/plugin-emoji-prelim.min.js"},
-		{"name": "fileuploader", "url": "static/plugins/fileuploader.js"}
+		{"name": "simosnapcss","url": "static/plugins/cwo-css.html"},
+		{/literal}{if $metadata['radio'] == "true" && $metadata['radio_player'] == "internal"}{literal}
+		{"name": "plugin-radio","url": "static/plugins/plugin-radio.html"},
+		{/literal}{/if}{literal}
+		{"name": "asl","url": "static/plugins/plugin-asl.js?cb=20"}
     ],
+	"plugin-asl" : {
+                "gecosType": 2,
+                "showRealname": false,
+                "showUserBrowser": true,
+                "userBrowserIcon": "fa-heart",
+                "fallbackColour": "",
+                "singleLineUserbox": false,
+                "singleLineString": {
+                    "age": "%a jaar oud",
+                    "sex": "%s",
+                    "location": "%l",
+                    "separator": " "
+                },
+                "ageRanges": [
+                    { "name": "_all", "value": "all" },
+                    { "name": "< 25", "value": "<25" },
+                    { "name": "25 - 45", "value": "25-46" },
+                    { "name": "> 45", "value": ">45" }
+                ],
+                "sexes": {
+                    "_male": { "chars": "M", "colour": "#00F" },
+                    "_female": { "chars": "F", "colour": "#F0F" },
+                    "_other": { "chars": "O", "colour": "#0F0" }
+                },
+                "queryKeys": {
+                    "age": "age",
+                    "sex": "sex",
+                    "location": "location",
+                    "realname": "realname"
+                },
+                "localesPath": "static/plugins/plugin-asl/locales/"
+            },
 	"conference":{ 
     		"server": "meet.jit.si",
     		"secure": false,
@@ -141,10 +182,14 @@
     		"configOverwrite": {
     		}
 	},
+	"plugin-radio": {
+    "url": "stations.php?id={/literal}{$smarty.get.id}{literal}"
+	},
+
 	"fileuploader": {
-		"server": "https://stats.gezelligkletsen.nl:8088/files",
+		"server": "http://51.38.109.219:8088/files",
 		"maxFileSize": 10485760,
-		"note": "Add an optional note to the upload dialog"
+		"note": "Let op, deze bestanden blijven maximaal 24 uur bestaan!"
 	},
 	"embedly": {
         "key": ""
@@ -162,7 +207,11 @@
 			   {if $metadata['style'] != "transparent"}
                background-color:{$metadata['bgcolor']};	}
 			   {else}
+			   {if $metadata['bgurl'] != ""}
 			   background-image:url("{$metadata['bgurl']}");
+			   {else}
+			   background-image:url("cwobg.jpg");
+			   {/if}
 			   background-repeat: no-repeat;
 			      background-size: 100% 100%; }
 			   {/if}
@@ -254,34 +303,53 @@ position: absolute;
 		   }
 		   
 		    .kiwi-nicklist-user--mode-q .kiwi-nicklist-user-prefix {
-	content: url(https://chattersworld.nl/webchat/icons/{/literal}{$metadata['icons']}{literal}/owner.png)
+	content: url(lirc-resources/icons/{/literal}{$metadata['icons']}{literal}/owner.png)
 }
  .kiwi-nicklist-user--mode-a .kiwi-nicklist-user-prefix {
-	content: url(https://chattersworld.nl/webchat/icons/{/literal}{$metadata['icons']}{literal}/admin.png)
+	content: url(lirc-resources/icons/{/literal}{$metadata['icons']}{literal}/admin.png)
 }
  .kiwi-nicklist-user--mode-o .kiwi-nicklist-user-prefix {
-	content: url(https://chattersworld.nl/webchat/icons/{/literal}{$metadata['icons']}{literal}/operator.png)
+	content: url(lirc-resources/icons/{/literal}{$metadata['icons']}{literal}/operator.png)
 }
  .kiwi-nicklist-user--mode-h .kiwi-nicklist-user-prefix {
-	content: url(https://chattersworld.nl/webchat/icons/{/literal}{$metadata['icons']}{literal}/halfop.png)
+	content: url(lirc-resources/icons/{/literal}{$metadata['icons']}{literal}/halfop.png)
 }
  .kiwi-nicklist-user--mode-v .kiwi-nicklist-user-prefix {
-	content: url(https://chattersworld.nl/webchat/icons/{/literal}{$metadata['icons']}{literal}/voice.png)
+	content: url(lirc-resources/icons/{/literal}{$metadata['icons']}{literal}/voice.png)
 }
+{/literal}{if $metadata['prefixicons'] == "true"}{literal}
+.kiwi-messagelist-nick--mode-q .kiwi-messagelist-nick--prefix {
+	content: url(lirc-resources/icons/{/literal}{$metadata['icons']}{literal}/owner.png)
+}
+ .kiwi-messagelist-nick--mode-a .kiwi-messagelist-nick--prefix {
+	content: url(lirc-resources/icons/{/literal}{$metadata['icons']}{literal}/admin.png)
+}
+ .kiwi-messagelist-nick--mode-o .kiwi-messagelist-nick--prefix {
+	content: url(lirc-resources/icons/{/literal}{$metadata['icons']}{literal}/operator.png)
+}
+ .kiwi-messagelist-nick--mode-h .kiwi-messagelist-nick--prefix {
+	content: url(lirc-resources/icons/{/literal}{$metadata['icons']}{literal}/halfop.png)
+}
+ .kiwi-messagelist-nick--mode-v .kiwi-messagelist-nick--prefix {
+	content: url(lirc-resources/icons/{/literal}{$metadata['icons']}{literal}/voice.png)
+}
+{/literal}{/if}{literal}
 .kiwi-messagelist {
-{/literal}{if $metadata['style'] != "transparent"}{literal}
-               background-color:{/literal}{$metadata['bgcolor']}{literal};	}
+{/literal}{if $metadata['style'] != "transparent"}{literal}{/literal}
+			   {if $metadata['bgcolor'] == '#000000'}{literal}background-color:rgba(0,0,0, .50);{/literal}{else}{literal}
+               background-color:{/literal}{$metadata['bgcolor']}{literal};{/literal}{/if}{literal}	
+			   }
 			   {/literal}{else}{literal}
-    background-image: linear-gradient(rgba(255,255,255, .75), rgba(255,255,255, .75)), url({/literal}{$metadata['bgurl']}{literal}); }
+    background-image: linear-gradient(rgba(255,255,255, .50), rgba(255,255,255, .50)), url({/literal}{$metadata['bgurl']}{literal}); 
 	{/literal}{/if}{literal}
-	background-size: 100% 100%;
+	background-size: 100% 100%; }
 	
 	 
 }
 
 </style>
 {/literal}
-<link href=static/css/app.0e0d0851.css rel=preload as=style><link href=static/js/app.b32a6610.js rel=preload as=script><link href=static/js/vendor.0d970857.js rel=preload as=script><link href=static/css/app.0e0d0851.css rel=stylesheet></head><body>
+<link href=static/css/app.208299db.css rel=preload as=style><link href=static/js/app.50629b2f.js rel=preload as=script><link href=static/js/vendor.0d970857.js rel=preload as=script><link href=static/css/app.208299db.css rel=stylesheet></head><body>
 <div class="left">
 <a target="_blank" href="https://chattersworld.nl"><img src="{$logo}" height="50" alt="Chattersworld"></a>
 </div>
@@ -306,7 +374,7 @@ position: absolute;
 
 </div>
 <div class="right"><span style="font-size:30px;cursor:pointer;color:#FFF;" onclick="openNav()">&#9776;</span></div>
-<noscript><div class=kiwi-noscript-warn>Please enable JavaScript and refresh the page to use this website.</div></noscript><div id=app></div><script src=static/js/vendor.0d970857.js></script><script src=static/js/app.b32a6610.js></script>
+<noscript><div class=kiwi-noscript-warn>Please enable JavaScript and refresh the page to use this website.</div></noscript><div id=app></div><script src=static/js/vendor.0d970857.js></script><script src=static/js/app.50629b2f.js></script>
 		<script type="text/javascript">
 	
 	function openNav() {

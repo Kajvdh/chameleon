@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2020-06-11 12:19:43
+/* Smarty version 3.1.29, created on 2020-07-02 12:22:15
   from "/home/stats/chameleon/templates/webplayer.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5ee2053fbb3913_35039879',
+  'unifunc' => 'content_5efdb557674623_48270723',
   'file_dependency' => 
   array (
     '7c9baa7b61faf408dd06b92d0a10b46d84ad62f5' => 
     array (
       0 => '/home/stats/chameleon/templates/webplayer.tpl',
-      1 => 1591478365,
+      1 => 1593336823,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5ee2053fbb3913_35039879 ($_smarty_tpl) {
+function content_5efdb557674623_48270723 ($_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -52,6 +52,17 @@ function content_5ee2053fbb3913_35039879 ($_smarty_tpl) {
 		<meta name="twitter:title" content="Chattersworld | Waar chatten, chatten is!" />
 		<link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['logo']->value;?>
 " sizes="32x32" />
+		<?php echo '<script'; ?>
+ async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"><?php echo '</script'; ?>
+>
+<?php echo '<script'; ?>
+>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-9106844814451489",
+          enable_page_level_ads: true
+     });
+<?php echo '</script'; ?>
+>
 		<link href="webplayer/css/bootstrap.min.css?v=1.18.03.18" rel="stylesheet" type="text/css" media="all" />
 		<link href="webplayer/css/themify-icons.min.css?v=1.18.03.18" rel="stylesheet" type="text/css" media="all" />
 		<link href="webplayer/css/flexslider.min.css?v=1.18.03.18" rel="stylesheet" type="text/css" media="all" />
@@ -86,7 +97,7 @@ function content_5ee2053fbb3913_35039879 ($_smarty_tpl) {
 			<?php echo '<script'; ?>
 > 
   				$(document).ready(function updateChatCount() {
-					$.get('https://chattersworld.nl/usercount.php?channel=<?php echo $_smarty_tpl->tpl_vars['metadata']->value['radio_name'];?>
+					$.get('https://chattersworld.nl/usercount.php?channel=<?php echo $_smarty_tpl->tpl_vars['metadata']->value['name'];?>
 ', function(data) {
 	  				$("#users").html(data);
 					}, 'text');
@@ -179,7 +190,7 @@ return true;
 								</a>
 							</li> -->
 							<li class=""> 
-								<a href="https://chameleon/chattersworld.nl/chat.php?id=<?php echo $_GET['id'];?>
+								<a href="https://chameleon.chattersworld.nl/chat.php?id=<?php echo $_GET['id'];?>
 ">
 									Chatters online: <span id="users"></span>
 								</a>

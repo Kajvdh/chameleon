@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2020-06-16 11:58:04
+/* Smarty version 3.1.29, created on 2020-07-02 20:52:48
   from "/home/stats/chameleon/templates/kiwi.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5ee897ac93e607_67634276',
+  'unifunc' => 'content_5efe2d00da26e7_47919042',
   'file_dependency' => 
   array (
     '76d20f03a91c32f56adf5059d69aef4dd58b0eed' => 
     array (
       0 => '/home/stats/chameleon/templates/kiwi.tpl',
-      1 => 1592301474,
+      1 => 1593715954,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5ee897ac93e607_67634276 ($_smarty_tpl) {
+function content_5efe2d00da26e7_47919042 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html><html><head>
 <?php echo '<script'; ?>
@@ -93,10 +93,14 @@ function content_5ee897ac93e607_67634276 ($_smarty_tpl) {
 <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['logo']->value;?>
 " sizes="32x32" />
 <?php } else { ?>
-<meta property="og:image" content="<?php echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];?>
-" />
-<link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];?>
-" sizes="32x32" />
+<meta property="og:image" content="<?php if ($_smarty_tpl->tpl_vars['metadata']->value['bgurl'] == '') {?>cwobg.jpg<?php } else {
+echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];
+}?>" />
+<link rel="icon" href="<?php if ($_smarty_tpl->tpl_vars['metadata']->value['bgurl'] == '') {
+echo $_smarty_tpl->tpl_vars['logo']->value;
+} else {
+echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];
+}?>" sizes="32x32" />
 <?php }?>
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:description" content="Waar chatten, chatten is!" />
@@ -105,10 +109,10 @@ function content_5ee897ac93e607_67634276 ($_smarty_tpl) {
 
 <?php echo '<script'; ?>
  name="kiwiconfig">
-{"startupScreen": "welcome",
+{"startupScreen": "plugin-asl",
 "windowTitle": "..::Chattersworld - #<?php echo $_smarty_tpl->tpl_vars['metadata']->value['name'];?>
 ::.. The web IRC client",
- 
+
 "theme": "Osprey",
 "themes": [
         { "name": "Default", "url": "static/themes/default" },
@@ -121,20 +125,23 @@ function content_5ee897ac93e607_67634276 ($_smarty_tpl) {
         { "name": "Sky", "url": "static/themes/sky" },
         { "name": "Elite", "url": "static/themes/elite" }
     ],
+"showColorPicker": true,
 "startupOptions": { 
 "server": "irc.chattersworld.nl", 
 "infoBackground": "<?php if ($_smarty_tpl->tpl_vars['metadata']->value['bgurl'] != '') {
 echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];
 } else { ?>cwobg.jpg<?php }?>", 
-"infoContent": "<img src=\"https://atsiofrjlo.cloudimg.io/v7/https://chattersworld.nl/wp-content/uploads/2018/10/cropped-c4all.png\" height=\"30%\" width=\"30%\"><p>U bent terecht gekomen op de HTML5 chat van <a href=\"https://chameleon.chattersworld.nl\">Chattersworld Chameleon</a>.<br> Log gerust in of neem een kijkje op <a href=\"https://chattersworld.nl/\">onze website</a>.</p><p></p>",
+"infoContent": "<a class=\"netlogo\" href=\"https://chameleon.chattersworld.nl\"><span></span><img src=\"https://atsiofrjlo.cloudimg.io/v7/https://chattersworld.nl/wp-content/uploads/2018/10/cropped-c4all.png\"></a><div><a href=\"https://chameleon.chattersworld.nl/register.php\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-lock\"></i> Registreer</a><a href=\"https://chameleon.chattersworld.nl/chat.php?id=1\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> Helpdesk</a><a href=\"https://wiki.chattersworld.nl/\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> CWO Wiki</a></div>",
 "state_key": "kiwi-state", 
 "port": 6800, 
 "tls": true, 
-"direct": true,
-"showCaptcha": true, 
+"direct": true, 
 "recaptchaSiteId": "6LdZ_nIUAAAAANK_JiB2qsRbSPnldqaYTjFwNj8G",
 "channel": "#<?php echo $_smarty_tpl->tpl_vars['metadata']->value['name'];?>
 ",
+"age": "",
+"sex": "",
+"location": "",
 "remember_buffers": true, 
 "nick": "" },
 "sidebarDefault": "nicklist",
@@ -142,8 +149,10 @@ echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];
 <?php if ($_smarty_tpl->tpl_vars['metadata']->value['private'] == "true") {?>"block_pms": false, <?php }?>
 "coloured_nicklist": false,
 "nicklist_avatars": true,
+"colour_nicknames_in_messages": false,
 "inline_link_auto_previews": true,
 "inline_link_auto_preview_whitelist": ".*",
+"messageLayout": "inline",
 "share_typing": true
 },
 	"plugins": [
@@ -152,8 +161,44 @@ echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];
             "url": "static/plugins/conference/plugin-conference.min.js"
         },
 		{"name": "emoji", "url": "static/plugins/plugin-emoji-prelim.min.js"},
-		{"name": "fileuploader", "url": "static/plugins/fileuploader.js"}
+		{"name": "simosnapcss","url": "static/plugins/cwo-css.html"},
+		<?php if ($_smarty_tpl->tpl_vars['metadata']->value['radio'] == "true" && $_smarty_tpl->tpl_vars['metadata']->value['radio_player'] == "internal") {?>
+		{"name": "plugin-radio","url": "static/plugins/plugin-radio.html"},
+		<?php }?>
+		{"name": "asl","url": "static/plugins/plugin-asl.js?cb=20"}
     ],
+	"plugin-asl" : {
+                "gecosType": 2,
+                "showRealname": false,
+                "showUserBrowser": true,
+                "userBrowserIcon": "fa-heart",
+                "fallbackColour": "",
+                "singleLineUserbox": false,
+                "singleLineString": {
+                    "age": "%a jaar oud",
+                    "sex": "%s",
+                    "location": "%l",
+                    "separator": " "
+                },
+                "ageRanges": [
+                    { "name": "_all", "value": "all" },
+                    { "name": "< 25", "value": "<25" },
+                    { "name": "25 - 45", "value": "25-46" },
+                    { "name": "> 45", "value": ">45" }
+                ],
+                "sexes": {
+                    "_male": { "chars": "M", "colour": "#00F" },
+                    "_female": { "chars": "F", "colour": "#F0F" },
+                    "_other": { "chars": "O", "colour": "#0F0" }
+                },
+                "queryKeys": {
+                    "age": "age",
+                    "sex": "sex",
+                    "location": "location",
+                    "realname": "realname"
+                },
+                "localesPath": "static/plugins/plugin-asl/locales/"
+            },
 	"conference":{ 
     		"server": "meet.jit.si",
     		"secure": false,
@@ -184,10 +229,15 @@ echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];
     		"configOverwrite": {
     		}
 	},
+	"plugin-radio": {
+    "url": "stations.php?id=<?php echo $_GET['id'];?>
+"
+	},
+
 	"fileuploader": {
-		"server": "https://stats.gezelligkletsen.nl:8088/files",
+		"server": "http://51.38.109.219:8088/files",
 		"maxFileSize": 10485760,
-		"note": "Add an optional note to the upload dialog"
+		"note": "Let op, deze bestanden blijven maximaal 24 uur bestaan!"
 	},
 	"embedly": {
         "key": ""
@@ -207,8 +257,12 @@ echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];
                background-color:<?php echo $_smarty_tpl->tpl_vars['metadata']->value['bgcolor'];?>
 ;	}
 			   <?php } else { ?>
+			   <?php if ($_smarty_tpl->tpl_vars['metadata']->value['bgurl'] != '') {?>
 			   background-image:url("<?php echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];?>
 ");
+			   <?php } else { ?>
+			   background-image:url("cwobg.jpg");
+			   <?php }?>
 			   background-repeat: no-repeat;
 			      background-size: 100% 100%; }
 			   <?php }?>
@@ -300,41 +354,65 @@ position: absolute;
 		   }
 		   
 		    .kiwi-nicklist-user--mode-q .kiwi-nicklist-user-prefix {
-	content: url(https://chattersworld.nl/webchat/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
+	content: url(lirc-resources/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
 /owner.png)
 }
  .kiwi-nicklist-user--mode-a .kiwi-nicklist-user-prefix {
-	content: url(https://chattersworld.nl/webchat/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
+	content: url(lirc-resources/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
 /admin.png)
 }
  .kiwi-nicklist-user--mode-o .kiwi-nicklist-user-prefix {
-	content: url(https://chattersworld.nl/webchat/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
+	content: url(lirc-resources/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
 /operator.png)
 }
  .kiwi-nicklist-user--mode-h .kiwi-nicklist-user-prefix {
-	content: url(https://chattersworld.nl/webchat/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
+	content: url(lirc-resources/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
 /halfop.png)
 }
  .kiwi-nicklist-user--mode-v .kiwi-nicklist-user-prefix {
-	content: url(https://chattersworld.nl/webchat/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
+	content: url(lirc-resources/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
 /voice.png)
 }
+<?php if ($_smarty_tpl->tpl_vars['metadata']->value['prefixicons'] == "true") {?>
+.kiwi-messagelist-nick--mode-q .kiwi-messagelist-nick--prefix {
+	content: url(lirc-resources/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
+/owner.png)
+}
+ .kiwi-messagelist-nick--mode-a .kiwi-messagelist-nick--prefix {
+	content: url(lirc-resources/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
+/admin.png)
+}
+ .kiwi-messagelist-nick--mode-o .kiwi-messagelist-nick--prefix {
+	content: url(lirc-resources/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
+/operator.png)
+}
+ .kiwi-messagelist-nick--mode-h .kiwi-messagelist-nick--prefix {
+	content: url(lirc-resources/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
+/halfop.png)
+}
+ .kiwi-messagelist-nick--mode-v .kiwi-messagelist-nick--prefix {
+	content: url(lirc-resources/icons/<?php echo $_smarty_tpl->tpl_vars['metadata']->value['icons'];?>
+/voice.png)
+}
+<?php }?>
 .kiwi-messagelist {
 <?php if ($_smarty_tpl->tpl_vars['metadata']->value['style'] != "transparent") {?>
+			   <?php if ($_smarty_tpl->tpl_vars['metadata']->value['bgcolor'] == '#000000') {?>background-color:rgba(0,0,0, .50);<?php } else { ?>
                background-color:<?php echo $_smarty_tpl->tpl_vars['metadata']->value['bgcolor'];?>
-;	}
+;<?php }?>	
+			   }
 			   <?php } else { ?>
-    background-image: linear-gradient(rgba(255,255,255, .75), rgba(255,255,255, .75)), url(<?php echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];?>
-); }
+    background-image: linear-gradient(rgba(255,255,255, .50), rgba(255,255,255, .50)), url(<?php echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];?>
+); 
 	<?php }?>
-	background-size: 100% 100%;
+	background-size: 100% 100%; }
 	
 	 
 }
 
 </style>
 
-<link href=static/css/app.0e0d0851.css rel=preload as=style><link href=static/js/app.b32a6610.js rel=preload as=script><link href=static/js/vendor.0d970857.js rel=preload as=script><link href=static/css/app.0e0d0851.css rel=stylesheet></head><body>
+<link href=static/css/app.208299db.css rel=preload as=style><link href=static/js/app.50629b2f.js rel=preload as=script><link href=static/js/vendor.0d970857.js rel=preload as=script><link href=static/css/app.208299db.css rel=stylesheet></head><body>
 <div class="left">
 <a target="_blank" href="https://chattersworld.nl"><img src="<?php echo $_smarty_tpl->tpl_vars['logo']->value;?>
 " height="50" alt="Chattersworld"></a>
@@ -368,7 +446,7 @@ position: absolute;
 <noscript><div class=kiwi-noscript-warn>Please enable JavaScript and refresh the page to use this website.</div></noscript><div id=app></div><?php echo '<script'; ?>
  src=static/js/vendor.0d970857.js><?php echo '</script'; ?>
 ><?php echo '<script'; ?>
- src=static/js/app.b32a6610.js><?php echo '</script'; ?>
+ src=static/js/app.50629b2f.js><?php echo '</script'; ?>
 >
 		<?php echo '<script'; ?>
  type="text/javascript">

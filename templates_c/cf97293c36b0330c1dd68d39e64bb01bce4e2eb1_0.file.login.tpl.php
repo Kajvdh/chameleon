@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.29, created on 2020-06-11 09:17:23
+/* Smarty version 3.1.29, created on 2020-07-02 12:31:12
   from "/home/stats/chameleon/templates/login.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5ee1da83b0f5d0_77692507',
+  'unifunc' => 'content_5efdb770b7e0e6_54285351',
   'file_dependency' => 
   array (
     'cf97293c36b0330c1dd68d39e64bb01bce4e2eb1' => 
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5ee1da83b0f5d0_77692507 ($_smarty_tpl) {
+function content_5efdb770b7e0e6_54285351 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html>

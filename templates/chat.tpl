@@ -15,7 +15,6 @@
 <meta property="og:url" content="https://chameleon.chattersworld.nl" />
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="..::Chattersworld Chameleon::.. #{$metadata['name']}" />
 <meta property="og:site_name" content="..::Chattersworld Chameleon::.." />
 <meta property="article:publisher" content="https://www.facebook.com/chattersworld/" />
 <meta property="fb:app_id" content="699740480138507" />
@@ -23,8 +22,8 @@
 <meta property="og:image" content="{$logo}" />
 <link rel="icon" href="{$logo}" sizes="32x32" />
 {else}
-<meta property="og:image" content="{$metadata['bgurl']}" />
-<link rel="icon" href="{$metadata['bgurl']}" sizes="32x32" />
+<meta property="og:image" content="{if $metadata['bgurl'] == ""}cwobg.jpg{else}{$metadata['bgurl']}{/if}" />
+<link rel="icon" href="{if $metadata['bgurl'] == ""}{$logo}{else}{$metadata['bgurl']}{/if}" sizes="32x32" />
 {/if}
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:description" content="Waar chatten, chatten is!" />
@@ -42,7 +41,11 @@
 			   {if $metadata['style'] != "transparent"}
                background-color:{$metadata['bgcolor']};	}
 			   {else}
+			   {if $metadata['bgurl'] != ""}
 			   background-image:url("{$metadata['bgurl']}");
+			   {else}
+			   background-image:url("cwobg.jpg");
+			   {/if}
 			   background-repeat: no-repeat;
 			      background-size: 100% 100%; }
 			   {/if}

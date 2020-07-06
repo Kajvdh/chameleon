@@ -56,7 +56,11 @@ if ($mobile_browser > 0) {
         $smarty->display('kiwi.tpl');
 
         if ($metadata['radio'] == "true") {
-            $smarty->display('chat_radio.tpl');
+			if ($metadata['radio_player'] == "internal") {
+				$smarty->display('chat_ads.tpl');
+			}else{ 
+				$smarty->display('chat_radio.tpl'); 
+			}
         }
 
         $smarty->display('chat_end.tpl');

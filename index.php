@@ -335,7 +335,7 @@ if ($id) {
             $chat->setOwner($id);
             $chat->readForm($_POST);
             $chat->save();
-            $smarty->assign('success',"Je chatbox is aangemaakt!");
+            $smarty->assign('success',"Je chatbox is aangemaakt! Vergeet niet je chatbox te registeren op de chat!");
             $smarty->assign('page',"list");
         }
         else {

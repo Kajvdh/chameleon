@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				$email = $_POST['email'];
 				$ret = $anope->DoCommand("NickServ", "$user", "REGISTER $password $email");
 				if ($ret && $ret["result"] == "Success") {
-					$success = "Succesvol geregistreerd";
+					$success = "Succesvol geregistreerd, je kan nu inloggen!";
 				}else{ 
 					$errors = "Er is iets fout gegaan!";
 				}

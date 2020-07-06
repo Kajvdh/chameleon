@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2020-06-14 12:00:40
+/* Smarty version 3.1.29, created on 2020-07-05 00:26:13
   from "/home/stats/chameleon/templates/chat.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5ee5f548075438_42170638',
+  'unifunc' => 'content_5f0102059a0341_00352813',
   'file_dependency' => 
   array (
     'a3483e4f774c3006be018cc96521b2234421d59c' => 
     array (
       0 => '/home/stats/chameleon/templates/chat.tpl',
-      1 => 1592128741,
+      1 => 1593901406,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5ee5f548075438_42170638 ($_smarty_tpl) {
+function content_5f0102059a0341_00352813 ($_smarty_tpl) {
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="//www.w3.org/1999/xhtml" xml:lang="en">
@@ -40,8 +40,6 @@ function content_5ee5f548075438_42170638 ($_smarty_tpl) {
 <meta property="og:url" content="https://chameleon.chattersworld.nl" />
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="..::Chattersworld Chameleon::.. #<?php echo $_smarty_tpl->tpl_vars['metadata']->value['name'];?>
-" />
 <meta property="og:site_name" content="..::Chattersworld Chameleon::.." />
 <meta property="article:publisher" content="https://www.facebook.com/chattersworld/" />
 <meta property="fb:app_id" content="699740480138507" />
@@ -51,10 +49,14 @@ function content_5ee5f548075438_42170638 ($_smarty_tpl) {
 <link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['logo']->value;?>
 " sizes="32x32" />
 <?php } else { ?>
-<meta property="og:image" content="<?php echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];?>
-" />
-<link rel="icon" href="<?php echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];?>
-" sizes="32x32" />
+<meta property="og:image" content="<?php if ($_smarty_tpl->tpl_vars['metadata']->value['bgurl'] == '') {?>cwobg.jpg<?php } else {
+echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];
+}?>" />
+<link rel="icon" href="<?php if ($_smarty_tpl->tpl_vars['metadata']->value['bgurl'] == '') {
+echo $_smarty_tpl->tpl_vars['logo']->value;
+} else {
+echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];
+}?>" sizes="32x32" />
 <?php }?>
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:description" content="Waar chatten, chatten is!" />
@@ -78,8 +80,12 @@ function content_5ee5f548075438_42170638 ($_smarty_tpl) {
                background-color:<?php echo $_smarty_tpl->tpl_vars['metadata']->value['bgcolor'];?>
 ;	}
 			   <?php } else { ?>
+			   <?php if ($_smarty_tpl->tpl_vars['metadata']->value['bgurl'] != '') {?>
 			   background-image:url("<?php echo $_smarty_tpl->tpl_vars['metadata']->value['bgurl'];?>
 ");
+			   <?php } else { ?>
+			   background-image:url("cwobg.jpg");
+			   <?php }?>
 			   background-repeat: no-repeat;
 			      background-size: 100% 100%; }
 			   <?php }?>

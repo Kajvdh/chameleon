@@ -284,6 +284,67 @@ $("#lunaradio").lunaradio({
             </script>
             <!-- ENDS: AUTO-GENERATED MUSES RADIO PLAYER CODE -->
         </center>
+	{elseif $metadata['radio_player'] == "internal"}
+        <script src="radiolibs/luna/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="radiolibs/luna/lunaradio.min.js?v=5.20.06.02"></script>
+
+	<center>
+        <div id="lunaradio" style='width:50%; height:70px;
+-webkit-border-top-left-radius: 50px;
+  -webkit-border-top-right-radius: 50px;
+  -webkit-border-bottom-right-radius: 50px;
+  -webkit-border-bottom-left-radius: 50px;
+  -moz-border-radius-topleft: 50px;
+  -moz-border-radius-topright: 50px;
+  -moz-border-radius-bottomright: 50px;
+  -moz-border-radius-bottomleft: 50px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border: none;'>
+<div id="flashradio" style="height:100px; width:100%;">
+Native Flashradio V4
+</div>
+</div>
+        <script>
+$("#lunaradio").lunaradio({
+	token: "VVpTZmZXZGVpYWReViBgXg==",
+	userinterface: "small",
+	backgroundcolor: "{$metadata['playerkleur']}",
+	fontcolor: "{$metadata['tekstkleur']}",
+	hightlightcolor: "#13c4eb",
+	fontname: "Open Sans",
+	googlefont: "open+sans:300",
+	fontratio: "0.4",
+	radioname: "{$metadata['radio_name']}",
+	scroll: "true",
+	coverimage: "https://horus.chattersworld.nl/dist/img/c4all.png",
+	coverstyle: "circle",
+	usevisualizer: "fake",
+	visualizertype: "4",
+	itunestoken: "1000lIPN",
+	metadatatechnic: "stream-icy-meta",
+	ownmetadataurl: "",
+	streamurl: "{$metadata['radio_link']}",
+	streamtype: "{$metadata['radio_type']}",
+	icecastmountpoint: "{if $metadata['radio_type'] == "icecast2"}{$metadata['mountpoint']}{/if}",
+	radionomyid: "",
+	radionomyapikey: "",
+	radiojarid: "",
+	radiocoid: "sdef46f462",
+	shoutcastpath: "{if $metadata['radio_type'] == "shoutcast2"}{$metadata['mountpoint']}{/if}",
+	shoutcastid: "1",
+	streamsuffix: "",
+	metadatainterval: "20000",
+	volume: "50",
+	debug: "false",
+	usestreamcorsproxy: "false", 
+	corsproxy: "",
+});
+</script>
+         
+        </center>
     {else}
         <center>
             <!-- BEGINS: AUTO-GENERATED MUSES RADIO PLAYER CODE -->

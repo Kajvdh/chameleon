@@ -1,17 +1,17 @@
 <?php
-/* Smarty version 3.1.29, created on 2020-06-11 20:35:57
+/* Smarty version 3.1.29, created on 2020-07-02 21:27:46
   from "/home/stats/chameleon/templates/chat_new.tpl" */
 
 if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl, array (
   'has_nocache_code' => false,
   'version' => '3.1.29',
-  'unifunc' => 'content_5ee2798d848161_02727424',
+  'unifunc' => 'content_5efe3532543514_76127693',
   'file_dependency' => 
   array (
     '8b8a78429581f2349f049d41581375f83a1ffe01' => 
     array (
       0 => '/home/stats/chameleon/templates/chat_new.tpl',
-      1 => 1591900458,
+      1 => 1593717057,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ if ($_smarty_tpl->smarty->ext->_validateCompiled->decodeProperties($_smarty_tpl,
   array (
   ),
 ),false)) {
-function content_5ee2798d848161_02727424 ($_smarty_tpl) {
+function content_5efe3532543514_76127693 ($_smarty_tpl) {
 ?>
 
 <?php echo '<script'; ?>
@@ -128,6 +128,8 @@ echo $_smarty_tpl->tpl_vars['chat_bgurl']->value;
                                 <option value="ster" <?php if ($_smarty_tpl->tpl_vars['icon_style']->value == "ster") {?>selected="selected"<?php }?>>Ster</option>
                                 <option value="kroon" <?php if ($_smarty_tpl->tpl_vars['icon_style']->value == "kroon") {?>selected="selected"<?php }?>>Kroon</option>
                                 <option value="dj" <?php if ($_smarty_tpl->tpl_vars['icon_style']->value == "dj") {?>selected="selected"<?php }?>>DJ</option>
+								<option value="pins" <?php if ($_smarty_tpl->tpl_vars['icon_style']->value == "pins") {?>selected="selected"<?php }?>>Punaises</option>
+								<option value="whatsapp" <?php if ($_smarty_tpl->tpl_vars['icon_style']->value == "whatsapp") {?>selected="selected"<?php }?>>WhatsApp</option>
                                 <option value="none" <?php if ($_smarty_tpl->tpl_vars['icon_style']->value == "none") {?>selected="selected"<?php }?>>Standaard (~&@%+)</option>
                             </select>
                         </div>
@@ -301,8 +303,9 @@ echo $_smarty_tpl->tpl_vars['verzoek_url']->value;
                                 <option value="cwflash" <?php if ($_smarty_tpl->tpl_vars['radio_style']->value == "cwflash") {?>selected="selected"<?php }?>>Tori Black</option>
                                 <option value="muses" <?php if ($_smarty_tpl->tpl_vars['radio_style']->value == "muses") {?>selected="selected"<?php }?>>Madison Ivy</option>
                                 <option value="stenly" <?php if ($_smarty_tpl->tpl_vars['radio_style']->value == "stenly") {?>selected="selected"<?php }?>>Jenna Jameson</option>
-								<option value="hero" <?php if ($_smarty_tpl->tpl_vars['radio_style']->value == "hero") {?>selected="selected"<?php }?>>Wonder Woman</option>
+								<option value="hero" <?php if ($_smarty_tpl->tpl_vars['radio_style']->value == "hero") {?>selected="selected"<?php }?>>Sophie Dee</option>
 								<option value="luna" <?php if ($_smarty_tpl->tpl_vars['radio_style']->value == "luna") {?>selected="selected"<?php }?>>Luna Alora</option>
+								<option value="internal" <?php if ($_smarty_tpl->tpl_vars['radio_style']->value == "internal") {?>selected="selected"<?php }?>>Bailey Brooke</option>
                             </select>
                         </div>
                     </div><br /><br />

@@ -531,6 +531,16 @@ class Chatbox {
                 $this->_iconStyle = "dj";
                 $this->LightIRC->setUseUserListIcons("true");
                 break;
+			case 'pins':
+                $this->LightIRC->setIconPath("icons/pins/");
+                $this->_iconStyle = "pins";
+                $this->LightIRC->setUseUserListIcons("true");
+                break;
+			case 'whatsapp':
+                $this->LightIRC->setIconPath("icons/whatsapp/");
+                $this->_iconStyle = "whatsapp";
+                $this->LightIRC->setUseUserListIcons("true");
+                break;
             case 'none':
                 $this->LightIRC->setIconPath("icons/bolletje/");
                 $this->_iconStyle = "none";
@@ -602,7 +612,7 @@ class Chatbox {
 		$data['bgurl'] = $this->getBgurl();
 		$data['private'] = $this->enableQueries();
 		$data['icons'] = $this->getIconStyle();
-		
+		$data['prefixicons'] = $this->LightIRC->getShowNickprefixIcons();
         $data['radio'] = $this->Radio->getEnabled();
         $data['radio_type'] = $this->Radio->getStreamType();
         $data['radio_name'] = $this->Radio->getName();
@@ -618,6 +628,9 @@ class Chatbox {
 
     public function printConfig() {
         $this->LightIRC->printConfig();
+    }
+	public function printKiwiConfig() {
+        $this->LightIRC->printKiwiConfig();
     }
 
 }
