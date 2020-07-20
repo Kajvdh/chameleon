@@ -131,10 +131,10 @@
 
 {elseif $metadata['radio_player'] == "luna"}
         <script src="radiolibs/luna/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="radiolibs/luna/lunaradio.min.js?v=5.20.06.02"></script>
+        <script type="text/javascript" src="radiolibs/luna/lunaradio.min.js?v=5.20.07.02"></script>
 
 	<center>
-        <div id="lunaradio" style='width:50%; height:70px;
+        <div id="lunaradio" style='width:50%;
 -webkit-border-top-left-radius: 50px;
   -webkit-border-top-right-radius: 50px;
   -webkit-border-bottom-right-radius: 50px;
@@ -147,7 +147,7 @@
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
   border-bottom-left-radius: 50px;
-  border: none;'>
+  border: none;' class="lunaresponsive">
 <div id="flashradio" style="height:100px; width:100%;">
 Native Flashradio V4
 </div>
@@ -159,8 +159,8 @@ $("#lunaradio").lunaradio({
 	backgroundcolor: "{$metadata['playerkleur']}",
 	fontcolor: "{$metadata['tekstkleur']}",
 	hightlightcolor: "#13c4eb",
-	fontname: "Open Sans",
-	googlefont: "open+sans:300",
+	fontname: "Ubuntu",
+	googlefont: "Ubuntu:300",
 	fontratio: "0.4",
 	radioname: "{$metadata['radio_name']}",
 	scroll: "true",
@@ -169,7 +169,7 @@ $("#lunaradio").lunaradio({
 	usevisualizer: "fake",
 	visualizertype: "4",
 	itunestoken: "1000lIPN",
-	metadatatechnic: "stream-icy-meta",
+	metadatatechnic: "{if $metadata['radio_type'] == "shoutcast"}stream-icy-meta{else}corsproxy{/if}",
 	ownmetadataurl: "",
 	streamurl: "{$metadata['radio_link']}",
 	streamtype: "{$metadata['radio_type']}",
@@ -185,7 +185,7 @@ $("#lunaradio").lunaradio({
 	volume: "50",
 	debug: "false",
 	usestreamcorsproxy: "false", 
-	corsproxy: "",
+	corsproxy: "{if $metadata['radio_type'] == "shoutcast"}{else}https://api.allorigins.win/raw?url={/if}",
 });
 </script>
          
@@ -286,10 +286,10 @@ $("#lunaradio").lunaradio({
         </center>
 	{elseif $metadata['radio_player'] == "internal"}
         <script src="radiolibs/luna/jquery-3.2.1.min.js"></script>
-        <script type="text/javascript" src="radiolibs/luna/lunaradio.min.js?v=5.20.06.02"></script>
+        <script type="text/javascript" src="radiolibs/luna/lunaradio.min.js?v=5.20.07.02"></script>
 
 	<center>
-        <div id="lunaradio" style='width:50%; height:70px;
+        <div id="lunaradio" style='width:50%;
 -webkit-border-top-left-radius: 50px;
   -webkit-border-top-right-radius: 50px;
   -webkit-border-bottom-right-radius: 50px;
@@ -302,7 +302,7 @@ $("#lunaradio").lunaradio({
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
   border-bottom-left-radius: 50px;
-  border: none;'>
+  border: none;' class="lunaresponsive">
 <div id="flashradio" style="height:100px; width:100%;">
 Native Flashradio V4
 </div>
@@ -314,8 +314,8 @@ $("#lunaradio").lunaradio({
 	backgroundcolor: "{$metadata['playerkleur']}",
 	fontcolor: "{$metadata['tekstkleur']}",
 	hightlightcolor: "#13c4eb",
-	fontname: "Open Sans",
-	googlefont: "open+sans:300",
+	fontname: "Ubuntu",
+	googlefont: "Ubuntu:300",
 	fontratio: "0.4",
 	radioname: "{$metadata['radio_name']}",
 	scroll: "true",
@@ -324,7 +324,7 @@ $("#lunaradio").lunaradio({
 	usevisualizer: "fake",
 	visualizertype: "4",
 	itunestoken: "1000lIPN",
-	metadatatechnic: "stream-icy-meta",
+	metadatatechnic: "{if $metadata['radio_type'] == "shoutcast"}stream-icy-meta{else}corsproxy{/if}",
 	ownmetadataurl: "",
 	streamurl: "{$metadata['radio_link']}",
 	streamtype: "{$metadata['radio_type']}",
@@ -340,7 +340,7 @@ $("#lunaradio").lunaradio({
 	volume: "50",
 	debug: "false",
 	usestreamcorsproxy: "false", 
-	corsproxy: "",
+	corsproxy: "{if $metadata['radio_type'] == "shoutcast"}{else}https://api.allorigins.win/raw?url={/if}",
 });
 </script>
          

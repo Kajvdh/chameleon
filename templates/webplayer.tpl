@@ -39,7 +39,7 @@
 		<link href="webplayer/css/flexslider.min.css?v=1.18.03.18" rel="stylesheet" type="text/css" media="all" />
 		<link href="webplayer/css/lightbox.min.css?v=1.18.03.18" rel="stylesheet" type="text/css" media="all" />
 		<link href="webplayer/css/ytplayer.min.css?v=1.18.03.18" rel="stylesheet" type="text/css" media="all" />
-		<link href="webplayer/css/theme-nativehtml5radio.min.css?v=1.18.03.18" rel="stylesheet" type="text/css" media="all" />
+		<link href="webplayer/css/theme-nativehtml5radio.min.css?v=1.20.07.02" rel="stylesheet" type="text/css" media="all" />
     			<script src="radiolibs/luna/jquery-3.2.1.min.js"></script>
 				<script type="text/javascript" src="radiolibs/luna/lunaradio.min.js"></script>
 			<script>{literal}
@@ -151,7 +151,7 @@ return true;
 								</a>
 							</li> 
 							<li class="">
-								<a href="#">
+								<a href="https://chameleon.chattersworld.nl/webplayer.php?id={$smarty.get.id}">
 									Herstart Stream
 								</a>
 							</li>
@@ -169,11 +169,11 @@ return true;
 	<div class="main-container">
 		<section class="image-bg fullscreen overlay overlay-heavy bg-dark">
 	<div class="background-image-holder">
-		<img alt="html5 radio player jQuery" title="html5 radio player jQuery" class="background-image" src="webplayer/home.jpg">
+		<img alt="native html5 internet web radio player plugin jQuery" title="native html5 radio player jQuery" class="background-image" src="webplayer/home.jpg">
 	</div>
 	<div class="fs-vid-background" style="height:100%; width:100%;">
 		<video autoplay muted loop>
-			<source src="webplayer/home.mp4" type="video/mp4" />
+			<source src="webplayer/home3.mp4" type="video/mp4" />
 		</video>
 	</div>
 	<div class="container v-align-transform">
@@ -241,7 +241,7 @@ $("#lunaradio").lunaradio({
 	usevisualizer: "fake",
 	visualizertype: "",
 	itunestoken: "1000lIPN",
-	metadatatechnic: "stream-icy-meta",
+	metadatatechnic: "{if $metadata['radio_type'] == "shoutcast"}stream-icy-meta{else}corsproxy{/if}",
 	ownmetadataurl: "",
 	streamurl: "{$metadata['radio_link']}",
 	streamtype: "{$metadata['radio_type']}",
@@ -257,7 +257,7 @@ $("#lunaradio").lunaradio({
 	volume: "90",
 	debug: "false",
 	usestreamcorsproxy: "false", 
-	corsproxy: "",
+	corsproxy: "{if $metadata['radio_type'] == "shoutcast"}{else}https://api.allorigins.win/raw?url={/if}",
 });
 </script>
 

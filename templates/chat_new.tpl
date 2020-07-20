@@ -60,9 +60,9 @@
                 <div id="design" class="tab-pane fade">
 					<!-- Naam van de chatbox -->
                     <div class="form-group">
-                        <label for="chat_bgurl" class="control-label col-sm-3">Achtergrond Link<br /><small>Zet de style op "transparant"</small></label>
+                        <label for="chat_bgurl" class="control-label col-sm-3">Achtergrond Link<br /><small>Zet de style op "transparant"<br />Enkel HTTPS word geaccepteerd!</small></label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="chat_bgurl" title="Deze achtergrond zal de chat hebben."  placeholder="Link naar de achtergrond" value="{if isset($chat_bgurl)}{$chat_bgurl}{/if}">
+                            <input type="url" class="form-control" pattern="https://.*" name="chat_bgurl" title="Deze achtergrond zal de chat hebben."  placeholder="Link naar de achtergrond" value="{if isset($chat_bgurl)}{$chat_bgurl}{/if}">
                         </div>
                     </div><br /><br /><br />
                     <!-- Chat stijl -->

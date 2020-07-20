@@ -1189,8 +1189,8 @@ class LightIRC {
         $this->_addParam('nick', $this->getNick());
         $this->_addParam('nickAlternate', $this->getNickAlternate());
         $this->_addParam('rememberNickname', $this->getRememberNickname());
-        $this->_addParam('nickPrefix', $this->getNickPrefix());
-        $this->_addParam('nickPostfix', $this->getNickPostfix());
+        $this->_addParam('nickPrefix', "&nbsp;");
+        $this->_addParam('nickPostfix', ":");
         $this->_addParam('showNickPrefixes', $this->getShowNickPrefixes());
         $this->_addParam('showNickPrefixIcons', $this->getShowNickprefixIcons());
         $this->_addParam('password', $this->getPassword());
@@ -1276,6 +1276,50 @@ class LightIRC {
         $this->_addParam('contextMenuInternalEvent', $this->getContextMenuInternalEvent());
         $this->_addParam('contextMenuExternalEvent', $this->getContextMenuExternalEvent());
         echo('/* This loop escapes % signs in parameters. You should not change it */
+			function sendCommand(command) {
+  swfobject.getObjectById("lightIRC").sendCommand(command);
+}
+
+/* Use this method to send a message to the active chatwindow */
+function sendMessageToActiveWindow(message) {
+  swfobject.getObjectById("lightIRC").sendMessageToActiveWindow(message);
+}
+
+/* Use this method to set a random text input content in the active window */
+function setTextInputContent(content) {
+  swfobject.getObjectById("lightIRC").setTextInputContent(content);
+}
+
+/* This method gets called if you click on a nick in the chat area */
+function onChatAreaClick(nick, ident, realname, channel, host) {
+  //alert("onChatAreaClick: "+nick);
+}
+
+/* This method gets called if you use the parameter contextMenuExternalEvent */
+function onContextMenuSelect(type, nick, ident, realname, channel, host) {
+  alert("onContextMenuSelect: "+nick+" for type "+type);
+}
+
+/* This method gets called if you use the parameter loopServerCommands */
+function onServerCommand(command) {
+  return command;
+}
+
+/* This method gets called if you use the parameter loopClientCommands */
+function onClientCommand(command) {
+  return command;
+}
+
+/* This method gets called every time the user changes the active window */
+function onActiveWindowChange(window) {
+	//alert("Active window: "+window);
+}
+
+/* This event ensures that lightIRC sends the default quit message when the user closes the browser window */
+
+window.onbeforeunload = function() {
+  swfobject.getObjectById("lightIRC").sendQuit();
+}
             for(var key in params) {
               params[key] = params[key].toString().replace(/%/g, "%25");
             }');

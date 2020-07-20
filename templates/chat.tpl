@@ -130,7 +130,20 @@ position: absolute;
 @media screen and (max-height: 450px) {literal}{
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
-}{/literal}
+}
+.lunaresponsive {/*Large Screen Height*/
+		height:80px;
+	}
+	@media only screen and (min-width: 600px) and (max-width:959px) {
+		.lunaresponsive {/*Medium Screen Height*/
+			height:60px;
+		}
+	}
+	@media only screen and (max-width:599px) {
+		.lunaresponsive {/*Small Screen Height*/
+			height:40px;
+		}
+	}{/literal}
  </style>
 </head>
 

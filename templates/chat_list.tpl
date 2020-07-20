@@ -69,12 +69,12 @@
 				<td style="vertical-align:middle" data-order="{$lastcalleds[chat]}">{$lastcalleds[chat]}</td>
 				{/if}
                 <td style="vertical-align:middle">
-                    <a href="{$fullurl}/chat.php?id={$ids[chat]}" target='_blank' class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></a>
-                    <a href="{$fullurl}/edit/{$ids[chat]}" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-cog"></span></a>
-                    <a href="{$fullurl}/transfer/{$ids[chat]}" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-user"></span></a>
-					<a href="{$fullurl}/html5.php?id={$ids[chat]}" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-phone"></span></a>
-                    <a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#apiToolkit{$ids[chat]}"><span class="glyphicon glyphicon-briefcase"></span></a>
-                    <a href="{$fullurl}/del/{$ids[chat]}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
+                    <a href="{$fullurl}/chat.php?id={$ids[chat]}" target='_blank' title="Preview Webchat"class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a href="{$fullurl}/edit/{$ids[chat]}" title="Bewerk Webchat" class="btn btn-warning btn-xs"><span class="glyphicon glyphicon-cog"></span></a>
+                    <a href="{$fullurl}/transfer/{$ids[chat]}" title="Transfer Webchat" class="btn btn-info btn-xs"><span class="glyphicon glyphicon-user"></span></a>
+					<a href="{$fullurl}/html5.php?id={$ids[chat]}" target"_blank" title="Preview HTML5" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-phone"></span></a>
+                    <a href="#" title="HTML codes Webchat" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#apiToolkit{$ids[chat]}"><span class="glyphicon glyphicon-briefcase"></span></a>
+                    <a href="{$fullurl}/del/{$ids[chat]}" title="Verwijder Webchat" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></a>
                 </td>
             </tr>
 

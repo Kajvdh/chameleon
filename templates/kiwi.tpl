@@ -68,7 +68,7 @@
 <script name="kiwiconfig">
 {"startupScreen": "plugin-asl",
 "windowTitle": "..::Chattersworld - #{/literal}{$metadata['name']}{literal}::.. The web IRC client",
-
+"kiwiServer": "https://gateway.chattersworld.nl:1085/webirc/kiwiirc/",
 "theme": "Osprey",
 "themes": [
         { "name": "Default", "url": "static/themes/default" },
@@ -86,7 +86,7 @@
 "server": "irc.chattersworld.nl", 
 "infoBackground": "{/literal}{if $metadata['bgurl'] != ''}{$metadata['bgurl']}{else}cwobg.jpg{/if}{literal}", 
 "infoContent": "<a class=\"netlogo\" href=\"https://chameleon.chattersworld.nl\"><span></span><img src=\"https://atsiofrjlo.cloudimg.io/v7/https://chattersworld.nl/wp-content/uploads/2018/10/cropped-c4all.png\"></a><div><a href=\"https://chameleon.chattersworld.nl/register.php\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-lock\"></i> Registreer</a><a href=\"https://chameleon.chattersworld.nl/chat.php?id=1\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> Helpdesk</a><a href=\"https://wiki.chattersworld.nl/\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> CWO Wiki</a></div>",
-"state_key": "kiwi-state", 
+"state_key": "CWO-Chameleon-16", 
 "port": 6800, 
 "tls": true, 
 "direct": true, 
@@ -115,6 +115,7 @@
         },
 		{"name": "emoji", "url": "static/plugins/plugin-emoji-prelim.min.js"},
 		{"name": "simosnapcss","url": "static/plugins/cwo-css.html"},
+		
 		{/literal}{if $metadata['radio'] == "true" && $metadata['radio_player'] == "internal"}{literal}
 		{"name": "plugin-radio","url": "static/plugins/plugin-radio.html"},
 		{/literal}{/if}{literal}
@@ -153,7 +154,7 @@
                 "localesPath": "static/plugins/plugin-asl/locales/"
             },
 	"conference":{ 
-    		"server": "meet.jit.si",
+    		"server": "meet.chattersworld.nl",
     		"secure": false,
     		"enabledInChannels": [ "*" ],
     		"joinText": "heeft de mediaconferentie opgestart.",
@@ -165,10 +166,11 @@
 			"queries": false,
     		"bitlyAccessToken": "BITLY_API_KEY_HERE",
     		"interfaceConfigOverwrite": {
-        		"SHOW_JITSI_WATERMARK": false,
-        		"SHOW_WATERMARK_FOR_GUESTS": false,
+        		"SHOW_JITSI_WATERMARK": true,
+        		"SHOW_WATERMARK_FOR_GUESTS": true,
 				"SHOW_BRAND_WATERMARK": true,
 				"BRAND_WATERMARK_LINK": "https://chattersworld.nl/",
+				"JITSI_WATERMARK_LINK": "https://chattersworld.nl",
 				"MOBILE_APP_PROMO": true,
 				"DEFAULT_REMOTE_DISPLAY_NAME": "",
 				"VERTICAL_FILMSTRIP": true,
@@ -187,7 +189,7 @@
 	},
 
 	"fileuploader": {
-		"server": "http://51.38.109.219:8088/files",
+		"server": "https://gateway.chattersworld.nl:1085/files",
 		"maxFileSize": 10485760,
 		"note": "Let op, deze bestanden blijven maximaal 24 uur bestaan!"
 	},
@@ -296,8 +298,21 @@ position: absolute;
 @media screen and (max-height: 450px) {literal}{
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
-}{/literal}
-
+}
+.lunaresponsive {/*Large Screen Height*/
+		height:80px;
+	}
+	@media only screen and (min-width: 600px) and (max-width:959px) {
+		.lunaresponsive {/*Medium Screen Height*/
+			height:60px;
+		}
+	}
+	@media only screen and (max-width:599px) {
+		.lunaresponsive {/*Small Screen Height*/
+			height:40px;
+		}
+	}
+{/literal}
 	</style>{literal}<style class=embedly-css>.card .hdr {
             display:none;
 		   }
@@ -346,12 +361,22 @@ position: absolute;
 	
 	 
 }
+.kiwi-statebrowser-channel[data-name="#{/literal}{$metadata['name']}{literal}"]::before {
+    content: "\f075";
+    font-family: fontawesome;
+    margin-right: 5px;
+}
+.kiwi-statebrowser-channel[data-name="#help"]::before {
+    content: "\f128";
+    font-family: fontawesome;
+    margin-right: 5px;
+}
 
 </style>
 {/literal}
-<link href=static/css/app.208299db.css rel=preload as=style><link href=static/js/app.50629b2f.js rel=preload as=script><link href=static/js/vendor.0d970857.js rel=preload as=script><link href=static/css/app.208299db.css rel=stylesheet></head><body>
+<link href="static/css/app.d11ee53b.css" rel="preload" as="style"><link href="static/js/app.71bcf681.js" rel="preload" as="script"><link href="static/js/vendor.0d970857.js" rel="preload" as="script"><link href="static/css/app.d11ee53b.css" rel="stylesheet"></head><body>
 <div class="left">
-<a target="_blank" href="https://chattersworld.nl"><img src="{$logo}" height="50" alt="Chattersworld"></a>
+<a target="_blank" href="https://chattersworld.nl"><img src="{$logo}" style="z-index: 102;" height="50" alt="Chattersworld"></a>
 </div>
 
 <div id="mySidenav" class="sidenav">
@@ -374,7 +399,7 @@ position: absolute;
 
 </div>
 <div class="right"><span style="font-size:30px;cursor:pointer;color:#FFF;" onclick="openNav()">&#9776;</span></div>
-<noscript><div class=kiwi-noscript-warn>Please enable JavaScript and refresh the page to use this website.</div></noscript><div id=app></div><script src=static/js/vendor.0d970857.js></script><script src=static/js/app.50629b2f.js></script>
+<noscript><div class=kiwi-noscript-warn>Please enable JavaScript and refresh the page to use this website.</div></noscript><div id=app></div><script type="text/javascript" src="static/js/vendor.0d970857.js"></script><script type="text/javascript" src="static/js/app.71bcf681.js"></script>
 		<script type="text/javascript">
 	
 	function openNav() {
