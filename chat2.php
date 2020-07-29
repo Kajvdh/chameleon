@@ -56,6 +56,7 @@ if ($mobile_browser > 0) {
             $metadata['height'] = "90";
 
         $smarty->assign('metadata',$metadata);
+		$smarty->display('kiwi-conf.tpl');
         $smarty->display('kiwi.tpl');
 
         if ($metadata['radio'] == "true") {

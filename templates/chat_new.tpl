@@ -64,7 +64,7 @@
                         <div class="col-sm-9">
                             <input type="url" class="form-control" pattern="https://.*" name="chat_bgurl" title="Deze achtergrond zal de chat hebben."  placeholder="Link naar de achtergrond" value="{if isset($chat_bgurl)}{$chat_bgurl}{/if}">
                         </div>
-                    </div><br /><br /><br />
+                    </div><br /><br /><br /><br />
                     <!-- Chat stijl -->
                     <div class="form-group">
                         <label for="chat_style" title="Er zijn verschillende stijlen die je kan instellen voor je chatbox." class="control-label col-sm-3">Stijl</label>

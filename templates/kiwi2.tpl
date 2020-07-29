@@ -111,7 +111,7 @@
 	"plugins": [
         {
             "name": "conference",
-            "url": "static/plugins/conference/plugin-conference.min.js"
+            "url": "static/plugins/conference/plugin-conference.min.js?v=1.2"
         },
 		{"name": "emoji", "url": "static/plugins/plugin-emoji-prelim.min.js"},
 		{"name": "simosnapcss","url": "static/plugins/cwo-css.html"},
