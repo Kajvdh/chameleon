@@ -139,7 +139,7 @@
     </div>
 	<center>
 	<footer class="footer hidden-xs-down">
-                    <p>© example Chameleon All rights reserved. v2.8</p>
+                    <p>© example Chameleon All rights reserved. v2.9</p>
 
                     <ul class="nav footer__nav">
                         <a class="nav-link" href="https://example.nl">Homepage</a>
