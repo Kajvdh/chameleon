@@ -55,6 +55,8 @@
 			{/literal}{if $metadata['radio'] == "true" && $metadata['radio_player'] == "internal"}{literal}
 			{"name": "plugin-radio","url": "static/plugins/plugin-radio.html"},
 			{/literal}{/if}{literal}
+			{"name": "nickserv", "url": "static/plugins/plugin-nickserv.js"},
+			{"name": "gravatar", "url": "static/plugins/plugin-gravatar.js"},
 			{"name": "asl","url": "static/plugins/plugin-asl.js?cb=20"}
     ],
 	"plugin-asl" : {
@@ -88,7 +90,13 @@
                     "realname": "realname"
                 },
                 "localesPath": "static/plugins/plugin-asl/locales/"
-            },
+    },
+	"plugin-gravatar": {
+				"gatewayURL": "//gateway.chattersworld.nl:1085/",
+				"gravatarURL": "//www.gravatar.com/avatar/",
+				"gravatarRating": "g",
+				"gravatarFallback": "robohash"
+	},
 	"conference":{ 
     		"server": "meet.chattersworld.nl",
     		"secure": false,
@@ -121,7 +129,7 @@
     		}
 	},
 	"plugin-radio": {
-    "url": "stations.php?id={/literal}{$smarty.get.id}{literal}"
+			"url": "stations.php?id={/literal}{$smarty.get.id}{literal}"
 	},
 
 	"fileuploader": {

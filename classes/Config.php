@@ -41,8 +41,8 @@ class Config {
          */
         $this->_errorMode = "prd";
         $this->_rootDirectory = "";
-        $this->_fullUrl = "https://chameleon.chattersworld.nl"; //zonder / achter de link
-		$this->_logo = "https://horus.chattersworld.nl/dist/img/c4all-horus.png"; //zonder / achter de link
+        $this->_fullUrl = "siteurl"; //zonder / achter de link
+		$this->_logo = "siteurl/logo"; //zonder / achter de link
         /**
          * MySQL gegevens
          */

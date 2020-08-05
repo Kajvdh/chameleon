@@ -86,7 +86,7 @@ class AnopeXMLRPC
 	}
 }
 
-$anope = new AnopeXMLRPC("http://<anopeIP>:<anopePort>/xmlrpc");
+$anope = new AnopeXMLRPC("http://ANOPEIP:PORT/xmlrpc");
 ?>
 <?php // Check if form was submitted:
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
