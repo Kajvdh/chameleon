@@ -6,6 +6,7 @@
  * Bevat enkele paramaters met betrekking tot de instelling van de applicatie
  *
  * @author Kaj Van der Hallen
+ * @edit Stanley Kulik (DjSxX)
  */
 
 class Config {

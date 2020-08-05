@@ -6,6 +6,7 @@
  * Bevat alle informatie van de sessie waarmee de gebruiker is ingelogd
  *
  * @author Kaj Van der Hallen
+ * @edit Stanley Kulik (DjSxX)
  */
 
 class Login {

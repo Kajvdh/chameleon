@@ -7,6 +7,7 @@
  * Het uitlezen en wegschrijven van de nodige gegevens gebeurt in deze klasse.
  *
  * @author Kaj Van der Hallen
+ * @edit Stanley Kulik (DjSxX)
  */
 
 class Member {

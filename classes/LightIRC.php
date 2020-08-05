@@ -6,6 +6,7 @@
  * Deze klasse bevat de instellingen met betrekking tot de LightIRC chat
  *
  * @author Kaj Van der Hallen
+ * @edit Stanley Kulik (DjSxX)
  */
 
 class LightIRC {

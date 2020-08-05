@@ -1,6 +1,6 @@
 <?php
 /*
-  Copyright (C) 2015  Kaj Van der Hallen
+  Copyright (C) 2020  Kaj Van der Hallen; Edited by Stanley Kulik (DjSxX)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -23,6 +23,7 @@
  * Deze klasse bevat de instellingen met betrekking tot de chatbox
  *
  * @author Kaj Van der Hallen
+ * @edit Stanley Kulik (DjSxX)
  */
 
 class Chatbox {

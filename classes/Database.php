@@ -6,6 +6,7 @@
  * Deze klasse zorgt voor het opzetten van de verbinnding met de MySQL server
  *
  * @author Kaj Van der Hallen
+ * @edit Stanley Kulik (DjSxX)
  */
 
 class Database {
