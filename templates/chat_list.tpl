@@ -66,7 +66,7 @@
 				<td style="vertical-align:middle">{$owners[chat]}</td>
 				<td style="vertical-align:middle">{$playerstyle[chat]}</td>
 				<td style="vertical-align:middle">{$calls[chat]}</td>
-				<td style="vertical-align:middle" data-order="{$lastcalleds[chat]}">{$lastcalleds[chat]}</td>
+				<td style="vertical-align:middle" data-order="{$lastcalleds[chat]}">{$lastcalleds[chat]|date_format:"%A, %e %B, %Y %H:%M:%S"}</td>
 				{/if}
                 <td style="vertical-align:middle">
                     <a href="{$fullurl}/chat.php?id={$ids[chat]}" target='_blank' title="Preview Webchat"class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></a>

@@ -8,7 +8,7 @@
  * @author Kaj Van der Hallen
  * @edit Stanley Kulik (DjSxX)
  */
-
+setlocale(LC_ALL, 'nl_NL'); //date-time language locales
 class Config {
     private $_errorMode;            //De mode die bepaalt hoe errors opgevangen worden
     private $_mysqlHost;            //De host van de MySQL Database
