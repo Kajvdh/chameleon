@@ -1,7 +1,10 @@
 <!DOCTYPE html><html><head>
 {literal}
 <script name="kiwiconfig">
-{"startupScreen": "plugin-asl",
+window.kiwiConfig = function kiwiConfig() {
+        console.log('off');
+        return {
+		"startupScreen": "plugin-asl",
 	"windowTitle": "..::example - #{/literal}{$metadata['name']}{literal}::.. The web IRC client",
 	"kiwiServer": "https://gateway.example.nl:1085/webirc/kiwiirc/",
 	"theme": "Osprey",
@@ -21,7 +24,8 @@
 			"server": "irc.example.nl", 
 			"infoBackground": "{/literal}{if $metadata['bgurl'] != ''}{$metadata['bgurl']}{else}cwobg.jpg{/if}{literal}", 
 			"infoContent": "<a class=\"netlogo\" href=\"https://chameleon.example.nl\"><span></span><img src=\"https://atsiofrjlo.cloudimg.io/v7/https://example.nl/wp-content/uploads/2018/10/cropped-c4all.png\"></a><div><a href=\"https://chameleon.example.nl/register.php\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-lock\"></i> Registreer</a><a href=\"https://chameleon.example.nl/chat.php?id=1\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> Helpdesk</a><a href=\"https://wiki.example.nl/\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> CWO Wiki</a></div>",
-			"state_key": "CWO-Chameleon-16", 
+			"greetingText": "<div style='margin:0px 60px 0px 0px'><center><i class='fa fa-sign-in' style='margin-right:5px !important;'></i> Login op Example #{/literal}{$metadata['name']}{literal}!</center></div>",
+			"state_key": "CWO-Chameleon-17", 
 			"port": 6800, 
 			"tls": true, 
 			"direct": true, 
@@ -59,6 +63,7 @@
 			{"name": "gravatar", "url": "static/plugins/plugin-gravatar.js"},
 			{"name": "giphy", "url": "static/plugins/plugin-giphy.html"},
 			{"name": "imgurl", "url": "static/plugins/plugin-imgur.html"},
+			{"name": "ident", "url": "static/plugins/ident.js"},
 			{"name": "asl","url": "static/plugins/plugin-asl.js?cb=20"}
     ],
 	"plugin-asl" : {
@@ -140,8 +145,9 @@
 		"note": "Let op, deze bestanden blijven maximaal 24 uur bestaan!"
 	},
 	"embedly": {
-        "key": ""
+        "key": "aae4890b796c49dbbc079001e2f9d8e5"
     	}
+	}
 }
 </script>
 {/literal}
