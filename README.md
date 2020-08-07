@@ -21,3 +21,19 @@ Our licensekey's are not included cause they will not work on your domain.
 
 Luna radioplayer also needs a licensekey bought on codecanyon.
 The player will play audio without a licensekey, but other functions will not work properly
+
+# Installation
+
+Requires;
+- Anope Services running on MySQL and Encryption has to be MD5
+- lightIRC webcam module license
+- Self hosted Jitsi-Meet for KiwiIRC conference
+- Some license's for web radioplayers
+
+Installation is quite straight forward;
+- Setup a database account
+- import database.sql to that account
+- make sure that the webhost can connect to your anope datebase and put in the details in classes/Config.php
+- edit classes/Config.php with your database details created above
+- edit classes/LightIRC.php with your IRC credentials (replace irc.example.nl with your IRC server)
+- edit templates/kiwi-conf.tpl with your IRC credentials, webircgateway and jitsi-meet server
