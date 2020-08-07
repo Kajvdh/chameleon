@@ -36,22 +36,41 @@
                 <div id="algemeen" class="tab-pane fade active in">
                     <!-- Naam van de chatbox -->
                     <div class="form-group">
+					<script type="text/javascript">
+
+				function CheckSpace(event)
+				{literal}{
+					if(event.which ==32)
+					{
+						event.preventDefault();
+						return false;
+					}
+				}{/literal}
+				</script>
                         <label for="chat_name" class="control-label col-sm-3">Naam Chatbox</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="chat_name" title="Dit is de naam die je chatbox zal krijgen." {literal}pattern="^[a-zA-Z0-9][a-zA-Z0-9-_\.]{1,}$"{/literal} placeholder="Naam Chatbox" value="{if isset($chat_name)}{$chat_name}{/if}" required>
+                            <input type="text" class="form-control" name="chat_name" title="Dit is de naam die je chatbox zal krijgen." {literal}pattern="^[a-zA-Z0-9][a-zA-Z0-9-_\.]{1,}$"{/literal} placeholder="Naam Chatbox" value="{if isset($chat_name)}{$chat_name}{/if}" onkeypress="CheckSpace(event)" required>
                         </div>
                     </div>
+					
 
                 </div>
 
                 <!-- STIJL EN DESIGN -->
                 <div id="design" class="tab-pane fade">
-
+					<!-- Naam van de chatbox -->
+                    <div class="form-group">
+                        <label for="chat_bgurl" class="control-label col-sm-3">Achtergrond Link<br /><small>Zet de style op "transparant"<br />Enkel HTTPS word geaccepteerd!</small></label>
+                        <div class="col-sm-9">
+                            <input type="url" class="form-control" pattern="https://.*" name="chat_bgurl" title="Deze achtergrond zal de chat hebben."  placeholder="Link naar de achtergrond" value="{if isset($chat_bgurl)}{$chat_bgurl}{/if}">
+                        </div>
+                    </div><br /><br /><br /><br />
                     <!-- Chat stijl -->
                     <div class="form-group">
                         <label for="chat_style" title="Er zijn verschillende stijlen die je kan instellen voor je chatbox." class="control-label col-sm-3">Stijl</label>
                         <div class="col-sm-9">
                             <select class="form-control" name="chat_style">
+								<option value="transparent" {if $chat_style=="transparent"}selected="selected"{/if}>Transparant voor als je een achtergrond neemt</option>
                                 <option value="blue" {if $chat_style=="blue"}selected="selected"{/if}>Blauw</option>
                                 <option value="black" {if $chat_style=="black"}selected="selected"{/if}>Zwart</option>
                                 <option value="orange" {if $chat_style=="orange"}selected="selected"{/if}>Oranje</option>
@@ -76,6 +95,8 @@
                                 <option value="ster" {if $icon_style=="ster"}selected="selected"{/if}>Ster</option>
                                 <option value="kroon" {if $icon_style=="kroon"}selected="selected"{/if}>Kroon</option>
                                 <option value="dj" {if $icon_style=="dj"}selected="selected"{/if}>DJ</option>
+								<option value="pins" {if $icon_style=="pins"}selected="selected"{/if}>Punaises</option>
+								<option value="whatsapp" {if $icon_style=="whatsapp"}selected="selected"{/if}>WhatsApp</option>
                                 <option value="none" {if $icon_style=="none"}selected="selected"{/if}>Standaard (~&@%+)</option>
                             </select>
                         </div>
@@ -202,7 +223,8 @@
                         <div class="col-sm-9">
                             <select class="form-control" name="radio_type">
                                 <option value="shoutcast" {if $radio_type=="shoutcast"}selected="selected"{/if}>Shoutcast</option>
-                                <option value="icecast" {if $radio_type=="icecast"}selected="selected"{/if}>Icecast</option>
+								<option value="shoutcast2" {if $radio_type=="shoutcast2"}selected="selected"{/if}>Shoutcast v2</option>
+                                <option value="icecast2" {if $radio_type=="icecast2"}selected="selected"{/if}>Icecast 2</option>
                             </select>
                         </div>
                     </div>
@@ -215,6 +237,22 @@
                         </div>
                     </div>
                     <br /><br />
+					<!-- URL van de radio -->
+                    <div class="form-group">
+                        <label for="mountpoint" class="control-label col-sm-3">Stream mountpoint</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="mountpoint" title="Geef hier de stream mountpoint aan (enkel bij shoutcast v2 en icecast)." placeholder="Radio URL" value="{if isset($mountpoint)}{$mountpoint}{/if}">
+                        </div>
+                    </div>
+                    <br /><br />
+					<!-- URL van de verzoekserver -->
+                    <div class="form-group">
+                        <label for="verzoek_url" class="control-label col-sm-3">Verzoekserver Link</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="verzoek_url" title="Geef hier de link naar je verzoekserver" placeholder="Radio URL" value="{if isset($verzoek_url)}{$verzoek_url}{/if}">
+                        </div>
+                    </div>
+                    <br /><br />
                     <!-- Radioplayer style -->
                     <div class="form-group">
                         <label for="radio_style" title="Er zijn verschillende soorten radioplayers, het kan zijn dat sommigen niet werken met een bepaalde stream." class="control-label col-sm-3">Type radioplayer</label>
@@ -224,10 +262,38 @@
                                 <option value="cwflash" {if $radio_style=="cwflash"}selected="selected"{/if}>Tori Black</option>
                                 <option value="muses" {if $radio_style=="muses"}selected="selected"{/if}>Madison Ivy</option>
                                 <option value="stenly" {if $radio_style=="stenly"}selected="selected"{/if}>Jenna Jameson</option>
+								<option value="hero" {if $radio_style=="hero"}selected="selected"{/if}>Sophie Dee</option>
+								<option value="luna" {if $radio_style=="luna"}selected="selected"{/if}>Luna Alora</option>
+								<option value="internal" {if $radio_style=="internal"}selected="selected"{/if}>Bailey Brooke</option>
                             </select>
                         </div>
+                    </div><br /><br />
+				<!-- Kleur van de player -->
+                    <div class="form-group">
+                        <label for="playerkleur" class="control-label col-sm-3">Speler achtergrond</label>
+                        <div class="col-sm-9">
+                            <input id="simple-color-picker" type="text" class="form-control" name="playerkleur" title="Geef hier de kleur van je speler aan" placeholder="playerkleur" value="{if isset($playerkleur)}{$playerkleur}{/if}">
+							<script>
+								$(function () {
+									$('#simple-color-picker').colorpicker();
+								});
+							</script>
+                        </div>
                     </div>
-
+                    <br /><br />
+					<!-- Kleur van de player -->
+                    <div class="form-group">
+                        <label for="tekstkleur" class="control-label col-sm-3">Speler tekstkleur</label>
+                        <div class="col-sm-9">
+                            <input id="simple-color-picker2" type="text" class="form-control" name="tekstkleur" title="Welke kleur moet de tekst zijn van de speler" placeholder="tekstkleur" value="{if isset($tekstkleur)}{$tekstkleur}{/if}">
+							<script>
+								$(function () {
+									$('#simple-color-picker2').colorpicker();
+								});
+							</script>
+                        </div>
+                    </div>
+                    
                 </div>
 
                 <!-- EXTRA: ADS -->
@@ -239,7 +305,7 @@
 
                     <!-- Advertenties inschakelen -->
                     <div class="form-group">
-                        <label for="textstyling" title="Ik wil Chattersweb steunen door een advertentie onder mijn chatbox te plaatsen" class="control-label col-sm-3">Steun Chattersweb door een advertentie te tonen</label>
+                        <label for="textstyling" title="Ik wil Chattersworld steunen door een advertentie onder mijn chatbox te plaatsen" class="control-label col-sm-3">Steun Chattersworld door een advertentie te tonen</label>
                         <div class="col-sm-9">
                             <input type="checkbox" name="ads_enabled" value="true" {if $ads_enabled!="false"}checked="checked"{/if}>
                         </div>

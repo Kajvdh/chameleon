@@ -1,6 +1,6 @@
 <?php
 /*
-  Copyright (C) 2015  Kaj Van der Hallen
+  Copyright (C) 2020  Kaj Van der Hallen; Edited by Stanley Kulik (DjSxX)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -179,6 +179,11 @@ if ($id) {
                     if ($chat_style) {
                         $smarty->assign('chat_style',$chat_style);
                     }
+					//Chatstyle
+                    $chat_bgurl = $chat->getBgurl();
+                    if ($chat_bgurl) {
+                        $smarty->assign('chat_bgurl',$chat_bgurl);
+                    }
                     //Iconstyle
                     $icon_style = $chat->getIconStyle();
                     if ($icon_style) {
@@ -285,9 +290,26 @@ if ($id) {
                     if ($radio_link) {
                         $smarty->assign('radio_link', $radio_link);
                     }
+					$verzoekurl = $chat->getVerzoekurl();
+                    if ($verzoekurl) {
+                        $smarty->assign('verzoek_url', $verzoekurl);
+                    }
                     $radio_type = $chat->Radio->getPlayer();
                     if ($radio_type) {
                         $smarty->assign('radio_style', $radio_type);
+                    }
+					$playerkleur = $chat->getPlayerkleur();
+                    if ($playerkleur) {
+                        $smarty->assign('playerkleur', $playerkleur);
+                    }
+					$tekstkleur = $chat->getTekstkleur();
+                    if ($tekstkleur) {
+                        $smarty->assign('tekstkleur', $tekstkleur);
+                    }
+					
+					$mountpoint = $chat->getMountpoint();
+                    if ($mountpoint) {
+                        $smarty->assign('mountpoint', $mountpoint);
                     }
                     //Advertenties
                     $ads_enabled = $chat->getAdsEnabled();
@@ -313,12 +335,17 @@ if ($id) {
             $chat->setOwner($id);
             $chat->readForm($_POST);
             $chat->save();
-            $smarty->assign('success',"Je chatbox is aangemaakt!");
+            $smarty->assign('success',"Je chatbox is aangemaakt! Vergeet niet je chatbox te registeren op de chat!");
             $smarty->assign('page',"list");
         }
         else {
             //Formulier nieuwe chat aanmaken
             $smarty->assign('chat_style',"blue");
+			$smarty->assign('chat_bgurl',"");
+			$smarty->assign('verzoek_url',"");
+			$smarty->assign('tekstkleur', "#FFF");
+			$smarty->assign('playerkleur', "#800000");
+			$smarty->assign('mountpoint', "/stream");
             $smarty->assign('icon_style',"bolletje");
             $smarty->assign('icon_prefix', "false");
             $smarty->assign('timestamp', "true");
@@ -356,6 +383,9 @@ if ($id) {
         $calls = array();
         $lastcalleds = array();
         $names = array();
+		$bgurl = array();
+		$chatstyle = array();
+		$playerstyle = array();
         foreach ($chatboxes as $chatbox) {
             $owner = new Member($aDb);
             $owner->getById($chatbox->getOwner());
@@ -364,12 +394,18 @@ if ($id) {
             array_push($calls, $chatbox->getCalls());
             array_push($lastcalleds, $chatbox->getLastCalled());
             array_push($names,$chatbox->getName());
+			array_push($bgurl,$chatbox->getBgurl());
+			array_push($chatstyle,$chatbox->getStyle());
+			array_push($playerstyle,$chatbox->Radio->getPlayer());
         }
         $smarty->assign('ids',$ids);
         $smarty->assign('owners', $owners);
         $smarty->assign('calls', $calls);
         $smarty->assign('lastcalleds', $lastcalleds);
         $smarty->assign('names', $names);
+		$smarty->assign('bgurl', $bgurl);
+		$smarty->assign('chatstyle', $chatstyle);
+		$smarty->assign('playerstyle', $playerstyle);
     }
     else {
         $member = new Member($db);
@@ -377,12 +413,20 @@ if ($id) {
         $ids = array();
         $owners = array();
         $names = array();
+		$bgurl = array();
+		$chatstyle = array();
+		$playerstyle = array();
         foreach ($chatboxes as $chatbox) {
             array_push($ids, $chatbox->getId());
             array_push($names, $chatbox->getName());
+			array_push($bgurl,$chatbox->getBgurl());
+			array_push($chatstyle,$chatbox->getStyle());
+			array_push($playerstyle,$chatbox->Radio->getPlayer());
         }
         $smarty->assign('ids', $ids);
         $smarty->assign('names', $names);
+		$smarty->assign('bgurl', $bgurl);
+		$smarty->assign('chatstyle', $chatstyle);
     }
 
     $smarty->display('mainpanel.tpl');
@@ -391,7 +435,7 @@ if ($id) {
 
 }
 else {
-    $smarty->assign('error', "Gelieve eerst in te loggen");
+    $smarty->assign('error', "Gelieve eerst in te loggen of registreer eerst via <a href='register.php'>hier</a><br />Let op, registreren is gelijk registreren voor je nicknaam op de chat, onthoudt je wachtwoord en nicknaam goed!");
     $smarty->display('login.tpl');
 }
 ?>

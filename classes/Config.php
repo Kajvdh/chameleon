@@ -6,8 +6,9 @@
  * Bevat enkele paramaters met betrekking tot de instelling van de applicatie
  *
  * @author Kaj Van der Hallen
+ * @edit Stanley Kulik (DjSxX)
  */
-
+setlocale(LC_ALL, 'nl_NL'); //date-time language locales
 class Config {
     private $_errorMode;            //De mode die bepaalt hoe errors opgevangen worden
     private $_mysqlHost;            //De host van de MySQL Database
@@ -41,7 +42,8 @@ class Config {
          */
         $this->_errorMode = "prd";
         $this->_rootDirectory = "";
-        $this->_fullUrl = "https://chameleon.chattersweb.nl"; //zonder / achter de link
+        $this->_fullUrl = "siteurl"; //zonder / achter de link
+		$this->_logo = "siteurl/logo"; //zonder / achter de link
         /**
          * MySQL gegevens
          */
@@ -60,7 +62,7 @@ class Config {
         $this->_mysqlAnopeHost = "anope_db_host";
         $this->_mysqlAnopeUser = "anope_db_user";
         $this->_mysqlAnopePass = "anope_db_pass";
-        $this->_mysqlAnopeDbName = "anope";
+        $this->_mysqlAnopeDbName = "Anope_DB";
     }
 
     /**
@@ -86,10 +88,15 @@ class Config {
     public function getFullUrl() {
         return $this->_fullUrl;
     }
+	public function getLogo() {
+        return $this->_logo;
+    }
     public function setFullUrl($url) {
         $this->_fullUrl = $url;
     }
-
+	public function setLogo($logo) {
+        $this->_logo = $logo;
+    }
     public function getMysqlHost() {
         return $this->_mysqlHost;
     }

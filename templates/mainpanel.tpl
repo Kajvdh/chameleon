@@ -5,25 +5,61 @@
           <meta http-equic="X-UA-Compatible" content="IE=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <!-- jQuery -->
-          <script src="{$fullurl}/js/jquery-1.11.0.min.js"></script>
+          <!-- <script src="{$fullurl}/js/jquery-1.11.0.min.js"></script> -->
+		      <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
 
+    <link href="//cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" rel="stylesheet">
+    <link href="https://www.jquery-az.com/boots/css/bootstrap-colorpicker/bootstrap-colorpicker.css" rel="stylesheet">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://www.jquery-az.com/boots/css/bootstrap-colorpicker/main.css" rel="stylesheet"> -->
+
+    <script src="//code.jquery.com/jquery-2.2.2.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{$fullurl}/js/bootstrap-colorpicker.js"></script>
+	<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script>
           <!-- Bootstrap -->
           <link rel="stylesheet" href="{$fullurl}/css/bootstrap.min.css">
           <link rel="stylesheet" href="{$fullurl}/css/bootstrap-theme.min.css">
           <link rel="stylesheet" href="{$fullurl}/css/bootstrap-switch.css">
-          <script src="{$fullurl}/js/bootstrap.min.js"></script>
+          <!-- <script src="{$fullurl}/js/bootstrap.min.js"></script> -->
           <script src="{$fullurl}/js/bootstrap-switch.js"></script>
           <!--[if lt IE 9]>
             <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
           <![endif]-->
 	<script type="text/javascript" src="../analyticstracking.js"></script>
-          
+          <!-- SEO -->
+		  <meta name="language" content="Dutch" />
+<meta name="keywords" content="chatten, gezellig kletsen, example, Chameleon, Radio chat, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat, triviant," />
+<meta name="description"  content="example De enige Chatserver waar je gratis kan chatten, chatten zonder registratie, chatten met webcams en dat allemaal gratis, example Ares Verzoekserver, maak hem nu gratis aan!" />
+<meta name="google-site-verification" content="-hrJp-Kl7mtCVBOR5Dg45R52OfEAmnIceApYxPMluc4" />
+<meta name="robots" content="index,follow,noodp,noydir" />
+<meta name="description" content="Waar chatten, chatten is!"/>
+<meta property="og:locale" content="nl_NL" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Chameleon | example | Waar chatten, chatten is!" />
+<meta property="og:description" content="Chameleon" />
+<meta property="og:url" content="https://chameleon.example.nl" />
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="..::example Chameleon::.." />
+<meta property="og:site_name" content="..::example Chameleon::.." />
+<meta property="article:publisher" content="https://www.facebook.com/example/" />
+<meta property="fb:app_id" content="699740480138507" />
+
+<meta property="og:image" content="https://horus.example.nl/webchat/img/cwobg.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Waar chatten, chatten is!" />
+<meta name="twitter:title" content="..::example Chameleon::.." />
+<link rel="canonical" href="https://chameleon.example.nl" />
+<link rel="shortcut icon" href="https://horus.example.nl/dist/img/c4all-horus.png" sizes="32x32" />
           <!-- Custom CSS -->
           <link href="{$fullurl}/css/custom_css/mainpanel.css" rel="stylesheet">
           
-    <link rel="shortcut icon" href="favicon.ico">
-    <title>Chattersweb ChatCreator</title>
+    
+    <title>example Chameleon</title>
   </head>
 
   <body>
@@ -37,7 +73,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{$fullurl}/list">CW ChatCreator</a>
+                <a class="navbar-brand" href="{$fullurl}/list">EX Chameleon</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -93,7 +129,7 @@
         
         {else}
             <div class="datacontainer">
-                <h1>Chattersweb Chat Creator</h1>
+                <h1>example Chat Creator</h1>
                 <p class="lead">Welkom! Hier kan je je eigen chatbox aanmaken en volledig naar je wensen aanpassen!</p>
             </div>
         {/if}
@@ -101,5 +137,17 @@
         
 
     </div>
+	<center>
+	<footer class="footer hidden-xs-down">
+                    <p>© example Chameleon All rights reserved. v2.9</p>
+
+                    <ul class="nav footer__nav">
+                        <a class="nav-link" href="https://example.nl">Homepage</a>
+
+                        <a class="nav-link" href="https://wiki.example.nl">Support</a>
+
+                      
+                    </ul>
+                </footer></center>
   </body>
 </html>

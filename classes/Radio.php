@@ -1,6 +1,6 @@
 <?php
 /*
-  Copyright (C) 2015  Kaj Van der Hallen
+  Copyright (C) 2020  Kaj Van der Hallen; Edited by Stanley Kulik (DjSxX)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
  * Description of Radio
  *
  * @author Kaj
+ * @edit Stanley Kulik (DjSxX)
  */
 class Radio {
     private $_enabled;
@@ -30,6 +31,7 @@ class Radio {
 
     private $_streamLink;
     private $_streamType;
+	
 
     public function getEnabled() {
         return $this->_enabled;

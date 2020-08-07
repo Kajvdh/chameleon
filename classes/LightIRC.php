@@ -6,6 +6,7 @@
  * Deze klasse bevat de instellingen met betrekking tot de LightIRC chat
  *
  * @author Kaj Van der Hallen
+ * @edit Stanley Kulik (DjSxX)
  */
 
 class LightIRC {
@@ -14,10 +15,10 @@ class LightIRC {
         $this->_dBase = $db;
         $this->_db = $db['db'];
         $this->_table = $db['prefix']."lirc";
-        $this->setHost("irc.chattersweb.nl");
+        $this->setHost("irc.example.org");
         $this->setShowNickPrefixes("false");
-        $this->setAccessKey("A8DFB-5EC1E-JTA4M-P6297-050BA");
-        $this->setPort("6667");
+        $this->setAccessKey("lIRC access key");
+        $this->setPort("6697");
         $this->setPolicyPort("8080");
         $this->setEnableQueries("true");
         $this->setUseUserListIcons("true");
@@ -25,7 +26,7 @@ class LightIRC {
         $this->setLanguage("nl");
         $this->setStyleURL("css/blue.css");
         $this->setWebcam("true");
-        $this->setRtmp("red5.chattersweb.nl:1935");
+        $this->setRtmp("red5 url");
         $this->setNick("Gast%");
         $this->setShowServerWindow("true");
         $this->setShowEmoticonsButton("true");
@@ -41,7 +42,7 @@ class LightIRC {
         $this->setShowIdentifySelection("true");
         $this->setShowNickSelection("true");
         $this->setShowRegisterNicknameButton("true");
-        $this->setShowRegisterChannelButton("false");
+        $this->setShowRegisterChannelButton("true");
         $this->setShowNewQueriesInBackground("false");
         $this->setShowInfoMessages("true");
         $this->setChannelHeader("Kanaal: %channel% | Chatters: %users% | Modes: %mode% | Topic: %topic%");
@@ -451,7 +452,7 @@ class LightIRC {
             $this->setId($row['id']);
             $this->setHost($row['host']);
             //$this->setPort($row['port']);
-            $this->setPort($row['65535']);
+            $this->setPort($row['6697']);
             $this->setPolicyPort($row['policyPort']);
             $this->setAccessKey($row['accessKey']);
             $this->setCharset($row['charset']);
@@ -483,7 +484,7 @@ class LightIRC {
             $this->setPerformContinousWhoRequests($row['performContinousWhoRequests']);
             $this->setWebcam($row['webcam']);
             //$this->setRtmp($row['rtmp']);
-            $this->setRtmp("red5.chattersweb.nl:1935");
+            $this->setRtmp("Red5 URL+PORT");
             $this->setWebcamPreviewBox($row['webcamPreviewBox']);
             $this->setWebcamPrivateOnly($row['webcamPrivateOnly']);
             $this->setWebcamPublicOnly($row['webcamPublicOnly']);
@@ -1181,14 +1182,16 @@ class LightIRC {
         $this->_addParam('host', $this->getHost());
         $this->_addParam('accessKey', $this->getAccessKey());
         //$this->_addParam('port', $this->getPort());
-        $this->_addParam('port', "65535");
+        $this->_addParam('port', "6697");
+		$this->_addParam('realname', "..::REALNAME::..");
+		$this->_addParam('quitMessage', "Client Closed");
         $this->_addParam('policyPort', $this->getPolicyPort());
         $this->_addParam('charset', $this->getCharset());
         $this->_addParam('nick', $this->getNick());
         $this->_addParam('nickAlternate', $this->getNickAlternate());
         $this->_addParam('rememberNickname', $this->getRememberNickname());
-        $this->_addParam('nickPrefix', $this->getNickPrefix());
-        $this->_addParam('nickPostfix', $this->getNickPostfix());
+        $this->_addParam('nickPrefix', "&nbsp;");
+        $this->_addParam('nickPostfix', ":");
         $this->_addParam('showNickPrefixes', $this->getShowNickPrefixes());
         $this->_addParam('showNickPrefixIcons', $this->getShowNickprefixIcons());
         $this->_addParam('password', $this->getPassword());
@@ -1274,6 +1277,50 @@ class LightIRC {
         $this->_addParam('contextMenuInternalEvent', $this->getContextMenuInternalEvent());
         $this->_addParam('contextMenuExternalEvent', $this->getContextMenuExternalEvent());
         echo('/* This loop escapes % signs in parameters. You should not change it */
+			function sendCommand(command) {
+  swfobject.getObjectById("lightIRC").sendCommand(command);
+}
+
+/* Use this method to send a message to the active chatwindow */
+function sendMessageToActiveWindow(message) {
+  swfobject.getObjectById("lightIRC").sendMessageToActiveWindow(message);
+}
+
+/* Use this method to set a random text input content in the active window */
+function setTextInputContent(content) {
+  swfobject.getObjectById("lightIRC").setTextInputContent(content);
+}
+
+/* This method gets called if you click on a nick in the chat area */
+function onChatAreaClick(nick, ident, realname, channel, host) {
+  //alert("onChatAreaClick: "+nick);
+}
+
+/* This method gets called if you use the parameter contextMenuExternalEvent */
+function onContextMenuSelect(type, nick, ident, realname, channel, host) {
+  alert("onContextMenuSelect: "+nick+" for type "+type);
+}
+
+/* This method gets called if you use the parameter loopServerCommands */
+function onServerCommand(command) {
+  return command;
+}
+
+/* This method gets called if you use the parameter loopClientCommands */
+function onClientCommand(command) {
+  return command;
+}
+
+/* This method gets called every time the user changes the active window */
+function onActiveWindowChange(window) {
+	//alert("Active window: "+window);
+}
+
+/* This event ensures that lightIRC sends the default quit message when the user closes the browser window */
+
+window.onbeforeunload = function() {
+  swfobject.getObjectById("lightIRC").sendQuit();
+}
             for(var key in params) {
               params[key] = params[key].toString().replace(/%/g, "%25");
             }');
