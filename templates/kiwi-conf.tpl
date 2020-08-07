@@ -57,6 +57,8 @@
 			{/literal}{/if}{literal}
 			{"name": "nickserv", "url": "static/plugins/plugin-nickserv.js"},
 			{"name": "gravatar", "url": "static/plugins/plugin-gravatar.js"},
+			{"name": "giphy", "url": "static/plugins/plugin-giphy.html"},
+			{"name": "imgurl", "url": "static/plugins/plugin-imgur.html"},
 			{"name": "asl","url": "static/plugins/plugin-asl.js?cb=20"}
     ],
 	"plugin-asl" : {
