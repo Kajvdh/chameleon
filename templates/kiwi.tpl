@@ -21,21 +21,21 @@
 {/literal}
 <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
  <meta name="language" content="Dutch" />
-<meta name="keywords" content="chatten, gezellig kletsen, Chattersworld, Radio chat, Chameleon, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat, triviant," />
-<meta name="description"  content="Chattersworld De enige Chatserver waar je gratis kan chatten, chatten zonder registratie, chatten met webcams en dat allemaal gratis, Chattersworld Ares Verzoekserver, maak hem nu gratis aan!" />
+<meta name="keywords" content="chatten, gezellig kletsen, example, Radio chat, Chameleon, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat, triviant," />
+<meta name="description"  content="example De enige Chatserver waar je gratis kan chatten, chatten zonder registratie, chatten met webcams en dat allemaal gratis, example Ares Verzoekserver, maak hem nu gratis aan!" />
 <meta name="google-site-verification" content="-hrJp-Kl7mtCVBOR5Dg45R52OfEAmnIceApYxPMluc4" />
 <meta name="robots" content="index,follow,noodp,noydir" />
 <meta name="description" content="Waar chatten, chatten is!"/>
 <meta property="og:locale" content="nl_NL" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="#{$metadata['name']} Chameleon | Chattersworld | Waar chatten, chatten is!" />
-<meta property="og:description" content="#{$metadata['name']} Chattersworld Chameleon, deze chat is gemaakt door Chameleon op Chattersworld.nl" />
+<meta property="og:title" content="#{$metadata['name']} Chameleon | example | Waar chatten, chatten is!" />
+<meta property="og:description" content="#{$metadata['name']} example Chameleon, deze chat is gemaakt door Chameleon op example.nl" />
 <meta property="og:url" content="{$fullurl}/chat.php?id={$smarty.get.id}" />
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="..::Chattersworld Chameleon::.. #{$metadata['name']}" />
-<meta property="og:site_name" content="..::Chattersworld Chameleon::.." />
-<meta property="article:publisher" content="https://www.facebook.com/chattersworld/" />
+<meta property="og:title" content="..::example Chameleon::.. #{$metadata['name']}" />
+<meta property="og:site_name" content="..::example Chameleon::.." />
+<meta property="article:publisher" content="https://www.facebook.com/example/" />
 <meta property="fb:app_id" content="699740480138507" />
 {if $metadata['style'] != "transparent"}
 <meta property="og:image" content="{$logo}" />
@@ -46,10 +46,16 @@
 {/if}
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:description" content="Waar chatten, chatten is!" />
-<meta name="twitter:title" content="..::Chattersworld Chameleon::.." />
+<meta name="twitter:title" content="..::example Chameleon::.." />
 <link rel="canonical" href="{$fullurl}/chat.php?id={$smarty.get.id}" />
 <link rel="stylesheet" href="dist/magnific-popup.css">
-<meta charset=utf-8><meta name=viewport content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1"><title>Kiwi IRC</title>
+<!-- Kiwi script reloaders -->
+<link href="static/css/app.d11ee53b.css" rel="preload" as="style">
+<link href="static/js/app.71bcf681.js" rel="preload" as="script">
+<link href="static/js/vendor.0d970857.js" rel="preload" as="script">
+<link href="static/css/app.d11ee53b.css" rel="stylesheet">
+<!-- END -->
+<meta charset=utf-8><meta name=viewport content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1"><title>..::example Chameleon::.. #{$metadata['name']}</title>
 
 <style>/* target specific styles */
     html { height: 100%; overflow: hidden; }
@@ -213,7 +219,7 @@ position: absolute;
 .kiwi-messagelist {
 {/literal}{if $metadata['style'] != "transparent"}{literal}{/literal}
 			   {if $metadata['bgcolor'] == '#000000'}{literal}background-color:rgba(0,0,0, .50);{/literal}{else}{literal}
-               background-color:{/literal}#FFF{literal};{/literal}{/if}{literal}	
+               background-image: linear-gradient(rgba(255,255,255, .50), rgba(255,255,255, .50)), url({/literal}cwobg.jpg{literal});background-size: 100% 100%;{/literal}{/if}{literal}	
 			   }
 			   {/literal}{else}{literal}
     background-image: linear-gradient(rgba(255,255,255, .50), rgba(255,255,255, .50)), url({/literal}{$metadata['bgurl']}{literal}); 
@@ -235,20 +241,20 @@ position: absolute;
 
 </style>
 {/literal}
-<link href="static/css/app.d11ee53b.css" rel="preload" as="style"><link href="static/js/app.71bcf681.js" rel="preload" as="script"><link href="static/js/vendor.0d970857.js" rel="preload" as="script"><link href="static/css/app.d11ee53b.css" rel="stylesheet"></head><body>
+</head><body>
 <div class="left">
-<a target="_blank" href="https://chattersworld.nl"><img src="{$logo}" style="z-index: 102;" height="50" alt="Chattersworld"></a>
+<a target="_blank" href="https://example.nl"><img src="{$logo}" style="z-index: 102;" height="50" alt="example"></a>
 </div>
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-<center><a target="_blank" href="https://chattersworld.nl"><img src="{$logo}" height="100" alt="Chattersworld"></a></center>
+<center><a target="_blank" href="https://example.nl"><img src="{$logo}" height="100" alt="example"></a></center>
 <br>
 {if $metadata['verzoek_url'] != "" && $metadata['radio'] == "true"}
 <a href="{$metadata['verzoek_url']}" data-mfp-src="#test-popup" class="open-popup-link"><img src="{$fullurl}/radio/request1.png" width="25px" height="25px" alt="Verzoek Aanvragen">&nbsp;Verzoekje Doen</a>
 <br />
 {else}
-<a target="_blank" href="https://chattersworld.nl"><img src="{$fullurl}/radio/request1.png" width="25px" height="25px" alt="Maak je eigen chatbox!">&nbsp;Maak je eigen chatbox!</a>
+<a target="_blank" href="https://example.nl"><img src="{$fullurl}/radio/request1.png" width="25px" height="25px" alt="Maak je eigen chatbox!">&nbsp;Maak je eigen chatbox!</a>
 {/if}
 <br />
 {if $metadata['radio'] == "true"}
@@ -260,7 +266,9 @@ position: absolute;
 
 </div>
 <div class="right"><span style="font-size:30px;cursor:pointer;color:#FFF;" onclick="openNav()">&#9776;</span></div>
-<noscript><div class=kiwi-noscript-warn>Please enable JavaScript and refresh the page to use this website.</div></noscript><div id=app></div><script type="text/javascript" src="static/js/vendor.0d970857.js"></script><script type="text/javascript" src="static/js/app.71bcf681.js"></script>
+<noscript><div class=kiwi-noscript-warn>Please enable JavaScript and refresh the page to use this website.</div></noscript><div id=app></div>
+<script type="text/javascript" src="static/js/vendor.0d970857.js"></script>
+<script type="text/javascript" src="static/js/app.71bcf681.js"></script>
 		<script type="text/javascript">
 	
 	function openNav() {
