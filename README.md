@@ -10,6 +10,12 @@ KiwiIRC has been added, flash will stop support at the end of december, so KiwiI
 KiwiIRC also has Support for gravatar avatars, please refer to the gitpage for kiwi-plugin-gravatar how to setup the plugin already build in.
 https://github.com/ItsOnlyBinary/kiwiirc-plugin-gravatar/tree/master/webircgateway-plugin
 
+# Filesharing support
+
+This KiwiIRC version has filesharing build in.
+Check out official github repo for installation:
+https://github.com/kiwiirc/plugin-fileuploader
+
 All others will work out of the box.
 
 # LightIRC
