@@ -49,23 +49,24 @@ window.kiwiConfig = function kiwiConfig() {
 			"share_typing": true
 		},
 	"plugins": [
-		{
-			"name": "conference",
-			"url": "static/plugins/conference/plugin-conference.min.js?v=1.2"
-		},
-			{"name": "emoji", "url": "static/plugins/plugin-emoji-prelim.min.js"},
-			{"name": "simosnapcss","url": "static/plugins/cwo-css.html"},
-			
-			{/literal}{if $metadata['radio'] == "true" && $metadata['radio_player'] == "internal"}{literal}
-			{"name": "plugin-radio","url": "static/plugins/plugin-radio.html"},
-			{/literal}{/if}{literal}
-			{"name": "nickserv", "url": "static/plugins/plugin-nickserv.js"},
-			{"name": "gravatar", "url": "static/plugins/plugin-gravatar.js"},
-			{"name": "giphy", "url": "static/plugins/plugin-giphy.html"},
-			{"name": "imgurl", "url": "static/plugins/plugin-imgur.html"},
-			{"name": "ident", "url": "static/plugins/ident.js"},
-			{"name": "asl","url": "static/plugins/plugin-asl.js?cb=20"}
-    ],
+			{
+				"name": "conference",
+				"url": "static/plugins/conference/plugin-conference.min.js?v=1.2"
+			},
+				{"name": "emoji", "url": "static/plugins/plugin-emoji-prelim.min.js"},
+				{"name": "simosnapcss","url": "static/plugins/cwo-css3.html"},
+				
+				{/literal}{if $metadata['radio'] == "true" && $metadata['radio_player'] == "internal"}{literal}
+				{"name": "plugin-radio","url": "static/plugins/plugin-radio.html"},
+				{/literal}{/if}{literal}
+				{"name": "nickserv", "url": "static/plugins/plugin-nickserv.js"},
+				{"name": "gravatar", "url": "static/plugins/plugin-gravatar.js"},
+				{"name": "giphy", "url": "static/plugins/plugin-giphy.html"},
+				{"name": "imgurl", "url": "static/plugins/plugin-imgur.html"},
+				{"name": "ident", "url": "static/plugins/ident.js?v=1.2"},
+				{"name": "asl","url": "static/plugins/plugin-asl.js?cb=20"},
+				{"name": "fileuploader", "url": "static/plugins/plugin-fileuploader.js?v=1.1"}
+		],
 	"plugin-asl" : {
                 "gecosType": 2,
                 "showRealname": false,
@@ -140,9 +141,9 @@ window.kiwiConfig = function kiwiConfig() {
 	},
 
 	"fileuploader": {
-		"server": "https://gateway.example.nl:1085/files",
-		"maxFileSize": 10485760,
-		"note": "Let op, deze bestanden blijven maximaal 24 uur bestaan!"
+			"server": "https://fileuploaderserverurl.nl/files/",
+			"maxFileSize": 10485760,
+			"note": "Let op, deze bestanden blijven maximaal 24 uur bestaan!"
 	},
 	"embedly": {
         "key": "aae4890b796c49dbbc079001e2f9d8e5"
