@@ -1177,6 +1177,9 @@ class LightIRC {
         }
     }
     public function printConfig() {
+		echo "<!DOCTYPE HTML>".PHP_EOL;
+		echo "<html>".PHP_EOL;
+		echo "<head>".PHP_EOL;
         echo "<script>".PHP_EOL;
         echo "var params = {};".PHP_EOL;
         $this->_addParam('host', $this->getHost());
