@@ -154,7 +154,7 @@ Native Flashradio V4
 </div>
         <script>
 $("#lunaradio").lunaradio({
-	token: "licensekey",
+	token: "VVpTZmZXZGVpYWReViBgXg==",
 	userinterface: "small",
 	backgroundcolor: "{$metadata['playerkleur']}",
 	fontcolor: "{$metadata['tekstkleur']}",
@@ -309,7 +309,7 @@ Native Flashradio V4
 </div>
         <script>
 $("#lunaradio").lunaradio({
-	token: "licensekey",
+	token: "VVpTZmZXZGVpYWReViBgXg==",
 	userinterface: "small",
 	backgroundcolor: "{$metadata['playerkleur']}",
 	fontcolor: "{$metadata['tekstkleur']}",

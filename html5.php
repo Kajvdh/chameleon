@@ -30,10 +30,11 @@ if (isset($_GET['id'])) {
         $metadata = $chat->getMetaData();
 
         if (($metadata['radio'] != "true") && ($metadata['ads_enabled'] == "true"))
-            header('Location: https://chameleon.chattersworld.nl/html52.php?'.$_SERVER['QUERY_STRING']);
+            header('Location: https://chameleon.exemple.nl/html52.php?'.$_SERVER['QUERY_STRING']);
 
         $smarty->assign('metadata',$metadata);
 		$smarty->display('kiwi-conf.tpl');
+		$smarty->display('kiwi-style.tpl');
         $smarty->display('kiwi.tpl');
 
         if ($metadata['radio'] == "true") {

@@ -1,4 +1,3 @@
-<head>
  <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
  <meta name="language" content="Dutch" />
 <meta name="keywords" content="chatten, gezellig kletsen, Chattersworld, Radio chat, Chameleon, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat, triviant," />
@@ -149,8 +148,124 @@ position: absolute;
 		.lunaresponsive {/*Small Screen Height*/
 			height:40px;
 		}
-	}{/literal}
+	}
+	.wrap {
+                padding: 40px;
+                text-align: center;
+            }
+            hr {
+                clear: both;
+                margin-top: 40px;
+                margin-bottom: 40px;
+                border: 0;
+                border-top: 1px solid #aaaaaa;
+            }
+            h1 {
+                font-size: 30px;
+                margin-bottom: 40px;
+            }
+            p {
+                margin-bottom: 20px;
+            }
+            .btn {
+                background: #428bca;
+                border: #357ebd solid 1px;
+                border-radius: 3px;
+                color: #fff;
+                display: inline-block;
+                font-size: 14px;
+                padding: 8px 15px;
+                text-decoration: none;
+                text-align: center;
+                min-width: 60px;
+                position: relative;
+                transition: color .1s ease;
+            }
+            .btn:hover {
+                background: #357ebd;
+            }
+            .btn.btn-big {
+                font-size: 18px;
+                padding: 15px 20px;
+                min-width: 100px;
+            }
+            .btn-close {
+                color: #aaaaaa;
+                font-size: 30px;
+                text-decoration: none;
+                position: absolute;
+                right: 5px;
+                top: 0;
+            }
+            .btn-close:hover {
+                color: #919191;
+            }
+            .modal:before {
+                content: "";
+                display: none;
+                background: rgba(0, 0, 0, 0.6);
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 10;
+            }
+            .modal:target:before, .modal.loaded:before {
+                display: block;
+            }
+            .modal:target .modal-dialog, .modal.loaded .modal-dialog {
+                -webkit-transform: translate(0, 0);
+                -ms-transform: translate(0, 0);
+                transform: translate(0, 0);
+                top: 20%;
+            }
+            .modal-dialog {
+                background: #fefefe;
+                border: #333333 solid 1px;
+                border-radius: 5px;
+                margin-left: -200px;
+                position: fixed;
+                left: 50%;
+                top: -100%;
+                z-index: 11;
+                width: 500px;
+                -webkit-transform: translate(0, -500%);
+                -ms-transform: translate(0, -500%);
+                transform: translate(0, -500%);
+                -webkit-transition: -webkit-transform 0.3s ease-out;
+                -moz-transition: -moz-transform 0.3s ease-out;
+                -o-transition: -o-transform 0.3s ease-out;
+                transition: transform 0.3s ease-out;
+            }
+            .modal-body {
+                padding: 20px;
+            }
+            .modal-header,
+            .modal-footer {
+                padding: 10px 20px;
+            }
+            .modal-header {
+                border-bottom: #eeeeee solid 1px;
+            }
+            .modal-header h2 {
+                font-size: 20px;
+            }
+            .modal-footer {
+                border-top: #eeeeee solid 1px;
+                text-align: right;
+            }
+	{/literal}
  </style>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <script>
+$( document ).ready( function() {
+    $('.modal').addClass('loaded');
+    $('.btn-close, .btn').click( function() {
+        $('.modal').removeClass('loaded');
+    });
+});
+</script>
 </head>
 
 <body>
@@ -184,6 +299,21 @@ position: absolute;
 <div id="test-popup" class="white-popup mfp-hide">
   <iframe src="{$metadata['verzoek_url']}" name="iReQuest_ReQuestForm" scrolling="auto" frameborder="no" align="center" height = "650px" width = "100%"></iframe>
 </div>
+<div class="modal" id="modal-one" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-header">
+                    <h2>Waarschuwing!!</h2>
+                    <a href="#" class="btn-close" aria-hidden="true">×</a>
+                </div>
+                <div class="modal-body">
+                    <p><center><img src="https://scr.gezelligkletsen.nl/b5d7ba93-1cce-4733-9e6a-559bb7d24d0d.png" /> <br /><br />Adobe Flashplayer stopt de ondersteuning in december 2020! <br /><br />Chattersworld houd de deze flashchat online zolang de ondersteuning blijft.<br /><br />Inmiddels heeft Chattersworld reeds een geweldige HTML5 chat.<br /><br /><br /><br />Druk op OK! om naar deze flashchat te gaan!</center></p>
+                </div>
+                <div class="modal-footer">
+				<a href="{$fullurl}/html5.php?id={$smarty.get.id}" class="btn">Ga naar HTML5 chat</a>
+                    <a href="#" class="btn">OK!</a>
+                </div>
+            </div>
+        </div>
  <script type="text/javascript">
 	swfobject.embedSWF("{$fullurl}/lightIRC2.swf", "lightIRC", "100%", "{$metadata['height']}%", "10.0.0", "{$fullurl}/expressInstall.swf", params, {literal}{wmode:'transparent'}{/literal});
 	function openNav() {

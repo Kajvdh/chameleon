@@ -50,13 +50,14 @@ if ($mobile_browser > 0) {
         $metadata = $chat->getMetaData();
 
         if (($metadata['radio'] == "true") || ($metadata['ads_enabled'] != "true"))
-            header('Location: https://chameleon.chattersworld.nl/chat.php?'.$_SERVER['QUERY_STRING']);
+            header('Location: https://chameleon.exemple.nl/chat.php?'.$_SERVER['QUERY_STRING']);
 
         if ($metadata['ads_enabled'] == "true")
             $metadata['height'] = "90";
 
         $smarty->assign('metadata',$metadata);
 		$smarty->display('kiwi-conf.tpl');
+		$smarty->display('kiwi-style.tpl');
         $smarty->display('kiwi.tpl');
 
         if ($metadata['radio'] == "true") {
@@ -90,7 +91,7 @@ else {
         $metadata = $chat->getMetaData();
 
         if (($metadata['radio'] == "true") || ($metadata['ads_enabled'] != "true"))
-            header('Location: https://chameleon.chattersworld.nl/chat.php?'.$_SERVER['QUERY_STRING']);
+            header('Location: https://chameleon.exemple.nl/chat.php?'.$_SERVER['QUERY_STRING']);
 
         if ($metadata['ads_enabled'] == "true")
             $metadata['height'] = "90";
