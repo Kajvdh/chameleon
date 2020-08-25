@@ -32,6 +32,7 @@ The player will play audio without a licensekey, but other functions will not wo
 
 Requires;
 - Anope Services running on MySQL and Encryption has to be MD5
+- Make sure that your anope instance has m_xmlrpc enabled
 - lightIRC webcam module license
 - Self hosted Jitsi-Meet for KiwiIRC conference
 - Some license's for web radioplayers
@@ -45,3 +46,4 @@ Installation is quite straight forward;
 - edit classes/LightIRC.php with your IRC credentials (replace irc.example.nl with your IRC server)
 - edit classes/LightIRC.php with your lightIRC license (LightIRC requires a license for webcams to work)
 - edit templates/kiwi-conf.tpl with your IRC credentials, webircgateway and jitsi-meet server
+- edit register.php with the anope xmlrpc URL for registration to work properly (same with chanregister.php
