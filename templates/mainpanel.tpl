@@ -139,7 +139,7 @@
     </div>
 	<center>
 	<footer class="footer hidden-xs-down">
-                    <p>© Chattersworld Chameleon All rights reserved. v4.0</p>
+                    <p>© Chattersworld Chameleon All rights reserved. v5.0</p>
 
                     <ul class="nav footer__nav">
                         <a class="nav-link" href="https://chattersworld.nl">Homepage</a>

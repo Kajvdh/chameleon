@@ -5,32 +5,25 @@ window.kiwiConfig = function kiwiConfig() {
         console.log('off');
         return {
 		"startupScreen": "plugin-asl",
-		"windowTitle": "..::Chattersworld - #{/literal}{$metadata['name']}{literal}::.. The web IRC client",
-		"kiwiServer": "https://gateway.chattersworld.nl:1085/webirc/kiwiirc/",
+		"windowTitle": "..::exemple - #{/literal}{$metadata['name']}{literal}::.. The web IRC client",
+		"kiwiServer": "https://gateway.exemple.nl:1085/webirc/kiwiirc/",
 		"theme": "CWO",
 		"disconnectOnSaslFail": false,
 		"themes": [
-				{ "name": "CWO", "url": "static/themes/cwo-chameleon-kiwi" },
-				{ "name": "Default", "url": "static/themes/default" },
-				{ "name": "Dark", "url": "static/themes/dark" },
-				{ "name": "Coffee", "url": "static/themes/coffee" },
-				{ "name": "GrayFox", "url": "static/themes/grayfox" },
-				{ "name": "Nightswatch", "url": "static/themes/nightswatch" },
-				{ "name": "Osprey", "url": "static/themes/osprey" },
-				{ "name": "Radioactive", "url": "static/themes/radioactive" },
-				{ "name": "Sky", "url": "static/themes/sky" },
-				{ "name": "Elite", "url": "static/themes/elite" }
-			],
+				{ "name": "CWO", "url": "static/themes/cwo-chameleon-kiwiirc3" }
+				],
 		"showColorPicker": true,
 		"startupOptions": { 
-				"server": "irc.chattersworld.nl", 
+				"server": "irc.exemple.nl", 
 				"infoBackground": "{/literal}{if $metadata['bgurl'] != ''}{$metadata['bgurl']}{else}cwobg.jpg{/if}{literal}", 
-				"infoContent": "<a class=\"netlogo\" href=\"https://chameleon.chattersworld.nl\"><span></span><img src=\"https://atsiofrjlo.cloudimg.io/v7/https://chattersworld.nl/wp-content/uploads/2018/10/cropped-c4all.png\"></a><div><a href=\"https://chameleon.chattersworld.nl/register.php\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-lock\"></i> Registreer</a><a href=\"https://chameleon.chattersworld.nl/chat.php?id=1\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> Helpdesk</a><a href=\"https://wiki.chattersworld.nl/\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> CWO Wiki</a></div>",
-				"greetingText": "<div style='margin:0px 60px 0px 0px'><center><i class='fa fa-sign-in' style='margin-right:5px !important;'></i> Login op Chattersworld #{/literal}{$metadata['name']}{literal}!</center></div>",
-				"state_key": "CWO-Chameleon-22", 
-				"port": 6800, 
+				"infoContent": "<a class=\"netlogo\" href=\"https://chameleon.exemple.nl\"><span></span><img src=\"https://atsiofrjlo.cloudimg.io/v7/https://exemple.nl/wp-content/uploads/2018/10/cropped-c4all.png\"></a><div><a href=\"https://chameleon.exemple.nl/register.php\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-lock\"></i> Registreer</a><a href=\"https://chameleon.exemple.nl/chat.php?id=1\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> Helpdesk</a><a href=\"https://wiki.exemple.nl/\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> CWO Wiki</a></div>",
+				"greetingText": "<div style='margin:0px 60px 0px 0px'><center><i class='fa fa-sign-in' style='margin-right:5px !important;'></i> Login op exemple #{/literal}{$metadata['name']}{literal}!</center></div>",
+				"state_key": "CWO-Chameleon-41",
+				"buttonText": "<center><i class='fa fa-sign-in' style='margin-right:5px !important;'></i> Chatten</center>",
+				"gecos": "..::exemple Chameleon HTML5 Webchat::..",
+				"port": 6697, 
 				"tls": true, 
-				"direct": true, 
+				"direct": false, 
 				"recaptchaSiteId": "6LdZ_nIUAAAAANK_JiB2qsRbSPnldqaYTjFwNj8G",
 				"channel": "#{/literal}{$metadata['name']}{literal}",
 				"age": "",
@@ -45,9 +38,10 @@ window.kiwiConfig = function kiwiConfig() {
 				"coloured_nicklist": false,
 				"nicklist_avatars": true,
 				"colour_nicknames_in_messages": false,
-				"inline_link_auto_previews": true,
+				"inline_link_auto_previews": false,
 				"inline_link_auto_preview_whitelist": ".*",
-				"messageLayout": "inline",
+				"messageLayout": "modern",
+				"default_kick_reason": "Gedraag je!",
 				"share_typing": true
 			},
 		"plugins": [
@@ -62,6 +56,7 @@ window.kiwiConfig = function kiwiConfig() {
 				{"name": "plugin-radio","url": "static/plugins/plugin-radio.html"},
 				{/literal}{/if}{literal}
 				{"name": "nickserv", "url": "static/plugins/plugin-nickserv.js"},
+				{ "name": "font", "url": "static/plugins/font-size.html" },
 				{"name": "gravatar", "url": "static/plugins/plugin-gravatar.js"},
 				{"name": "giphy", "url": "static/plugins/plugin-giphy.html"},
 				{"name": "imgurl", "url": "static/plugins/plugin-imgur.html"},
@@ -102,13 +97,13 @@ window.kiwiConfig = function kiwiConfig() {
 					"localesPath": "static/plugins/plugin-asl/locales/"
 		},
 		"plugin-gravatar": {
-					"gatewayURL": "//gateway.chattersworld.nl:1085/",
+					"gatewayURL": "//gateway.exemple.nl:1085/",
 					"gravatarURL": "//www.gravatar.com/avatar/",
 					"gravatarRating": "g",
 					"gravatarFallback": "robohash"
 		},
 		"conference":{ 
-				"server": "meet.chattersworld.nl",
+				"server": "meet.exemple.nl",
 				"secure": false,
 				"enabledInChannels": [ "*" ],
 				"joinText": "heeft de mediaconferentie opgestart.",
@@ -123,16 +118,16 @@ window.kiwiConfig = function kiwiConfig() {
 					"SHOW_JITSI_WATERMARK": true,
 					"SHOW_WATERMARK_FOR_GUESTS": true,
 					"SHOW_BRAND_WATERMARK": true,
-					"BRAND_WATERMARK_LINK": "https://chattersworld.nl/",
-					"JITSI_WATERMARK_LINK": "https://chattersworld.nl",
+					"BRAND_WATERMARK_LINK": "https://exemple.nl/",
+					"JITSI_WATERMARK_LINK": "https://exemple.nl",
 					"MOBILE_APP_PROMO": true,
 					"DEFAULT_REMOTE_DISPLAY_NAME": "",
 					"VERTICAL_FILMSTRIP": true,
 					"LANG_DETECTION": true,
 					"TOOLBAR_BUTTONS": [
-								"microphone", "camera", "fullscreen", "fodeviceselection", "hangup",
+								"camera", "fullscreen", "fodeviceselection", "hangup",
 								"settings", "videoquality", "filmstrip",
-								"stats", "shortcuts"
+								"stats", "shortcuts", "sharedvideo"
 					]
 				},
 				"configOverwrite": {
@@ -143,7 +138,7 @@ window.kiwiConfig = function kiwiConfig() {
 		},
 	
 		"fileuploader": {
-			"server": "https://files.chattersworld.nl/files/",
+			"server": "https://files.exemple.nl/files/",
 			"maxFileSize": 10485760,
 			"note": "Let op, deze bestanden blijven maximaal 24 uur bestaan!"
 		},

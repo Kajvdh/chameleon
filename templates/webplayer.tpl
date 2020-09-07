@@ -41,7 +41,7 @@
 		<link href="webplayer/css/ytplayer.min.css?v=1.18.03.18" rel="stylesheet" type="text/css" media="all" />
 		<link href="webplayer/css/theme-nativehtml5radio.min.css?v=1.20.07.02" rel="stylesheet" type="text/css" media="all" />
     			<script src="radiolibs/luna/jquery-3.2.1.min.js"></script>
-				<script type="text/javascript" src="radiolibs/luna/lunaradio.min.js"></script>
+				<script type="text/javascript" src="radiolibs/luna/lunaradio.min.js?v=5.20.08.31"></script>
 			<script>{literal}
   				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -257,6 +257,7 @@ $("#lunaradio").lunaradio({
 	volume: "90",
 	debug: "false",
 	usestreamcorsproxy: "false", 
+	autoplay: "true",
 	corsproxy: "{if $metadata['radio_type'] == "shoutcast"}{else}https://api.allorigins.win/raw?url={/if}",
 });
 </script>

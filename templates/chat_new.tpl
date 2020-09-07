@@ -62,7 +62,7 @@
                     <div class="form-group">
                         <label for="chat_bgurl" class="control-label col-sm-3">Achtergrond Link<br /><small>Zet de style op "transparant"<br />Enkel HTTPS word geaccepteerd!</small></label>
                         <div class="col-sm-9">
-                            <input type="url" class="form-control" pattern="https://.*" name="chat_bgurl" title="Deze achtergrond zal de chat hebben."  placeholder="Link naar de achtergrond" value="{if isset($chat_bgurl)}{$chat_bgurl}{/if}">
+                            <input type="url" class="form-control" {literal}pattern="https:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif|.jpeg|.bmp)"{/literal} name="chat_bgurl" title="Deze achtergrond zal de chat hebben."  placeholder="Link naar de achtergrond" value="{if isset($chat_bgurl)}{$chat_bgurl}{/if}">
                         </div>
                     </div><br /><br /><br /><br />
                     <!-- Chat stijl -->
@@ -233,7 +233,7 @@
                     <div class="form-group">
                         <label for="radio_link" class="control-label col-sm-3">Radio URL</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="radio_link" title="Geef hier de URL de radiostream in (beginnen met http:// en zonder / achteraan in de link)." placeholder="Radio URL" value="{if isset($radio_link)}{$radio_link}{/if}">
+                            <input type="text" class="form-control" name="radio_link" {literal}pattern="^.*\/\/[^\/]+:?[0-9]"{/literal} title="Geef hier de URL de radiostream in (beginnen met http:// en zonder / achteraan in de link)." placeholder="Radio URL" value="{if isset($radio_link)}{$radio_link}{/if}">
                         </div>
                     </div>
                     <br /><br />
