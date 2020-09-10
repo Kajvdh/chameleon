@@ -29,25 +29,37 @@ CREATE TABLE `chameleon_chat` (
   `createrip` varchar(50) DEFAULT '0',
   `created` datetime DEFAULT NULL,
   `lastcalled` datetime DEFAULT NULL,
-  `calls` int(11) DEFAULT '0',
+  `calls` int(11) DEFAULT 0,
   `name` varchar(50) DEFAULT NULL,
   `bgcolor` varchar(50) DEFAULT NULL,
+  `bgurl` varchar(255) NOT NULL,
   `style` varchar(50) DEFAULT NULL,
   `iconstyle` varchar(50) DEFAULT NULL,
   `height` int(11) DEFAULT NULL,
   `radio_enabled` varchar(10) DEFAULT 'false',
   `radio_streamtype` varchar(256) DEFAULT NULL,
   `radio_type` varchar(50) DEFAULT NULL,
+  `mountpoint` varchar(50) DEFAULT NULL,
+  `playerkleur` varchar(256) DEFAULT NULL,
+  `tekstkleur` varchar(256) DEFAULT NULL,
   `radio_name` varchar(50) DEFAULT NULL,
   `radio_url` varchar(256) DEFAULT NULL,
+  `verzoek_url` varchar(256) DEFAULT NULL,
   `radio_port` int(11) DEFAULT NULL,
   `radio_link` varchar(256) DEFAULT NULL,
   `ads_enabled` varchar(10) NOT NULL DEFAULT 'true',
-  `obsolete` tinyint(4) DEFAULT '0',
+  `kiwi_avatar` varchar(10) NOT NULL DEFAULT 'true',
+  `kiwi_upload` varchar(10) NOT NULL DEFAULT 'true',
+  `kiwi_giphy` varchar(10) NOT NULL DEFAULT 'true',
+  `kiwi_imgur` varchar(10) NOT NULL DEFAULT 'true',
+  `kiwi_asl` varchar(10) NOT NULL DEFAULT 'true',
+  `html_redirect` varchar(10) NOT NULL DEFAULT 'false',
+  
+  `obsolete` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `FK_chameleon_chat_chameleon_lirc` (`lirc_id`),
   CONSTRAINT `FK_chameleon_chat_chameleon_lirc` FOREIGN KEY (`lirc_id`) REFERENCES `chameleon_lirc` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2242 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2539 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
