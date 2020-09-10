@@ -86,14 +86,14 @@ class AnopeXMLRPC
 	}
 }
 
-$anope = new AnopeXMLRPC("http://127.0.0.1:8080/xmlrpc");
+$anope = new AnopeXMLRPC("http://anope-webcpanel:8085/xmlrpc");
 ?>
 <?php // Check if form was submitted:
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
 
     // Build POST request:
     $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-    $recaptcha_secret = 'secretkey';
+    $recaptcha_secret = '6Ld6Y4AUAAAAAFi3mHJoDQ2Pg2Mb8MduZ5GNwaH_';
     $recaptcha_response = $_POST['recaptcha_response'];
 
     // Make and decode POST request:
@@ -174,10 +174,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   gtag('config', 'UA-73408859-2', { 'anonymize_ip': true });
 </script>
-<script src="https://www.google.com/recaptcha/api.js?render=publickey"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6Ld6Y4AUAAAAAH6uCWtHPw9psZxn8qZ7Rqy2ysWL"></script>
     <script>
         grecaptcha.ready(function () {
-            grecaptcha.execute('pubkey', { action: 'contact' }).then(function (token) {
+            grecaptcha.execute('6Ld6Y4AUAAAAAH6uCWtHPw9psZxn8qZ7Rqy2ysWL', { action: 'contact' }).then(function (token) {
                 var recaptchaResponse = document.getElementById('recaptchaResponse');
                 recaptchaResponse.value = token;
             });
@@ -191,7 +191,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <div class="container">
                 
-								<div class="alert alert-success alert-dismissable"><strong>Let op!</strong> Om je kanaal te kunnen registeren, dien je in het kanaal aanwezig te zijn en operator status, heb je de chat reeds aangemaakt, klik dan op login hieronder!
+								<div class="alert alert-success alert-dismissable"><strong>Let op!</strong> Om je kanaal te kunnen registeren, dien je in het kanaal aanwezig te zijn en operator status hebben, heb je de chat reeds aangemaakt maar voldoe je niet aan de eisen, klik dan op login hieronder!
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>
 								
 								
@@ -236,10 +236,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Registreer</button>
 				<input type="hidden" name="recaptcha_response" id="recaptchaResponse">
             </form>
-			<form class="form-signin" role="form" method="" action="/chat.php?id=<?php if(!empty($_GET['id'])) : ?><?php echo htmlspecialchars($_GET['id']); ?><?php endif; ?>">
+			<div class="form-signin">
                 <h2 class="form-signin-heading">Of log in:</h2>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
-				</form>
+				<a href="chat.php?id=<?php if(!empty($_GET['id'])) : ?><?php echo htmlspecialchars($_GET['id']); ?><?php endif; ?>" target="_blank"><button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button></a>
+			</div>	
 
         </div>
         <center>

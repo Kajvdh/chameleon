@@ -1,31 +1,31 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>Chattersworld Webplayer voor: #{$metadata['radio_name']}</title>
+	<title>example Webplayer voor: #{$metadata['radio_name']}</title>
 		<meta charset="utf-8">
     		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     		<meta name="apple-mobile-web-app-capable" content="yes" />
     		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
    		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
  		<meta http-equiv="CACHE-CONTROL" CONTENT="NO-CACHE">
-		<meta name="keywords" content="chatten, gezellig kletsen, Chattersworld, Chattersworld Radio, Gezellig, Nonstop Request, 24/7 Verzoekjes, Live verzoek, Radio Chat, gezelligeblondecandy, webcam, webcamchat, triviant," />
+		<meta name="keywords" content="chatten, gezellig kletsen, example, example Radio, Gezellig, Nonstop Request, 24/7 Verzoekjes, Live verzoek, Radio Chat, gezelligeblondecandy, webcam, webcamchat, triviant," />
 		<meta name="google-site-verification" content="-hrJp-Kl7mtCVBOR5Dg45R52OfEAmnIceApYxPMluc4" />
 		<meta name="robots" content="index,follow,noodp,noydir" />
-		<meta name="description" content="Waar chatten, chatten is!"/><link rel="canonical" href="https://chattersworld.nl/" />
+		<meta name="description" content="Waar chatten, chatten is!"/><link rel="canonical" href="https://example.nl/" />
 		<meta property="og:locale" content="nl_NL" /><meta property="og:type" content="website" />
 		<meta property="og:title" content="GBC4Fun | Waar chatten, chatten is!" />
 		<meta property="og:description" content="Chat voor Jong en Oud" />
-		<meta property="og:url" content="https://chattersworld.nl/" />
-		<meta property="og:site_name" content="Chattersworld Chat" />
+		<meta property="og:url" content="https://example.nl/" />
+		<meta property="og:site_name" content="example Chat" />
 		<meta property="og:type" content="article" />
-		<meta property="og:title" content="WebPlayer | Chattersworld" />
-		<meta property="og:site_name" content="WebPlayer | Chattersworld" />
-		<meta property="article:publisher" content="https://www.facebook.com/chattersworld/" />
+		<meta property="og:title" content="WebPlayer | example" />
+		<meta property="og:site_name" content="WebPlayer | example" />
+		<meta property="article:publisher" content="https://www.facebook.com/example/" />
 		<meta property="fb:app_id" content="699740480138507" />
 		<meta property="og:image" content="https://www.gbc-radio.nl/wp-content/uploads/2017/06/header.jpg" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:description" content="Waar chatten, chatten is!" />
-		<meta name="twitter:title" content="Chattersworld | Waar chatten, chatten is!" />
+		<meta name="twitter:title" content="example | Waar chatten, chatten is!" />
 		<link rel="icon" href="{$logo}" sizes="32x32" />
 		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -57,7 +57,7 @@
     			<script language=JavaScript> var message="Sjips, werkt niet :("; function clickIE4(){ if (event.button==2){ alert(message); return false; } } function clickNS4(e){ if (document.layers||document.getElementById&&!document.all){ if (e.which==2||e.which==3){ alert(message); return false; } } } if (document.layers){ document.captureEvents(Event.MOUSEDOWN); document.onmousedown=clickNS4; } else if (document.all&&!document.getElementById){ document.onmousedown=clickIE4; } document.oncontextmenu=new Function("alert(message);return false") </script>{/literal}
 			<script>{literal} 
   				$(document).ready(function updateChatCount() {
-					$.get('https://chattersworld.nl/usercount.php?channel={/literal}{$metadata['name']}{literal}', function(data) {
+					$.get('https://example.nl/usercount.php?channel={/literal}{$metadata['name']}{literal}', function(data) {
 	  				$("#users").html(data);
 					}, 'text');
 					setTimeout(updateChatCount,3000);
@@ -108,8 +108,8 @@ return true;
 			<div class="nav-bar">
 				<div class="module left">
 					<a href="/">
-						<img class="logo logo-light" alt="NATIVE HTML5 RADIO PLAYER" src="https://www.chattersworld.nl/images/c4all.png" />
-						<img class="logo logo-dark" alt="NATIVE HTML5 RADIO PLAYER" src="https://www.chattersworld.nl/images/c4all.png" />
+						<img class="logo logo-light" alt="NATIVE HTML5 RADIO PLAYER" src="https://www.example.nl/images/c4all.png" />
+						<img class="logo logo-dark" alt="NATIVE HTML5 RADIO PLAYER" src="https://www.example.nl/images/c4all.png" />
 					</a>
 				</div>
 				<div class="module widget-handle mobile-toggle right visible-sm visible-xs">
@@ -146,12 +146,12 @@ return true;
 								</a>
 							</li> -->
 							<li class=""> 
-								<a href="https://chameleon.chattersworld.nl/chat.php?id={$smarty.get.id}">
+								<a href="https://chameleon.example.nl/chat.php?id={$smarty.get.id}">
 									Chatters online: <span id="users"></span>
 								</a>
 							</li> 
 							<li class="">
-								<a href="https://chameleon.chattersworld.nl/webplayer.php?id={$smarty.get.id}">
+								<a href="https://chameleon.example.nl/webplayer.php?id={$smarty.get.id}">
 									Herstart Stream
 								</a>
 							</li>
@@ -236,7 +236,7 @@ $("#lunaradio").lunaradio({
 	fontratio: "0.4",
 	radioname: "{$metadata['radio_name']}",
 	scroll: "true",
-	coverimage: "https://horus.chattersworld.nl/dist/img/c4all.png",
+	coverimage: "https://horus.example.nl/dist/img/c4all.png",
 	coverstyle: "circle",
 	usevisualizer: "fake",
 	visualizertype: "",

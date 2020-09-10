@@ -19,6 +19,7 @@
             <li class=""><a data-toggle="tab" href="#design">Stijl en design</a></li>
             <li class=""><a data-toggle="tab" href="#webcam">Webcam en microfoon</a></li>
             <li class=""><a data-toggle="tab" href="#geavanceerd">Geavanceerde instellingen</a></li>
+			<li class=""><a data-toggle="tab" href="#html5">HTML5 instellingen</a></li>
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" id="myTabDrop1" href="#">Extra <b class="caret"></b></a>
                 <ul aria-labelledby="myTabDrop1" role="menu" class="dropdown-menu">
@@ -60,7 +61,7 @@
                 <div id="design" class="tab-pane fade">
 					<!-- Naam van de chatbox -->
                     <div class="form-group">
-                        <label for="chat_bgurl" class="control-label col-sm-3">Achtergrond Link<br /><small>Zet de style op "transparant"<br />Enkel HTTPS word geaccepteerd!</small></label>
+                        <label for="chat_bgurl" class="control-label col-sm-3">Achtergrond Link<br /><small>Enkel HTTPS word geaccepteerd!</small></label>
                         <div class="col-sm-9">
                             <input type="url" class="form-control" {literal}pattern="https:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)(.jpg|.png|.gif|.jpeg|.bmp)"{/literal} name="chat_bgurl" title="Deze achtergrond zal de chat hebben."  placeholder="Link naar de achtergrond" value="{if isset($chat_bgurl)}{$chat_bgurl}{/if}">
                         </div>
@@ -70,7 +71,7 @@
                         <label for="chat_style" title="Er zijn verschillende stijlen die je kan instellen voor je chatbox." class="control-label col-sm-3">Stijl</label>
                         <div class="col-sm-9">
                             <select class="form-control" name="chat_style">
-								<option value="transparent" {if $chat_style=="transparent"}selected="selected"{/if}>Transparant voor als je een achtergrond neemt</option>
+								<option value="transparent" {if $chat_style=="transparent"}selected="selected"{/if}>Transparant (Nodig bij flash voor achtergrond)</option>
                                 <option value="blue" {if $chat_style=="blue"}selected="selected"{/if}>Blauw</option>
                                 <option value="black" {if $chat_style=="black"}selected="selected"{/if}>Zwart</option>
                                 <option value="orange" {if $chat_style=="orange"}selected="selected"{/if}>Oranje</option>
@@ -193,7 +194,63 @@
                         </div>
                     </div>
                 </div>
+				<!-- HTML5 INSTELLINGEN -->
+				
+                <div id="html5" class="tab-pane fade">
+                    <br />
+                    <div class="alert alert-info">
+                        De HTML5 webchat heeft meer optionele functie's, hier kunt u deze opties aan en uit zetten zoals u dat wenst.
+                    </div>
 
+                    <!-- avatars inschakelen -->
+                    <div class="form-group">
+                        <label for="textstyling" title="Laat een avatar zien voor de nickaan" class="control-label col-sm-3">Laat een avatar zien voor de nicknaam</label>
+                        <div class="col-sm-9">
+                            <input type="checkbox" name="kiwi_avatar" value="true" {if $kiwi_avatar!="false"}checked="checked"{/if}>
+                        </div>
+                    </div>
+					<br /><br /><br />
+					<!-- Uploaden toestaan -->
+                    <div class="form-group">
+                        <label for="textstyling" title="Sta toe dat mensen kunnen uploaden" class="control-label col-sm-3">Sta toe dat chatters bestanden kunnen uploaden en delen</label>
+                        <div class="col-sm-9">
+                            <input type="checkbox" name="kiwi_upload" value="true" {if $kiwi_upload!="false"}checked="checked"{/if}>
+                        </div>
+                    </div>
+					<br /><br /><br />
+					<!-- Giphy toestaan -->
+                    <div class="form-group">
+                        <label for="textstyling" title="Sta toe dat GIF's kunnen worden getoont" class="control-label col-sm-3">Sta toe dat GIF's kunnen worden getoont</label>
+                        <div class="col-sm-9">
+                            <input type="checkbox" name="kiwi_giphy" value="true" {if $kiwi_giphy!="false"}checked="checked"{/if}>
+                        </div>
+                    </div>
+					<br /><br /><br />
+					<!-- Imgur toestaan -->
+                    <div class="form-group">
+                        <label for="textstyling" title="Sta toe dat plaatjes kunnen worden getoont via Imgur" class="control-label col-sm-3">Sta toe dat plaatjes kunnen worden getoont via Imgur</label>
+                        <div class="col-sm-9">
+                            <input type="checkbox" name="kiwi_imgur" value="true" {if $kiwi_imgur!="false"}checked="checked"{/if}>
+                        </div>
+                    </div>
+					<br /><br /><br />
+					<!-- Imgur toestaan -->
+                    <div class="form-group">
+                        <label for="textstyling" title="Laat uw chatters leeftijd, geslacht en locatie meegeven op de chat" class="control-label col-sm-3">Laat uw chatters leeftijd, geslacht en locatie meegeven op de chat</label>
+                        <div class="col-sm-9">
+                            <input type="checkbox" name="kiwi_asl" value="true" {if $kiwi_asl!="false"}checked="checked"{/if}>
+                        </div>
+                    </div>
+					<br /><br />
+					<!-- Redirecten naar HTML5 chat -->
+                    <div class="form-group">
+                        <label for="textstyling" title="Forceer uw chatters naar de HTML5 chat te gaan" class="control-label col-sm-3">Laat chatters naar de HTML5 chat gaan</label>
+                        <div class="col-sm-9">
+                            <input type="checkbox" name="html_redirect" value="true" {if $html_redirect!="false"}checked="checked"{/if}>
+                        </div>
+                    </div>
+					<br /><br />
+                </div>
                 <!-- EXTRA: RADIO -->
                 <div id="radio" class="tab-pane fade">
                     <br />
@@ -258,13 +315,13 @@
                         <label for="radio_style" title="Er zijn verschillende soorten radioplayers, het kan zijn dat sommigen niet werken met een bepaalde stream." class="control-label col-sm-3">Type radioplayer</label>
                         <div class="col-sm-9">
                             <select class="form-control" name="radio_style">
-                                <option value="muhstik" {if $radio_style=="muhstik"}selected="selected"{/if}>Lisa Ann</option>
-                                <option value="cwflash" {if $radio_style=="cwflash"}selected="selected"{/if}>Tori Black</option>
-                                <option value="muses" {if $radio_style=="muses"}selected="selected"{/if}>Madison Ivy</option>
-                                <option value="stenly" {if $radio_style=="stenly"}selected="selected"{/if}>Jenna Jameson</option>
-								<option value="hero" {if $radio_style=="hero"}selected="selected"{/if}>Sophie Dee</option>
-								<option value="luna" {if $radio_style=="luna"}selected="selected"{/if}>Luna Alora</option>
-								<option value="internal" {if $radio_style=="internal"}selected="selected"{/if}>Bailey Brooke</option>
+                                <option value="muhstik" {if $radio_style=="muhstik"}selected="selected"{/if}>Lisa Ann (Muhstik)</option>
+                                <option value="cwflash" {if $radio_style=="cwflash"}selected="selected"{/if}>Tori Black (Native Flash Radio v3)</option>
+                                <option value="muses" {if $radio_style=="muses"}selected="selected"{/if}>Madison Ivy (Muses)</option>
+                                <option value="stenly" {if $radio_style=="stenly"}selected="selected"{/if}>Jenna Jameson (Sticky)</option>
+								<option value="hero" {if $radio_style=="hero"}selected="selected"{/if}>Sophie Dee (Hero)</option>
+								<option value="luna" {if $radio_style=="luna"}selected="selected"{/if}>Luna Alora (Luna Radio (Native Radio v5))</option>
+								<option value="internal" {if $radio_style=="internal"}selected="selected"{/if}>Bailey Brooke (HTML5 internal (Luna flash fallback))</option>
                             </select>
                         </div>
                     </div><br /><br />

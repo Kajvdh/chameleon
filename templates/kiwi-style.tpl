@@ -182,9 +182,14 @@ body {
 {/literal}{/if}{literal}
 .kiwi-messagelist {
 {/literal}{if $metadata['style'] != "transparent"}{literal}{/literal}
-{if $metadata['bgcolor'] == '#000000'}{literal}
+{if $metadata['bgcolor'] == '#000000'}
+	{if $metadata['bgurl'] == ""}{literal}
 	background-color:rgba(0,0,0);{/literal}{else}{literal}
-    background-image: linear-gradient(rgba(255,255,255, .50), rgba(255,255,255, .50)), url({/literal}cwobg.jpg{literal});background-size: 100% 100%;{/literal}{/if}{literal}	
+	background-image: linear-gradient(rgba(255,255,255, .05), rgba(255,255,255, .05)), url({/literal}{$metadata['bgurl']}{literal});background-size: 100% 100%;{/literal}{/if}
+	{else}
+		{if $metadata['bgurl'] == ""}{literal}
+    background-image: linear-gradient(rgba(255,255,255, .50), rgba(255,255,255, .50)), url({/literal}cwobg.jpg{literal});background-size: 100% 100%;{/literal}{else}{literal}
+	background-image: linear-gradient(rgba(255,255,255, .50), rgba(255,255,255, .50)), url({/literal}{$metadata['bgurl']}{literal});background-size: 100% 100%;{/literal}{/if}{/if}{literal}
 }
 {/literal}{else}{literal}
     background-image: linear-gradient(rgba(255,255,255, .50), rgba(255,255,255, .50)), url({/literal}{$metadata['bgurl']}{literal});background-size: 100% 100%; 
@@ -200,6 +205,7 @@ body {
     font-family: fontawesome;
     margin-right: 5px;
 }
+
 :root {
     /* Primary Variables */
     --brand-primary: {/literal}{if $metadata['style'] != "transparent"}{$metadata['bgcolor']}{else}#001a33{/if}{literal};
@@ -235,8 +241,8 @@ body {
 
 
     /* Sidebars ( Right Side ) */
-    --comp-sidebar-bg: #c0c0c0;
-    --comp-sidebar-fg: #22231f;
+    --comp-sidebar-bg: {/literal}{if $metadata['style'] == "black"}#000{else}{$metadata['bgcolor']}{/if}{literal};
+    --comp-sidebar-fg: {/literal}{if $metadata['style'] == "black"}#FFF{else}#FFF{/if}{literal};
     --comp-aboutbuffer-bg: rgba(0, 0, 0, 0.03);
     --comp-aboutbuffer-header-bg: var(--brand-primary);
 
@@ -246,9 +252,97 @@ body {
     --brand-shadow: rgba(0, 0, 0, 0.1);
     --comp-border: #b2b2b2;
 }
+/* StateBrowser */
+.kiwi-statebrowser-usermenu--open {
+    background-color: #5d919c;
+}
+.kiwi-statebrowser-appsettings, .kiwi-statebrowser-usermenu {
+    color: {/literal}{if $metadata['style'] == "black"}#fff{else}#22231f{/if}{literal};
+}
+..kiwi-statebrowser-appsettings {
+    font-size: 1.4em;
+}
+.kiwi-statebrowser-network-status .u-link {
+    color: #fff;
+}
+.kiwi-network-name-options {
+    background-color: #7dc8d9;
+}
+.kiwi-statebrowser-network .kiwi-statebrowser-network-header {
+    background-color: #428bca;
+    margin: 0 10px 0 0;
+    border-radius: 0 4px 0 0;
+}
+.kiwi-statebrowser-channels-options {
+    background-color: #69a8de;
+    margin: 0 10px 4px 0;
+    border-radius: 0 0 4px 0;
+}
+.kiwi-statebrowser-newchannel-inputwrap, .kiwi-statebrowser-channelfilter, .kiwi-statebrowser-network-status {
+    margin: 0 10px 0 0;
+}
+.kiwi-statebrowser-newchannel-inputwrap input[type='text'], .kiwi-statebrowser-channelfilter input[type='text'] {
+    background-color: #fff;
+    color: #777;
+    border: 3px solid #69a8de;
+}
+.kiwi-statebrowser-channelfilter a {
+    color: #fff;
+}
+.kiwi-statebrowser-network-status {
+    background-color: #bf5155;
+}
+.kiwi-statebrowser-network-status.u-link {
+    color: #5bc0de;
+}
+.kiwi-statebrowser-channel-leave {
+    background: transparent;
+}
+.kiwi-statebrowser-channel-leave:hover {
+    border-radius: 0 4px 4px 0;
+}
+.kiwi-statebrowser-channel, .kiwi-statebrowser-channel-active {
+    margin: 0 10px 4px 0;
+    border-radius: 0 4px 4px 0;
+}
+.kiwi-statebrowser-channel {
+    background-color: #428bca;
+}
+.kiwi-statebrowser-channel:hover {
+    background-color: #3071a9;
+    text-decoration: none;
+}
+.kiwi-statebrowser-channel-active {
+    background: #5bc0de;
+}
+.kiwi-statebrowser-channel .kiwi-statebrowser-channel-name {
+    font-weight: 500;
+}
+.u-tabbed-content {
+    color: var(--brand-default-fg);
+	background-color: var(--brand-default-bg);
+}
+.u-link {
+    color: {/literal}{if $metadata['style'] == "black"}#fff{else}var(--brand-default-fg){/if}{literal};
+}
+.u-tabbed-view-tabs .u-tabbed-view-tab {
+    color: var(--brand-default-fg);	
+}
 .kiwi-welcome-simple-form .u-submit {
     background-color: {/literal}{if $metadata['style'] == "black"}#FFF{else}var(--brand-primary){/if}{literal};
     color: {/literal}{if $metadata['style'] == "black"}#000{else}var(--brand-default-bg){/if}{literal};
+}
+.kiwi-welcome-simple-form {
+	background-color: {/literal}{if $metadata['style'] == "black"}#000{else}#FFF{/if}{literal};
+}
+.kiwi-startup-common-section-connection {
+    background-color: {/literal}{if $metadata['style'] == "black"}#000{else}var(--brand-primary){/if}{literal};
+}
+.kiwi-welcome-asl-form {
+	color: {/literal}{if $metadata['style'] == "black"}#000{else}var(--brand-default-fg){/if}{literal};
+}
+.kiwi-welcome-asl-have-password {
+	color: {/literal}{if $metadata['style'] == "black"}#000{else}var(--brand-default-fg){/if}{literal};
 }
 </style>
 {/literal}

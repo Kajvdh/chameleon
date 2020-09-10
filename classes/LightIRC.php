@@ -15,9 +15,9 @@ class LightIRC {
         $this->_dBase = $db;
         $this->_db = $db['db'];
         $this->_table = $db['prefix']."lirc";
-        $this->setHost("irc.example.org");
+        $this->setHost("irc.exemple.nl");
         $this->setShowNickPrefixes("false");
-        $this->setAccessKey("lIRC access key");
+        $this->setAccessKey("LightIRC Licensekey");
         $this->setPort("6697");
         $this->setPolicyPort("8080");
         $this->setEnableQueries("true");
@@ -26,7 +26,7 @@ class LightIRC {
         $this->setLanguage("nl");
         $this->setStyleURL("css/blue.css");
         $this->setWebcam("true");
-        $this->setRtmp("red5 url");
+        $this->setRtmp("red5.exemple.nl:1935");
         $this->setNick("Gast%");
         $this->setShowServerWindow("true");
         $this->setShowEmoticonsButton("true");
@@ -484,7 +484,7 @@ class LightIRC {
             $this->setPerformContinousWhoRequests($row['performContinousWhoRequests']);
             $this->setWebcam($row['webcam']);
             //$this->setRtmp($row['rtmp']);
-            $this->setRtmp("Red5 URL+PORT");
+            $this->setRtmp("red5.exemple.nl:1935");
             $this->setWebcamPreviewBox($row['webcamPreviewBox']);
             $this->setWebcamPrivateOnly($row['webcamPrivateOnly']);
             $this->setWebcamPublicOnly($row['webcamPublicOnly']);
@@ -1186,7 +1186,7 @@ class LightIRC {
         $this->_addParam('accessKey', $this->getAccessKey());
         //$this->_addParam('port', $this->getPort());
         $this->_addParam('port', "6697");
-		$this->_addParam('realname', "..::REALNAME::..");
+		$this->_addParam('realname', "..::exemple Chameleon Webchat::..");
 		$this->_addParam('quitMessage', "Client Closed");
         $this->_addParam('policyPort', $this->getPolicyPort());
         $this->_addParam('charset', $this->getCharset());

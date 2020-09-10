@@ -1,18 +1,18 @@
  <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
  <meta name="language" content="Dutch" />
-<meta name="keywords" content="chatten, gezellig kletsen, exemple, Radio chat, Chameleon, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat, triviant," />
-<meta name="description"  content="exemple De enige Chatserver waar je gratis kan chatten, chatten zonder registratie, chatten met webcams en dat allemaal gratis, exemple Ares Verzoekserver, maak hem nu gratis aan!" />
+<meta name="keywords" content="chatten, gezellig kletsen, example, Radio chat, Chameleon, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat, triviant," />
+<meta name="description"  content="example De enige Chatserver waar je gratis kan chatten, chatten zonder registratie, chatten met webcams en dat allemaal gratis, example Ares Verzoekserver, maak hem nu gratis aan!" />
 <meta name="google-site-verification" content="-hrJp-Kl7mtCVBOR5Dg45R52OfEAmnIceApYxPMluc4" />
 <meta name="robots" content="index,follow,noodp,noydir" />
 <meta name="description" content="Waar chatten, chatten is!"/>
 <meta property="og:locale" content="nl_NL" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="#{$metadata['name']} Chameleon | exemple | Waar chatten, chatten is!" />
-<meta property="og:description" content="#{$metadata['name']} exemple Chameleon, deze chat is gemaakt door Chameleon op exemple.nl" />
+<meta property="og:title" content="#{$metadata['name']} Chameleon | example | Waar chatten, chatten is!" />
+<meta property="og:description" content="#{$metadata['name']} example Chameleon, deze chat is gemaakt door Chameleon op example.nl" />
 <meta property="og:url" content="{$fullurl}/chat.php?id={$smarty.get.id}" />
 <meta property="og:type" content="article" />
-<meta property="og:site_name" content="..::exemple Chameleon::.." />
-<meta property="article:publisher" content="https://www.facebook.com/exemple/" />
+<meta property="og:site_name" content="..::example Chameleon::.." />
+<meta property="article:publisher" content="https://www.facebook.com/example/" />
 <meta property="fb:app_id" content="699740480138507" />
 {if $metadata['style'] != "transparent"}
 <meta property="og:image" content="{$logo}" />
@@ -23,13 +23,15 @@
 {/if}
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:description" content="Waar chatten, chatten is!" />
-<meta name="twitter:title" content="..::exemple Chameleon::.." />
+<meta name="twitter:title" content="..::example Chameleon::.." />
 <link rel="canonical" href="{$fullurl}/chat.php?id={$smarty.get.id}" />
- <title>..::exemple::.. #{$metadata['name']}</title>
+ <title>..::example::.. #{$metadata['name']}</title>
  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
  <link rel="stylesheet" href="dist/magnific-popup.css">
   <script type="text/javascript" src="../analyticstracking.js"></script>
-  
+  {if $metadata['html_redirect'] == "true"}
+  <script>window.location="html5.php?id={$smarty.get.id}";</script>
+  {/if}
  <style type="text/css">
 	html { height: 100%; overflow: hidden; }
 	body { height:100%;
@@ -271,18 +273,18 @@ $( document ).ready( function() {
 
 <body>
 <div class="left">
-<a target="_blank" href="https://exemple.nl"><img src="{$logo}" height="50" alt="exemple"></a>
+<a target="_blank" href="https://example.nl"><img src="{$logo}" height="50" alt="example"></a>
 </div>
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-<center><a target="_blank" href="https://exemple.nl"><img src="{$logo}" height="100" alt="exemple"></a></center>
+<center><a target="_blank" href="https://example.nl"><img src="{$logo}" height="100" alt="example"></a></center>
 <br>
 {if $metadata['verzoek_url'] != "" && $metadata['radio'] == "true"}
 <a href="{$metadata['verzoek_url']}" data-mfp-src="#test-popup" class="open-popup-link"><img src="{$fullurl}/radio/request1.png" width="25px" height="25px" alt="Verzoek Aanvragen">&nbsp;Verzoekje Doen</a>
 <br />
 {else}
-<a target="_blank" href="https://exemple.nl"><img src="{$fullurl}/radio/request1.png" width="25px" height="25px" alt="Maak je eigen chatbox!">&nbsp;Maak je eigen chatbox!</a>
+<a target="_blank" href="https://example.nl"><img src="{$fullurl}/radio/request1.png" width="25px" height="25px" alt="Maak je eigen chatbox!">&nbsp;Maak je eigen chatbox!</a>
 {/if}
 <br />
 {if $metadata['radio'] == "true"}
@@ -319,7 +321,7 @@ a2a_config.locale = "nl";
                     <a href="#" class="btn-close" aria-hidden="true">×</a>
                 </div>
                 <div class="modal-body">
-                    <p><center><img src="https://scr.gezelligkletsen.nl/b5d7ba93-1cce-4733-9e6a-559bb7d24d0d.png" /> <br /><br />Adobe Flashplayer stopt de ondersteuning in december 2020! <br /><br />exemple houd de deze flashchat online zolang de ondersteuning blijft.<br /><br />Inmiddels heeft exemple reeds een geweldige HTML5 chat.<br /><br /><br /><br />Druk op OK! om naar deze flashchat te gaan!</center></p>
+                    <p><center><img src="https://scr.gezelligkletsen.nl/b5d7ba93-1cce-4733-9e6a-559bb7d24d0d.png" /> <br /><br />Adobe Flashplayer stopt de ondersteuning in december 2020! <br /><br />example houd de deze flashchat online zolang de ondersteuning blijft.<br /><br />Inmiddels heeft example reeds een geweldige HTML5 chat.<br /><br /><br /><br />Druk op OK! om naar deze flashchat te gaan!</center></p>
                 </div>
                 <div class="modal-footer">
 				<a href="{$fullurl}/html5.php?id={$smarty.get.id}" class="btn">Ga naar HTML5 chat</a>

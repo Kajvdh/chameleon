@@ -26,6 +26,7 @@
  * @edit Stanley Kulik (DjSxX)
  */
 
+
 class Chatbox {
     private $_db;
     private $_dBase;
@@ -49,6 +50,13 @@ class Chatbox {
 	private $_playerkleur;
 	private $_tekstkleur;
 	private $_mountpoint;
+	private $_kiwiavatar;
+	private $_kiwiupload;
+	private $_kiwigiphy;
+	private $_kiwiimgur;
+	private $_kiwiasl;
+	private $_htmlredirect;
+	
 
     public function __construct($db) {
         $this->_dBase = $db;
@@ -128,6 +136,24 @@ class Chatbox {
 	public function getTekstkleur() {
         return $this->_tekstkleur;
     }
+	public function getKiwiAvatar() {
+        return $this->_kiwiavatar;
+    }
+	public function getKiwiUpload() {
+        return $this->_kiwiupload;
+    }
+	public function getKiwiGiphy() {
+        return $this->_kiwigiphy;
+    }
+	public function getKiwiImgur() {
+        return $this->_kiwiimgur;
+    }
+	public function getKiwiASL() {
+        return $this->_kiwiasl;
+    }
+	public function getHTMLRedirect() {
+        return $this->_htmlredirect;
+    }
 	public function setMountpoint($mountpoint) {
         $this->_mountpoint = $mountpoint;
     }
@@ -142,6 +168,24 @@ class Chatbox {
     }
 	public function setTekstkleur($tekstkleur) {
         $this->_tekstkleur = $tekstkleur;
+    }
+	public function setKiwiAvatar($kiwiavatar) {
+        $this->_kiwiavatar = $kiwiavatar;
+    }
+	public function setKiwiUpload($kiwiupload) {
+        $this->_kiwiupload = $kiwiupload;
+    }
+	public function setKiwiGiphy($kiwigiphy) {
+        $this->_kiwigiphy = $kiwigiphy;
+    }
+	public function setKiwiImgur($kiwiimgur) {
+        $this->_kiwiimgur = $kiwiimgur;
+    }
+	public function setKiwiASL($kiwiasl) {
+        $this->_kiwiasl = $kiwiasl;
+    }
+	public function setHTMLRedirect($htmlredirect) {
+        $this->_htmlredirect = $htmlredirect;
     }
     public function readForm($form) {
         //Chatnaam
@@ -298,12 +342,48 @@ class Chatbox {
         } else {
             $this->setAdsEnabled(false);
         }
+		// Kiwi Avatar
+		if (isset($form['kiwi_avatar'])) {
+            $this->setKiwiAvatar($form['kiwi_avatar']);
+        } else {
+            $this->setKiwiAvatar(false);
+        }
+		// Kiwi Upload
+		if (isset($form['kiwi_upload'])) {
+            $this->setKiwiUpload($form['kiwi_upload']);
+        } else {
+            $this->setKiwiUpload(false);
+        }
+		// Kiwi Giphy
+		if (isset($form['kiwi_giphy'])) {
+            $this->setKiwiGiphy($form['kiwi_giphy']);
+        } else {
+            $this->setKiwiGiphy(false);
+        }
+		// Kiwi ImgUr
+		if (isset($form['kiwi_imgur'])) {
+            $this->setKiwiImgur($form['kiwi_imgur']);
+        } else {
+            $this->setKiwiImgur(false);
+        }
+		// Kiwi ASL
+		if (isset($form['kiwi_asl'])) {
+            $this->setKiwiASL($form['kiwi_asl']);
+        } else {
+            $this->setKiwiASL(false);
+        }
+		// HTML Redirect
+		if (isset($form['html_redirect'])) {
+            $this->setHTMLRedirect($form['html_redirect']);
+        } else {
+            $this->setHTMLRedirect(false);
+        }
     }
 
     public function save() {
         $this->LightIRC->save();
         $this->setLightIRCId($this->LightIRC->getId());
-        $qry = $this->_db->prepare("INSERT INTO ".$this->_table."(lirc_id,createdby,createrip,created,lastcalled,calls,name,height,bgcolor,bgurl,style,iconstyle,radio_enabled,radio_name,radio_streamtype,radio_link,verzoek_url,radio_type,mountpoint,playerkleur,tekstkleur,ads_enabled) VALUES(:lirc_id,:createdby,:createrip,NOW(),NOW(),:calls,:name,:height,:bgcolor,:bgurl,:style,:iconstyle,:radio_enabled,:radio_name,:radio_streamtype,:radio_link,:verzoek_url,:radio_type,:mountpoint,:playerkleur,:tekstkleur,:ads_enabled);");
+        $qry = $this->_db->prepare("INSERT INTO ".$this->_table."(lirc_id,createdby,createrip,created,lastcalled,calls,name,height,bgcolor,bgurl,style,iconstyle,radio_enabled,radio_name,radio_streamtype,radio_link,verzoek_url,radio_type,mountpoint,playerkleur,tekstkleur,ads_enabled,kiwi_avatar,kiwi_upload,kiwi_giphy,kiwi_imgur,kiwi_asl) VALUES(:lirc_id,:createdby,:createrip,NOW(),NOW(),:calls,:name,:height,:bgcolor,:bgurl,:style,:iconstyle,:radio_enabled,:radio_name,:radio_streamtype,:radio_link,:verzoek_url,:radio_type,:mountpoint,:playerkleur,:tekstkleur,:ads_enabled,:kiwi_avatar,:kiwi_upload,:kiwi_giphy,:kiwi_imgur,:kiwi_asl,:html_redirect);");
         $data = array(
             ':lirc_id' => $this->getLightIRCId(),
             ':createdby' => $this->getOwner(),
@@ -324,7 +404,13 @@ class Chatbox {
 			':mountpoint' => $this->getMountpoint(),
 			':playerkleur' => $this->getPlayerkleur(),
 			':tekstkleur' => $this->getTekstkleur(),
-            ':ads_enabled' => $this->getAdsEnabled()
+            ':ads_enabled' => $this->getAdsEnabled(),
+			':kiwi_avatar' => $this->getKiwiAvatar(),
+			':kiwi_upload' => $this->getKiwiUpload(),
+			':kiwi_giphy' => $this->getKiwiGiphy(),
+			':kiwi_imgur' => $this->getKiwiImgur(),
+			':kiwi_asl' => $this->getKiwiASL(),
+			':html_redirect' => $this->getHTMLRedirect()
         );
 
         $qry->execute($data);
@@ -340,7 +426,7 @@ class Chatbox {
     public function update() {
         $this->LightIRC->update();
 
-        $qry = $this->_db->prepare("UPDATE ".$this->_table." SET lirc_id=:lirc_id,createdby=:createdby,createrip=:createrip,created=NOW(),lastcalled=NOW(),calls=:calls,name=:name,height=:height,bgcolor=:bgcolor,bgurl=:bgurl,style=:style,iconstyle=:iconstyle,radio_enabled=:radio_enabled,radio_name=:radio_name,radio_streamtype=:radio_streamtype,radio_link=:radio_link,verzoek_url=:verzoek_url,radio_type=:radio_type,mountpoint=:mountpoint,playerkleur=:playerkleur,tekstkleur=:tekstkleur,ads_enabled=:ads_enabled WHERE id=:id;");
+        $qry = $this->_db->prepare("UPDATE ".$this->_table." SET lirc_id=:lirc_id,createdby=:createdby,createrip=:createrip,created=NOW(),lastcalled=NOW(),calls=:calls,name=:name,height=:height,bgcolor=:bgcolor,bgurl=:bgurl,style=:style,iconstyle=:iconstyle,radio_enabled=:radio_enabled,radio_name=:radio_name,radio_streamtype=:radio_streamtype,radio_link=:radio_link,verzoek_url=:verzoek_url,radio_type=:radio_type,mountpoint=:mountpoint,playerkleur=:playerkleur,tekstkleur=:tekstkleur,ads_enabled=:ads_enabled,kiwi_avatar=:kiwi_avatar,kiwi_upload=:kiwi_upload,kiwi_giphy=:kiwi_giphy,kiwi_imgur=:kiwi_imgur,kiwi_asl=:kiwi_asl,html_redirect=:html_redirect WHERE id=:id;");
         $data = array(
             ':lirc_id' => $this->getLightIRCId(),
             ':createdby' => $this->getOwner(),
@@ -362,7 +448,13 @@ class Chatbox {
 			':playerkleur' => $this->getPlayerkleur(),
 			':tekstkleur' => $this->getTekstkleur(),
             ':id' => $this->_id,
-            ':ads_enabled' => $this->getAdsEnabled()
+            ':ads_enabled' => $this->getAdsEnabled(),
+			':kiwi_avatar' => $this->getKiwiAvatar(),
+			':kiwi_upload' => $this->getKiwiUpload(),
+			':kiwi_giphy' => $this->getKiwiGiphy(),
+			':kiwi_imgur' => $this->getKiwiImgur(),
+			':kiwi_asl' => $this->getKiwiASL(),
+			':html_redirect' => $this->getHTMLRedirect()
         );
 
         $qry->execute($data);
@@ -426,6 +518,12 @@ class Chatbox {
             $this->Radio->setPlayer($row['radio_type']);
             $this->LightIRC->getById($this->getLightIRCId());
             $this->setAdsEnabled($row['ads_enabled']);
+			$this->setKiwiAvatar($row['kiwi_avatar']);
+			$this->setKiwiUpload($row['kiwi_upload']);
+			$this->setKiwiGiphy($row['kiwi_giphy']);
+			$this->setKiwiImgur($row['kiwi_imgur']);
+			$this->setKiwiASL($row['kiwi_asl']);
+			$this->setHTMLRedirect($row['html_redirect']);
             return true;
         }
         else {
@@ -614,6 +712,7 @@ class Chatbox {
 		$data['private'] = $this->enableQueries();
 		$data['icons'] = $this->getIconStyle();
 		$data['prefixicons'] = $this->LightIRC->getShowNickprefixIcons();
+		$data['hostnames'] = $this->LightIRC->getShowVerboseUserInformation();
         $data['radio'] = $this->Radio->getEnabled();
         $data['radio_type'] = $this->Radio->getStreamType();
         $data['radio_name'] = $this->Radio->getName();
@@ -624,6 +723,13 @@ class Chatbox {
 		$data['mountpoint'] = $this->getMountpoint();
         $data['radio_player'] = $this->Radio->getPlayer();
         $data['ads_enabled'] = $this->getAdsEnabled();
+		$data['kiwi_avatar'] = $this->getKiwiAvatar();
+		$data['kiwi_upload'] = $this->getKiwiUpload();
+		$data['kiwi_giphy'] = $this->getKiwiGiphy();
+		$data['kiwi_imgur'] = $this->getKiwiImgur();
+		$data['kiwi_asl'] = $this->getKiwiASL();
+		$data['webcam'] = $this->LightIRC->getWebcam();
+		$data['html_redirect'] = $this->getHTMLRedirect();
         return $data;
     }
 

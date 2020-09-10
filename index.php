@@ -1,6 +1,6 @@
 <?php
 /*
-  Copyright (C) 2020  Kaj Van der Hallen; Edited by Stanley Kulik (DjSxX)
+  Copyright (C) 2015  Kaj Van der Hallen, Edited by Stanley Kulik (DjSxX)
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -16,7 +16,6 @@
   with this program; if not, write to the Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-
 require("includes.php");
 $database = new Database($config, "anope");
 $aDb = $database->getConnection();
@@ -318,6 +317,48 @@ if ($id) {
                     } else {
                         $smarty->assign('ads_enabled', "false");
                     }
+					//Kiwi Avatar
+					$kiwi_avatar = $chat->getKiwiAvatar();
+                    if ($kiwi_avatar == "true") {
+                        $smarty->assign('kiwi_avatar', "true");
+                    } else {
+                        $smarty->assign('kiwi_avatar', "false");
+                    }
+					//Kiwi Upload
+					$kiwi_upload = $chat->getKiwiUpload();
+                    if ($kiwi_upload == "true") {
+                        $smarty->assign('kiwi_upload', "true");
+                    } else {
+                        $smarty->assign('kiwi_upload', "false");
+                    }
+					//Kiwi Giphy
+					$kiwi_giphy = $chat->getKiwiGiphy();
+                    if ($kiwi_giphy == "true") {
+                        $smarty->assign('kiwi_giphy', "true");
+                    } else {
+                        $smarty->assign('kiwi_giphy', "false");
+                    }
+					//Kiwi Imgur
+					$kiwi_imgur = $chat->getKiwiImgur();
+                    if ($kiwi_imgur == "true") {
+                        $smarty->assign('kiwi_imgur', "true");
+                    } else {
+                        $smarty->assign('kiwi_imgur', "false");
+                    }
+					//Kiwi ASL
+					$kiwi_asl = $chat->getKiwiASL();
+                    if ($kiwi_asl == "true") {
+                        $smarty->assign('kiwi_asl', "true");
+                    } else {
+                        $smarty->assign('kiwi_asl', "false");
+                    }
+					//Kiwi ASL
+					$html_redirect = $chat->getHTMLRedirect();
+                    if ($html_redirect == "true") {
+                        $smarty->assign('html_redirect', "true");
+                    } else {
+                        $smarty->assign('html_redirect', "false");
+                    }
                     $smarty->assign('page','edit');
                 }
                 else {
@@ -359,8 +400,14 @@ if ($id) {
             $smarty->assign('verboseinformation', "false");
             $smarty->assign('radio_enabled', "false");
             $smarty->assign('radio_type', "shoutcast");
-            $smarty->assign('radio_style', "cwflash");
+            $smarty->assign('radio_style', "luna");
             $smarty->assign('ads_enabled', "true");
+			$smarty->assign('kiwi_avatar', "true");
+			$smarty->assign('kiwi_upload', "true");
+			$smarty->assign('kiwi_giphy', "true");
+			$smarty->assign('kiwi_imgur', "true");
+			$smarty->assign('kiwi_asl', "true");
+			$smarty->assign('html_redirect', "false");
 	    $smarty->assign('page','new');
         }
     }
@@ -384,6 +431,7 @@ if ($id) {
         $lastcalleds = array();
         $names = array();
 		$bgurl = array();
+		$bgcolor = array();
 		$chatstyle = array();
 		$playerstyle = array();
         foreach ($chatboxes as $chatbox) {
@@ -394,6 +442,7 @@ if ($id) {
             array_push($calls, $chatbox->getCalls());
             array_push($lastcalleds, $chatbox->getLastCalled());
             array_push($names,$chatbox->getName());
+			array_push($bgcolor,$chatbox->getBgcolor());
 			array_push($bgurl,$chatbox->getBgurl());
 			array_push($chatstyle,$chatbox->getStyle());
 			array_push($playerstyle,$chatbox->Radio->getPlayer());
@@ -404,6 +453,7 @@ if ($id) {
         $smarty->assign('lastcalleds', $lastcalleds);
         $smarty->assign('names', $names);
 		$smarty->assign('bgurl', $bgurl);
+		$smarty->assign('bgcolor', $bgcolor);
 		$smarty->assign('chatstyle', $chatstyle);
 		$smarty->assign('playerstyle', $playerstyle);
     }
@@ -415,17 +465,20 @@ if ($id) {
         $names = array();
 		$bgurl = array();
 		$chatstyle = array();
+		$bgcolor = array();
 		$playerstyle = array();
         foreach ($chatboxes as $chatbox) {
             array_push($ids, $chatbox->getId());
             array_push($names, $chatbox->getName());
 			array_push($bgurl,$chatbox->getBgurl());
 			array_push($chatstyle,$chatbox->getStyle());
+			array_push($bgcolor,$chatbox->getBgcolor());
 			array_push($playerstyle,$chatbox->Radio->getPlayer());
         }
         $smarty->assign('ids', $ids);
         $smarty->assign('names', $names);
 		$smarty->assign('bgurl', $bgurl);
+		$smarty->assign('bgcolor', $bgcolor);
 		$smarty->assign('chatstyle', $chatstyle);
     }
 

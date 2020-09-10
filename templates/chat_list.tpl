@@ -24,7 +24,7 @@
 					},
 					"pageLength" : 25,
 					"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Alles"]],
-					"order": [[ 6, "desc" ]]
+					"order": [[ 7, "desc" ]]
 				} );
 	
 		} );
@@ -52,7 +52,7 @@
     <table id="data-table3" class="table table-hover">
 	<thead>
         <tr>
-            <td><strong>ID</strong></td><td><strong>Achtergrond</strong></td><td><strong>Naam</strong></td>{if isset($god)}<td><strong>Eigenaar</strong></td><td><strong>Speler</strong></td><td><strong>Aantal keer bezocht</strong></td><td><strong>Laatst bezocht</strong></td>{/if}<td><strong>Acties</strong></td>
+            <td><strong>ID</strong></td><td><strong>Achtergrond</strong></td><td><strong>Style</strong></td><td><strong>Naam</strong></td>{if isset($god)}<td><strong>Eigenaar</strong></td><td><strong>Speler</strong></td><td><strong>Aantal keer bezocht</strong></td><td><strong>Laatst bezocht</strong></td>{/if}<td><strong>Acties</strong></td>
         </tr>
 	</thead><tbody>
 
@@ -60,7 +60,8 @@
          
 			<tr>
                 <td style="vertical-align:middle"><span class="badge">{$ids[chat]}</span></td>
-				<td style="vertical-align:middle">{if $bgurl[chat] != ""}<img src="{$bgurl[chat]}" style="border-radius: 50% 50% 50% 50%;height:50px;width:50px;">{else}{$chatstyle[chat]}{/if}</td>
+				<td style="vertical-align:middle">{if $bgurl[chat] != ""}<img src="{$bgurl[chat]}" style="border-radius: 50% 50% 50% 50%;height:50px;width:50px;">{else}<center><div style="padding:10px 0;text-align:center;vertical-align:middle;background-color:{$bgcolor[chat]};color:#FFF;border-radius: 50% 50% 50% 50%;height:50px;width:50px;">{$chatstyle[chat]}</div></center>{/if}</td>
+				<td style="vertical-align:middle"><center><div style="padding:10px 0;text-align:center;vertical-align:middle;background-color:{$bgcolor[chat]};color:#FFF;border-radius: 50% 50% 50% 50%;height:50px;width:50px;">{$chatstyle[chat]}</div></center></td>
 				<td style="vertical-align:middle">{$names[chat]}</td>
 				{if isset($god)}
 				<td style="vertical-align:middle">{$owners[chat]}</td>
