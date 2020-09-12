@@ -8,16 +8,16 @@
  * @author Kaj Van der Hallen
  * @edit Stanley Kulik (DjSxX)
  */
-
 class LightIRC {
     //put your code here
     public function __construct($db) {
         $this->_dBase = $db;
         $this->_db = $db['db'];
         $this->_table = $db['prefix']."lirc";
-        $this->setHost("irc.exemple.nl");
+		// $this->_irc = $db['irc'];
+        $this->setHost("irc.chattersworld.nl");
         $this->setShowNickPrefixes("false");
-        $this->setAccessKey("LightIRC Licensekey");
+        $this->setAccessKey("P0015-D03EB-OMQXF-E9072-54BC6");
         $this->setPort("6697");
         $this->setPolicyPort("8080");
         $this->setEnableQueries("true");
@@ -26,7 +26,7 @@ class LightIRC {
         $this->setLanguage("nl");
         $this->setStyleURL("css/blue.css");
         $this->setWebcam("true");
-        $this->setRtmp("red5.exemple.nl:1935");
+        $this->setRtmp("red5.chattersworld.nl:1935");
         $this->setNick("Gast%");
         $this->setShowServerWindow("true");
         $this->setShowEmoticonsButton("true");
@@ -62,6 +62,7 @@ class LightIRC {
     private $_db;
     private $_dBase;
     private $_table;
+	private $_irc;
 
     /**
      * Connection parameters
@@ -484,7 +485,7 @@ class LightIRC {
             $this->setPerformContinousWhoRequests($row['performContinousWhoRequests']);
             $this->setWebcam($row['webcam']);
             //$this->setRtmp($row['rtmp']);
-            $this->setRtmp("red5.exemple.nl:1935");
+            $this->setRtmp("red5.chattersworld.nl:1935");
             $this->setWebcamPreviewBox($row['webcamPreviewBox']);
             $this->setWebcamPrivateOnly($row['webcamPrivateOnly']);
             $this->setWebcamPublicOnly($row['webcamPublicOnly']);
@@ -557,8 +558,10 @@ class LightIRC {
     public function getId() {
         return $this->_id;
     }
-
-    public function getAccessKey() {
+	public function getIRC() {
+        return $this->_irc;
+    }
+	public function getAccessKey() {
         return $this->_accessKey;
     }
     public function getHost() {
@@ -1176,17 +1179,18 @@ class LightIRC {
             echo 'params.'.$n.' = "'.$v.'";'.PHP_EOL;
         }
     }
+	
     public function printConfig() {
 		echo "<!DOCTYPE HTML>".PHP_EOL;
 		echo "<html>".PHP_EOL;
 		echo "<head>".PHP_EOL;
         echo "<script>".PHP_EOL;
         echo "var params = {};".PHP_EOL;
-        $this->_addParam('host', $this->getHost());
+        // $this->_addParam('host', $config->getIRC());
         $this->_addParam('accessKey', $this->getAccessKey());
         //$this->_addParam('port', $this->getPort());
         $this->_addParam('port', "6697");
-		$this->_addParam('realname', "..::exemple Chameleon Webchat::..");
+		$this->_addParam('realname', "..::Chattersworld Chameleon Webchat::..");
 		$this->_addParam('quitMessage', "Client Closed");
         $this->_addParam('policyPort', $this->getPolicyPort());
         $this->_addParam('charset', $this->getCharset());

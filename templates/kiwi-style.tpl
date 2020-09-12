@@ -241,8 +241,8 @@ body {
 
 
     /* Sidebars ( Right Side ) */
-    --comp-sidebar-bg: {/literal}{if $metadata['style'] == "black"}#000{else}{$metadata['bgcolor']}{/if}{literal};
-    --comp-sidebar-fg: {/literal}{if $metadata['style'] == "black"}#FFF{else}#FFF{/if}{literal};
+    --comp-sidebar-bg: {/literal}{if $metadata['style'] == "black"}#000{else}{if $metadata['style'] == 'transparent'}#cccccc{else}{$metadata['bgcolor']}{/if}{/if}{literal};
+    --comp-sidebar-fg: {/literal}{if $metadata['style'] == "black"}#FFF{else}{if $metadata['style'] == 'transparent'}#000{else}#FFF{/if}{/if}{literal};
     --comp-aboutbuffer-bg: rgba(0, 0, 0, 0.03);
     --comp-aboutbuffer-header-bg: var(--brand-primary);
 

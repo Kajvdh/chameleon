@@ -86,7 +86,7 @@ class AnopeXMLRPC
 	}
 }
 
-$anope = new AnopeXMLRPC("http://anope-webcpanel:8085/xmlrpc");
+$anope = new AnopeXMLRPC("http://5.135.191.70:8085/xmlrpc");
 ?>
 <?php // Check if form was submitted:
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
@@ -144,29 +144,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	<script type="text/javascript" src="analyticstracking.js"></script>        
         <!-- SEO -->
 		<meta name="language" content="Dutch" />
-<meta name="keywords" content="chatten, gezellig kletsen, example, Radio chat, Chameleon, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat, triviant," />
-<meta name="description"  content="example De enige Chatserver waar je gratis kan chatten, chatten zonder registratie, chatten met webcams en dat allemaal gratis, example Ares Verzoekserver, maak hem nu gratis aan!" />
+<meta name="keywords" content="chatten, gezellig kletsen, Chattersworld, Radio chat, Chameleon, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat, triviant," />
+<meta name="description"  content="Chattersworld De enige Chatserver waar je gratis kan chatten, chatten zonder registratie, chatten met webcams en dat allemaal gratis, Chattersworld Ares Verzoekserver, maak hem nu gratis aan!" />
 <meta name="google-site-verification" content="-hrJp-Kl7mtCVBOR5Dg45R52OfEAmnIceApYxPMluc4" />
 <meta name="robots" content="index,follow,noodp,noydir" />
 <meta name="description" content="Waar chatten, chatten is!"/>
 <meta property="og:locale" content="nl_NL" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Chameleon | example | Waar chatten, chatten is!" />
-<meta property="og:description" content="Chameleon, de chat creator die iedereen kent, maak nu je gratis chatbox aan op example." />
-<meta property="og:url" content="https://chameleon.example.nl" />
+<meta property="og:title" content="Chameleon | Chattersworld | Waar chatten, chatten is!" />
+<meta property="og:description" content="Chameleon, de chat creator die iedereen kent, maak nu je gratis chatbox aan op chattersworld." />
+<meta property="og:url" content="https://chameleon.chattersworld.nl" />
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="..::example Chameleon::.." />
-<meta property="og:site_name" content="..::example Chameleon::.." />
-<meta property="article:publisher" content="https://www.facebook.com/example/" />
+<meta property="og:title" content="..::Chattersworld Chameleon::.." />
+<meta property="og:site_name" content="..::Chattersworld Chameleon::.." />
+<meta property="article:publisher" content="https://www.facebook.com/chattersworld/" />
 <meta property="fb:app_id" content="699740480138507" />
 
-<meta property="og:image" content="https://horus.example.nl/webchat/img/cwobg.jpg" />
+<meta property="og:image" content="https://horus.chattersworld.nl/webchat/img/cwobg.jpg" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:description" content="Waar chatten, chatten is!" />
-<meta name="twitter:title" content="..::example Chameleon::.." />
-<link rel="canonical" href="https://chameleon.example.nl" />
-<link rel="icon" href="https://horus.example.nl/dist/img/c4all-horus.png" sizes="32x32" />
+<meta name="twitter:title" content="..::Chattersworld Chameleon::.." />
+<link rel="canonical" href="https://chameleon.chattersworld.nl" />
+<link rel="icon" href="https://horus.chattersworld.nl/dist/img/c4all-horus.png" sizes="32x32" />
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -185,7 +185,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>        
         <!-- Custom CSS -->
         <link href="css/custom_css/login.css" rel="stylesheet">
-		<title>..::example Chameleon::.. register</title>
+		<title>..::ChattersWorld Chameleon::.. register</title>
     </head>
     <body>
         

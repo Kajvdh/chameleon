@@ -16,6 +16,7 @@ class Config {
     private $_mysqlPass;            //Het passwoord om in te loggen de op de MySQL Database
     private $_mysqlDbName;          //De naam van de MySQL Database
     private $_mysqlPrefix;
+	public $_irc;
 
     private $_mysqlHostDev;            //De host van de MySQL Database
     private $_mysqlUserDev;            //De gebruikersnaam om in te loggen op de MySQL Database
@@ -42,27 +43,34 @@ class Config {
          */
         $this->_errorMode = "prd";
         $this->_rootDirectory = "";
-        $this->_fullUrl = "https://chameleon.exemple.nl"; //zonder / achter de link
-		$this->_logo = "https://chameleon.exemple.nl/dist/img/c4all-horus.png"; //zonder / achter de link
+        $this->_fullUrl = "Type the full url"; //zonder / achter de link
+		$this->_logo = "Location of the logo"; //zonder / achter de link
+		$this->_irc = "irc link"; //IRC url without port
+		$this->_sitename = "Type your sitename"; //Naam van de website
+		/**
+		 * KiwiIRC instellingen
+		 */
+		$this->_gateway = "gateway link with port"; //URL van gateway zonder http(s)
+		$this->_file = "Fileupload link"; //Fileupload URL
         /**
          * MySQL gegevens
          */
-        $this->_mysqlHost = "localhost";
-        $this->_mysqlUser = "user";
-        $this->_mysqlPass = "pass";
-        $this->_mysqlDbName = "user";
-        $this->_mysqlPrefix = "chameleon_";
+        $this->_mysqlHost = "";
+        $this->_mysqlUser = "";
+        $this->_mysqlPass = "";
+        $this->_mysqlDbName = "";
+        $this->_mysqlPrefix = "";
 
-        $this->_mysqlHostDev = "localhost";
-        $this->_mysqlUserDev = "user";
-        $this->_mysqlPassDev = "pass";
-        $this->_mysqlDbNameDev = "user";
-        $this->_mysqlPrefixDev = "chameleon_";
+        $this->_mysqlHostDev = "";
+        $this->_mysqlUserDev = "";
+        $this->_mysqlPassDev = "";
+        $this->_mysqlDbNameDev = "";
+        $this->_mysqlPrefixDev = "";
 
-        $this->_mysqlAnopeHost = "anope_db";
-        $this->_mysqlAnopeUser = "anopedb_user";
-        $this->_mysqlAnopePass = "pass";
-        $this->_mysqlAnopeDbName = "anope";
+        $this->_mysqlAnopeHost = "";
+        $this->_mysqlAnopeUser = "";
+        $this->_mysqlAnopePass = "";
+        $this->_mysqlAnopeDbName = "";
     }
 
     /**
@@ -91,11 +99,35 @@ class Config {
 	public function getLogo() {
         return $this->_logo;
     }
+	public function getIRC() {
+		return $this->_irc;
+    }
+	public function getFile() {
+		return $this->_file;
+    }
+	public function getSiteName() {
+		return $this->_sitename;
+    }
+	public function getGateway() {
+		return $this->_gateway;
+    }
     public function setFullUrl($url) {
         $this->_fullUrl = $url;
     }
 	public function setLogo($logo) {
         $this->_logo = $logo;
+    }
+	public function setIRC($irc) {
+        $this->_irc = $irc;
+    }
+	public function setFile($files) {
+        $this->_file = $files;
+    }
+	public function setGateway($gateway) {
+        $this->_gateway = $gateway;
+    }
+	public function setSiteName($sitename) {
+        $this->_sitename = $sitename;
     }
     public function getMysqlHost() {
         return $this->_mysqlHost;

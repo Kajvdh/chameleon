@@ -4,6 +4,8 @@ $database = new Database($config);
 $db = $database->getConnection();
 $smarty->assign('fullurl', $config->getFullUrl());
 $smarty->assign('logo', $config->getLogo());
+$smarty->assign('irc', $config->getIRC());
+$smarty->assign('sitename', $config->getSiteName());
  
 $mobile_browser = '0';
  
@@ -50,7 +52,7 @@ if ($mobile_browser > 0) {
         $metadata = $chat->getMetaData();
 
         if (($metadata['radio'] == "true") || ($metadata['ads_enabled'] != "true"))
-            header('Location: https://chameleon.example.nl/chat.php?'.$_SERVER['QUERY_STRING']);
+            header('Location: https://chameleon.chattersworld.nl/chat.php?'.$_SERVER['QUERY_STRING']);
 
         if ($metadata['ads_enabled'] == "true")
             $metadata['height'] = "90";
@@ -91,7 +93,7 @@ else {
         $metadata = $chat->getMetaData();
 
         if (($metadata['radio'] == "true") || ($metadata['ads_enabled'] != "true"))
-            header('Location: https://chameleon.example.nl/chat.php?'.$_SERVER['QUERY_STRING']);
+            header('Location: https://chameleon.chattersworld.nl/chat.php?'.$_SERVER['QUERY_STRING']);
 
         if ($metadata['ads_enabled'] == "true")
             $metadata['height'] = "90";

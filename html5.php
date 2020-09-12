@@ -19,6 +19,10 @@ $database = new Database($config);
 $db = $database->getConnection();
 $smarty->assign('fullurl', $config->getFullUrl());
 $smarty->assign('logo', $config->getLogo());
+$smarty->assign('irc', $config->getIRC());
+$smarty->assign('sitename', $config->getSiteName());
+$smarty->assign('gateway', $config->getGateway());
+$smarty->assign('file', $config->getFile());
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -30,7 +34,7 @@ if (isset($_GET['id'])) {
         $metadata = $chat->getMetaData();
 
         if (($metadata['radio'] != "true") && ($metadata['ads_enabled'] == "true"))
-            header('Location: https://chameleon.example.nl/html52.php?'.$_SERVER['QUERY_STRING']);
+            header('Location: https://chameleon.chattersworld.nl/html52.php?'.$_SERVER['QUERY_STRING']);
 
         $smarty->assign('metadata',$metadata);
 		$smarty->display('kiwi-conf.tpl');

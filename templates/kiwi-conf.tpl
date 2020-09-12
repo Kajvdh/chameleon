@@ -5,8 +5,8 @@ window.kiwiConfig = function kiwiConfig() {
         console.log('off');
         return {
 		"startupScreen": "{/literal}{if $metadata['kiwi_asl'] == 'true'}plugin-asl{else}welcome{/if}{literal}",
-		"windowTitle": "..::example - #{/literal}{$metadata['name']}{literal}::.. The web IRC client",
-		"kiwiServer": "https://gateway.example.nl:1085/webirc/kiwiirc/",
+		"windowTitle": "..::Chattersworld - #{/literal}{$metadata['name']}{literal}::.. The web IRC client",
+		"kiwiServer": "https://{/literal}{$gateway}{literal}/webirc/kiwiirc/",
 		"theme": "CWO",
 		"disconnectOnSaslFail": false,
 		"themes": [
@@ -14,13 +14,13 @@ window.kiwiConfig = function kiwiConfig() {
 				],
 		"showColorPicker": true,
 		"startupOptions": { 
-				"server": "irc.example.nl", 
+				"server": "{/literal}{$irc}{literal}", 
 				"infoBackground": "{/literal}{if $metadata['bgurl'] != ''}{$metadata['bgurl']}{else}cwobg.jpg{/if}{literal}", 
-				"infoContent": "<a class=\"netlogo\" href=\"https://chameleon.example.nl\"><span></span><img src=\"https://atsiofrjlo.cloudimg.io/v7/https://example.nl/wp-content/uploads/2018/10/cropped-c4all.png\"></a><div><a href=\"https://chameleon.example.nl/register.php\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-lock\"></i> Registreer</a><a href=\"https://chameleon.example.nl/chat.php?id=1\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> Helpdesk</a><a href=\"https://wiki.example.nl/\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> CWO Wiki</a></div>",
-				"greetingText": "<div style='margin:0px 0px 0px 0px'><center><a class=\"netlogo\" href=\"https://chameleon.example.nl\"><span></span><img src=\"https://atsiofrjlo.cloudimg.io/v7/https://example.nl/wp-content/uploads/2018/10/cropped-c4all.png\" height='60px'></a></center></div>",
+				"infoContent": "<a class=\"netlogo\" href=\"{/literal}{$fullurl}{literal}\"><span></span><img src=\"{/literal}{$logo}{literal}\"></a><div><a href=\"{/literal}{$fullurl}{literal}/register.php\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-lock\"></i> Registreer</a><a href=\"{/literal}{$fullurl}{literal}/chat.php?id=1\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> Helpdesk</a><a href=\"https://wiki.chattersworld.nl/\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> CWO Wiki</a></div>",
+				"greetingText": "<div style='margin:0px 0px 0px 0px'><center><a class=\"netlogo\" href=\"{/literal}{$fullurl}{literal}\"><span></span><img src=\"{/literal}{$logo}{literal}\" height='60px'></a></center></div>",
 				"state_key": "CWO-Chameleon-43",
 				"buttonText": "<center><i class='fa fa-sign-in' style='margin-right:5px !important;'></i> Chatten</center>",
-				"gecos": "..::example Chameleon HTML5 Webchat::..",
+				"gecos": "..::{/literal}{$sitename}{literal} HTML5 Webchat::..",
 				"port": 6697, 
 				"tls": true, 
 				"direct": false, 
@@ -49,7 +49,7 @@ window.kiwiConfig = function kiwiConfig() {
 			{/literal}{if $metadata['webcam'] == "true"}{literal}
 			{
 				"name": "conference",
-				"url": "static/plugins/conference/plugin-conference.min.js?v=1.2"
+				"url": "static/plugins/conference/plugin-conference.min.js?v=1.3"
 			},
 			{/literal}{/if}{literal}
 				{"name": "emoji", "url": "static/plugins/plugin-emoji-prelim.min.js"},
@@ -111,31 +111,32 @@ window.kiwiConfig = function kiwiConfig() {
 		{/literal}{/if}{literal}
 		{/literal}{if $metadata['kiwi_avatar'] == "true"}{literal}
 		"plugin-gravatar": {
-					"gatewayURL": "//gateway.example.nl:1085/",
+					"gatewayURL": "//{/literal}{$gateway}{literal}/",
 					"gravatarURL": "//www.gravatar.com/avatar/",
 					"gravatarRating": "g",
 					"gravatarFallback": "robohash"
 		},
 		{/literal}{/if}{literal}
 		{/literal}{if $metadata['webcam'] == "true"}{literal}
-		"conference":{ 
-				"server": "meet.example.nl",
+		"plugin-conference":{ 
+				"server": "meet.chattersworld.nl",
 				"secure": false,
+				"queries": true,
+				"channels": true,
 				"enabledInChannels": [ "*" ],
-				"joinText": "heeft de mediaconferentie opgestart.",
+				"joinText": "heeft de mediaconferentie opgestart, klik op de link om te joinen!",
 				"inviteText": "is inviting you to a private call.",
 				"joinButtonText": "Join nu!",
 				"disabledText": "Sorry. The sysop has not enabled conferences in this channel.",
-				"showLink": false,
-				"useBitlyLink": false,
-				"queries": false,
-				"bitlyAccessToken": "BITLY_API_KEY_HERE",
+				"showLink": true,
+				"useLinkShortener": true,
+				"linkShortenerURL": "https://x0.no/api/?{{ link }}",
 				"interfaceConfigOverwrite": {
 					"SHOW_JITSI_WATERMARK": true,
 					"SHOW_WATERMARK_FOR_GUESTS": true,
 					"SHOW_BRAND_WATERMARK": true,
-					"BRAND_WATERMARK_LINK": "https://example.nl/",
-					"JITSI_WATERMARK_LINK": "https://example.nl",
+					"BRAND_WATERMARK_LINK": "https://chattersworld.nl/",
+					"JITSI_WATERMARK_LINK": "https://chattersworld.nl",
 					"MOBILE_APP_PROMO": true,
 					"DEFAULT_REMOTE_DISPLAY_NAME": "",
 					"VERTICAL_FILMSTRIP": false,
@@ -147,6 +148,8 @@ window.kiwiConfig = function kiwiConfig() {
 					]
 				},
 				"configOverwrite": {
+					"startWithVideoMuted": true,
+					"startWithAudioMuted": true
 				}
 		},
 		{/literal}{/if}{literal}
@@ -155,7 +158,7 @@ window.kiwiConfig = function kiwiConfig() {
 		},
 		{/literal}{if $metadata['kiwi_upload'] == "true"}{literal}
 		"fileuploader": {
-			"server": "https://files.example.nl/files/",
+			"server": "{/literal}{$file}{literal}",
 			"maxFileSize": 10485760,
 			"note": "Let op, deze bestanden blijven maximaal 24 uur bestaan!"
 		},
