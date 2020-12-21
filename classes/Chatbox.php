@@ -56,6 +56,7 @@ class Chatbox {
 	private $_kiwiimgur;
 	private $_kiwiasl;
 	private $_htmlredirect;
+	private $_showstats;
 	
 
     public function __construct($db) {
@@ -72,7 +73,7 @@ class Chatbox {
     public function setId($id) {
         $this->_id = $id;
     }
-    public function getLightIRCId() {
+	public function getLightIRCId() {
         return $this->_lightIRCId;
     }
     public function setLightIRCId($lightIRCId) {
@@ -187,6 +188,12 @@ class Chatbox {
 	public function setHTMLRedirect($htmlredirect) {
         $this->_htmlredirect = $htmlredirect;
     }
+	public function getShowStats() {
+        return $this->_showstats;
+    }
+    public function setShowStats($showstats) {
+        $this->_showstats = $showstats;
+    }
     public function readForm($form) {
         //Chatnaam
         if (isset($form['chat_name'])) {
@@ -255,7 +262,7 @@ class Chatbox {
         else {
             $this->LightIRC->setWebcamPublicOnly("true");
         }
-        //Privegesprekken?
+		//Privegesprekken?
         if (isset($form['chat_prive'])) {
             $this->enableQueries();
         }
@@ -300,6 +307,13 @@ class Chatbox {
         }
         else {
             $this->setRadioEnabled("false");
+        }
+		// statslink instellingen
+		if (isset($form['showstats'])) {
+            $this->setShowStats("true");
+        }
+        else {
+            $this->setShowStats("false");
         }
         //Radio naam
         if (isset($form['chat_name'])) {
@@ -383,7 +397,7 @@ class Chatbox {
     public function save() {
         $this->LightIRC->save();
         $this->setLightIRCId($this->LightIRC->getId());
-        $qry = $this->_db->prepare("INSERT INTO ".$this->_table."(lirc_id,createdby,createrip,created,lastcalled,calls,name,height,bgcolor,bgurl,style,iconstyle,radio_enabled,radio_name,radio_streamtype,radio_link,verzoek_url,radio_type,mountpoint,playerkleur,tekstkleur,ads_enabled,kiwi_avatar,kiwi_upload,kiwi_giphy,kiwi_imgur,kiwi_asl,html_redirect) VALUES(:lirc_id,:createdby,:createrip,NOW(),NOW(),:calls,:name,:height,:bgcolor,:bgurl,:style,:iconstyle,:radio_enabled,:radio_name,:radio_streamtype,:radio_link,:verzoek_url,:radio_type,:mountpoint,:playerkleur,:tekstkleur,:ads_enabled,:kiwi_avatar,:kiwi_upload,:kiwi_giphy,:kiwi_imgur,:kiwi_asl,:html_redirect);");
+        $qry = $this->_db->prepare("INSERT INTO ".$this->_table."(lirc_id,createdby,createrip,created,lastcalled,calls,name,height,bgcolor,bgurl,style,iconstyle,radio_enabled,radio_name,radio_streamtype,radio_link,verzoek_url,radio_type,mountpoint,playerkleur,tekstkleur,ads_enabled,kiwi_avatar,kiwi_upload,kiwi_giphy,kiwi_imgur,kiwi_asl,html_redirect,showstats) VALUES(:lirc_id,:createdby,:createrip,NOW(),NOW(),:calls,:name,:height,:bgcolor,:bgurl,:style,:iconstyle,:radio_enabled,:radio_name,:radio_streamtype,:radio_link,:verzoek_url,:radio_type,:mountpoint,:playerkleur,:tekstkleur,:ads_enabled,:kiwi_avatar,:kiwi_upload,:kiwi_giphy,:kiwi_imgur,:kiwi_asl,:html_redirect,:showstats);");
         $data = array(
             ':lirc_id' => $this->getLightIRCId(),
             ':createdby' => $this->getOwner(),
@@ -410,7 +424,8 @@ class Chatbox {
 			':kiwi_giphy' => $this->getKiwiGiphy(),
 			':kiwi_imgur' => $this->getKiwiImgur(),
 			':kiwi_asl' => $this->getKiwiASL(),
-			':html_redirect' => $this->getHTMLRedirect()
+			':html_redirect' => $this->getHTMLRedirect(),
+			':showstats' => $this->getShowStats()
         );
 
         $qry->execute($data);
@@ -426,7 +441,7 @@ class Chatbox {
     public function update() {
         $this->LightIRC->update();
 
-        $qry = $this->_db->prepare("UPDATE ".$this->_table." SET lirc_id=:lirc_id,createdby=:createdby,createrip=:createrip,created=NOW(),lastcalled=NOW(),calls=:calls,name=:name,height=:height,bgcolor=:bgcolor,bgurl=:bgurl,style=:style,iconstyle=:iconstyle,radio_enabled=:radio_enabled,radio_name=:radio_name,radio_streamtype=:radio_streamtype,radio_link=:radio_link,verzoek_url=:verzoek_url,radio_type=:radio_type,mountpoint=:mountpoint,playerkleur=:playerkleur,tekstkleur=:tekstkleur,ads_enabled=:ads_enabled,kiwi_avatar=:kiwi_avatar,kiwi_upload=:kiwi_upload,kiwi_giphy=:kiwi_giphy,kiwi_imgur=:kiwi_imgur,kiwi_asl=:kiwi_asl,html_redirect=:html_redirect WHERE id=:id;");
+        $qry = $this->_db->prepare("UPDATE ".$this->_table." SET lirc_id=:lirc_id,createdby=:createdby,createrip=:createrip,created=NOW(),lastcalled=NOW(),calls=:calls,name=:name,height=:height,bgcolor=:bgcolor,bgurl=:bgurl,style=:style,iconstyle=:iconstyle,radio_enabled=:radio_enabled,radio_name=:radio_name,radio_streamtype=:radio_streamtype,radio_link=:radio_link,verzoek_url=:verzoek_url,radio_type=:radio_type,mountpoint=:mountpoint,playerkleur=:playerkleur,tekstkleur=:tekstkleur,ads_enabled=:ads_enabled,kiwi_avatar=:kiwi_avatar,kiwi_upload=:kiwi_upload,kiwi_giphy=:kiwi_giphy,kiwi_imgur=:kiwi_imgur,kiwi_asl=:kiwi_asl,html_redirect=:html_redirect,showstats=:showstats WHERE id=:id;");
         $data = array(
             ':lirc_id' => $this->getLightIRCId(),
             ':createdby' => $this->getOwner(),
@@ -454,7 +469,8 @@ class Chatbox {
 			':kiwi_giphy' => $this->getKiwiGiphy(),
 			':kiwi_imgur' => $this->getKiwiImgur(),
 			':kiwi_asl' => $this->getKiwiASL(),
-			':html_redirect' => $this->getHTMLRedirect()
+			':html_redirect' => $this->getHTMLRedirect(),
+			':showstats' => $this->getShowStats()
         );
 
         $qry->execute($data);
@@ -524,6 +540,7 @@ class Chatbox {
 			$this->setKiwiImgur($row['kiwi_imgur']);
 			$this->setKiwiASL($row['kiwi_asl']);
 			$this->setHTMLRedirect($row['html_redirect']);
+			$this->setShowStats($row['showstats']);
             return true;
         }
         else {
@@ -596,6 +613,11 @@ class Chatbox {
                 $this->LightIRC->setStyleURL('css/darkred.css');
                 $this->_style ='darkred';
                 $this->setBgcolor("#B40404");
+                break;
+			case 'nightswatch':
+                $this->LightIRC->setStyleURL('css/black.css');
+                $this->_style ='nightswatch';
+                $this->setBgcolor("#000000");
                 break;
 			case 'transparent':
                 $this->LightIRC->setStyleURL('css/transparent.css');
@@ -709,7 +731,7 @@ class Chatbox {
         $data['bgcolor'] = $this->getBgcolor();
 		$data['style'] = $this->getStyle();
 		$data['bgurl'] = $this->getBgurl();
-		$data['private'] = $this->enableQueries();
+		$data['private'] = $this->LightIRC->getEnableQueries();
 		$data['icons'] = $this->getIconStyle();
 		$data['prefixicons'] = $this->LightIRC->getShowNickprefixIcons();
 		$data['hostnames'] = $this->LightIRC->getShowVerboseUserInformation();
@@ -729,7 +751,9 @@ class Chatbox {
 		$data['kiwi_imgur'] = $this->getKiwiImgur();
 		$data['kiwi_asl'] = $this->getKiwiASL();
 		$data['webcam'] = $this->LightIRC->getWebcam();
+		$data['mic'] = $this->LightIRC->getWebcamVideoOnly();
 		$data['html_redirect'] = $this->getHTMLRedirect();
+		$data['showstats'] = $this->getShowStats();
         return $data;
     }
 

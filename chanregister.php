@@ -127,46 +127,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equic="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- jQuery -->
-        <script src="js/jquery-1.11.0.min.js"></script>
-        
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <script src="js/bootstrap.min.js"></script>
-        <!--[if lt IE 9]>
-          <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-	<script type="text/javascript" src="analyticstracking.js"></script>        
-        <!-- SEO -->
-		<meta name="language" content="Dutch" />
-<meta name="keywords" content="chatten, gezellig kletsen, Chattersworld, Radio chat, Chameleon, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat, triviant," />
-<meta name="description"  content="Chattersworld De enige Chatserver waar je gratis kan chatten, chatten zonder registratie, chatten met webcams en dat allemaal gratis, Chattersworld Ares Verzoekserver, maak hem nu gratis aan!" />
-<meta name="google-site-verification" content="-hrJp-Kl7mtCVBOR5Dg45R52OfEAmnIceApYxPMluc4" />
-<meta name="robots" content="index,follow,noodp,noydir" />
-<meta name="description" content="Waar chatten, chatten is!"/>
-<meta property="og:locale" content="nl_NL" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Chameleon | Chattersworld | Waar chatten, chatten is!" />
-<meta property="og:description" content="Chameleon, de chat creator die iedereen kent, maak nu je gratis chatbox aan op chattersworld." />
-<meta property="og:url" content="https://chameleon.chattersworld.nl" />
+        <!-- <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+		<link rel="shortcut icon" href="{$fullurl}/img/cwo-chameleon2.png" />
 
-<meta property="og:type" content="article" />
-<meta property="og:title" content="..::Chattersworld Chameleon::.." />
-<meta property="og:site_name" content="..::Chattersworld Chameleon::.." />
-<meta property="article:publisher" content="https://www.facebook.com/chattersworld/" />
-<meta property="fb:app_id" content="699740480138507" />
+        <!-- Vendor styles -->
+        <!-- <link rel="stylesheet" href="{$fullurl}/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="{$fullurl}/vendors/bower_components/animate.css/animate.min.css">
 
-<meta property="og:image" content="https://horus.chattersworld.nl/webchat/img/cwobg.jpg" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:description" content="Waar chatten, chatten is!" />
-<meta name="twitter:title" content="..::Chattersworld Chameleon::.." />
-<link rel="canonical" href="https://chameleon.chattersworld.nl" />
-<link rel="icon" href="https://horus.chattersworld.nl/dist/img/c4all-horus.png" sizes="32x32" />
+        <!-- App styles -->
+        <!-- <link rel="stylesheet" href="{$fullurl}/css/app.min.css"> -->
+		<link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/vendors.min.css">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/components.css">
+    <!-- END: Theme CSS-->
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu-modern.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/pages/login-register.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -183,22 +174,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             });
         });
     </script>        
-        <!-- Custom CSS -->
-        <link href="css/custom_css/login.css" rel="stylesheet">
-		<title>..::ChattersWorld Chameleon::.. register</title>
-    </head>
-    <body>
         
-        <div class="container">
-                
-								<div class="alert alert-success alert-dismissable"><strong>Let op!</strong> Om je kanaal te kunnen registeren, dien je in het kanaal aanwezig te zijn en operator status hebben, heb je de chat reeds aangemaakt maar voldoe je niet aan de eisen, klik dan op login hieronder!
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>
-								
-								
-                            
-                
-                
-				<?php
+		<title>..::ChattersWorld Chameleon::.. Channel Register</title>
+    </head>
+	<!-- New Style -->
+	 <body class="vertical-layout vertical-menu-modern 1-column  bg-full-screen-image blank-page blank-page" data-open="click" data-menu="vertical-menu-modern" data-color="bg-gradient-x-purple-red" data-col="1-column">
+       <!-- new style -->
+	   <!-- new style -->
+		
+		<div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-wrapper-before"></div>
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <section class="flexbox-container">
+                    <div class="col-12 d-flex align-items-center justify-content-center">
+                        <div class="col-lg-4 col-md-6 col-10 box-shadow-2 p-0">
+                            <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
+                                <div class="card-header border-0">
+                                    <div class="text-center mb-1">
+                                        <img src="img/cwo-chameleon2.png" height="50px" alt="branding logo">
+                                    </div>
+                                    <div class="font-large-1  text-center">
+                                        Registeer nu!
+                                    </div>
+                                </div>
+                                <div class="card-content">
+									<?php
                         if(isset($_POST['login'])) {
                             if(isset($errors)) {
                                 echo '<div class="alert alert-danger alert-dismissable"><strong>' . htmlentities($errors) . '</strong>';
@@ -214,11 +217,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                            
                         } ?>
-            
-            
-            <form class="form-signin" role="form" method="POST" action="">
-                <h2 class="form-signin-heading">Registreer <?php if(!empty($_GET['channel'])) : ?>#<?php echo strtolower(htmlspecialchars($_GET['channel'])); ?><?php endif; ?>:</h2>
-				<script type="text/javascript">
+                                    <div class="card-body">
+									<div class="alert alert-success alert-dismissable"><strong>Let op!</strong> Om je kanaal te kunnen registeren, dien je in het kanaal aanwezig te zijn en operator status hebben, heb je de chat reeds aangemaakt maar voldoe je niet aan de eisen, klik dan op login hieronder!
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>
+                                        <form class="form-horizontal" method="POST" action="">
+											<fieldset class="form-group position-relative has-icon-left">
+											<script type="text/javascript">
 
 				function CheckSpace(event)
 				{
@@ -229,30 +233,74 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					}
 				}
 				</script>
-				<input type="text" class="form-control" name="login" placeholder="Nicknaam" onkeypress="CheckSpace(event)" value="<?php if(!empty($_GET['login'])) : ?><?php echo htmlspecialchars($_GET['login']); ?><?php endif; ?>" required><br />
-				<input type="text" class="form-control" name="channel" placeholder="Kanaal" value="<?php if(!empty($_GET['channel'])) : ?><?php echo strtolower(htmlspecialchars($_GET['channel'])); ?><?php endif; ?>" required><br />
-				
-				
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Registreer</button>
-				<input type="hidden" name="recaptcha_response" id="recaptchaResponse">
-            </form>
-			<div class="form-signin">
-                <h2 class="form-signin-heading">Of log in:</h2>
-				<a href="chat.php?id=<?php if(!empty($_GET['id'])) : ?><?php echo htmlspecialchars($_GET['id']); ?><?php endif; ?>" target="_blank"><button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button></a>
-			</div>	
+                                                <input type="text" name="login" class="form-control round" id="user-name" placeholder="Nicknaam" onkeypress="CheckSpace(event)" value="<?php if(!empty($_GET['login'])) : ?><?php echo htmlspecialchars($_GET['login']); ?><?php endif; ?>" required>
+                                                <div class="form-control-position">
+                                                    <i class="ft-user"></i>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset class="form-group position-relative has-icon-left">
+                                                <input type="text" class="form-control round" name="channel" placeholder="Kanaal" value="<?php if(!empty($_GET['channel'])) : ?><?php echo strtolower(htmlspecialchars($_GET['channel'])); ?><?php endif; ?>" required>
+                                                <div class="form-control-position">
+                                                    <i class="ft-hash"></i>
+                                                </div>
+                                            </fieldset>
+                                            <div class="form-group row">
+                                                <div class="col-md-6 col-12 text-center text-sm-left">
 
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="form-group text-center">
+                                                <button type="submit" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-12 mr-1 mb-1">Registreer</button>
+												<input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                                            </div>
+
+                                        </form>
+										<div class="form-signin">
+                <h2 class="form-signin-heading">Of log in:</h2>
+				<a href="chat.php?id=<?php if(!empty($_GET['id'])) : ?><?php echo htmlspecialchars($_GET['id']); ?><?php endif; ?>" target="_blank"><button class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-12 mr-1 mb-1" type="submit">Log in</button></a>
+			</div>
+                                    </div>
+                                    
+
+                                    <p class="card-subtitle text-muted text-right font-small-3 mx-2 my-1"><span>Heb je al een account? <a href="/login" class="card-link">Log dan in!</a></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
         </div>
-        <center>
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- Chatbottom -->
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:728px;height:90px"
-                 data-ad-client="ca-pub-9106844814451489"
-                 data-ad-slot="2999842055"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </center>
+    </div>
+	
+	<!-- End new style -->
+	<!-- New Style -->
+	
+    
+            <!-- BEGIN: Vendor JS-->
+    <script src="app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="app-assets/vendors/js/forms/validation/jqBootstrapValidation.js" type="text/javascript"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="app-assets/js/core/app-menu.js" type="text/javascript"></script>
+    <script src="app-assets/js/core/app.js" type="text/javascript"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="app-assets/js/scripts/forms/form-login-register.js" type="text/javascript"></script>
+    <!-- END: Page JS-->
+        <!-- Vendors 
+        <script src="{$fullurl}/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="{$fullurl}/vendors/bower_components/popper.js/dist/umd/popper.min.js"></script>
+        <script src="{$fullurl}/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- App functions and actions
+        <script src="{$fullurl}/js/app.min.js"></script> -->
     </body>
 
 </html>

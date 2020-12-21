@@ -1,27 +1,25 @@
--- MySQL dump 10.13  Distrib 5.6.45, for Linux (x86_64)
---
--- Host: localhost    Database: chameleon
--- ------------------------------------------------------
--- Server version	5.6.45
+/*
+SQLyog Ultimate v13.1.1 (64 bit)
+MySQL - 10.4.17-MariaDB : Database - chatters_chameleon
+*********************************************************************
+*/
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
+
+/*!40101 SET SQL_MODE=''*/;
+
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`chatters_chameleon` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
---
--- Table structure for table `chameleon_chat`
---
+USE `chatters_chameleon`;
+
+/*Table structure for table `chameleon_chat` */
 
 DROP TABLE IF EXISTS `chameleon_chat`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `chameleon_chat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `lirc_id` int(11) DEFAULT NULL,
@@ -54,21 +52,20 @@ CREATE TABLE `chameleon_chat` (
   `kiwi_imgur` varchar(10) NOT NULL DEFAULT 'true',
   `kiwi_asl` varchar(10) NOT NULL DEFAULT 'true',
   `html_redirect` varchar(10) NOT NULL DEFAULT 'false',
-  
+  `showstats` varchar(15) DEFAULT NULL,
   `obsolete` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `FK_chameleon_chat_chameleon_lirc` (`lirc_id`),
   CONSTRAINT `FK_chameleon_chat_chameleon_lirc` FOREIGN KEY (`lirc_id`) REFERENCES `chameleon_lirc` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2539 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=InnoDB AUTO_INCREMENT=2906 DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `chameleon_dev_chat`
---
+/*Data for the table `chameleon_chat` */
+
+
+/*Table structure for table `chameleon_dev_chat` */
 
 DROP TABLE IF EXISTS `chameleon_dev_chat`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `chameleon_dev_chat` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `lirc_id` int(11) DEFAULT NULL,
@@ -76,33 +73,37 @@ CREATE TABLE `chameleon_dev_chat` (
   `createrip` varchar(50) DEFAULT '0',
   `created` datetime DEFAULT NULL,
   `lastcalled` datetime DEFAULT NULL,
-  `calls` int(11) DEFAULT '0',
+  `calls` int(11) DEFAULT 0,
   `name` varchar(50) DEFAULT NULL,
   `bgcolor` varchar(50) DEFAULT NULL,
+  `bgurl` varchar(255) NOT NULL,
   `style` varchar(50) DEFAULT NULL,
   `iconstyle` varchar(50) DEFAULT NULL,
   `height` int(11) DEFAULT NULL,
-  `radio_enabled` varchar(10) DEFAULT '0',
+  `radio_enabled` varchar(10) DEFAULT 'false',
   `radio_streamtype` varchar(256) DEFAULT NULL,
   `radio_type` varchar(50) DEFAULT NULL,
+  `mountpoint` varchar(50) DEFAULT NULL,
+  `playerkleur` varchar(256) DEFAULT NULL,
+  `tekstkleur` varchar(256) DEFAULT NULL,
   `radio_name` varchar(50) DEFAULT NULL,
   `radio_url` varchar(256) DEFAULT NULL,
+  `verzoek_url` varchar(256) DEFAULT NULL,
   `radio_port` int(11) DEFAULT NULL,
   `radio_link` varchar(256) DEFAULT NULL,
-  `obsolete` tinyint(4) DEFAULT '0',
+  `ads_enabled` varchar(10) NOT NULL DEFAULT 'true',
+  `obsolete` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `FK_chameleon_dev_chat_chameleon_dev_lirc` (`lirc_id`),
   CONSTRAINT `FK_chameleon_dev_chat_chameleon_dev_lirc` FOREIGN KEY (`lirc_id`) REFERENCES `chameleon_dev_lirc` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Table structure for table `chameleon_dev_lirc`
---
+/*Data for the table `chameleon_dev_chat` */
+
+/*Table structure for table `chameleon_dev_lirc` */
 
 DROP TABLE IF EXISTS `chameleon_dev_lirc`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `chameleon_dev_lirc` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `host` varchar(128) DEFAULT '0',
@@ -195,18 +196,16 @@ CREATE TABLE `chameleon_dev_lirc` (
   `userListInformationPopupItems` varchar(128) DEFAULT '0',
   `contextMenuInternalEvent` varchar(128) DEFAULT '0',
   `contextMenuExternalEvent` varchar(128) DEFAULT '0',
-  `obsolete` tinyint(4) DEFAULT '0',
+  `obsolete` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Table structure for table `chameleon_lirc`
---
+/*Data for the table `chameleon_dev_lirc` */
+
+/*Table structure for table `chameleon_lirc` */
 
 DROP TABLE IF EXISTS `chameleon_lirc`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `chameleon_lirc` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `host` varchar(128) DEFAULT '0',
@@ -299,18 +298,14 @@ CREATE TABLE `chameleon_lirc` (
   `userListInformationPopupItems` varchar(128) DEFAULT '0',
   `contextMenuInternalEvent` varchar(128) DEFAULT '0',
   `contextMenuExternalEvent` varchar(128) DEFAULT '0',
-  `obsolete` tinyint(4) DEFAULT '0',
+  `obsolete` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2257 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+) ENGINE=InnoDB AUTO_INCREMENT=3023 DEFAULT CHARSET=utf8;
+
+/*Data for the table `chameleon_lirc` */
+
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2020-05-29  7:12:04

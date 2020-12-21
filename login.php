@@ -3,6 +3,7 @@ require("includes.php");
 $database = new Database($config, "anope");
 $db = $database->getConnection();
 $smarty->assign('fullurl', $config->getFullUrl());
+$smarty->assign('sitename', $config->getSiteName());
 
 if (isset($_POST['login'])) {
     

@@ -1,17 +1,14 @@
 <?php
 /*
   Copyright (C) 2015  Kaj Van der Hallen
-
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
-
   This program is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
-
   You should have received a copy of the GNU General Public License along
   with this program; if not, write to the Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
@@ -38,9 +35,13 @@ if ($id) {
     $isGodUser = $member->isGodUser();
     if ($isGodUser) {
         $smarty->assign('god', "true");
+		$smarty->assign('registeredname', 'Stanley Kulik');
+		$smarty->assign('nextduedate', 'Niet');
+		$smarty->assign('productname', 'Chameleon');
     }
 
     $smarty->assign('login',$member->getUsername());
+	// $smarty->assign('loggedin', "true");
 
     $page = 'list';
     if (isset($_GET['page'])) {
@@ -279,6 +280,14 @@ if ($id) {
                     else {
                         $smarty->assign('radio_enabled', "false");
                     }
+					//stats
+                    $show_stats = $chat->getShowStats();
+                    if ($show_stats == "true") {
+                        $smarty->assign('showstats', "true");
+                    }
+                    else {
+                        $smarty->assign('showstats', "false");
+                    }
                     //Radio name
                     $radio_name = $chat->Radio->getName();
                     if ($radio_name) {
@@ -389,7 +398,7 @@ if ($id) {
             $smarty->assign('chat_style',"blue");
 			$smarty->assign('chat_bgurl',"");
 			$smarty->assign('verzoek_url',"");
-			$smarty->assign('tekstkleur', "#FFF");
+			$smarty->assign('tekstkleur', "#FFFFFF");
 			$smarty->assign('playerkleur', "#800000");
 			$smarty->assign('mountpoint', "/stream");
             $smarty->assign('icon_style',"bolletje");
@@ -413,6 +422,7 @@ if ($id) {
 			$smarty->assign('kiwi_imgur', "true");
 			$smarty->assign('kiwi_asl', "true");
 			$smarty->assign('html_redirect', "false");
+			$smarty->assign('showstats', "false");
 	    $smarty->assign('page','new');
         }
     }

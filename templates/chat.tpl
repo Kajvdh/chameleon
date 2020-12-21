@@ -43,7 +43,7 @@
 			   {if $metadata['bgurl'] != ""}
 			   background-image:url("{$metadata['bgurl']}");
 			   {else}
-			   background-image:url("cwobg.jpg");
+			   background-image:url("https://chattersworld.nl/wp-content/uploads/2019/12/CWO-Webbanner.jpg");
 			   {/if}
 			   background-repeat: no-repeat;
 			      background-size: 100% 100%; }
@@ -260,6 +260,8 @@ position: absolute;
             }
 	{/literal}
  </style>
+ <link rel="stylesheet" href="{$fullurl}/dist/magnific-popup.css">
+<link rel="stylesheet" href="{$fullurl}/app-assets/css/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
  <script>
 $( document ).ready( function() {
@@ -281,14 +283,18 @@ $( document ).ready( function() {
 <center><a target="_blank" href="https://chattersworld.nl"><img src="{$logo}" height="100" alt="Chattersworld"></a></center>
 <br>
 {if $metadata['verzoek_url'] != "" && $metadata['radio'] == "true"}
-<a href="{$metadata['verzoek_url']}" data-mfp-src="#test-popup" class="open-popup-link"><img src="{$fullurl}/radio/request1.png" width="25px" height="25px" alt="Verzoek Aanvragen">&nbsp;Verzoekje Doen</a>
+<a href="{$metadata['verzoek_url']}" data-mfp-src="#test-popup" class="open-popup-link"><i class="zmdi zmdi-playlist-audio"></i>&nbsp;Verzoekje Doen</a>
 <br />
 {else}
-<a target="_blank" href="https://chattersworld.nl"><img src="{$fullurl}/radio/request1.png" width="25px" height="25px" alt="Maak je eigen chatbox!">&nbsp;Maak je eigen chatbox!</a>
+<a target="_blank" href="https://chattersworld.nl"><i class="zmdi zmdi-language-html5"></i>&nbsp;Maak je eigen chatbox!</a>
 {/if}
 <br />
 {if $metadata['radio'] == "true"}
-<a href="{$fullurl}/webplayer.php?id={$smarty.get.id}" target="_new" onclick="window.open('{$fullurl}/webplayer.php?id={$smarty.get.id}','Chameleon Webplayer','width=1024,height=780,scrollbars=yes,toolbar=no,menubar=no,location=no,resizable=yes'); return false"><img src="{$fullurl}/radio/regels1.png" width="25px" height="25px" alt="Chameleon Webplayer">&nbsp;Webplayer</a>
+<a href="{$fullurl}/webplayer.php?id={$smarty.get.id}" target="_new" onclick="window.open('{$fullurl}/webplayer.php?id={$smarty.get.id}','Chameleon Webplayer','width=1024,height=780,scrollbars=yes,toolbar=no,menubar=no,location=no,resizable=yes'); return false"><i class="zmdi zmdi-hearing"></i>&nbsp;Webplayer</a>
+{/if}
+<br />
+{if $metadata['showstats'] == "true"}
+<a href="https://stats.chattersworld.nl/statistieken/{$metadata['name']}.html" data-mfp-src="#test-popup2" class="open-popup-link"><i class="zmdi zmdi-trending-up"></i>&nbsp;Statistieken</a>
 {/if}
 <br />
 
@@ -311,9 +317,16 @@ a2a_config.locale = "nl";
  <div id="lightIRC" style="height:100%; text-align:center;">
   <p><a href="//www.adobe.com/go/getflashplayer"><img src="//www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
  </div>
+ {if $metadata['verzoek_url'] != "" && $metadata['radio'] == "true"}
 <div id="test-popup" class="white-popup mfp-hide">
   <iframe src="{$metadata['verzoek_url']}" name="iReQuest_ReQuestForm" scrolling="auto" frameborder="no" align="center" height = "650px" width = "100%"></iframe>
 </div>
+{/if}
+{if $metadata['showstats'] == "true"}
+<div id="test-popup2" class="white-popup mfp-hide">
+  <iframe src="https://stats.chattersworld.nl/statistieken/{$metadata['name']}.html" name="iReQuest_ReQuestForm" scrolling="auto" frameborder="no" align="center" height = "650px" width = "100%"></iframe>
+</div>
+{/if}
 <div class="modal" id="modal-one" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-header">

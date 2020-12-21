@@ -1,0 +1,21 @@
+<template id="ignorelist_button">
+    <a @click="buttonClicked" data-intro="Lijst van namen die worden genegeerd" data-step="5">
+        <span v-if="$state.ui.app_width > 769"><i class="fa fa-comments" aria-hidden="true"></i><span>Negeerlijst</span></span>
+        <i v-else class="fa fa-ban" aria-hidden="true" title="Negeerlijst"></i>
+    </a>
+</template>
+<script>
+    kiwi.plugin('ignorelist_button', function(kiwi, log) {
+        var button = new kiwi.Vue({
+            template: '#ignorelist_button',
+            methods: {
+                buttonClicked: function buttonClicked() {
+                    var network = this.$state.getActiveNetwork();
+
+                    network.showServerBuffer('ignored');
+                }
+            },
+        });
+        kiwi.addUi('header_channel', button.$mount().$el);
+    });
+</script>

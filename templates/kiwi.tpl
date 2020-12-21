@@ -1,23 +1,5 @@
-<!-- Facebook Pixel Code -->
-{literal}
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '311596215978856');
-  fbq('track', 'MobileCWO');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=311596215978856&ev=MobileCWO&noscript=1"
-/></noscript>
-<!-- End Facebook Pixel Code -->
 <script type="text/javascript" src="../analyticstracking.js"></script>
-{/literal}
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
 <meta name="language" content="Dutch" />
 <meta name="keywords" content="chatten, gezellig kletsen, Chattersworld, Radio chat, Chameleon, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat, triviant," />
@@ -32,49 +14,53 @@
 <meta property="og:url" content="{$fullurl}/chat.php?id={$smarty.get.id}" />
 
 <meta property="og:type" content="article" />
-<meta property="og:title" content="..::Chattersworld Chameleon::.. #{$metadata['name']}" />
-<meta property="og:site_name" content="..::Chattersworld Chameleon::.." />
+<meta property="og:title" content="..::{$sitename}::.. #{$metadata['name']}" />
+<meta property="og:site_name" content="..::{$sitename}::.." />
 <meta property="article:publisher" content="https://www.facebook.com/chattersworld/" />
 <meta property="fb:app_id" content="699740480138507" />
 {if $metadata['style'] != "transparent"}
-<meta property="og:image" content="{$logo}" />
+<meta property="og:image" content="{if $metadata['bgurl'] == ""}{$logo}{else}{$metadata['bgurl']}{/if}" />
 <link rel="icon" href="{$logo}" sizes="32x32" />
 {else}
-<meta property="og:image" content="{if $metadata['bgurl'] == ""}cwobg.jpg{else}{$metadata['bgurl']}{/if}" />
 <link rel="icon" href="{if $metadata['bgurl'] == ""}{$logo}{else}{$metadata['bgurl']}{/if}" sizes="32x32" />
 {/if}
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:description" content="Waar chatten, chatten is!" />
-<meta name="twitter:title" content="..::Chattersworld Chameleon::.." />
+<meta name="twitter:title" content="..::{$sitename}::.." />
 <link rel="canonical" href="{$fullurl}/chat.php?id={$smarty.get.id}" />
-<link rel="stylesheet" href="dist/magnific-popup.css">
+<link rel="stylesheet" href="{$fullurl}/dist/magnific-popup.css">
+<link rel="stylesheet" href="{$fullurl}/app-assets/css/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
 <!-- Kiwi script reloaders -->
-<link href="static/css/app.b4765c18.css" rel="preload" as="style">
-<link href="static/js/app.60a20f43.js" rel="preload" as="script">
-<link href="static/js/vendor.23cd2b70.js" rel="preload" as="script">
-<link href="static/css/app.b4765c18.css" rel="stylesheet">
+<link href="{$fullurl}/static/css/app.b4765c18.css" rel="preload" as="style">
+<link href="{$fullurl}/static/js/app.60a20f43.js" rel="preload" as="script">
+<link href="{$fullurl}/static/js/vendor.23cd2b70.js" rel="preload" as="script">
+<link href="{$fullurl}/static/css/app.b4765c18.css" rel="stylesheet">
 <!-- END -->
 </head>
 <meta charset=utf-8><meta name=viewport content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1">
 <title>..::Chattersworld Chameleon::.. #{$metadata['name']}</title>
 <body>
 	<div class="left">
-		<a target="_blank" href="https://chattersworld.nl"><img src="{$logo}" style="z-index: 102;" height="50" alt="Chattersworld"></a>
+		<a target="_blank" href="{$fullurl}"><img src="{$logo}" style="z-index: 102;" height="50" alt="Chattersworld"></a>
 	</div>
 
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<center><a target="_blank" href="https://chattersworld.nl"><img src="{$logo}" height="100" alt="Chattersworld"></a></center>
+		<center><a target="_blank" href="{$fullurl}"><img src="{$logo}" height="100" alt="Chattersworld"></a></center>
 		<br>
 		{if $metadata['verzoek_url'] != "" && $metadata['radio'] == "true"}
-		<a href="{$metadata['verzoek_url']}" data-mfp-src="#test-popup" class="open-popup-link"><img src="{$fullurl}/radio/request1.png" width="25px" height="25px" alt="Verzoek Aanvragen">&nbsp;Verzoekje Doen</a>
+		<a href="{$metadata['verzoek_url']}" data-mfp-src="#test-popup" class="open-popup-link"><i class="zmdi zmdi-playlist-audio"></i>&nbsp;Verzoekje Doen</a>
 		<br />
 		{else}
-		<a target="_blank" href="https://chattersworld.nl"><img src="{$fullurl}/radio/request1.png" width="25px" height="25px" alt="Maak je eigen chatbox!">&nbsp;Maak je eigen chatbox!</a>
+		<a target="_blank" href="{$fullurl}"><i class="zmdi zmdi-language-html5"></i>&nbsp;Maak je eigen chatbox!</a>
 		{/if}
 		<br />
 		{if $metadata['radio'] == "true"}
-		<a href="{$fullurl}/webplayer.php?id={$smarty.get.id}" target="_new" onclick="window.open('{$fullurl}/webplayer.php?id={$smarty.get.id}','Chameleon Webplayer','width=1024,height=780,scrollbars=yes,toolbar=no,menubar=no,location=no,resizable=yes'); return false"><img src="{$fullurl}/radio/regels1.png" width="25px" height="25px" alt="Chameleon Webplayer">&nbsp;Webplayer</a>
+		<a href="{$fullurl}/webplayer.php?id={$smarty.get.id}" target="_new" onclick="window.open('{$fullurl}/webplayer.php?id={$smarty.get.id}','Chameleon Webplayer','width=1024,height=780,scrollbars=yes,toolbar=no,menubar=no,location=no,resizable=yes'); return false"><i class="zmdi zmdi-hearing"></i>&nbsp;Webplayer</a>
+		{/if}
+		<br />
+		{if $metadata['showstats'] == "true"}
+		<a href="https://stats.chattersworld.nl/statistieken/{$metadata['name']}.html" data-mfp-src="#test-popup2" class="open-popup-link"><i class="zmdi zmdi-trending-up"></i>&nbsp;Statistieken</a>
 		{/if}
 		<br />
 		<br />
@@ -114,7 +100,14 @@
 				document.getElementById("mySidenav").style.width = "0";
 			}
 		</script>
+		{if $metadata['verzoek_url'] != "" && $metadata['radio'] == "true"}
 	<div id="test-popup" class="white-popup mfp-hide">
 		<iframe src="{$metadata['verzoek_url']}" name="iReQuest_ReQuestForm" scrolling="auto" frameborder="no" align="center" height = "650px" width = "100%"></iframe>
 	</div>
+	{/if}
+	{if $metadata['showstats'] == "true"}
+	<div id="test-popup2" class="white-popup mfp-hide">
+		<iframe src="https://stats.chattersworld.nl/statistieken/{$metadata['name']}.html" name="iReQuest_ReQuestForm" scrolling="auto" frameborder="no" align="center" height = "650px" width = "100%"></iframe>
+	</div>
+	{/if}
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

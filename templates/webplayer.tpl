@@ -41,7 +41,7 @@
 		<link href="webplayer/css/ytplayer.min.css?v=1.18.03.18" rel="stylesheet" type="text/css" media="all" />
 		<link href="webplayer/css/theme-nativehtml5radio.min.css?v=1.20.07.02" rel="stylesheet" type="text/css" media="all" />
     			<script src="radiolibs/luna/jquery-3.2.1.min.js"></script>
-				<script type="text/javascript" src="radiolibs/luna/lunaradio.min.js?v=5.20.08.31"></script>
+				<script type="text/javascript" src="radiolibs/luna/lunaradio.min.js?v=5.20.09.08"></script>
 			<script>{literal}
   				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -55,14 +55,7 @@
 
 			{literal}<script language=JavaScript> var message="Sjips, werkt niet :("; function clickIE4(){ if (event.button==2){ alert(message); return false; } } function clickNS4(e){ if (document.layers||document.getElementById&&!document.all){ if (e.which==2||e.which==3){ alert(message); return false; } } } if (document.layers){ document.captureEvents(Event.MOUSEDOWN); document.onmousedown=clickNS4; } else if (document.all&&!document.getElementById){ document.onmousedown=clickIE4; } document.oncontextmenu=new Function("alert(message);return false") </script>
     			<script language=JavaScript> var message="Sjips, werkt niet :("; function clickIE4(){ if (event.button==2){ alert(message); return false; } } function clickNS4(e){ if (document.layers||document.getElementById&&!document.all){ if (e.which==2||e.which==3){ alert(message); return false; } } } if (document.layers){ document.captureEvents(Event.MOUSEDOWN); document.onmousedown=clickNS4; } else if (document.all&&!document.getElementById){ document.onmousedown=clickIE4; } document.oncontextmenu=new Function("alert(message);return false") </script>{/literal}
-			<script>{literal} 
-  				$(document).ready(function updateChatCount() {
-					$.get('https://chattersworld.nl/usercount.php?channel={/literal}{$metadata['name']}{literal}', function(data) {
-	  				$("#users").html(data);
-					}, 'text');
-					setTimeout(updateChatCount,3000);
-				});
-			{/literal}</script>
+			
 {literal}<script>
 document.onkeydown = function(e) {
         if (e.ctrlKey && 
@@ -85,89 +78,112 @@ else
 return true;
 }
 });
-</script>{/literal}
+</script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+<script>
+		window.addEventListener("load", function(){
+		window.cookieconsent.initialise({
+		"palette": {
+			"popup": {
+				"background": "#343c66",
+				"text": "#ac6e81"
+			},
+			"button": {
+				"background": "transparent",
+				"text": "#ac6e81",
+				"border": "#ac6e81"
+			}
+		},
+		"position": "bottom-left",
+		"type": "opt-out",
+		"content": {
+			"href": "https://www.chattersworld.nl"
+		},
+		onPopupOpen: function (status) {
+			var type = this.options.type;
+			var didConsent = this.hasConsented();
+			if (type == 'opt-out' || didConsent) {
+				/*(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','UA-73408859-2');*/
+			}
+		},
+		onInitialise: function (status) {
+			//
+		},
+		onStatusChange: function(status, chosenBefore) {
+			var type = this.options.type;
+			var didConsent = this.hasConsented();
+			if (didConsent) {
+				
+				/*(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+				new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+				j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+				})(window,document,'script','dataLayer','UA-73408859-2');*/
+			} else {
+				//
+			}
+			
+		},
+		onRevokeChoice: function() {
+			//
+		}
+		})});
+	</script>
+{/literal}
 
 	{literal}<style>
-		img{
- 			border: 0px;
+		html {
+			--scrollbarBG: #CFD8DC;
+			--thumbBG: #90A4AE;
 		}
-		.noselect {
-    			-webkit-touch-callout: none;
-    			-webkit-user-select: none;
-    			-khtml-user-select: none;
-    			-moz-user-select: none;
-    			-ms-user-select: none;
-    			user-select: none;
-			}
+		body::-webkit-scrollbar {
+			width: 11px;
+		}
+		body {
+			scrollbar-width: none;
+			scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+		}
+		body::-webkit-scrollbar-track {
+			background: var(--scrollbarBG);
+		}
+		body::-webkit-scrollbar-thumb {
+			background-color: var(--thumbBG) ;
+			border-radius: 6px;
+			border: 3px solid var(--scrollbarBG);
+		}
+		html, body {
+			margin:0;
+			padding:0;
+			/*overflow: hidden;*/
+			width:100%;
+			height:100%;
+		}
+		.fs-vid-background {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			z-index: 2;
+		}
+		.fs-vid-background video {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+		video {
+			max-width: 100%;
+		}
 	</style>{/literal}
 </head>
 <body class="scroll-assist noselect">	
-	<div class="nav-container">
-		<a id="top"></a>
-		<nav class="absolute transparent">
-			<div class="nav-bar">
-				<div class="module left">
-					<a href="/">
-						<img class="logo logo-light" alt="NATIVE HTML5 RADIO PLAYER" src="https://www.chattersworld.nl/images/c4all.png" />
-						<img class="logo logo-dark" alt="NATIVE HTML5 RADIO PLAYER" src="https://www.chattersworld.nl/images/c4all.png" />
-					</a>
-				</div>
-				<div class="module widget-handle mobile-toggle right visible-sm visible-xs">
-					<i class="ti-menu"></i>
-				</div>
-
-				
-				<div class="module-group right">
-					<div class="module left">
-						<ul class="menu">
-							<!-- <li class="">
-								<a href="#compatibility">
-									Compatibility
-								</a>
-							</li>
-							<li class="">
-								<a href="#examples">
-									Examples
-								</a>
-							</li>
-							<li class="">
-								<a href="https://www.flashradio.info/documentation/jquery/" target="_blank">
-									Documentation
-								</a>
-							</li>
-							<li class="">
-								<a href="/shortcode">
-									Shortcode Generator
-								</a>
-							</li>
-							<li class="">
-								<a href="#release-notes">
-									Release Notes
-								</a>
-							</li> -->
-							<li class=""> 
-								<a href="https://chameleon.chattersworld.nl/chat.php?id={$smarty.get.id}">
-									Chatters online: <span id="users"></span>
-								</a>
-							</li> 
-							<li class="">
-								<a href="{$fullurl}/webplayer.php?id={$smarty.get.id}">
-									Herstart Stream
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-
-				
-				
-				
-			</div>
-
-		</nav>
-	</div>
 	<div class="main-container">
-		<section class="image-bg fullscreen overlay overlay-heavy bg-dark">
+		<section class="image-bg fullscreen overlay overlay-heavy bg-dark" >
 	<div class="background-image-holder">
 		<img alt="native html5 internet web radio player plugin jQuery" title="native html5 radio player jQuery" class="background-image" src="webplayer/home.jpg">
 	</div>
@@ -176,42 +192,50 @@ return true;
 			<source src="webplayer/home3.mp4" type="video/mp4" />
 		</video>
 	</div>
-	<div class="container v-align-transform">
-	<div class="row mt80">
-			<div class="col-lg-12 text-center">
-			<div id="lunaradio" style='width:100%; height:600px;
--webkit-border-top-left-radius: 0px;
-  -webkit-border-top-right-radius: 0px;
-  -webkit-border-bottom-right-radius: 0px;
-  -webkit-border-bottom-left-radius: 0px;
-  -moz-border-radius-topleft: 0px;
-  -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomright: 0px;
-  -moz-border-radius-bottomleft: 0px;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border: none;'>
+	<div id="lunaradio" style="width:100%; height: 100%; position: absolute; left:0; top:0; z-index: 300;">
 				
 			</div>
 			</div>
-	</div>
-		<div class="row mt80">
-			
-			<div class="col-lg-4">
-				
-			</div>
-			<div class="col-lg-4">
-			{literal}<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> <script> (adsbygoogle = window.adsbygoogle || []).push({ google_ad_client: "ca-pub-9106844814451489", enable_page_level_ads: true }); </script>{/literal}
-				
-			</div>
-			<div class="col-lg-4">
-				
-			</div>
-		</div>
+	
+		
 	</div>
 </section>
+<div style="position: absolute; top:100%; width: 100%;">
+<section id="streamtypes">
+<div class="container">
+<div class="row">
+<div class="col-sm-12 text-center">
+<h4 class="uppercase mb16">CHATTERSWORLD WORD MEDEMOGELIJK GEMAAKT DOOR</h4>
+<p class="lead mb64">
+
+</p>
+</div>
+</div>
+<center>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- cham27022016 -->
+        <ins class="adsbygoogle"
+                 style="display:inline-block;width:80%;height:90px"
+                 data-ad-client="ca-pub-9106844814451489"
+                 data-ad-slot="2999842055"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </center>
+</div>
+</section>
+<footer class="footer-2 bg-dark">
+<div class="container">
+<div class="row fade-half">
+<div class="col-sm-12 text-center">
+<span>© Copyright 2004-2020 Chattersworld | <a href="https://chattersworld.nl"><span class="mb16 fade-on-hover">Chattersworld</span></a>  </span>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body>
+</html>
 </div>
 <script src="webplayer/js/bootstrap.min.js?v=1.18.03.18"></script>
 <script src="webplayer/js/flexslider.min.js?v=1.18.03.18"></script>
@@ -231,21 +255,23 @@ $("#lunaradio").lunaradio({
 	backgroundcolor: "{$metadata['playerkleur']}",
 	fontcolor: "{$metadata['tekstkleur']}",
 	hightlightcolor: "#13c4eb",
-	fontname: "Open Sans",
-	googlefont: "open+sans:300",
+	fontname: "",
+	googlefont: "",
 	fontratio: "0.4",
 	radioname: "{$metadata['radio_name']}",
 	scroll: "true",
 	coverimage: "{$fullurl}/dist/img/c4all.png",
 	coverstyle: "circle",
-	usevisualizer: "fake",
+	usevisualizer: "real",
 	visualizertype: "",
+	multicolorvisualizer: "true",
+	visualizeropacity: "1.0",
 	itunestoken: "1000lIPN",
-	metadatatechnic: "{if $metadata['radio_type'] == "shoutcast"}stream-icy-meta{else}corsproxy{/if}",
+	metadatatechnic: "directly",
 	ownmetadataurl: "",
 	streamurl: "{$metadata['radio_link']}",
 	streamtype: "{$metadata['radio_type']}",
-	icecastmountpoint: "{if $metadata['radio_type'] == "icecast"}{$metadata['mountpoint']}{/if}",
+	icecastmountpoint: "{if $metadata['radio_type'] == "icecast2"}{$metadata['mountpoint']}{/if}",
 	radionomyid: "",
 	radionomyapikey: "",
 	radiojarid: "",

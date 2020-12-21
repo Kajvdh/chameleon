@@ -51,6 +51,7 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #7a89ab;
   overflow-x: hidden;
+  scrollbar-width: thin;
 }
 body.boxed-layout {
   background: #eee;

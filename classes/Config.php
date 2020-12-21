@@ -43,34 +43,34 @@ class Config {
          */
         $this->_errorMode = "prd";
         $this->_rootDirectory = "";
-        $this->_fullUrl = "Type the full url"; //zonder / achter de link
-		$this->_logo = "Location of the logo"; //zonder / achter de link
-		$this->_irc = "irc link"; //IRC url without port
-		$this->_sitename = "Type your sitename"; //Naam van de website
+        $this->_fullUrl = "https://chameleon.chattersworld.nl"; //zonder / achter de link
+		$this->_logo = "https://chameleon.chattersworld.nl/img/cwo-chameleon2.png"; //zonder / achter de link
+		$this->_irc = "irc.chattersworld.nl"; //IRC url without port
+		$this->_sitename = "Chattersworld Chameleon"; //Naam van de website
 		/**
 		 * KiwiIRC instellingen
 		 */
-		$this->_gateway = "gateway link with port"; //URL van gateway zonder http(s)
-		$this->_file = "Fileupload link"; //Fileupload URL
+		$this->_gateway = "gateway.chattersworld.nl:1085"; //URL van gateway zonder http(s)
+		$this->_file = "https://files.chattersworld.nl/files/"; //Fileupload URL
         /**
          * MySQL gegevens
          */
-        $this->_mysqlHost = "";
-        $this->_mysqlUser = "";
+        $this->_mysqlHost = "127.0.0.1";
+        $this->_mysqlUser = "chatters_chameleon";
         $this->_mysqlPass = "";
-        $this->_mysqlDbName = "";
-        $this->_mysqlPrefix = "";
+        $this->_mysqlDbName = "chatters_chameleon";
+        $this->_mysqlPrefix = "chameleon_";
 
-        $this->_mysqlHostDev = "";
-        $this->_mysqlUserDev = "";
+        $this->_mysqlHostDev = "127.0.0.1";
+        $this->_mysqlUserDev = "chatters_chameleon";
         $this->_mysqlPassDev = "";
-        $this->_mysqlDbNameDev = "";
-        $this->_mysqlPrefixDev = "";
+        $this->_mysqlDbNameDev = "chatters_chameleon";
+        $this->_mysqlPrefixDev = "chameleon_";
 
-        $this->_mysqlAnopeHost = "";
-        $this->_mysqlAnopeUser = "";
+        $this->_mysqlAnopeHost = "127.0.0.1";
+        $this->_mysqlAnopeUser = "anope";
         $this->_mysqlAnopePass = "";
-        $this->_mysqlAnopeDbName = "";
+        $this->_mysqlAnopeDbName = "anope";
     }
 
     /**

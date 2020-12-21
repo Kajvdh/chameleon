@@ -6,6 +6,8 @@ $smarty->assign('fullurl', $config->getFullUrl());
 $smarty->assign('logo', $config->getLogo());
 $smarty->assign('irc', $config->getIRC());
 $smarty->assign('sitename', $config->getSiteName());
+$smarty->assign('gateway', $config->getGateway());
+$smarty->assign('file', $config->getFile());
  
 $mobile_browser = '0';
  
@@ -61,7 +63,7 @@ if ($mobile_browser > 0) {
 
         if ($metadata['radio'] == "true") {
 			if ($metadata['radio_player'] == "internal") {
-				$smarty->display('chat_ads.tpl');
+				$smarty->display('chat_radio.tpl');
 			}else{ 
 				$smarty->display('chat_radio.tpl'); 
 			}
@@ -70,11 +72,11 @@ if ($mobile_browser > 0) {
         $smarty->display('chat_end.tpl');
     }
     else {
-        $smarty->display('chat_does_not_exist.tpl');
+        header('Location: https://chattersworld.nl/html5.php?'.$_SERVER['QUERY_STRING']);
     }
 }
 else {
-    $smarty->display('chat_does_not_exist.tpl');
+    header('Location: https://chattersworld.nl/html5.php?'.$_SERVER['QUERY_STRING']);
 }
 }
 else {
@@ -91,8 +93,13 @@ else {
             header('Location: https://chameleon.chattersworld.nl/chat2.php?'.$_SERVER['QUERY_STRING']);
 
         $smarty->assign('metadata',$metadata);
+		if (($metadata['html_redirect'] == "true")) {
+			$smarty->display('kiwi-conf.tpl');
+			$smarty->display('kiwi-style.tpl');
+			$smarty->display('kiwi.tpl');
+		}else{
         $smarty->display('chat.tpl');
-
+		}
         if ($metadata['radio'] == "true") {
             $smarty->display('chat_radio.tpl');
         }
@@ -100,11 +107,11 @@ else {
         $smarty->display('chat_end.tpl');
     }
     else {
-        $smarty->display('chat_does_not_exist.tpl');
+        header('Location: https://chattersworld.nl/html5.php?'.$_SERVER['QUERY_STRING']);
     }
 }
 else {
-    $smarty->display('chat_does_not_exist.tpl');
+    header('Location: https://chattersworld.nl/html5.php?'.$_SERVER['QUERY_STRING']);
 }
 }   
    

@@ -60,10 +60,10 @@ if (isset($_GET['id'])) {
         $smarty->display('chat_end.tpl');
     }
     else {
-        $smarty->display('chat_does_not_exist.tpl');
+        header('Location: https://chattersworld.nl/html5.php?'.$_SERVER['QUERY_STRING']);
     }
 }
 else {
-    $smarty->display('chat_does_not_exist.tpl');
+    header('Location: https://chattersworld.nl/html5.php?'.$_SERVER['QUERY_STRING']);
 }
 ?>

@@ -10,38 +10,44 @@ window.kiwiConfig = function kiwiConfig() {
 		"theme": "CWO",
 		"disconnectOnSaslFail": false,
 		"themes": [
+				{/literal}
+					{if $metadata['style'] == "nightswatch"}{literal}
+				{ "name": "CWO", "url": "static/themes/dark-fluid" }
+				{/literal}{else}{literal}
 				{ "name": "CWO", "url": "static/themes/cwo-chameleon-kiwiirc4" }
+				{/literal}{/if}{literal}
 				],
 		"showColorPicker": true,
 		"startupOptions": { 
 				"server": "{/literal}{$irc}{literal}", 
-				"infoBackground": "{/literal}{if $metadata['bgurl'] != ''}{$metadata['bgurl']}{else}cwobg.jpg{/if}{literal}", 
+				"infoBackground": "{/literal}{if $metadata['bgurl'] != ''}{$metadata['bgurl']}{else}https://chattersworld.nl/wp-content/uploads/2019/12/CWO-Webbanner.jpg{/if}{literal}", 
 				"infoContent": "<a class=\"netlogo\" href=\"{/literal}{$fullurl}{literal}\"><span></span><img src=\"{/literal}{$logo}{literal}\"></a><div><a href=\"{/literal}{$fullurl}{literal}/register.php\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-lock\"></i> Registreer</a><a href=\"{/literal}{$fullurl}{literal}/chat.php?id=1\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> Helpdesk</a><a href=\"https://wiki.chattersworld.nl/\" target=\"_blank\" class=\"u-cpanel\"><i class=\"fa fa-life-ring\"></i> CWO Wiki</a></div>",
 				"greetingText": "<div style='margin:0px 0px 0px 0px'><center><a class=\"netlogo\" href=\"{/literal}{$fullurl}{literal}\"><span></span><img src=\"{/literal}{$logo}{literal}\" height='60px'></a></center></div>",
-				"state_key": "CWO-Chameleon-43",
+				"state_key": "CWO-Chameleon-65",
 				"buttonText": "<center><i class='fa fa-sign-in' style='margin-right:5px !important;'></i> Chatten</center>",
 				"gecos": "..::{/literal}{$sitename}{literal} HTML5 Webchat::..",
 				"port": 6697, 
 				"tls": true, 
 				"direct": false, 
+				"showChannel": false,
 				"recaptchaSiteId": "6LdZ_nIUAAAAANK_JiB2qsRbSPnldqaYTjFwNj8G",
 				"channel": "#{/literal}{$metadata['name']}{literal}",
 				"age": "",
 				"sex": "",
 				"location": "",
-				"remember_buffers": true, 
+				"remember_buffers": false, 
 				"nick": "" 
 			},
 		"sidebarDefault": "nicklist",
 		"buffers": {
-				{/literal}{if $metadata['private'] == "true"}{literal}"block_pms": false, {/literal}{/if}{literal}
+				{/literal}{if $metadata['private'] == "false"}{literal}"block_pms": true, {/literal}{/if}{literal}
 				"coloured_nicklist": false,
 				{/literal}{if $metadata['kiwi_avatar'] == "true"}{literal}"nicklist_avatars": true, {/literal}{else}{literal}"nicklist_avatars": false,{/literal}{/if}{literal}
 				{/literal}{if $metadata['hostnames'] == "true"}{literal}"show_hostnames": true, {/literal}{else}{literal}"show_hostnames": false,{/literal}{/if}{literal}
 				"colour_nicknames_in_messages": false,
 				"inline_link_auto_previews": false,
 				"inline_link_auto_preview_whitelist": ".*",
-				"messageLayout": "modern",
+				"messageLayout": "{/literal}{if $metadata['kiwi_avatar'] == "true"}modern{else}inline{/if}{literal}",
 				"default_kick_reason": "Gedraag je!",
 				"share_typing": true
 			},
@@ -50,9 +56,14 @@ window.kiwiConfig = function kiwiConfig() {
 			{
 				"name": "conference",
 				"url": "static/plugins/conference/plugin-conference.min.js?v=1.3"
-			},
-			{/literal}{/if}{literal}
+			},{/literal}{/if}{literal}
+				{/literal}{if $metadata['style'] == "nightswatch"}{literal}
+				{"name": "theme-dark-fluid", "url": "static/plugins/theme-dark-fluid.js"},
+				{/literal}{/if}{literal}
 				{"name": "emoji", "url": "static/plugins/plugin-emoji-prelim.min.js"},
+				{/literal}{if $metadata['private'] == "true"}{literal}
+				{"name": "simosnapcss","url": "static/plugins/block-queries.html"},
+				{/literal}{/if}{literal}
 				{"name": "simosnapcss","url": "static/plugins/cwo-css3.html"},
 				
 				{/literal}{if $metadata['radio'] == "true" && $metadata['radio_player'] == "internal"}{literal}
@@ -142,13 +153,13 @@ window.kiwiConfig = function kiwiConfig() {
 					"VERTICAL_FILMSTRIP": false,
 					"LANG_DETECTION": true,
 					"TOOLBAR_BUTTONS": [
-								"microphone", "camera", "fullscreen", "fodeviceselection", "hangup",
+								{/literal}{if $metadata['mic'] == "true"}{else}"microphone",{/if}{literal} "camera", "fullscreen", "fodeviceselection", "hangup",
 								"settings", "videoquality", "filmstrip",
-								"stats", "shortcuts", "sharedvideo"
+								"stats", "tileview", "shortcuts", "sharedvideo"
 					]
 				},
 				"configOverwrite": {
-					"startWithVideoMuted": true,
+					"startWithVideoMuted": false,
 					"startWithAudioMuted": true
 				}
 		},

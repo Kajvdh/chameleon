@@ -4,6 +4,17 @@ Since I'm not working on this project anymore for a while now, I decided to open
 
 Yes, I also know that there are some passwords hidden in the code ;) They don't work anymore so what's the point in replacing them by placeholders anyway ¯\\_(ツ)_/¯
 
+# Features
+- LightIRC chat generator
+- Fallback to HTML5 on mobile devices
+- Forced redirect to HTML5
+- Gravatar Support
+- imgur support for image uploads
+- Anope Cpanel intergration
+- Register with your chat nickname
+- Channel register
+- Easy to maintain
+
 # KiwiIRC added and support for Gravatar
 
 KiwiIRC has been added, flash will stop support at the end of december, so KiwiIRC has been added inside of Chameleon.
@@ -47,4 +58,4 @@ Installation is quite straight forward;
 - edit classes/LightIRC.php with your IRC credentials (replace irc.example.nl with your IRC server)
 - edit classes/LightIRC.php with your lightIRC license (LightIRC requires a license for webcams to work)
 - edit templates/kiwi-conf.tpl with your IRC credentials, webircgateway and jitsi-meet server
-- edit register.php with the anope xmlrpc URL for registration to work properly (same with chanregister.php
+- edit register.php with the anope xmlrpc URL for registration to work properly (same with chanregister.php)

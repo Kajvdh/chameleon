@@ -1,0 +1,10 @@
+<files "fallback2.php">
+<RequireAll>
+    Require all denied
+</RequireAll>
+</files>
+<files "fallback.php">
+<RequireAll>
+    Require all denied
+</RequireAll>
+</files>

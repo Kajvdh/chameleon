@@ -6,6 +6,8 @@ $smarty->assign('fullurl', $config->getFullUrl());
 $smarty->assign('logo', $config->getLogo());
 $smarty->assign('irc', $config->getIRC());
 $smarty->assign('sitename', $config->getSiteName());
+$smarty->assign('gateway', $config->getGateway());
+$smarty->assign('file', $config->getFile());
  
 $mobile_browser = '0';
  
@@ -99,8 +101,13 @@ else {
             $metadata['height'] = "90";
 
         $smarty->assign('metadata',$metadata);
-        $smarty->display('chat.tpl');
-
+		if (($metadata['html_redirect'] == "true")) {
+			$smarty->display('kiwi-conf.tpl');
+			$smarty->display('kiwi-style.tpl');
+			$smarty->display('kiwi.tpl');
+		}else{
+			$smarty->display('chat.tpl');
+		}
         if ($metadata['radio'] == "true") {
             $smarty->display('chat_radio.tpl');
         } elseif ($metadata['ads_enabled'] == "true") {
