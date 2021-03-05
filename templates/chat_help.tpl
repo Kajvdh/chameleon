@@ -48,7 +48,7 @@
 			  <td width="15%"><center><a href="mailto:support@chattersworld.nl" target="_blank"><svg style="width:50px;height:50px" viewBox="0 0 24 24">
               <path fill="#000000" d="M4,8L12,13L20,8V8L12,3L4,8V8M22,8V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V8C2,7.27 2.39,6.64 2.97,6.29L12,0.64L21.03,6.29C21.61,6.64 22,7.27 22,8Z" />
             </svg></a></center></td>
-			  <td width="15%"><center><a href="https://clients.chattersworld.nl/contact.php" target="_blank"><svg style="width:50px;height:50px" viewBox="0 0 24 24">
+			  <td width="15%"><center><a href="https://klantenpaneel.hosting2chat.nl/submitticket.php?step=2&deptid=2" target="_blank"><svg style="width:50px;height:50px" viewBox="0 0 24 24">
               <path fill="#000000" d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9Z" />
             </svg></a></center></td>
 			  <td width="15%"><center><a href="https://wiki.chattersworld.nl/" target="_blank"><svg style="width:50px;height:50px" viewBox="0 0 24 24">
@@ -61,7 +61,7 @@ style=" fill:#000000;"><path d="M 25 2 C 12.300781 2 2 11.601563 2 23.5 C 2 29.8
 			  </tr>
 			  <tr>
 			  <td width="15%" ><center><a href="mailto:support@chattersworld.nl" target="_blank">Stuur mail</a></center></td>
-			  <td width="15%" ><center><a href="https://clients.chattersworld.nl/contact.php" target="_blank">Creëer Ticket</a></center></td>
+			  <td width="15%" ><center><a href="https://klantenpaneel.hosting2chat.nl/submitticket.php?step=2&deptid=2" target="_blank">Creëer Ticket</a></center></td>
 			  <td width="15%" ><center><a href="https://wiki.chattersworld.nl/" target="_blank">CWO Wiki</a></center></td>
 			  <td width="15%" ><center><a href="//m.me/chattersworld" target="_blank">Facebook Messenger</a></center></td>
 			  </tr>

@@ -57,7 +57,14 @@ class Chatbox {
 	private $_kiwiasl;
 	private $_htmlredirect;
 	private $_showstats;
-	
+	private $_html5color;
+	private $_transparantie;
+	private $_omswitch;
+	private $_embedly;
+	private $_volslide;
+	private $_conflink;
+	private $_viewheight;
+	private $_tags;
 
     public function __construct($db) {
         $this->_dBase = $db;
@@ -73,6 +80,12 @@ class Chatbox {
     public function setId($id) {
         $this->_id = $id;
     }
+	public function getTags() {
+        return $this->_tags;
+    }
+    public function setTags($tags) {
+        $this->_tags = $tags;
+    }
 	public function getLightIRCId() {
         return $this->_lightIRCId;
     }
@@ -85,11 +98,53 @@ class Chatbox {
     public function setBgcolor($color) {
         $this->_bgcolor = $color;
     }
+	public function setTransparantie($transparantie) {
+        $this->_transparantie = $transparantie;
+    }
+	public function getTransparantie() {
+        return $this->_transparantie;
+    }
+	public function setViewheight($viewheight) {
+        $this->_viewheight = $viewheight;
+    }
+	public function getViewheight() {
+        return $this->_viewheight;
+    }
+	public function setOmswitch($omswitch) {
+        $this->_omswitch = $omswitch;
+    }
+	public function getOmswitch() {
+        return $this->_omswitch;
+    }
+	public function setEmbedly($embedly) {
+        $this->_embedly = $embedly;
+    }
+	public function getEmbedly() {
+        return $this->_embedly;
+    }
+	public function setVolslide($volslide) {
+        $this->_volslide = $volslide;
+    }
+	public function getVolslide() {
+        return $this->_volslide;
+    }
+	public function setConflink($conflink) {
+        $this->_conflink = $conflink;
+    }
+	public function getConflink() {
+        return $this->_conflink;
+    }
 	public function getBgurl() {
         return $this->_bgurl;
     }
     public function setBgurl($bgurl) {
         $this->_bgurl = $bgurl;
+    }
+	public function getHTML5color() {
+        return $this->_html5color;
+    }
+	public function setHTML5color($html5color) {
+        $this->_html5color = $html5color;
     }
     public function getHeight() {
         return $this->_height;
@@ -202,6 +257,46 @@ class Chatbox {
         //Chatstijl
         if (isset($form['chat_style'])) {
             $this->setStyle($form['chat_style']);
+        }
+		// html5 kleur
+		if (isset($form['html5color'])) {
+            $this->setHTML5color($form['html5color']);
+        }
+		// volume slider
+		if (isset($form['volslide'])) {
+            $this->setVolslide($form['volslide']);
+        }
+		// View Height
+		if (isset($form['viewheight'])) {
+            $this->setViewheight($form['viewheight']);
+        }
+		// omswitch
+		if (isset($form['omswitch'])) {
+            $this->setOmswitch($form['omswitch']);
+        } else {
+            $this->setOmswitch(false);
+        }
+		// tags
+		if (isset($form['tags'])) {
+            $this->setTags($form['tags']);
+        } else {
+            $this->setTags(false);
+        }
+		// conflink
+		if (isset($form['conflink'])) {
+            $this->setConflink($form['conflink']);
+        } else {
+            $this->setConflink(false);
+        }
+		// Embedly
+		if (isset($form['embedly'])) {
+            $this->setEmbedly($form['embedly']);
+        } else {
+            $this->setEmbedly(false);
+        }
+		// html5 bg transparantie
+		if (isset($form['transparantie'])) {
+            $this->setTransparantie($form['transparantie']);
         }
 		//Chatstijl
         if (isset($form['chat_bgurl'])) {
@@ -397,7 +492,7 @@ class Chatbox {
     public function save() {
         $this->LightIRC->save();
         $this->setLightIRCId($this->LightIRC->getId());
-        $qry = $this->_db->prepare("INSERT INTO ".$this->_table."(lirc_id,createdby,createrip,created,lastcalled,calls,name,height,bgcolor,bgurl,style,iconstyle,radio_enabled,radio_name,radio_streamtype,radio_link,verzoek_url,radio_type,mountpoint,playerkleur,tekstkleur,ads_enabled,kiwi_avatar,kiwi_upload,kiwi_giphy,kiwi_imgur,kiwi_asl,html_redirect,showstats) VALUES(:lirc_id,:createdby,:createrip,NOW(),NOW(),:calls,:name,:height,:bgcolor,:bgurl,:style,:iconstyle,:radio_enabled,:radio_name,:radio_streamtype,:radio_link,:verzoek_url,:radio_type,:mountpoint,:playerkleur,:tekstkleur,:ads_enabled,:kiwi_avatar,:kiwi_upload,:kiwi_giphy,:kiwi_imgur,:kiwi_asl,:html_redirect,:showstats);");
+        $qry = $this->_db->prepare("INSERT INTO ".$this->_table."(lirc_id,createdby,createrip,created,lastcalled,calls,name,height,bgcolor,bgurl,style,iconstyle,radio_enabled,radio_name,radio_streamtype,radio_link,verzoek_url,radio_type,mountpoint,playerkleur,tekstkleur,ads_enabled,kiwi_avatar,kiwi_upload,kiwi_giphy,kiwi_imgur,kiwi_asl,html_redirect,showstats,html5color,transparantie,omswitch,embedly,volslide,conflink,viewheight,tags) VALUES(:lirc_id,:createdby,:createrip,NOW(),NOW(),:calls,:name,:height,:bgcolor,:bgurl,:style,:iconstyle,:radio_enabled,:radio_name,:radio_streamtype,:radio_link,:verzoek_url,:radio_type,:mountpoint,:playerkleur,:tekstkleur,:ads_enabled,:kiwi_avatar,:kiwi_upload,:kiwi_giphy,:kiwi_imgur,:kiwi_asl,:html_redirect,:showstats,:html5color,:transparantie,:omswitch,:embedly,:volslide,:conflink,:viewheight,:tags);");
         $data = array(
             ':lirc_id' => $this->getLightIRCId(),
             ':createdby' => $this->getOwner(),
@@ -425,7 +520,15 @@ class Chatbox {
 			':kiwi_imgur' => $this->getKiwiImgur(),
 			':kiwi_asl' => $this->getKiwiASL(),
 			':html_redirect' => $this->getHTMLRedirect(),
-			':showstats' => $this->getShowStats()
+			':showstats' => $this->getShowStats(),
+			':html5color' => $this->getHTML5color(),
+			':transparantie' => $this->getTransparantie(),
+			':omswitch' => $this->getOmswitch(),
+			':embedly' => $this->getEmbedly(),
+			':volslide' => $this->getVolslide(),
+			':conflink' => $this->getConflink(),
+			':viewheight' => $this->getViewheight(),
+			':tags' => $this->getTags()
         );
 
         $qry->execute($data);
@@ -441,7 +544,7 @@ class Chatbox {
     public function update() {
         $this->LightIRC->update();
 
-        $qry = $this->_db->prepare("UPDATE ".$this->_table." SET lirc_id=:lirc_id,createdby=:createdby,createrip=:createrip,created=NOW(),lastcalled=NOW(),calls=:calls,name=:name,height=:height,bgcolor=:bgcolor,bgurl=:bgurl,style=:style,iconstyle=:iconstyle,radio_enabled=:radio_enabled,radio_name=:radio_name,radio_streamtype=:radio_streamtype,radio_link=:radio_link,verzoek_url=:verzoek_url,radio_type=:radio_type,mountpoint=:mountpoint,playerkleur=:playerkleur,tekstkleur=:tekstkleur,ads_enabled=:ads_enabled,kiwi_avatar=:kiwi_avatar,kiwi_upload=:kiwi_upload,kiwi_giphy=:kiwi_giphy,kiwi_imgur=:kiwi_imgur,kiwi_asl=:kiwi_asl,html_redirect=:html_redirect,showstats=:showstats WHERE id=:id;");
+        $qry = $this->_db->prepare("UPDATE ".$this->_table." SET lirc_id=:lirc_id,createdby=:createdby,createrip=:createrip,created=NOW(),lastcalled=NOW(),calls=:calls,name=:name,height=:height,bgcolor=:bgcolor,bgurl=:bgurl,style=:style,iconstyle=:iconstyle,radio_enabled=:radio_enabled,radio_name=:radio_name,radio_streamtype=:radio_streamtype,radio_link=:radio_link,verzoek_url=:verzoek_url,radio_type=:radio_type,mountpoint=:mountpoint,playerkleur=:playerkleur,tekstkleur=:tekstkleur,ads_enabled=:ads_enabled,kiwi_avatar=:kiwi_avatar,kiwi_upload=:kiwi_upload,kiwi_giphy=:kiwi_giphy,kiwi_imgur=:kiwi_imgur,kiwi_asl=:kiwi_asl,html_redirect=:html_redirect,showstats=:showstats,html5color=:html5color,transparantie=:transparantie,omswitch=:omswitch,embedly=:embedly,volslide=:volslide,conflink=:conflink,viewheight=:viewheight,tags=:tags WHERE id=:id;");
         $data = array(
             ':lirc_id' => $this->getLightIRCId(),
             ':createdby' => $this->getOwner(),
@@ -470,7 +573,15 @@ class Chatbox {
 			':kiwi_imgur' => $this->getKiwiImgur(),
 			':kiwi_asl' => $this->getKiwiASL(),
 			':html_redirect' => $this->getHTMLRedirect(),
-			':showstats' => $this->getShowStats()
+			':showstats' => $this->getShowStats(),
+			':html5color' => $this->getHTML5color(),
+			':transparantie' => $this->getTransparantie(),
+			':omswitch' => $this->getOmswitch(),
+			':embedly' => $this->getEmbedly(),
+			':volslide' => $this->getVolslide(),
+			':conflink' => $this->getConflink(),
+			':viewheight' => $this->getViewheight(),
+			':tags' => $this->getTags()
         );
 
         $qry->execute($data);
@@ -541,6 +652,15 @@ class Chatbox {
 			$this->setKiwiASL($row['kiwi_asl']);
 			$this->setHTMLRedirect($row['html_redirect']);
 			$this->setShowStats($row['showstats']);
+			$this->setHTML5color($row['html5color']);
+			$this->setTransparantie($row['transparantie']);
+			$this->setOmswitch($row['omswitch']);
+			$this->setEmbedly($row['embedly']);
+			$this->setVolslide($row['volslide']);
+			$this->setConflink($row['conflink']);
+			$this->setViewheight($row['viewheight']);
+			$this->setTags($row['tags']);
+			
             return true;
         }
         else {
@@ -618,6 +738,11 @@ class Chatbox {
                 $this->LightIRC->setStyleURL('css/black.css');
                 $this->_style ='nightswatch';
                 $this->setBgcolor("#000000");
+                break;
+			case 'html5color':
+                $this->LightIRC->setStyleURL('css/blue.css');
+                $this->_style ='html5color';
+                $this->setBgcolor("#274962");
                 break;
 			case 'transparent':
                 $this->LightIRC->setStyleURL('css/transparent.css');
@@ -754,6 +879,14 @@ class Chatbox {
 		$data['mic'] = $this->LightIRC->getWebcamVideoOnly();
 		$data['html_redirect'] = $this->getHTMLRedirect();
 		$data['showstats'] = $this->getShowStats();
+		$data['html5color'] = $this->getHTML5color();
+		$data['transparantie'] = $this->getTransparantie();
+		$data['omswitch'] = $this->getOmswitch();
+		$data['embedly'] = $this->getEmbedly();
+		$data['volslide'] = $this->getVolslide();
+		$data['conflink'] = $this->getConflink();
+		$data['viewheight'] = $this->getViewheight();
+		$data['tags'] = $this->getTags();
         return $data;
     }
 

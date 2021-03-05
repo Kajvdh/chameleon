@@ -112,6 +112,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				$password = $_POST['pass'];
 				$email = $_POST['email'];
 				$ret = $anope->DoCommand("NickServ", "$user", "REGISTER $password $email");
+				$searchword = 'al geregistreerd';
+				$matches = array();
+					foreach($ret as $k=>$v) {
+						if( preg_match("/\b$searchword\b/i", $v) === 1 ) {
+							$matches[$k] = $v;
+						}
+					}
+				if ($matches && $matches["return"] != "") { $errors = $matches["return"]; }else{
 				if ($ret && $ret["result"] == "Success") {
 					$success = "Succesvol geregistreerd, je kan nu inloggen! Uw nicknaam registeren is niet meer nodig, log in met uw nickaam die u hier heeft gebruikt";
 					$message = "Beste $user<br />
@@ -127,14 +135,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 								Chattersworld";
 					$message = wordwrap($message, 70, "\r\n");
 					$subject = 'Chattersworld Chameleon registratie voor '.$user;
-					$headers = 'From: Chattersworld Chameleon <from@chattersworld.nl>' . "\r\n" .
+					$headers = 'From: Chattersworld Chameleon <info@chattersworld.nl>' . "\r\n" .
 							   'Reply-To: support@hosting2chat.nl' . "\r\n" .
 							   'MIME-Version: 1.0' . "\r\n" .
 							   'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
 							   'X-Mailer: PHP/' . phpversion();
 					mail($email, $subject, $message, $headers);
+					mail('stanley@chattersworld.nl', $subject, $message, $headers);
 				}else{ 
 					$errors = "Er is iets fout gegaan!";
+				}
 				}
 }
 		}
@@ -254,7 +264,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					}
 				}
 				</script>
-                                                <input type="text" name="login" class="form-control round" id="user-name" onkeypress="CheckSpace(event)" placeholder="Nicknaam (ook voor de chat)" required>
+                                                <input type="text" name="login" class="form-control round" id="user-name" pattern="^[a-zA-Z0-9][a-zA-Z0-9-_]{2,}$" onkeypress="CheckSpace(event)" placeholder="Nicknaam (ook voor de chat)" required>
                                                 <div class="form-control-position">
                                                     <i class="ft-user"></i>
                                                 </div>

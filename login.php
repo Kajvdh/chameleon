@@ -8,11 +8,11 @@ $smarty->assign('sitename', $config->getSiteName());
 if (isset($_POST['login'])) {
     
     $username = $_POST['login'];
-    $pass = hash('md5',$_POST['pass']);
+    $pass = $_POST['pass'];
     
     $member = new Member($db);
     $member->setUsername($username);
-    $member->setPassword('md5:'.$pass);
+    $member->setPassword($pass);
     $verify = $member->verify();
     
     if ($verify) {

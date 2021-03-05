@@ -27,8 +27,91 @@
 	<link rel="stylesheet" href="{$fullurl}/app-assets/vendors/js/extensions/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css">
 	<link rel="stylesheet" type="text/css" href="{$fullurl}/app-assets/vendors/css/extensions/toastr.css">
 	<link rel="stylesheet" type="text/css" href="{$fullurl}/app-assets/vendors/css/tables/datatable/datatables.min.css">
-
-    
+	
+    {literal}<style>
+input[type='range'] {
+  box-sizing: border-box;
+  align-self: center;
+  border: solid 0.0625em #111;
+  padding: 0 0.625em;
+  width: 19em;
+  height: 2.25em;
+  border-radius: 1.125em;
+  box-shadow: 0 .75em .5em -.5em #000;
+  background: linear-gradient(#414141, #313131 50%, #282828 50%, #141414) border-box;
+  font-size: 1em;
+  cursor: pointer;
+}
+input[type='range'], input[type='range']::-webkit-slider-runnable-track, input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  height: 0.875em;
+  border-radius: 0.4375em;
+  box-shadow: 0 1px 1px #333, inset 0 1px 1px #000, inset 0 -1px 1px #171717;
+  background: linear-gradient(#111111, #262626);
+}
+.js input[type='range']::-webkit-slider-runnable-track {
+  background: linear-gradient(#98cdf6, #27699c) no-repeat, linear-gradient(#111111, #262626);
+  background-size: 50% 100%;
+}
+input[type='range']::-moz-range-track {
+  height: 0.875em;
+  border-radius: 0.4375em;
+  box-shadow: 0 1px 1px #333, inset 0 1px 1px #000, inset 0 -1px 1px #171717;
+  background: linear-gradient(#111111, #262626);
+}
+.js input[type='range']::-moz-range-track {
+  background: linear-gradient(#98cdf6, #27699c) no-repeat, linear-gradient(#111111, #262626);
+  background-size: 50% 100%;
+}
+input[type='range']::-ms-track {
+  height: 0.875em;
+  border-radius: 0.4375em;
+  box-shadow: 0 1px 1px #333, inset 0 1px 1px #000, inset 0 -1px 1px #171717;
+  background: linear-gradient(#111111, #262626);
+  color: transparent;
+}
+input[type='range']::-ms-fill-lower {
+  border-radius: 0.875em;
+  background: linear-gradient(#98cdf6, #27699c) no-repeat;
+}
+input[type='range']::-webkit-slider-thumb {
+  margin-top: -0.1875em;
+  box-sizing: border-box;
+  border: solid 0.0625em #000;
+  width: 1.25em;
+  height: 1.25em;
+  border-radius: 50%;
+  box-shadow: 0 0.125em 0.25em #000, inset 0 0.125em 0.25em #777, inset 0 -0.125em 0.25em #222, inset 0 -0.25em 0.25em #111, inset 0 -0.375em 0.25em #333, inset 0 0 0 0.3125em #333, inset 0 1px 1px 0.3125em #111;
+  background: linear-gradient(#99c0df, #0082e7, #3293de) no-repeat 50% 50% #000;
+  background-size: 56% 56%;
+}
+input[type='range']::-moz-range-thumb {
+  box-sizing: border-box;
+  border: solid 0.0625em #000;
+  width: 1.25em;
+  height: 1.25em;
+  border-radius: 50%;
+  box-shadow: 0 0.125em 0.25em #000, inset 0 0.125em 0.25em #777, inset 0 -0.125em 0.25em #222, inset 0 -0.25em 0.25em #111, inset 0 -0.375em 0.25em #333, inset 0 0 0 0.3125em #333, inset 0 1px 1px 0.3125em #111;
+  background: linear-gradient(#99c0df, #0082e7, #3293de) no-repeat 50% 50% #000;
+  background-size: 56% 56%;
+}
+input[type='range']::-ms-thumb {
+  box-sizing: border-box;
+  border: solid 0.0625em #000;
+  width: 1.25em;
+  height: 1.25em;
+  border-radius: 50%;
+  box-shadow: 0 0.125em 0.25em #000, inset 0 0.125em 0.25em #777, inset 0 -0.125em 0.25em #222, inset 0 -0.25em 0.25em #111, inset 0 -0.375em 0.25em #333, inset 0 0 0 0.3125em #333, inset 0 1px 1px 0.3125em #111;
+  background: linear-gradient(#99c0df, #0082e7, #3293de) no-repeat 50% 50% #000;
+  background-size: 56% 56%;
+}
+input[type='range']:focus {
+  outline: none;
+  box-shadow: 0 0 .125em lightsteelblue,  0 .75em .5em -.5em #000;
+}
+</style>{/literal}
     
 		</head>
 
@@ -138,7 +221,7 @@
 		</div>
 	</div>
 	<footer class="footer footer-static footer-dark navbar-border navbar-shadow">
-        <div class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">© {$sitename} All rights reserved. v6.5 {if isset($god)}Geregistreerd aan: {$registeredname}, Verval datum: {$nextduedate}, Product: {$productname}{/if}</span>
+        <div class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span class="float-md-left d-block d-md-inline-block">© {$sitename} All rights reserved. v8.0 {if isset($god)}Geregistreerd aan: {$registeredname}, Verval datum: {$nextduedate}, Product: {$productname}{/if}</span>
             <ul class="list-inline float-md-right d-block d-md-inline-blockd-none d-lg-block mb-0">
                 <li class="list-inline-item"><a class="my-1" href="https://chattersworld.nl" target="_blank"> Homepage</a></li>
                 <li class="list-inline-item"><a class="my-1" href="https://wiki.chattersworld.nl" target="_blank"> Wikipedia</a></li>
@@ -161,6 +244,7 @@
     <script src="{$fullurl}/app-assets/js/core/app.js" type="text/javascript"></script>
 	<script src="{$fullurl}/app-assets/vendors/js/extensions/toastr.min.js" type="text/javascript"></script>
 	<script src="{$fullurl}/app-assets/js/scripts/forms/wizard-steps.js?v=1.6" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
 	{if isset($success)}
 	{literal}
 	<script>
@@ -251,16 +335,508 @@ $(document).ready(function() {
 		} );
 		</script>
 {/literal}
-{/if}	
+{/if}
+{if $page=='new'}	
 <script>
 	$(function () {
 		$('#simple-color-picker').colorpicker();
 		$('#simple-color-picker2').colorpicker();
+		$('#simple-color-picker3').colorpicker();
 		$(".color-picker__value").colorpicker(),
                 $("body").on("change", ".color-picker__value", function () {
                     $(this).closest(".color-picker").find(".color-picker__preview").css("backgroundColor", $(this).val());
                 });
 	});
-</script>				
+</script>	
+<script>
+							function formatState (state) {
+								if (!state.id) { return state.text; }
+									else{
+										var $state = $(
+											'<span><img src="{$fullurl}/lirc-resources/icons/' + state.element.value.toLowerCase() + '/owner.png" class="img-flag" /> ' + state.text + '</span>'
+											);
+											return $state;
+										}
+								}
+								
+								$(".select2-templating-icons").select2({
+									templateResult: formatState,
+									templateSelection: formatState
+								});
+							</script>	
+<script src="{$fullurl}/js/script.js"></script>
+
+  
+      <script id="rendered-js" >{literal}
+var s = document.createElement('style'),
+r = document.querySelector('input[type=range]'),
+prefs = ['webkit-slider-runnable', 'moz-range'];
+
+document.body.appendChild(s);
+
+var getTrackStyleStr = function (el, val) {
+  var str = '',len = prefs.length;
+
+  for (var i = 0; i < len; i++) {if (window.CP.shouldStopExecution(0)) break;
+    str += '.js input[type=range]::-' + prefs[i] +
+    '-track{background-size:' + val + '}';
+  }window.CP.exitedLoop(0);
+
+  return str;
+};
+
+var getValStr = function (el, p) {
+  var min = el.min || 0,
+  p = p || el.value,
+  perc = el.max ? ~~(100 * (p - min) / (el.max - min)) : p,
+  val = perc + '% 100%, 100% 100%';
+
+  return val;
+};
+
+r.addEventListener('input', function () {
+  s.textContent = getTrackStyleStr(this, getValStr(this));
+}, false);
+//# sourceURL=pen.js
+{/literal}
+ </script>
+<script>{literal}
+var s = document.createElement('style'),
+r = document.querySelector('input[id=t]'),
+prefs = ['webkit-slider-runnable', 'moz-range'];
+
+document.body.appendChild(s);
+
+var getTrackStyleStr = function (el, val) {
+  var str = '',len = prefs.length;
+
+  for (var i = 0; i < len; i++) {if (window.CP.shouldStopExecution(0)) break;
+    str += '.js input[type=range]::-' + prefs[i] +
+    '-track{background-size:' + val + '}';
+  }window.CP.exitedLoop(0);
+
+  return str;
+};
+
+var getValStr = function (el, p) {
+  var min = el.min || 0,
+  p = p || el.value,
+  perc = el.max ? ~~(100 * (p - min) / (el.max - min)) : p,
+  val = perc + '% 100%, 100% 100%';
+
+  return val;
+};
+
+r.addEventListener('input', function () {
+  s.textContent = getTrackStyleStr(this, getValStr(this));
+}, false);
+//# sourceURL=pen.js
+{/literal}
+    </script> 
+<script>
+$(function() {
+  $("#graph_select").change(function() {
+    if ($("#transparent").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#transparantie").fadeOut(1000);
+	  $("#omswitch").fadeIn(1000);
+    } else {
+      // $("#pilot_graph_form").hide();
+      $("#transparantie").fadeIn(1000);
+    }
+	if ($("#blue").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    } 
+	else if ($("#black").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    } 
+	else if ($("#orange").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    }
+	else if ($("#darkorange").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+    }
+	else if ($("#green").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    }
+	else if ($("#lightblue").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    }
+	else if ($("#skyblue").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    }
+	else if ($("#yellow").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    }
+	else if ($("#pink").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    }
+	else if ($("#darkred").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    } 
+	else if ($("#nightswatch").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#transparantie").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    } else {
+      // $("#pilot_graph_form").hide();
+      $("#html5color").fadeIn(1000);
+	  $("#omswitch").fadeIn(1000);
+    }
+  }).trigger('change');
+});
+</script>
+<script>
+$(function() {
+  $("#player_select").change(function() {
+    if ($("#luna").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#volslide").fadeIn(1000);
+	  //$("#omswitch").fadeIn(1000);
+    } else {
+      // $("#pilot_graph_form").hide();
+      $("#volslide").fadeOut(1000);
+    }
+  }).trigger('change');
+});
+</script>	
+<script>
+$(function() {
+  $("#stream_select").change(function() {
+    if ($("#shoutcast").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#mountpoint").fadeOut(1000);
+    } else {
+      // $("#pilot_graph_form").hide();
+      $("#mountpoint").fadeIn(1000);
+    }
+	}).trigger('change');
+});
+</script>
+{if $radio_enabled!="true"}
+{literal}
+<script>
+let getSwitch = document.querySelector('#radio_enabled') //get switch
+
+let getCheckboxes = document.querySelectorAll('.hideme') //get checkboxes UL
+
+getSwitch.addEventListener('change', function(e) {
+  getCheckboxes.forEach(function(o) {
+    if (e.target.checked) {
+      o.style.display = 'inline-block'
+    } else {
+      o.style.display = 'none'
+    }
+  })
+})
+</script>
+{/literal}
+{/if}
+{if $radio_enabled=="true"}
+<script>
+$("input[name='radio_enabled']").on("change",function(){
+        $("#checked").toggle();
+});
+</script>
+{/if}
+{if $webcam_video!="true"}
+{literal}
+<script>
+let getSwitch = document.querySelector('#webcam_video') //get switch
+
+let getCheckboxes = document.querySelectorAll('.hideme') //get checkboxes UL
+
+getSwitch.addEventListener('change', function(e) {
+  getCheckboxes.forEach(function(o) {
+    if (e.target.checked) {
+      o.style.display = 'inline-block'
+    } else {
+      o.style.display = 'none'
+    }
+  })
+})
+</script>
+{/literal}
+{/if}
+{if $webcam_video=="true"}
+<script>
+$("input[name='webcam_video']").on("change",function(){
+        $("#viewheight").toggle();
+});
+</script>
+{/if}
+{/if}
+{if $page=='edit'}	
+<script>
+	$(function () {
+		$('#simple-color-picker').colorpicker();
+		$('#simple-color-picker2').colorpicker();
+		$('#simple-color-picker3').colorpicker();
+		$('#simple-color-picker4').colorpicker();
+		$(".color-picker__value").colorpicker(),
+                $("body").on("change", ".color-picker__value", function () {
+                    $(this).closest(".color-picker").find(".color-picker__preview").css("backgroundColor", $(this).val());
+                });
+	});
+</script>	
+<script>
+							function formatState (state) {
+								if (!state.id) { return state.text; }
+									else{
+										var $state = $(
+											'<span><img src="{$fullurl}/lirc-resources/icons/' + state.element.value.toLowerCase() + '/owner.png" class="img-flag" /> ' + state.text + '</span>'
+											);
+											return $state;
+										}
+								}
+								
+								$(".select2-templating-icons").select2({
+									templateResult: formatState,
+									templateSelection: formatState
+								});
+							</script>	
+<script src="{$fullurl}/js/script.js"></script>
+
+  
+      <script id="rendered-js" >{literal}
+var s = document.createElement('style'),
+r = document.querySelector('input[type=range]'),
+prefs = ['webkit-slider-runnable', 'moz-range'];
+
+document.body.appendChild(s);
+
+var getTrackStyleStr = function (el, val) {
+  var str = '',len = prefs.length;
+
+  for (var i = 0; i < len; i++) {if (window.CP.shouldStopExecution(0)) break;
+    str += '.js input[type=range]::-' + prefs[i] +
+    '-track{background-size:' + val + '}';
+  }window.CP.exitedLoop(0);
+
+  return str;
+};
+
+var getValStr = function (el, p) {
+  var min = el.min || 0,
+  p = p || el.value,
+  perc = el.max ? ~~(100 * (p - min) / (el.max - min)) : p,
+  val = perc + '% 100%, 100% 100%';
+
+  return val;
+};
+
+r.addEventListener('input', function () {
+  s.textContent = getTrackStyleStr(this, getValStr(this));
+}, false);
+//# sourceURL=pen.js
+{/literal}
+</script>
+<script>{literal}
+var s = document.createElement('style'),
+r = document.querySelector('input[id=t]'),
+prefs = ['webkit-slider-runnable', 'moz-range'];
+
+document.body.appendChild(s);
+
+var getTrackStyleStr = function (el, val) {
+  var str = '',len = prefs.length;
+
+  for (var i = 0; i < len; i++) {if (window.CP.shouldStopExecution(0)) break;
+    str += '.js input[id=t]::-' + prefs[i] +
+    '-track{background-size:' + val + '}';
+  }window.CP.exitedLoop(0);
+
+  return str;
+};
+
+var getValStr = function (el, p) {
+  var min = el.min || 0,
+  p = p || el.value,
+  perc = el.max ? ~~(100 * (p - min) / (el.max - min)) : p,
+  val = perc + '% 100%, 100% 100%';
+
+  return val;
+};
+
+r.addEventListener('input', function () {
+  s.textContent = getTrackStyleStr(this, getValStr(this));
+}, false);
+//# sourceURL=pen.js
+{/literal}
+</script>
+<script>
+$(function() {
+  $("#graph_select").change(function() {
+    if ($("#transparent").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#transparantie").fadeOut(1000);
+	  $("#omswitch").fadeIn(1000);
+    } else {
+      // $("#pilot_graph_form").hide();
+      $("#transparantie").fadeIn(1000);
+    }
+	if ($("#blue").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    } 
+	else if ($("#black").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    } 
+	else if ($("#orange").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    }
+	else if ($("#darkorange").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+    }
+	else if ($("#green").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    }
+	else if ($("#lightblue").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    }
+	else if ($("#skyblue").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    }
+	else if ($("#yellow").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    }
+	else if ($("#pink").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    }
+	else if ($("#darkred").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    } 
+	else if ($("#nightswatch").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#html5color").fadeOut(1000);
+	  $("#transparantie").fadeOut(1000);
+	  $("#omswitch").fadeOut(1000);
+    } else {
+      // $("#pilot_graph_form").hide();
+      $("#html5color").fadeIn(1000);
+	  $("#omswitch").fadeIn(1000);
+    }
+  }).trigger('change');
+});
+</script>
+<script>
+$(function() {
+  $("#player_select").change(function() {
+    if ($("#luna").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#volslide").fadeIn(1000);
+	  //$("#omswitch").fadeIn(1000);
+    } else {
+      // $("#pilot_graph_form").hide();
+      $("#volslide").fadeOut(1000);
+    }
+  }).trigger('change');
+});
+</script>	
+<script>
+$(function() {
+  $("#stream_select").change(function() {
+    if ($("#shoutcast").is(":selected")) {
+      // $("#pilot_graph_form").show();
+      $("#mountpoint").fadeOut(1000);
+    } else {
+      // $("#pilot_graph_form").hide();
+      $("#mountpoint").fadeIn(1000);
+    }
+	}).trigger('change');
+});
+</script>
+{if $radio_enabled!="true"}
+{literal}
+<script>
+let getSwitch = document.querySelector('#radio_enabled') //get switch
+
+let getCheckboxes = document.querySelectorAll('.hideme') //get checkboxes UL
+
+getSwitch.addEventListener('change', function(e) {
+  getCheckboxes.forEach(function(o) {
+    if (e.target.checked) {
+      o.style.display = 'inline-block'
+    } else {
+      o.style.display = 'none'
+    }
+  })
+})
+</script>
+{/literal}
+{/if}
+{if $radio_enabled=="true"}
+<script>
+$("input[name='radio_enabled']").on("change",function(){
+        $("#checked").toggle();
+});
+</script>
+{/if}
+
+{if $webcam_video=="true"}
+{literal}
+<script>
+let getSwitch = document.querySelector('#webcam_video') //get switch
+
+let getCheckboxes = document.querySelectorAll('.hideme2') //get checkboxes UL
+
+getSwitch.addEventListener('change', function(e) {
+  getCheckboxes.forEach(function(o) {
+    if (e.target.checked) {
+      o.style.display = 'inline-block'
+    } else {
+      o.style.display = 'none'
+    }
+  })
+})
+</script>
+{/literal}
+{/if}
+{if $webcam_video!="true"}
+<script>
+$("input[name='webcam_video']").on("change",function(){
+        $("#viewheight").toggle();
+});
+</script>
+{/if}
+{/if}
   </body>
 </html>

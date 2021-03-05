@@ -10,7 +10,7 @@
         <!-- Vendor styles -->
         <!-- <link rel="stylesheet" href="{$fullurl}/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
         <link rel="stylesheet" href="{$fullurl}/vendors/bower_components/animate.css/animate.min.css">
-
+		-->
         <!-- App styles -->
         <!-- <link rel="stylesheet" href="{$fullurl}/css/app.min.css"> -->
 		<link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet">
@@ -168,7 +168,7 @@
         <script src="{$fullurl}/vendors/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="{$fullurl}/vendors/bower_components/popper.js/dist/umd/popper.min.js"></script>
         <script src="{$fullurl}/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
+		-->
         <!-- App functions and actions
         <script src="{$fullurl}/js/app.min.js"></script> -->
     </body>

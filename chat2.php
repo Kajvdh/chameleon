@@ -90,10 +90,12 @@ else {
     $chat = new Chatbox($db);
     if ($chat->getById($id)) {
         $chat->setCall();
-        $chat->printConfig();
+        
 
         $metadata = $chat->getMetaData();
-
+		if (($metadata['html_redirect'] != "true")) {
+			$chat->printConfig();
+		}
         if (($metadata['radio'] == "true") || ($metadata['ads_enabled'] != "true"))
             header('Location: https://chameleon.chattersworld.nl/chat.php?'.$_SERVER['QUERY_STRING']);
 
@@ -109,11 +111,17 @@ else {
 			$smarty->display('chat.tpl');
 		}
         if ($metadata['radio'] == "true") {
-            $smarty->display('chat_radio.tpl');
+			if ($metadata['radio_player'] == "internal") {
+				$smarty->display('chat_ads.tpl');
+			}else{ 
+				$smarty->display('chat_radio.tpl'); 
+			}
         } elseif ($metadata['ads_enabled'] == "true") {
             $smarty->display('chat_ads.tpl');
         }
-
+		if (($metadata['html_redirect'] == "true")) {
+			echo '</div>';
+		}
         $smarty->display('chat_end.tpl');
     }
     else {

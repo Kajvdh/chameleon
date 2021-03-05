@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^(chat|html5)\.php?$ /html5.php?id=$1 [L,R=301]

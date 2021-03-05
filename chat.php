@@ -1,4 +1,9 @@
 <?php
+header("Access-Control-Allow-Headers: Authorization, Content-Type");
+header("Access-Control-Allow-Origin: *");
+// header('content-type: application/json; charset=utf-8');
+?>
+<?php
 require("includes.php");
 $database = new Database($config);
 $db = $database->getConnection();
@@ -63,12 +68,12 @@ if ($mobile_browser > 0) {
 
         if ($metadata['radio'] == "true") {
 			if ($metadata['radio_player'] == "internal") {
-				$smarty->display('chat_radio.tpl');
+				$smarty->display('chat_ads.tpl');
 			}else{ 
 				$smarty->display('chat_radio.tpl'); 
 			}
         }
-
+		echo '</div>';
         $smarty->display('chat_end.tpl');
     }
     else {
@@ -85,10 +90,12 @@ else {
     $chat = new Chatbox($db);
     if ($chat->getById($id)) {
         $chat->setCall();
-        $chat->printConfig();
+		
 
         $metadata = $chat->getMetaData();
-
+		if (($metadata['html_redirect'] != "true")) {
+			$chat->printConfig();
+		}
         if (($metadata['radio'] != "true") && ($metadata['ads_enabled'] == "true"))
             header('Location: https://chameleon.chattersworld.nl/chat2.php?'.$_SERVER['QUERY_STRING']);
 
@@ -101,9 +108,15 @@ else {
         $smarty->display('chat.tpl');
 		}
         if ($metadata['radio'] == "true") {
-            $smarty->display('chat_radio.tpl');
+			if ($metadata['radio_player'] == "internal") {
+				$smarty->display('chat_ads.tpl');
+			}else{ 
+				$smarty->display('chat_radio.tpl'); 
+			}
         }
-
+		if (($metadata['html_redirect'] == "true")) {
+		echo '</div>';
+		}
         $smarty->display('chat_end.tpl');
     }
     else {

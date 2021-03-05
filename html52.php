@@ -56,7 +56,7 @@ if (isset($_GET['id'])) {
         } elseif ($metadata['ads_enabled'] == "true") {
             $smarty->display('chat_ads.tpl');
         }
-
+		echo '</div>';
         $smarty->display('chat_end.tpl');
     }
     else {

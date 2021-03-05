@@ -1,7 +1,7 @@
  <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
  <meta name="language" content="Dutch" />
-<meta name="keywords" content="chatten, gezellig kletsen, Chattersworld, Radio chat, Chameleon, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat, triviant," />
-<meta name="description"  content="Chattersworld De enige Chatserver waar je gratis kan chatten, chatten zonder registratie, chatten met webcams en dat allemaal gratis, Chattersworld Ares Verzoekserver, maak hem nu gratis aan!" />
+<meta name="keywords" content="chatten, gezellig kletsen, Chattersworld, Radio chat, Chameleon, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat,HTML5 chat, triviant," />
+<meta name="description"  content="Chattersworld De enige Chatserver waar je gratis kan chatten, chatten zonder registratie, chatten met webcams en dat allemaal gratis, Chattersworld Chameleon, maak hem nu gratis aan!" />
 <meta name="google-site-verification" content="-hrJp-Kl7mtCVBOR5Dg45R52OfEAmnIceApYxPMluc4" />
 <meta name="robots" content="index,follow,noodp,noydir" />
 <meta name="description" content="Waar chatten, chatten is!"/>
@@ -29,6 +29,25 @@
  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
  <link rel="stylesheet" href="dist/magnific-popup.css">
   <script type="text/javascript" src="../analyticstracking.js"></script>
+  {literal}
+  <script>
+
+if(!isFlashEnabled()) 
+{ 
+alert('Uw flashplayer is uitgeschakelt, geen nood, u word omgeleid naar HTML5, of schakel uw flashplayer in!');
+window.location = 'html5.php?id={/literal}{$smarty.get.id}{literal}'; 
+}
+
+function isFlashEnabled() 
+{
+    var flash = navigator.plugins.namedItem('Shockwave Flash');
+    // if(navigator.userAgent.indexOf("Chrome") != -1 ) { return 1; }
+	if (!flash) { return 0; } 
+    else { return 1; }
+}
+
+</script>
+{/literal}
   {if $metadata['html_redirect'] == "true"}
   <script>window.location="html5.php?id={$smarty.get.id}";</script>
   {/if}
@@ -96,7 +115,7 @@ overflow: hidden;
 
 .sidenav .closebtn {
     position: absolute;
-    bottom: 50px;
+    top: 5px;
 	{if $metadata['radio_player'] != "hero"}
     right: 15px;
 	{else}
@@ -117,6 +136,7 @@ right: 356px;
 display: block; 
 position: absolute;
 bottom: 2px;
+z-index: 9999999;
 }
 .left { 
 float:left; 
@@ -124,6 +144,7 @@ display: block;
 position: absolute;
     left: 2px;
     bottom: 2px;
+	z-index: 9999999;
 }
 .white-popup {
   position: relative;
@@ -313,7 +334,7 @@ a2a_config.locale = "nl";
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END --></center>
 </div>
-<div class="right"><span style="font-size:30px;cursor:pointer;color:#FFF;" onclick="openNav()">&#9776;</span></div>
+<div class="right"><span style="font-size:30px;cursor:pointer;color:#FFF;" onclick="openNav()">MENU&#9776;</span></div>
  <div id="lightIRC" style="height:100%; text-align:center;">
   <p><a href="//www.adobe.com/go/getflashplayer"><img src="//www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
  </div>
@@ -334,7 +355,7 @@ a2a_config.locale = "nl";
                     <a href="#" class="btn-close" aria-hidden="true">×</a>
                 </div>
                 <div class="modal-body">
-                    <p><center><img src="https://scr.gezelligkletsen.nl/b5d7ba93-1cce-4733-9e6a-559bb7d24d0d.png" /> <br /><br />Adobe Flashplayer stopt de ondersteuning in december 2020! <br /><br />Chattersworld houd de deze flashchat online zolang de ondersteuning blijft.<br /><br />Inmiddels heeft Chattersworld reeds een geweldige HTML5 chat.<br /><br /><br /><br />Druk op OK! om naar deze flashchat te gaan!</center></p>
+                    <p><center><img src="https://scr.gezelligkletsen.nl/1b0f9d36-e1c4-45db-a865-8692ab1158dc.png" style="width: 450px;" /> <br /><br />Adobe Flashplayer heeft de ondersteuning in december 2020 gestopt! <br /><br />Chattersworld houd de deze flashchat online zolang de browsers deze nog niet blokkeren.<br /><br />Inmiddels heeft Chattersworld reeds een geweldige HTML5 chat.<br /><br /><br /><br />Druk op OK! om naar deze flashchat te gaan!</center></p>
                 </div>
                 <div class="modal-footer">
 				<a href="{$fullurl}/html5.php?id={$smarty.get.id}" class="btn">Ga naar HTML5 chat</a>

@@ -267,7 +267,7 @@ $("#lunaradio").lunaradio({
 	multicolorvisualizer: "true",
 	visualizeropacity: "1.0",
 	itunestoken: "1000lIPN",
-	metadatatechnic: "directly",
+	metadatatechnic: "stream-icy-meta",
 	ownmetadataurl: "",
 	streamurl: "{$metadata['radio_link']}",
 	streamtype: "{$metadata['radio_type']}",

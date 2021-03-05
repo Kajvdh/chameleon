@@ -1,0 +1,11 @@
+{
+    "age": "Leeftijd",
+    "sex": "Geslacht",
+    "location": "Locatie",
+    "info": "Info",
+    "all": "All",
+    "male": "Man",
+    "female": "Vrouw",
+    "other": "Anders",
+    "select": "Selecteer"
+}

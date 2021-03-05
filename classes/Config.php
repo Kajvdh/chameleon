@@ -68,7 +68,7 @@ class Config {
         $this->_mysqlPrefixDev = "chameleon_";
 
         $this->_mysqlAnopeHost = "127.0.0.1";
-        $this->_mysqlAnopeUser = "anope";
+        $this->_mysqlAnopeUser = "anope_user";
         $this->_mysqlAnopePass = "";
         $this->_mysqlAnopeDbName = "anope";
     }

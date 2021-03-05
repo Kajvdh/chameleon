@@ -41,13 +41,19 @@
 		<li class="nav-item">
             <a class="nav-link" id="base-tab5" aria-expanded="false" aria-controls="html5" data-toggle="tab" href="#html5" role="tab">HTML5 instellingen</a>
         </li>
-		<div class="dropdown">
+		<li class="nav-item">
+            <a class="nav-link" href="#radio" id="base-tab6" aria-expanded="false" aria-controls="radio" data-toggle="tab">Radio instellingen</a>
+        </li>
+		<li class="nav-item">
+            <a class="nav-link" href="#ads" id="base-tab7" aria-expanded="false" aria-controls="ads" data-toggle="tab">Advertentie / Statistieken</a>
+        </li>
+		<!-- <div class="dropdown">
             <button class="btn btn-light" aria-expanded="false" data-toggle="dropdown">Extra's</button>
                 <div class="dropdown-menu dropdown-menu--icon">
                     <a href="#radio" id="base-tab6" aria-expanded="false" aria-controls="radio" data-toggle="tab" class="dropdown-item">Radio</a>
                     <a href="#ads" id="base-tab7" aria-expanded="false" aria-controls="ads" data-toggle="tab" class="dropdown-item">Advertenties</a>
                 </div>
-        </div>
+        </div> -->
 	</ul>
         <form role="form" method="post" action="{$fullurl}{if isset($chat_id)}/edit{else}/new{/if}">
             {if isset($chat_id)}
@@ -103,36 +109,86 @@
 						</div>
                     </div>
 					</div><br /><br />
+					<div id="transparantie" class="row">
+                        <label for="transparantie" class="control-label col-sm-2 white">Achtergrond Link Overlay transparantie<br /><small>Hiermee pas je de overlay waas van de achtergrond aan!<br />Style Transparant heeft geen overlay!</small></label>
+                        <div class="col-sm-4">
+						<div class="form-group">
+						<script>
+						function updateTextInput(val) {
+          document.getElementById('textInput').value=val; 
+        }
+		</script>
+		
+							<input data-idx='2' id="r" type="range" class="form-control" name="rangeInput" min="0" max="1" step="0.01" value="{if isset($transparantie)}{$transparantie}{/if}" onchange="updateTextInput(this.value);"><div class='glow' aria-hidden='true'></div><br />
+							
+							
+                            <input id="textInput" type="text" class="form-control" name="transparantie" title="Doorzichtigheid van de overlay (Transparant heeft geen overlay)."  placeholder="Overlay transparantie" value="{if isset($transparantie)}{$transparantie}{/if}" data-toggle="tooltip" data-placement="top"  readonly="readonly">
+							<i class="form-group__bar"></i>
+						</div>
+                    </div>
+					</div><br /><br />
                     <!-- Chat stijl -->
                     <div class="form-group">
 					<div class="row">
 					<label for="chat_style" title="Er zijn verschillende stijlen die je kan instellen voor je chatbox." class="col-sm-2 col-form-label white">Style:<br><small><font color="white">Zet op transparent als u een achtergrond gebruikt!!</font></small></label>
                         <div class="col-sm-4">
-                            <select name="chat_style" class="select2 form-control" id="default-select4" data-placeholder="Maak een keuze">
-								<option value="transparent" {if $chat_style=="transparent"}selected="selected"{/if}>Transparant (Nodig bij flash voor achtergrond)</option>
-                                <option value="blue" {if $chat_style=="blue"}selected="selected"{/if}>Blauw</option>
-                                <option value="black" {if $chat_style=="black"}selected="selected"{/if}>Zwart</option>
-                                <option value="orange" {if $chat_style=="orange"}selected="selected"{/if}>Oranje</option>
-                                <option value="darkorange" {if $chat_style=="darkorange"}selected="selected"{/if}>Donkeroranje</option>
-                                <option value="green" {if $chat_style=="green"}selected="selected"{/if}>Groen</option>
-                                <option value="lightblue" {if $chat_style=="lightblue"}selected="selected"{/if}>Lichtblauw</option>
-                                <option value="skyblue" {if $chat_style=="skyblue"}selected="selected"{/if}>Hemelsblauw</option>
-                                <option value="yellow" {if $chat_style=="yellow"}selected="selected"{/if}>Geel</option>
-                                <option value="pink" {if $chat_style=="pink"}selected="selected"{/if}>Roze</option>
-                                <option value="darkred" {if $chat_style=="darkred"}selected="selected"{/if}>Donkerrood</option>
-								<option value="nightswatch" {if $chat_style=="nightswatch"}selected="selected"{/if}>NightSwatch (Alleen HTML5)</option>
+                            <select id="graph_select" name="chat_style" class="select2 form-control" id="default-select4" data-placeholder="Maak een keuze">
+								<option id="transparent" value="transparent" {if $chat_style=="transparent"}selected="selected"{/if}>Transparant (Het mooiste met een achtergrond)</option>
+                                <option id="blue" value="blue" {if $chat_style=="blue"}selected="selected"{/if}>Blauw</option>
+                                <option id="black" value="black" {if $chat_style=="black"}selected="selected"{/if}>Zwart</option>
+                                <option id="orange" value="orange" {if $chat_style=="orange"}selected="selected"{/if}>Oranje</option>
+                                <option id="darkorange" value="darkorange" {if $chat_style=="darkorange"}selected="selected"{/if}>Donkeroranje</option>
+                                <option id="green" value="green" {if $chat_style=="green"}selected="selected"{/if}>Groen</option>
+                                <option id="lightblue" value="lightblue" {if $chat_style=="lightblue"}selected="selected"{/if}>Lichtblauw</option>
+                                <option id="skyblue" value="skyblue" {if $chat_style=="skyblue"}selected="selected"{/if}>Hemelsblauw</option>
+                                <option id="yellow" value="yellow" {if $chat_style=="yellow"}selected="selected"{/if}>Geel</option>
+                                <option id="pink" value="pink" {if $chat_style=="pink"}selected="selected"{/if}>Roze</option>
+                                <option id="darkred" value="darkred" {if $chat_style=="darkred"}selected="selected"{/if}>Donkerrood</option>
+								<option id="nightswatch" value="nightswatch" {if $chat_style=="nightswatch"}selected="selected"{/if}>NightSwatch (Alleen HTML5)</option>
+								<option value="html5color" {if $chat_style=="html5color"}selected="selected"{/if}>Eigen kleur (Alleen HTML5)</option>
                             </select>
                         </div>
                     </div>
 					</div>
 					<br /><br />
-
+					<!-- HTML5 kleur als thema -->
+					<div id="html5color" class="row">
+                        <label for="html5color" class="control-label col-sm-2 white">HTML5 Thema kleur<br /><small>Kies je eigen themakleur!<br />Zet hiervoor de style op "Eigen Kleur of Transparant"!</small></label>
+						<div class="col-sm-4">
+                                        <div class="form-group">
+										<div class="input-group">
+						<!-- <span class="input-group-addon"><i class="zwicon-brush"></i></span> -->
+						<div class="form-group color-picker">
+						<div class="position-relative has-icon-left">
+                                             <input type="text" id="simple-color-picker3" style="background-color: {if isset($html5color)}{$html5color}{/if};" name="html5color" class="form-control color-picker__value color-picker__preview" placeholder="html5color" value="{if isset($html5color)}{$html5color}{/if}" title="Deze kleur zal je HTML5 chat gaan hebben als hoofdthema" data-toggle="tooltip" data-placement="top">
+                                            <div class="form-control-position">
+                                                <i class="la la-adjust black color-picker__preview" style="background-color: {if isset($html5color)}{$html5color}{/if};"></i>
+                                            </div>
+                                        </div>
+										</div>
+                        
+                    </div>
+					</div>
+					</div>
+					</div>
+                    <br /><br />
+					<div id="omswitch" class="row">
+					        <label for="omswitch" title="Textkleuren omdraaien, handig bij donkere achtergronden." class="control-label col-sm-2 white">Textkleuren omdraaien<br /><small>Bij donkere achtergronden</small></label>
+                                <div class="col-sm-4"><div class="form-group">
+								<div class="toggle-switch toggle-switch--green">
+                                    <input type="checkbox" name="omswitch" class="switchery" value="true" {if $omswitch=="true"}checked="checked"{/if}>
+                                       <i class="toggle-switch__helper"></i>
+                                </div>
+                        </div>
+					</div>
+					</div>
+                    <br /><br />
                     <!-- Icoon style -->
                     <div class="form-group">
 					<div class="row">
 					 <label for="icon_style" title="Er zijn verschillende icoontjes die je kan instellen voor de gebruikerslijst van je chatbox." class="col-sm-2 col-form-label white">Icoontjes:</label>
                         <div class="col-sm-4">
-                            <select class="select2 form-control" id="default-select3" name="icon_style">
+                            <select class="select2-templating-icons form-control" id="select2-templating" name="icon_style">
                                 <option value="bolletje" {if $icon_style=="bolletje"}selected="selected"{/if}>Bolletjes</option>
                                 <option value="ster" {if $icon_style=="ster"}selected="selected"{/if}>Ster</option>
                                 <option value="kroon" {if $icon_style=="kroon"}selected="selected"{/if}>Kroon</option>
@@ -157,7 +213,17 @@
 					</div>
 					</div>
 					<br /><br />
-
+					<div class="row">
+					        <label for="tags" title="Laat tags zien achter de namen" class="control-label col-sm-2 white">Tags achter de namen laten zien<br /><small>Zoals "beheerder", "Administrator" en meer</small></label>
+                                <div class="col-sm-4"><div class="form-group">
+								<div class="toggle-switch toggle-switch--green">
+                                    <input type="checkbox" name="tags" class="switchery" value="true" {if $tags=="true"}checked="checked"{/if}>
+                                       <i class="toggle-switch__helper"></i>
+                                </div>
+                        </div>
+					</div>
+					</div>
+                    <br /><br />
                     <!-- Timestamp -->
 					
 					    <div class="row">
@@ -185,7 +251,7 @@
 					<div class="row">
                         <label for="webcam_video" title="Hiermee kunnen gebruikers hun webcam inschakelen tijdens het chatten." class="control-label col-sm-2 white">Webcam inschakelen</label>
                         <div class="toggle-switch toggle-switch--green">
-                            <input type="checkbox" class="switchery" name="webcam_video" value="true" {if $webcam_video!="false"}checked="checked"{/if}>
+                            <input id="webcam_video" type="checkbox" class="switchery" name="webcam_video" value="true" {if $webcam_video!="false"}checked="checked"{/if}>
                         <i class="toggle-switch__helper"></i>
 						</div>
                     </div>
@@ -305,6 +371,28 @@
                     </div>
 					</div>
 					<br /><br />
+					<!-- Link previews toestaan -->
+					<div class="form-group">
+					<div class="row">
+                        <label for="embedly" title="Link previews in de chat laten zien" class="control-label col-sm-2 white">Laat link voorbeelden zien in de chat (Embedly)</label>
+                        <div class="toggle-switch toggle-switch--green">
+                            <input type="checkbox" class="switchery" name="embedly" value="true" {if $embedly!="false"}checked="checked"{/if}>
+                        <i class="toggle-switch__helper"></i>
+						</div>
+                    </div>
+					</div>
+					<br /><br />
+					<!-- Conference link laten zien -->
+					<div class="form-group">
+					<div class="row">
+                        <label for="conflink" title="Laat een link zien zodra iemand zijn webcam aanzet" class="control-label col-sm-2 white">Laat een link zien zodra iemand zijn webcam aanzet</label>
+                        <div class="toggle-switch toggle-switch--green">
+                            <input type="checkbox" class="switchery" name="conflink" value="true" {if $conflink!="false"}checked="checked"{/if}>
+                        <i class="toggle-switch__helper"></i>
+						</div>
+                    </div>
+					</div>
+					<br /><br />
 					<!-- Giphy toestaan -->
                     <div class="form-group">
 					<div class="row">
@@ -338,6 +426,24 @@
                     </div>
 					</div>
 					<br /><br />
+					<div id="viewheight" class="row hideme2" {if $webcam_video!="true"}style="display: none; width: 100%;"{/if}>
+                        <label for="viewheight" class="control-label col-sm-2 white">Hoogte van het webcam beeld in de chat<br /><small>De html5 chat heeft een inline venster voor webcams!<br />Hier stelt u deze hoogte in!</small></label>
+                        <div class="col-sm-4">
+						<div class="form-group">
+						<script>
+						function updateTextInput2(val) {
+          document.getElementById('textInput2').value=val + '%'; 
+        }
+		</script>
+		
+							<input data-idx='2' id="t" type="range" class="form-control" name="rangeInput2" min="20" max="80" step="5" value="{if isset($viewheight)}{$viewheight|replace:'%':''}{/if}" onchange="updateTextInput2(this.value);"><div class='glow' aria-hidden='true'></div><br />
+							
+							
+                            <input id="textInput2" type="text" class="form-control" name="viewheight" title="Hoogte van het webcam beeld in de chat"  placeholder="Hoogte van het webcam beeld in de chat" value="{if isset($viewheight)}{$viewheight}{/if}" data-toggle="tooltip" data-placement="top"  readonly="readonly">
+							<i class="form-group__bar"></i>
+						</div>
+                    </div>
+					</div><br /><br />
 					<!-- Redirecten naar HTML5 chat -->
                     <div class="form-group">
 					<div class="row">
@@ -360,10 +466,10 @@
                     <!-- Radio inschakelen -->
                     
 					<div class="row">
-                        <label for="textstyling" title="Hiermee stel je in dat de radioplayer getoond zal worden onder de chat" class="control-label col-sm-2 white">Radioplayer inschakelen</label>
+                        <label for="textstyling" title="Hiermee stel je in dat de radioplayer getoond zal worden onder de chat" class="control-label col-sm-2 white switch">Radioplayer inschakelen</label>
 						<div class="col-sm-4"><div class="form-group">
                         <div class="toggle-switch toggle-switch--green">
-                            <input type="checkbox" class="switchery" name="radio_enabled" value="true" {if $radio_enabled=="true"}checked="checked"{/if}>
+                            <input id="radio_enabled" type="checkbox" class="switchery" name="radio_enabled" value="true" {if $radio_enabled=="true"}checked="checked"{/if}>
                         <i class="toggle-switch__helper"></i>
 						</div>
                     </div>
@@ -371,7 +477,7 @@
 					</div>
                     <br /><br />
                     <!-- Naam van de radio -->
-                    
+                    <div id="checked" class="hideme" {if $radio_enabled!="true"}style="display: none; width: 100%;"{/if}>
 					<div class="row">
                         <label for="radio_name" class="control-label col-sm-2 white">Radio naam</label>
                         <div class="col-sm-4"><div class="form-group">
@@ -386,10 +492,10 @@
 					<div class="row">
                         <label for="radio_type" title="Kies hier het type stream dat je gebruikt." class="control-label col-sm-2 white">Type stream</label>
                         <div class="col-sm-4"><div class="form-group">
-                            <select class="select2 form-control" id="default-select2" name="radio_type">
-                                <option value="shoutcast" {if $radio_type=="shoutcast"}selected="selected"{/if}>Shoutcast</option>
-								<option value="shoutcast2" {if $radio_type=="shoutcast2"}selected="selected"{/if}>Shoutcast v2</option>
-                                <option value="icecast2" {if $radio_type=="icecast2"}selected="selected"{/if}>Icecast 2</option>
+                            <select id="stream_select" class="select2 form-control" id="default-select2" name="radio_type">
+                                <option id="shoutcast" value="shoutcast" {if $radio_type=="shoutcast"}selected="selected"{/if}>Shoutcast</option>
+								<option id="shoutcast2" value="shoutcast2" {if $radio_type=="shoutcast2"}selected="selected"{/if}>Shoutcast v2</option>
+                                <option id="icecast2" value="icecast2" {if $radio_type=="icecast2"}selected="selected"{/if}>Icecast 2</option>
                             </select>
                         </div>
                     </div>
@@ -408,7 +514,7 @@
                     <br /><br />
 					<!-- URL van de radio -->
                     
-					<div class="row">
+					<div id="mountpoint" class="row">
                         <label for="mountpoint" class="control-label col-sm-2 white">Stream mountpoint</label>
                         <div class="col-sm-4"><div class="form-group">
                             <input type="text" class="form-control" name="mountpoint" title="Geef hier de stream mountpoint aan (enkel bij shoutcast v2 en icecast)." placeholder="Radio URL" value="{if isset($mountpoint)}{$mountpoint}{/if}" data-toggle="tooltip" data-placement="top">
@@ -433,15 +539,15 @@
 					<div class="row">
                         <label for="radio_style" title="Er zijn verschillende soorten radioplayers, het kan zijn dat sommigen niet werken met een bepaalde stream." class="control-label col-sm-2 white">Type radioplayer</label>
                         <div class="col-sm-4"><div class="form-group">
-                            <select class="select2 form-control" id="default-select" name="radio_style">
-                                <option value="muhstik" {if $radio_style=="muhstik"}selected="selected"{/if}>Lisa Ann (Muhstik)</option>
-                                <option value="cwflash" {if $radio_style=="cwflash"}selected="selected"{/if}>Tori Black (Native Flash Radio v3)</option>
-                                <option value="muses" {if $radio_style=="muses"}selected="selected"{/if}>Madison Ivy (Muses)</option>
-                                <option value="stenly" {if $radio_style=="stenly"}selected="selected"{/if}>Jenna Jameson (Sticky)</option>
-								<option value="hero" {if $radio_style=="hero"}selected="selected"{/if}>Sophie Dee (Hero)</option>
-								<option value="luna" {if $radio_style=="luna"}selected="selected"{/if}>Luna Alora (Luna Radio (Native Radio v5))</option>
-								<option value="internal" {if $radio_style=="internal"}selected="selected"{/if}>Bailey Brooke (HTML5 internal (Luna flash fallback))</option>
-								<option value="clever" {if $radio_style=="clever"}selected="selected"{/if}>Megan Fox (Clever)</option>
+                            <select id="player_select" class="select2 form-control" id="default-select" name="radio_style">
+                                <option id="muhstik" value="muhstik" {if $radio_style=="muhstik"}selected="selected"{/if}>Lisa Ann (Muhstik)</option>
+                                <option id="cwflash" value="cwflash" {if $radio_style=="cwflash"}selected="selected"{/if}>Tori Black (Native Flash Radio v3)</option>
+                                <option id="muses" value="muses" {if $radio_style=="muses"}selected="selected"{/if}>Madison Ivy (Muses)</option>
+                                <option id="stenly" value="stenly" {if $radio_style=="stenly"}selected="selected"{/if}>Jenna Jameson (Sticky)</option>
+								<option id="hero" value="hero" {if $radio_style=="hero"}selected="selected"{/if}>Sophie Dee (Hero)</option>
+								<option id="luna" value="luna" {if $radio_style=="luna"}selected="selected"{/if}>Luna Alora (Luna Radio (Native Radio v5))</option>
+								<option id="internal" value="internal" {if $radio_style=="internal"}selected="selected"{/if}>Bailey Brooke (HTML5 internal (Luna flash fallback))</option>
+								<option id="clever" value="clever" {if $radio_style=="clever"}selected="selected"{/if}>Megan Fox (Clever)</option>
                             </select>
                         </div>
                     </div>
@@ -489,6 +595,30 @@
                 </div>
 				</div>
 				</div>
+				<br /><br />
+				<!-- Kleur van de player -->
+                    
+					<div id="volslide" class="row">
+                        <label for="tekstkleur" class="control-label col-sm-2 white">Volume Slider kleur</label>
+						<div class="col-sm-4">
+                                        <div class="form-group">
+										<div class="input-group">
+						<!-- <span class="input-group-addon"><i class="zwicon-brush"></i></span> -->
+                        <div class="form-group color-picker">
+						<div class="position-relative has-icon-left">
+                                            <input type="text" id="simple-color-picker4" style="background-color: {if isset($volslide)}{$volslide}{/if};" name="volslide" class="form-control color-picker__value color-picker__preview" placeholder="volslide" value="{if isset($volslide)}{$volslide}{/if}" title="Deze kleur zal de text zijn van de volume slider" data-toggle="tooltip" data-placement="top">
+                                            <div class="form-control-position">
+                                                <i class="la la-adjust black color-picker__preview" style="background-color: {if isset($volslide)}{$volslide}{/if};"></i>
+                                            </div>
+                                        </div>
+                    </div>
+					</div>
+                    
+                </div>
+				</div>
+				</div>
+				
+				</div>
 				</div>
 
                 <!-- EXTRA: ADS -->
@@ -531,5 +661,42 @@
 			</div>
                     </div>
         </form>
+		<div class="card-header">
+                                    <h4 class="card-title white">Voorbeeld</h4>
+									<p class="card-text"><center>De getoonde voorbeeld is een fractie voor hoe de chat daadwerkelijk is! <br />
+Niet mogelijk om in te loggen!</center></p>
+                                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                                    <div class="heading-elements">
+                                        
+                                    </div>
+                                </div>
+		{literal}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+		<script>
+$(document).ready(function() {
+	$('input[name=chat_name],input[name=chat_bgurl],select[name=cam],select[name=chat_style],select[name=mic],select[name=query],input[name=kiwi_asl],input[name=html5color]').on('change keyup', function() {
+		var channel = $('input[name=chat_name]').val();
+		var bg = $('input[name=chat_bgurl]').val();
+		var html5color = $('input[name=html5color]').val();
+		var style = $('select[name=chat_style]').val();
+		var asl = $('input[name=kiwi_asl]').is(':checked');
+		
+		
+		var url = 'https://www.chattersworld.nl/preview/chat.php?chan=' + channel + '&style=' + style + '&bg=' + bg + '&html5color=' + html5color.replace("#", "%23") + '&asl=' + asl;
+		// var frame = '<iframe id="iframe" src="https://www.chattersworld.nl/preview/chat.php?chan=' + channel + '&mic=' + mic + '&cam=' + cam + '&icons=' + icons + '&style=transparent&query=' + query + '&bg=' + bg +'&asl=' + asl + '" style="width:600px; height:500px;"></iframe>';
+		var mob = 'https://mobilechat.chattersworld.nl/?channel=#' + channel;
+      
+		// $('#url').val(frame);
+		$('#iframe').attr('src', url);
+		$('#href').html('<a href="' + url + '" target="_blank">' + url +'</a>');
+        $('#mobhref').html('<a href="' + mob + '" target="_blank">' + mob +'</a>');
+
+		
+	});
+});
+</script>
+{/literal}
+<iframe id="iframe" src="https://www.chattersworld.nl/preview/chat.php?chan=default" style="width:100%; height:700px; border:0;"></iframe>
+<p class="card-text"><small><center>Het voorbeeld betreft een nietwerkbaar exemplaar;<br />Het voorbeeld word ook bij elke aanpassing ververst;<br />Gebruik de daadwerkelijke URL om in te loggen;<br />Aan dit voorbeeld kunnen geen rechten worden ontleend.</center></small></p>
     </div>
 </div>

@@ -786,7 +786,9 @@
 }
 
 .kiwi-messagelist-seperator {
-    border-top: 1px solid var(--brand-shadow);
+    color: var(--brand-darktone);
+    background: var(--brand-default-bg);
+    font-size: 0.9em;
 }
 
 .kiwi-messagelist-seperator > span {
@@ -843,11 +845,6 @@
     color: var(--brand-default-fg);
 }
 
-/* Connection Styling */
-.kiwi-messagelist-message-connection {
-    background-color: var(--brand-default-bg);
-}
-
 /* ---- Traffic Messages ---- */
 .kiwi-messagelist-message-traffic-join {
     color: var(--brand-primary);
@@ -866,7 +863,6 @@
 
 /* ---- Modern Layout Styling ---- */
 .kiwi-avatar > span {
-    background-color: var(--brand-default-fg);
     color: var(--brand-default-bg);
     border-color: var(--brand-primary);
 }

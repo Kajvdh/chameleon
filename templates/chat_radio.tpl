@@ -158,7 +158,7 @@
 				userinterface: "small",
 				backgroundcolor: "{$metadata['playerkleur']}",
 				fontcolor: "{$metadata['tekstkleur']}",
-				hightlightcolor: "#a7d3ab",
+				hightlightcolor: "{$metadata['volslide']}",
 				fontname: "",
 				googlefont: "",
 				fontratio: "0.4",
@@ -171,7 +171,7 @@
 				multicolorvisualizer: "true",
 				visualizeropacity: "1.0",
 				itunestoken: "1000lIPN",
-				metadatatechnic: "directly",
+				metadatatechnic: "stream-icy-meta",
 				ownmetadataurl: "",
 				streamurl: "{$metadata['radio_link']}",
 				streamtype: "{$metadata['radio_type']}",
@@ -257,7 +257,7 @@
 			});
 		</script>
 
-        <div class="audio6_html5">
+        <div class="audio6_html5" style="height:30px;">
         	<audio id="lbg_audio6_html5_shoutcast_1" preload="metadata">
            No HTML5 audio playback capabilities for this browser. Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome Browser!</a>
            </audio>
@@ -316,7 +316,7 @@
 			userinterface: "small",
 			backgroundcolor: "{$metadata['playerkleur']}",
 			fontcolor: "{$metadata['tekstkleur']}",
-			hightlightcolor: "#a7d3ab",
+			hightlightcolor: "{$metadata['volslide']}",
 			fontname: "",
 			googlefont: "",
 			fontratio: "0.4",
@@ -329,7 +329,7 @@
 			multicolorvisualizer: "true",
 			visualizeropacity: "1.0",
 			itunestoken: "1000lIPN",
-			metadatatechnic: "directly",
+			metadatatechnic: "stream-icy-meta",
 			ownmetadataurl: "",
 			streamurl: "{$metadata['radio_link']}",
 			streamtype: "{$metadata['radio_type']}",

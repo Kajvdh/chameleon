@@ -48,7 +48,7 @@ if (isset($_GET['id'])) {
 				$smarty->display('chat_radio.tpl'); 
 			}
         }
-
+		echo '</div>';
         $smarty->display('chat_end.tpl');
     }
     else {
