@@ -20,6 +20,7 @@ Yes, I also know that there are some passwords hidden in the code ;) They don't 
 - Channel register
 - recaptcha
 - Easy to maintain
+- Support for PHP 8
 
 # KiwiIRC added and support for Gravatar
 
@@ -52,6 +53,10 @@ The patches: https://github.com/kiwiirc/jitsimeet-patches
 
 Luna radioplayer also needs a licensekey bought on codecanyon.
 The player will play audio without a licensekey, but other functions will not work properly
+
+# Chameleon supports PHP 8 
+Chameleon has full support on PHP 8.
+But since XML-RPC has been moved to PECL, be sure the xmlrpc extension is installed in your PHP enviroment.
 
 # Installation
 

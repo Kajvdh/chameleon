@@ -12,6 +12,7 @@ window.kiwiConfig = function kiwiConfig() {
 		"disconnectOnSaslFail": false,
 		"hideSettings": false,
 		"nicklistGroupAway": true,
+		"noticeActiveBuffer": true,
 		"themes": [
 				{/literal}
 				{if $metadata['style'] == "nightswatch"}{literal}
@@ -102,7 +103,7 @@ window.kiwiConfig = function kiwiConfig() {
 				{"name": "fileuploader", "url": "static/plugins/plugin-fileuploader.js?v=2.1"}{/literal}{if $metadata['kiwi_asl'] == 'true'},{/if}{literal}
 				{/literal}{/if}{literal}
 				{/literal}{if $metadata['kiwi_asl'] == 'true'}{literal}
-				{"name": "asl","url": "static/plugins/plugin-asl.js?cb=22"}
+				{"name": "asl","url": "static/plugins/plugin-asl.js?cb=55"}
 				{/literal}{/if}{literal}
 		],
 		{/literal}{if $metadata['kiwi_asl'] == 'true'}{literal}

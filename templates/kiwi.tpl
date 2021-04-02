@@ -31,10 +31,10 @@
 <link rel="stylesheet" href="{$fullurl}/dist/magnific-popup.css">
 <link rel="stylesheet" href="{$fullurl}/app-assets/css/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
 <!-- Kiwi script reloaders -->
-<link href="{$fullurl}/static/css/app.f3a71450.css" rel="preload" as="style">
-  <link href="{$fullurl}/static/js/app.73fc474a.js" rel="preload" as="script">
+<link href="{$fullurl}/static/css/app.dac8ad30.css" rel="preload" as="style">
+  <link href="{$fullurl}/static/js/app.a6a5c8b8.js" rel="preload" as="script">
   <link href="{$fullurl}/static/js/vendor.a34f3189.js" rel="preload" as="script">
-  <link href="{$fullurl}/static/css/app.f3a71450.css" rel="stylesheet">
+  <link href="{$fullurl}/static/css/app.dac8ad30.css" rel="stylesheet">
 <!-- END -->
 <meta charset=utf-8><meta name=viewport content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1">
 <title>..::Chattersworld Chameleon::.. #{$metadata['name']}</title>
@@ -92,7 +92,7 @@
 	</div>
 	
   <script type="text/javascript" src="{$fullurl}/static/js/vendor.a34f3189.js"></script>
-  <script type="text/javascript" src="{$fullurl}/static/js/app.73fc474a.js"></script>
+  <script type="text/javascript" src="{$fullurl}/static/js/app.a6a5c8b8.js"></script>
 		<script type="text/javascript">
 			function openNav() {
 				document.getElementById("mySidenav").style.width = "33%";

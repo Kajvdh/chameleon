@@ -1,4 +1,9 @@
 <?php
+header("Access-Control-Allow-Headers: Authorization, Content-Type");
+header("Access-Control-Allow-Origin: *");
+// header('content-type: application/json; charset=utf-8');
+?>
+<?php
 /*
   Copyright (C) 2015  Kaj Van der Hallen
   This program is free software; you can redistribute it and/or modify
