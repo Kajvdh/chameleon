@@ -7,7 +7,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
 		<script src="{$fullurl}/radiolibs/sticky/js/jquery.mousewheel.min.js" type="text/javascript"></script>
 		<script src="{$fullurl}/radiolibs/sticky/js/jquery.touchSwipe.min.js" type="text/javascript"></script>
-		<script src="{$fullurl}/radiolibs/sticky/js/audio8_html5.js?v=2.1" type="text/javascript"></script>
+		<script src="{$fullurl}/radiolibs/sticky/js/audio8_html5.js?v=2.2" type="text/javascript"></script>
         <div class="audio8_html5_sticky">
 				<div class="audio8_html5">
 					<audio id="lbg_audio8_html5_shoutcast_2" preload="metadata">
@@ -201,7 +201,7 @@
 
 <script src="{$fullurl}/radiolibs/hero/js/jquery.mousewheel.min.js" type="text/javascript"></script>
 <script src="{$fullurl}/radiolibs/hero/js/jquery.touchSwipe.min.js" type="text/javascript"></script>
-<script src="{$fullurl}/radiolibs/hero/js/audio6_html5.js?v=2.1" type="text/javascript"></script>
+<script src="{$fullurl}/radiolibs/hero/js/audio6_html5.js?v=2.2" type="text/javascript"></script>
 		<script>
 			jQuery(function() {
 				setTimeout(function(){
@@ -357,7 +357,7 @@
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js" type="text/javascript"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
-		<script src="{$fullurl}/radiolibs/clever/js/audio11_html5.js?v=2.2" type="text/javascript"></script>
+		<script src="{$fullurl}/radiolibs/clever/js/audio11_html5.js?v=2.3" type="text/javascript"></script>
 		<!-- must have -->
 		<script>
 	jQuery(function() {
