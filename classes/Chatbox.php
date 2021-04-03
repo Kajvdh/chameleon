@@ -877,6 +877,7 @@ class Chatbox {
 		$data['kiwi_asl'] = $this->getKiwiASL();
 		$data['webcam'] = $this->LightIRC->getWebcam();
 		$data['mic'] = $this->LightIRC->getWebcamVideoOnly();
+		$data['time'] = $this->LightIRC->getShowTimestamps();
 		$data['html_redirect'] = $this->getHTMLRedirect();
 		$data['showstats'] = $this->getShowStats();
 		$data['html5color'] = $this->getHTML5color();

@@ -86,14 +86,14 @@ class AnopeXMLRPC
 	}
 }
 
-$anope = new AnopeXMLRPC("http://5.135.191.70:8085/xmlrpc");
+$anope = new AnopeXMLRPC("http://IP:PORT/xmlrpc");
 ?>
 <?php // Check if form was submitted:
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
 
     // Build POST request:
     $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
-    $recaptcha_secret = '6Ld6Y4AUAAAAAFi3mHJoDQ2Pg2Mb8MduZ5GNwaH_';
+    $recaptcha_secret = 'secret';
     $recaptcha_response = $_POST['recaptcha_response'];
 
     // Make and decode POST request:
@@ -165,10 +165,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   gtag('config', 'UA-73408859-2', { 'anonymize_ip': true });
 </script>
-<script src="https://www.google.com/recaptcha/api.js?render=6Ld6Y4AUAAAAAH6uCWtHPw9psZxn8qZ7Rqy2ysWL"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=KEY"></script>
     <script>
         grecaptcha.ready(function () {
-            grecaptcha.execute('6Ld6Y4AUAAAAAH6uCWtHPw9psZxn8qZ7Rqy2ysWL', { action: 'contact' }).then(function (token) {
+            grecaptcha.execute('KEY', { action: 'contact' }).then(function (token) {
                 var recaptchaResponse = document.getElementById('recaptchaResponse');
                 recaptchaResponse.value = token;
             });
