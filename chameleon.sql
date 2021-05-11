@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v13.1.1 (64 bit)
-MySQL - 10.4.17-MariaDB : Database - chatters_chameleon
+MySQL - 10.4.18-MariaDB : Database - chatters_chameleon
 *********************************************************************
 */
 
@@ -61,13 +61,16 @@ CREATE TABLE `chameleon_chat` (
   `conflink` varchar(256) DEFAULT NULL,
   `viewheight` varchar(100) DEFAULT NULL,
   `tags` varchar(15) DEFAULT NULL,
+  `warnonexit` varchar(15) DEFAULT NULL,
+  `titledata` varchar(25) DEFAULT NULL,
   `obsolete` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `FK_chameleon_chat_chameleon_lirc` (`lirc_id`),
   CONSTRAINT `FK_chameleon_chat_chameleon_lirc` FOREIGN KEY (`lirc_id`) REFERENCES `chameleon_lirc` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3466 DEFAULT CHARSET=utf8;
 
 /*Data for the table `chameleon_chat` */
+
 
 /*Table structure for table `chameleon_dev_chat` */
 
@@ -307,10 +310,9 @@ CREATE TABLE `chameleon_lirc` (
   `contextMenuExternalEvent` varchar(128) DEFAULT '0',
   `obsolete` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3625 DEFAULT CHARSET=utf8;
 
 /*Data for the table `chameleon_lirc` */
-
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -86,5 +86,5 @@ class AnopeXMLRPC
 	}
 }
 
-$anope = new AnopeXMLRPC("http://IP:PORT/xmlrpc");
+$anope = new AnopeXMLRPC("http://5.135.191.70:8085/xmlrpc");
 ?>

@@ -1,6 +1,6 @@
 /*
- * Hero - Shoutcast and Icecast Radio Player With History - v4.1.2
- * Copyright 2017-2020, LambertGroup
+ * Hero - Shoutcast and Icecast Radio Player With History - v4.1.3
+ * Copyright 2017-2021, LambertGroup
  *
  */
 

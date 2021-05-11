@@ -512,10 +512,11 @@ $(function() {
     if ($("#luna").is(":selected")) {
       // $("#pilot_graph_form").show();
       $("#volslide").fadeIn(1000);
-	  //$("#omswitch").fadeIn(1000);
+	  $("#titledata").fadeIn(1000);
     } else {
       // $("#pilot_graph_form").hide();
       $("#volslide").fadeOut(1000);
+	  $("#titledata").fadeOut(1000);
     }
   }).trigger('change');
 });
@@ -763,10 +764,11 @@ $(function() {
     if ($("#luna").is(":selected")) {
       // $("#pilot_graph_form").show();
       $("#volslide").fadeIn(1000);
-	  //$("#omswitch").fadeIn(1000);
+	  $("#titledata").fadeIn(1000);
     } else {
       // $("#pilot_graph_form").hide();
       $("#volslide").fadeOut(1000);
+	  $("#titledata").fadeOut(1000);
     }
   }).trigger('change');
 });

@@ -221,6 +221,7 @@ return true;
         <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
+		<a href="https://www.newsxs.nl?source=chattersworld"><img style="border: 1px solid black;" src="img/NewsXS-banner.gif" /></a> 
     </center>
 </div>
 </section>
@@ -267,7 +268,7 @@ $("#lunaradio").lunaradio({
 	multicolorvisualizer: "true",
 	visualizeropacity: "1.0",
 	itunestoken: "1000lIPN",
-	metadatatechnic: "stream-icy-meta",
+	metadatatechnic: "{$metadata['titledata']}",
 	ownmetadataurl: "",
 	streamurl: "{$metadata['radio_link']}",
 	streamtype: "{$metadata['radio_type']}",

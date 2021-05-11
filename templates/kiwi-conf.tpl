@@ -2,7 +2,6 @@
 {literal}
 <script name="kiwiconfig">
 window.kiwiConfig = function kiwiConfig() {
-        console.log('off');
         return {
 		"startupScreen": "{/literal}{if $metadata['kiwi_asl'] == 'true'}plugin-asl{else}welcome{/if}{literal}",
 		"windowTitle": "..::Chattersworld - #{/literal}{$metadata['name']}{literal}::.. The web IRC client",
@@ -13,6 +12,8 @@ window.kiwiConfig = function kiwiConfig() {
 		"hideSettings": false,
 		"nicklistGroupAway": true,
 		"noticeActiveBuffer": true,
+		"warnOnExit": {/literal}{if $metadata['warnonexit'] == "true"}true{else}false{/if}{literal},
+		"showAd": {/literal}{if $metadata['ads_enabled'] == "true"}true{else}false{/if}{literal},
 		"themes": [
 				{/literal}
 				{if $metadata['style'] == "nightswatch"}{literal}
@@ -53,6 +54,7 @@ window.kiwiConfig = function kiwiConfig() {
 				{/literal}{if $metadata['kiwi_avatar'] == "true"}{literal}"nicklist_avatars": true, {/literal}{else}{literal}"nicklist_avatars": false,{/literal}{/if}{literal}
 				{/literal}{if $metadata['hostnames'] == "true"}{literal}"show_hostnames": true, {/literal}{else}{literal}"show_hostnames": false,{/literal}{/if}{literal}
 				"colour_nicknames_in_messages": false,
+				"scrollback_size": "100",
 				"inline_link_auto_previews": {/literal}{if $metadata['embedly'] == "true"}true{else}false{/if}{literal},
 				"inline_link_auto_preview_whitelist": ".*",
 				"messageLayout": "{/literal}{if $metadata['kiwi_avatar'] == "true"}modern{else}inline{/if}{literal}",
@@ -83,6 +85,7 @@ window.kiwiConfig = function kiwiConfig() {
 				{"name": "plugin-radio","url": "static/plugins/plugin-radio.html"},
 				{/literal}{/if}{literal}
 				{"name": "nickserv", "url": "static/plugins/plugin-nickserv.js"},
+				{"name": "analitics", "url": "static/plugins/analitics.html?v=1.3"},
 				{"name": "custom-selfuser", "url": "static/plugins/plugin-custom-selfuser.js"},
 				{/literal}{if $metadata['tags'] == "true"}{literal}
 				{ "name": "services", "url": "static/plugins/services.html?v=1.2" },
@@ -90,6 +93,7 @@ window.kiwiConfig = function kiwiConfig() {
 				{ "name": "font", "url": "static/plugins/font-size.html" },
 				{/literal}{if $metadata['kiwi_avatar'] == "true"}{literal}
 				{"name": "gravatar", "url": "static/plugins/plugin-gravatar.js"},
+				{"name": "plugin-userbox-avatar", "url": "static/plugins/plugin-userbox-avatar.js"},
 				{ "name": "irccloud", "url": "static/plugins/irccloud.html" },
 				{/literal}{/if}{literal}
 				{/literal}{if $metadata['kiwi_giphy'] == "true"}{literal}
@@ -103,19 +107,19 @@ window.kiwiConfig = function kiwiConfig() {
 				{"name": "fileuploader", "url": "static/plugins/plugin-fileuploader.js?v=2.1"}{/literal}{if $metadata['kiwi_asl'] == 'true'},{/if}{literal}
 				{/literal}{/if}{literal}
 				{/literal}{if $metadata['kiwi_asl'] == 'true'}{literal}
-				{"name": "asl","url": "static/plugins/plugin-asl.js?cb=55"}
+				{"name": "asl","url": "static/plugins/plugin-asl.js?cb=66"}
 				{/literal}{/if}{literal}
 		],
 		{/literal}{if $metadata['kiwi_asl'] == 'true'}{literal}
 		"plugin-asl" : {
-					"gecosType": 2,
+					"gecosType": 1,
 					"showRealname": false,
 					"showUserBrowser": true,
 					"userBrowserIcon": "fa-list",
 					"fallbackColour": "default",
 					"singleLineUserbox": false,
 					"singleLineString": {
-						"age": "%a jaar oud",
+						"age": "%a",
 						"sex": "%s",
 						"location": "%l",
 						"separator": " "
@@ -137,7 +141,9 @@ window.kiwiConfig = function kiwiConfig() {
 						"location": "location",
 						"realname": "realname"
 					},
-					"localesPath": "static/plugins/plugin-asl/locales/"
+					"localesPath": "static/plugins/plugin-asl/locales",
+					"reportChannel": "#abuse",
+					"browseAllUsers": true
 		},
 		{/literal}{/if}{literal}
 		{/literal}{if $metadata['kiwi_avatar'] == "true"}{literal}
@@ -177,7 +183,7 @@ window.kiwiConfig = function kiwiConfig() {
 					"TOOLBAR_BUTTONS": [
 								{/literal}{if $metadata['mic'] == "true"}{else}"microphone",{/if}{literal} "camera", "fullscreen", "fodeviceselection", "hangup",
 								"settings", "videoquality", "filmstrip",
-								"stats", "tileview", "shortcuts", "sharedvideo"
+								"stats", "tileview", "shortcuts", "mute-everyone"
 					]
 				},
 				"configOverwrite": {

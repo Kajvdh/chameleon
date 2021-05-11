@@ -189,6 +189,11 @@ if ($id) {
                     if($volslide) {
                         $smarty->assign('volslide',$volslide);
                     }
+					// titledata
+					$titledata = $chat->getTitledata();
+                    if($titledata) {
+                        $smarty->assign('titledata',$titledata);
+                    }
 					// View Height
 					$viewheight = $chat->getViewheight();
                     if($viewheight) {
@@ -227,6 +232,14 @@ if ($id) {
                     }
                     else {
                         $smarty->assign('embedly', "false");
+                    }
+					// Warnonexit
+					$warn_exit = $chat->getWarnonexit();
+                    if ($warn_exit == "true") {
+                        $smarty->assign('warnonexit', "true");
+                    }
+                    else {
+                        $smarty->assign('warnonexit', "false");
                     }
                     //Chatstyle
                     $chat_style = $chat->getStyle();
@@ -480,6 +493,8 @@ if ($id) {
 			$smarty->assign('conflink', "false");
 			$smarty->assign('viewheight', "40%");
 			$smarty->assign('tags', "true");
+			$smarty->assign('warnonexit', "true");
+			$smarty->assign('titledata', "fallback");
 	    $smarty->assign('page','new');
         }
     }
