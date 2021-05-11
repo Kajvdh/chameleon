@@ -8,13 +8,10 @@ available controllers:
 
 /* the container */
 .audio6_html5 {
-	/*background:#0000CC;
-	padding:5px;*/
 }
 
 /*bottom div*/
 .audio6_html5_sticky_div {
-	/*border:1px solid #F00;*/
 	position:fixed;
 	z-index:99999;
 	bottom:0;
@@ -48,7 +45,6 @@ available controllers:
 }
 
 .ui-progressbar {
-	/*height: 5px;*/
 }
 .ui-progressbar-value {
 	height:100%;
@@ -57,7 +53,9 @@ available controllers:
 	color:#090;
 	margin-top:40px;
 }
-
+.the_wrapper {
+	box-sizing: content-box !important;
+}
 
 
 /* whiteControllers */
@@ -84,7 +82,6 @@ available controllers:
 	right:0;
 	cursor:pointer;
 	background:url(controllers/whiteControllers/close-off.png) no-repeat;
-	/*border:1px solid #090;*/
 }
 .audio6_html5.whiteControllers .AudioCloseBut:hover {
 	background:url(controllers/whiteControllers/close-on.png) no-repeat;
@@ -98,14 +95,12 @@ available controllers:
 }
 
 .audio6_html5.whiteControllers .AudioControls {
-	/*clear: both;*/
 	width: 100%;
 	margin:0;
 	padding:0;
 }
 
 .audio6_html5.whiteControllers .frameBehindButtons {
-	/*clear: both;*/
 	position:absolute;
 	width: 100%;
 	height:34px;
@@ -114,7 +109,6 @@ available controllers:
 }
 
 .audio6_html5.whiteControllers .frameBehindText {
-	/*clear: both;*/
 	position:absolute;
 	width: 100%;
 	margin:0;
@@ -125,18 +119,12 @@ available controllers:
 .audio6_html5.whiteControllers .ximage {
 	position:absolute;
 	display:block;
-	/*width: 120px;
-	height: 120px;*/
 	border-radius: 0;
-	/*border-style:solid;
-	-webkit-border-radius: 150px;
-	-moz-border-radius: 150px;*/
 }
 
 
 
 .audio6_html5.whiteControllers .AudioFacebook {
-	/*float:left;*/
 	position:absolute;
 	cursor: pointer;
 	display: block;
@@ -152,7 +140,6 @@ available controllers:
 }
 
 .audio6_html5.whiteControllers .AudioTwitter {
-	/*float:left;*/
 	position:absolute;
 	cursor: pointer;
 	display: block;
@@ -171,7 +158,6 @@ available controllers:
 
 /* play */
 .audio6_html5.whiteControllers .AudioPlay {
-	/*float:left;*/
 	position:absolute;
 	cursor: pointer;
 	display: block;
@@ -188,7 +174,6 @@ available controllers:
 
 /* pause */
 .audio6_html5.whiteControllers .AudioPause {
-	/*float:left;*/
 	position:absolute;
 	cursor: pointer;
 	display: block;
@@ -206,7 +191,6 @@ available controllers:
 
 /*show/hide playlist */
 .audio6_html5.whiteControllers .AudioShowHidePlaylist {
-	/*float:left;*/
 	position:absolute;
 	cursor: pointer;
 	display: block;
@@ -223,13 +207,8 @@ available controllers:
 
 
 
-
-
-
-
 /* volume button Mute & UnMute*/
 .audio6_html5.whiteControllers .VolumeButton {
-	/*float:left;*/
 	position:absolute;
 	cursor: pointer;
 	display: block;
@@ -253,7 +232,6 @@ available controllers:
 
 /* volume slider */
 .audio6_html5.whiteControllers .VolumeSlider {
-	/*float:left;*/
 	position:absolute;
 	cursor: pointer;
 	display: block;
@@ -261,7 +239,6 @@ available controllers:
 	padding:0;
 	width:70px;
 	height:4px;
-	/*background: #fff000;*/
 }
 
 .audio6_html5.whiteControllers .VolumeSlider .ui-slider-handle {
@@ -269,13 +246,11 @@ available controllers:
 }
 
 .audio6_html5.whiteControllers .VolumeSlider .ui-slider-handle.ui-state-hover {
-	/*background: #fff000;*/
 }
 
 .audio6_html5.whiteControllers .VolumeSlider .ui-slider-range {
 	position:relative;
 	height:4px;
-	/*background: #00F; blue*/
 }
 
 
@@ -287,11 +262,10 @@ available controllers:
 	float:left;
 	display: block;
 	overflow:hidden;
-	height:26px;/**/
+	height:26px;
 	margin:0;
 	padding:0;
 	font-weight: normal;
-	/*border:1px solid #CC6;*/
 }
 
 .audio6_html5.whiteControllers .songTitleInside {
@@ -303,7 +277,6 @@ available controllers:
 	font-size:23px;
 	line-height:0.9em;
 	font-weight:normal;
-	/*text-transform:uppercase;*/
 }
 
 .audio6_html5.whiteControllers .songAuthor {
@@ -317,8 +290,7 @@ available controllers:
 	font-family: 'PT Sans', sans-serif;
 	font-size:16px;
 	font-weight: normal;
-	/*text-transform:capitalize;*/
-	/*border:1px solid #FF0000;*/
+	text-align: left;
 }
 
 
@@ -341,7 +313,6 @@ available controllers:
 	line-height:1;
 	font-weight: normal;
 	text-align:left;
-	/*border:1px solid #CC0000;*/
 }
 
 
@@ -359,19 +330,16 @@ available controllers:
 	line-height:1;
 	font-weight: normal;
 	text-align:left;
-	/*border:1px solid #993;*/
 }
 
 
 
 .audio6_html5.whiteControllers .thumbsHolderWrapper {
 	position:absolute;
-	/*height:100%;*/
 	margin-top:0px;
 	overflow:hidden;
 }
 .audio6_html5.whiteControllers .thumbsHolderVisibleWrapper {
-	/*position:absolute;*/
 	position:relative;
 	height:100%;
 	overflow:hidden;
@@ -385,7 +353,6 @@ available controllers:
 .audio6_html5.whiteControllers .thumbsHolder_ThumbOFF {
 	display:block;
 	height:70px;
-	/*background:#000;*/
 	overflow:hidden;
 	border-bottom:1px solid;
 	border-bottom-color:transparent;
@@ -420,14 +387,6 @@ available controllers:
 	display:block;
 }
 
-/*.audio6_html5.whiteControllers .thumbsHolder_ThumbOFF img {
-	position:relative;
-	float:left;
-	margin-right:10px;
-	width:auto;
-	height:auto;
-	max-width: 55px;
-}*/
 
 .audio6_html5.whiteControllers .thumbsHolder_ThumbOFF .img_div {
 	position:relative;
@@ -464,23 +423,14 @@ available controllers:
 
 /* Component containers
 ----------------------------------*/
-.audio6_html5.whiteControllers .slider-vertical.ui-widget-content { /*background: #ff7800;*/}
-.audio6_html5.whiteControllers .slider-vertical .ui-widget-header { /*background: #24ff00;*/ }
+.audio6_html5.whiteControllers .slider-vertical.ui-widget-content {}
+.audio6_html5.whiteControllers .slider-vertical .ui-widget-header {}
 
 
 /* Corner radius */
 .audio6_html5.whiteControllers .slider-vertical.ui-corner-all {}
 
-/* Interaction states
-----------------------------------
-.audio6_html5.whiteControllers .slider-vertical.ui-state-default {background: #000000; }
-.audio6_html5.whiteControllers .slider-vertical.ui-state-hover { background: #FFF000;  }
-*/
 /*  scroller end */
-
-
-
-
 
 
 
@@ -514,7 +464,6 @@ available controllers:
 	right:0;
 	cursor:pointer;
 	background:url(controllers/blackControllers/close-off.png) no-repeat;
-	/*border:1px solid #090;*/
 }
 .audio6_html5.blackControllers .AudioCloseBut:hover {
 	background:url(controllers/blackControllers/close-on.png) no-repeat;
@@ -528,14 +477,12 @@ available controllers:
 }
 
 .audio6_html5.blackControllers .AudioControls {
-	/*clear: both;*/
 	width: 100%;
 	margin:0;
 	padding:0;
 }
 
 .audio6_html5.blackControllers .frameBehindButtons {
-	/*clear: both;*/
 	position:absolute;
 	width: 100%;
 	height:34px;
@@ -544,7 +491,6 @@ available controllers:
 }
 
 .audio6_html5.blackControllers .frameBehindText {
-	/*clear: both;*/
 	position:absolute;
 	width: 100%;
 	margin:0;
@@ -555,18 +501,12 @@ available controllers:
 .audio6_html5.blackControllers .ximage {
 	position:absolute;
 	display:block;
-	/*width: 120px;
-	height: 120px;*/
 	border-radius: 0;
-	/*border-style:solid;
-	-webkit-border-radius: 150px;
-	-moz-border-radius: 150px;*/
 }
 
 
 
 .audio6_html5.blackControllers .AudioFacebook {
-	/*float:left;*/
 	position:absolute;
 	cursor: pointer;
 	display: block;
@@ -582,7 +522,6 @@ available controllers:
 }
 
 .audio6_html5.blackControllers .AudioTwitter {
-	/*float:left;*/
 	position:absolute;
 	cursor: pointer;
 	display: block;
@@ -601,7 +540,6 @@ available controllers:
 
 /* play */
 .audio6_html5.blackControllers .AudioPlay {
-	/*float:left;*/
 	position:absolute;
 	cursor: pointer;
 	display: block;
@@ -618,7 +556,6 @@ available controllers:
 
 /* pause */
 .audio6_html5.blackControllers .AudioPause {
-	/*float:left;*/
 	position:absolute;
 	cursor: pointer;
 	display: block;
@@ -636,7 +573,6 @@ available controllers:
 
 /*show/hide playlist */
 .audio6_html5.blackControllers .AudioShowHidePlaylist {
-	/*float:left;*/
 	position:absolute;
 	cursor: pointer;
 	display: block;
@@ -653,13 +589,8 @@ available controllers:
 
 
 
-
-
-
-
 /* volume button Mute & UnMute*/
 .audio6_html5.blackControllers .VolumeButton {
-	/*float:left;*/
 	position:absolute;
 	cursor: pointer;
 	display: block;
@@ -683,7 +614,6 @@ available controllers:
 
 /* volume slider */
 .audio6_html5.blackControllers .VolumeSlider {
-	/*float:left;*/
 	position:absolute;
 	cursor: pointer;
 	display: block;
@@ -691,7 +621,6 @@ available controllers:
 	padding:0;
 	width:70px;
 	height:4px;
-	/*background: #fff000;*/
 }
 
 .audio6_html5.blackControllers .VolumeSlider .ui-slider-handle {
@@ -699,13 +628,11 @@ available controllers:
 }
 
 .audio6_html5.blackControllers .VolumeSlider .ui-slider-handle.ui-state-hover {
-	/*background: #fff000;*/
 }
 
 .audio6_html5.blackControllers .VolumeSlider .ui-slider-range {
 	position:relative;
 	height:4px;
-	/*background: #00F; blue*/
 }
 
 
@@ -717,11 +644,10 @@ available controllers:
 	float:left;
 	display: block;
 	overflow:hidden;
-	height:26px;/**/
+	height:26px;
 	margin:0;
 	padding:0;
 	font-weight: normal;
-	/*border:1px solid #CC6;*/
 }
 
 .audio6_html5.blackControllers .songTitleInside {
@@ -733,7 +659,6 @@ available controllers:
 	font-size:23px;
 	line-height:0.9em;
 	font-weight:normal;
-	/*text-transform:uppercase;*/
 }
 
 .audio6_html5.blackControllers .songAuthor {
@@ -747,8 +672,7 @@ available controllers:
 	font-family: 'PT Sans', sans-serif;
 	font-size:16px;
 	font-weight: normal;
-	/*text-transform:capitalize;*/
-	/*border:1px solid #FF0000;*/
+	text-align: left;
 }
 
 
@@ -771,7 +695,6 @@ available controllers:
 	line-height:1;
 	font-weight: normal;
 	text-align:left;
-	/*border:1px solid #CC0000;*/
 }
 
 
@@ -789,19 +712,16 @@ available controllers:
 	line-height:1;
 	font-weight: normal;
 	text-align:left;
-	/*border:1px solid #993;*/
 }
 
 
 
 .audio6_html5.blackControllers .thumbsHolderWrapper {
 	position:absolute;
-	/*height:100%;*/
 	margin-top:0px;
 	overflow:hidden;
 }
 .audio6_html5.blackControllers .thumbsHolderVisibleWrapper {
-	/*position:absolute;*/
 	position:relative;
 	height:100%;
 	overflow:hidden;
@@ -815,7 +735,6 @@ available controllers:
 .audio6_html5.blackControllers .thumbsHolder_ThumbOFF {
 	display:block;
 	height:70px;
-	/*background:#000;*/
 	overflow:hidden;
 	border-bottom:1px solid;
 	border-bottom-color:transparent;
@@ -891,9 +810,4 @@ available controllers:
 /* Corner radius */
 .audio6_html5.blackControllers .slider-vertical.ui-corner-all {}
 
-/* Interaction states
-----------------------------------
-.audio6_html5.blackControllers .slider-vertical.ui-state-default {background: #000000; }
-.audio6_html5.blackControllers .slider-vertical.ui-state-hover { background: #FFF000;  }
-*/
 /*  scroller end */

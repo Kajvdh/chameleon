@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ERROR | E_PARSE);
-
 define('CRLF', "\r\n");
 
 class streaminfo{
@@ -18,12 +16,15 @@ public function __construct($location){
     }
     if (!array_key_exists('port', $t)) {
         $t['port']=80;
+        if ($t['scheme']=='https') {
+          $t['port']=443;
+        }
     }
     if (!array_key_exists('host', $t)) {
         $t['host']='';
     }
     if ($t['scheme']=='https') {
-        $sock = @fsockopen('ssl://'. $t['host'], $t['port']);
+        $sock = fsockopen('ssl://'. $t['host'], $t['port']);
     } else {
         $sock = fsockopen($t['host'], $t['port'], $errno, $errstr, 5);
     }
@@ -80,10 +81,10 @@ public function __construct($location){
                 $title = $artist = '';
                 foreach ($matches[0] as $nr => $values){
                   $offset = $values[1];
-                  $length = ord($values[0]{0}) +
-                            (ord($values[0]{1}) * 256)+
-                            (ord($values[0]{2}) * 256*256)+
-                            (ord($values[0]{3}) * 256*256*256);
+                  $length = ord($values[0][0]) +
+                            (ord($values[0][1]) * 256)+
+                            (ord($values[0][2]) * 256*256)+
+                            (ord($values[0][3]) * 256*256*256);
                   $info = substr($data, $offset + 4, $length);
                   $seperator = strpos($info, '=');
                   $this->metadata[substr($info, 0, $seperator)] = substr($info, $seperator + 1);

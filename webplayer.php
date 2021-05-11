@@ -22,6 +22,10 @@ $database = new Database($config);
 $db = $database->getConnection();
 $smarty->assign('fullurl', $config->getFullUrl());
 $smarty->assign('logo', $config->getLogo());
+$smarty->assign('irc', $config->getIRC());
+$smarty->assign('sitename', $config->getSiteName());
+$smarty->assign('gateway', $config->getGateway());
+$smarty->assign('file', $config->getFile());
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

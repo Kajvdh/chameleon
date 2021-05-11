@@ -137,19 +137,30 @@ class Member {
      * @return boolean: `true` als de opgegeven gegevens correct zijn
      */
     public function verify() {
-        $stmp = $this->_db->prepare("SELECT `id`,`email` FROM `anope_db_NickCore` WHERE `display`= ? AND `pass` = ?;");
-        $stmp->execute(array($this->_username,$this->_password));
+        // $stmp = $this->_db->prepare("SELECT `id`,`email` FROM `anope_db_NickCore` WHERE `display`= ?;");
+        // $stmp->execute(array($this->_username,$this->_password));
+		$anope = new AnopeXMLRPC("http://5.135.191.70:8085/xmlrpc");
+		$ret = $anope->CheckAuthentication("$this->_username", "$this->_password");
         
-        if ($stmp->rowCount() == "1") {
-            $row = $stmp->fetch(PDO::FETCH_ASSOC);
-            $this->_id = $row['id'];
-            $this->_email = $row['email'];
-            return $this->_id;
+        if ($ret == $this->_username) {
+			$stmp = $this->_db->prepare("SELECT * FROM `anope_db_NickCore` WHERE `display` = ?;");
+			$stmp->execute(array($this->_username));
+			if ($stmp->rowCount() == "1") {
+				$row = $stmp->fetch(PDO::FETCH_ASSOC);
+				$this->_id = $row['id'];
+				// $this->_username = $row['display'];
+				$this->_email = $row['email'];
+				// $this->_password = $row['pass'];
+				return $this->_id;
         }
         else {
             return false;
         }
     }
+	else {
+            return false;
+        }
+	}
     
     public function isGodUser() {
         $stmp = $this->_db->prepare("SELECT * FROM anope_db_NickCore LEFT JOIN anope_db_ChanAccess ON display=mask WHERE ci='#staff' AND display=?;");

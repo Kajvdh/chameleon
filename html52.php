@@ -22,6 +22,10 @@ $database = new Database($config);
 $db = $database->getConnection();
 $smarty->assign('fullurl', $config->getFullUrl());
 $smarty->assign('logo', $config->getLogo());
+$smarty->assign('irc', $config->getIRC());
+$smarty->assign('sitename', $config->getSiteName());
+$smarty->assign('gateway', $config->getGateway());
+$smarty->assign('file', $config->getFile());
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -40,6 +44,7 @@ if (isset($_GET['id'])) {
 
         $smarty->assign('metadata',$metadata);
 		$smarty->display('kiwi-conf.tpl');
+		$smarty->display('kiwi-style.tpl');
         $smarty->display('kiwi.tpl');
 
         if ($metadata['radio'] == "true") {
@@ -51,14 +56,14 @@ if (isset($_GET['id'])) {
         } elseif ($metadata['ads_enabled'] == "true") {
             $smarty->display('chat_ads.tpl');
         }
-
+		echo '</div>';
         $smarty->display('chat_end.tpl');
     }
     else {
-        $smarty->display('chat_does_not_exist.tpl');
+        header('Location: https://chattersworld.nl/html5.php?'.$_SERVER['QUERY_STRING']);
     }
 }
 else {
-    $smarty->display('chat_does_not_exist.tpl');
+    header('Location: https://chattersworld.nl/html5.php?'.$_SERVER['QUERY_STRING']);
 }
 ?>

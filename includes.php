@@ -10,6 +10,7 @@ require_once 'classes/LightIRC.php';
 require_once 'classes/Radio.php';
 require_once 'classes/Login.php';
 require_once 'classes/Member.php';
+require_once 'classes/xmlrpc.php';
 require_once('smarty.php');
 
 global $config;

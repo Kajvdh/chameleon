@@ -16,3 +16,9 @@ RewriteRule	^del/?$					?page=del				[NC,L]
 RewriteRule	^del/([0-9]+)/?$		?page=del&id=$1			[NC,L]
 
 RewriteRule ^chat/([0-9]+)/?$		chat.php?id=$1			[NC,L]
+
+
+RewriteCond %{HTTP_USER_AGENT} ^.*UBrowser.*$ [OR]
+RewriteCond %{HTTP_USER_AGENT} ^.*UCBrowser.*$ [OR]
+RewriteCond %{HTTP_USER_AGENT} ^.*Puffin.*$ [NC]
+RewriteRule .* notsupported.html [L]

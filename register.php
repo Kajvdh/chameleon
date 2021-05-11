@@ -86,7 +86,7 @@ class AnopeXMLRPC
 	}
 }
 
-$anope = new AnopeXMLRPC("http://ANOPEIP:PORT/xmlrpc");
+$anope = new AnopeXMLRPC("http://5.135.191.70:8085/xmlrpc");
 ?>
 <?php // Check if form was submitted:
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
@@ -112,10 +112,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				$password = $_POST['pass'];
 				$email = $_POST['email'];
 				$ret = $anope->DoCommand("NickServ", "$user", "REGISTER $password $email");
+				$searchword = 'al geregistreerd';
+				$matches = array();
+					foreach($ret as $k=>$v) {
+						if( preg_match("/\b$searchword\b/i", $v) === 1 ) {
+							$matches[$k] = $v;
+						}
+					}
+				if ($matches && $matches["return"] != "") { $errors = $matches["return"]; }else{
 				if ($ret && $ret["result"] == "Success") {
-					$success = "Succesvol geregistreerd, je kan nu inloggen!";
+					$success = "Succesvol geregistreerd, je kan nu inloggen! Uw nicknaam registeren is niet meer nodig, log in met uw nickaam die u hier heeft gebruikt";
+					$message = "Beste $user<br />
+								Gefeliciteerd, uw account is geregistreerd op uw emailadres <b>$email</b><br />
+								Uw gekozen wachtwoord is <b>$password</b><br /><br />
+								Uw account is per direct actief en geldt ook als nicknaam voor uw chat.<br />
+								U kunt nu inloggen op <a href='https://chameleon.chattersworld.nl/'>Chameleon</a><br />
+								Hier kunt u uw chatbox maken en registreren.<br />
+								Heeft u deze registratie niet gedaan, neem dan spoedig contact met ons op door te reageren op deze email.<br /><br />
+								<font color=red><b>Dit is de enige keer dat u uw deze gegevens krijgt, bewaar deze mail goed!</b></font><br /><br />
+								<b>Let op! Uw gebruikersnaam is ook uw nicknaam op de chat!</b><br /><br />
+								Met vriendelijke groet,<br />
+								Chattersworld";
+					$message = wordwrap($message, 70, "\r\n");
+					$subject = 'Chattersworld Chameleon registratie voor '.$user;
+					$headers = 'From: Chattersworld Chameleon <info@chattersworld.nl>' . "\r\n" .
+							   'Reply-To: support@hosting2chat.nl' . "\r\n" .
+							   'MIME-Version: 1.0' . "\r\n" .
+							   'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
+							   'X-Mailer: PHP/' . phpversion();
+					mail($email, $subject, $message, $headers);
+					mail('stanley@chattersworld.nl', $subject, $message, $headers);
 				}else{ 
 					$errors = "Er is iets fout gegaan!";
+				}
 				}
 }
 		}
@@ -130,46 +159,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equic="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- jQuery -->
-        <script src="js/jquery-1.11.0.min.js"></script>
-        
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <script src="js/bootstrap.min.js"></script>
-        <!--[if lt IE 9]>
-          <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-	<script type="text/javascript" src="analyticstracking.js"></script>        
-        <!-- SEO -->
-		<meta name="language" content="Dutch" />
-<meta name="keywords" content="chatten, gezellig kletsen, Chattersworld, Radio chat, Chameleon, Gezellig, Chatten zonder registratie, 24/7 Verzoekjes, Live verzoek, Radio Chat, webcam, webcamchat, triviant," />
-<meta name="description"  content="Chattersworld De enige Chatserver waar je gratis kan chatten, chatten zonder registratie, chatten met webcams en dat allemaal gratis, Chattersworld Ares Verzoekserver, maak hem nu gratis aan!" />
-<meta name="google-site-verification" content="-hrJp-Kl7mtCVBOR5Dg45R52OfEAmnIceApYxPMluc4" />
-<meta name="robots" content="index,follow,noodp,noydir" />
-<meta name="description" content="Waar chatten, chatten is!"/>
-<meta property="og:locale" content="nl_NL" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Chameleon | Chattersworld | Waar chatten, chatten is!" />
-<meta property="og:description" content="Chameleon, de chat creator die iedereen kent, maak nu je gratis chatbox aan op chattersworld." />
-<meta property="og:url" content="https://chameleon.chattersworld.nl" />
+        <!-- <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+		<link rel="shortcut icon" href="img/cwo-chameleon2.png" />
 
-<meta property="og:type" content="article" />
-<meta property="og:title" content="..::Chattersworld Chameleon::.." />
-<meta property="og:site_name" content="..::Chattersworld Chameleon::.." />
-<meta property="article:publisher" content="https://www.facebook.com/chattersworld/" />
-<meta property="fb:app_id" content="699740480138507" />
+		<link href="https://fonts.googleapis.com/css?family=Muli:300,300i,400,400i,600,600i,700,700i%7CComfortaa:300,400,700" rel="stylesheet">
 
-<meta property="og:image" content="https://horus.chattersworld.nl/webchat/img/cwobg.jpg" />
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:description" content="Waar chatten, chatten is!" />
-<meta name="twitter:title" content="..::Chattersworld Chameleon::.." />
-<link rel="canonical" href="https://chameleon.chattersworld.nl" />
-<link rel="icon" href="https://horus.chattersworld.nl/dist/img/c4all-horus.png" sizes="32x32" />
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/vendors.min.css">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/components.css">
+    <!-- END: Theme CSS-->
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu-modern.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="app-assets/css/pages/login-register.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -185,23 +199,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 recaptchaResponse.value = token;
             });
         });
-    </script>        
+    </script>  
         <!-- Custom CSS -->
-        <link href="css/custom_css/login.css" rel="stylesheet">
-		<title>..::ChattersWorld Chameleon::.. register</title>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script src='https://www.google.com/recaptcha/api.js' async defer></script>
+		<title>..::Chattersworld Chameleon::.. Register</title>
     </head>
-    <body>
-        
-        <div class="container">
-                
-								<div class="alert alert-success alert-dismissable"><strong>Let op!</strong> Registeren geldt gelijk voor het netwerk, na registratie keer je gelijk terug naar het inlogscherm, je ontvangt geen bevestiging!
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button></div>
-								
-								
-                            
-                
-                
-				<?php
+    <body class="vertical-layout vertical-menu-modern 1-column  bg-full-screen-image blank-page blank-page" data-open="click" data-menu="vertical-menu-modern" data-color="bg-gradient-x-purple-red" data-col="1-column">
+       	
+		<div class="app-content content">
+        <div class="content-wrapper">
+            <div class="content-wrapper-before"></div>
+            <div class="content-header row">
+            </div>
+            <div class="content-body">
+                <section class="flexbox-container">
+                    <div class="col-12 d-flex align-items-center justify-content-center">
+                        <div class="col-lg-4 col-md-6 col-10 box-shadow-2 p-0">
+                            <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
+                                <div class="card-header border-0">
+                                    <div class="text-center mb-1">
+                                        <img src="img/cwo-chameleon2.png" height="50px" alt="branding logo">
+                                    </div>
+                                    <div class="font-large-1  text-center">
+                                        Registeer nu!
+                                    </div>
+                                </div>
+                                <div class="card-content">
+									<?php
                         if(isset($_POST['login'])) {
                             if(isset($errors)) {
                                 echo '<div class="alert alert-danger alert-dismissable"><strong>' . htmlentities($errors) . '</strong>';
@@ -217,11 +242,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                            
                         } ?>
-            
-            
-            <form class="form-signin" role="form" method="POST" action="">
-                <h2 class="form-signin-heading">Registreer voor Chattersworld:</h2>
-				<script type="text/javascript">
+                                    <div class="card-body">
+									<div class="alert alert-success alert-dismissable"><strong>Let op!</strong> Registeren geldt gelijk voor het netwerk, na registratie keer je gelijk terug naar het inlogscherm, je kunt dan direct inloggen!
+								</div>
+                                        <form class="form-horizontal" method="POST" action="">
+											<fieldset class="form-group position-relative has-icon-left">
+                                                <input type="email" name="email" class="form-control round" id="user-name" placeholder="E-Mail" required>
+                                                <div class="form-control-position">
+                                                    <i class="ft-at-sign"></i>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset class="form-group position-relative has-icon-left">
+											<script type="text/javascript">
 
 				function CheckSpace(event)
 				{
@@ -232,31 +264,82 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					}
 				}
 				</script>
-				<input type="email" class="form-control" name="email" placeholder="E-mail adres" required autofocus><br />
-                <input type="text" class="form-control" name="login" placeholder="Nicknaam" onkeypress="CheckSpace(event)" required><br />
-				<input type="password" class="form-control" name="pass" placeholder="Wachtwoord" required><br />
-				<input type="password" class="form-control" name="pass2" placeholder="Herhaal Wachtwoord" required>
-				
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Registreer</button>
-				<input type="hidden" name="recaptcha_response" id="recaptchaResponse">
-            </form>
-			<form class="form-signin" role="form" method="" action="/">
-                <h2 class="form-signin-heading">Of log in:</h2>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
-				</form>
+                                                <input type="text" name="login" class="form-control round" id="user-name" pattern="^[a-zA-Z0-9][a-zA-Z0-9-_]{2,}$" onkeypress="CheckSpace(event)" placeholder="Nicknaam (ook voor de chat)" required>
+                                                <div class="form-control-position">
+                                                    <i class="ft-user"></i>
+                                                </div>
+                                            </fieldset>
+                                            <fieldset class="form-group position-relative has-icon-left">
+                                                <input type="password" class="form-control round" name="pass" id="user-password" placeholder="Wachtwoord" required>
+                                                <div class="form-control-position">
+                                                    <i class="ft-lock"></i>
+                                                </div>
+                                            </fieldset>
+											<fieldset class="form-group position-relative has-icon-left">
+                                                <input type="password" class="form-control round" name="pass2" id="user-password" placeholder="Wachtwoord" required>
+                                                <div class="form-control-position">
+                                                    <i class="ft-lock"></i>
+                                                </div>
+                                            </fieldset>
+                                            <div class="form-group row">
+                                                <div class="col-md-6 col-12 text-center text-sm-left">
 
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="form-group text-center">
+												<!-- <center><div class="g-recaptcha" data-sitekey="6LdZ_nIUAAAAANK_JiB2qsRbSPnldqaYTjFwNj8G"></div></center><br /> -->
+                                                <button type="submit" class="btn round btn-block btn-glow btn-bg-gradient-x-purple-blue col-12 mr-1 mb-1">Registreer</button>
+												<input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    
+
+                                    <p class="card-subtitle text-muted text-right font-small-3 mx-2 my-1"><span>Heb je al een account? <a href="/login" class="card-link">Log dan in!</a></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
         </div>
+    </div>
+	
+	<!-- End new style -->
+	   
+	   
         <center>
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
             <!-- Chatbottom -->
             <ins class="adsbygoogle"
-                 style="display:inline-block;width:728px;height:90px"
+                 style="display:inline-block;height:90px"
                  data-ad-client="ca-pub-9106844814451489"
                  data-ad-slot="2999842055"></ins>
             <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
         </center>
+		</div>
+		</div>
+		<!-- BEGIN: Vendor JS-->
+    <script src="app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
+    <!-- BEGIN Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="app-assets/vendors/js/forms/validation/jqBootstrapValidation.js" type="text/javascript"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Theme JS-->
+    <script src="app-assets/js/core/app-menu.js" type="text/javascript"></script>
+    <script src="app-assets/js/core/app.js" type="text/javascript"></script>
+    <!-- END: Theme JS-->
+
+    <!-- BEGIN: Page JS-->
+    <script src="app-assets/js/scripts/forms/form-login-register.js" type="text/javascript"></script>
+    
     </body>
 
 </html>

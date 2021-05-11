@@ -16,6 +16,7 @@ class Config {
     private $_mysqlPass;            //Het passwoord om in te loggen de op de MySQL Database
     private $_mysqlDbName;          //De naam van de MySQL Database
     private $_mysqlPrefix;
+	public $_irc;
 
     private $_mysqlHostDev;            //De host van de MySQL Database
     private $_mysqlUserDev;            //De gebruikersnaam om in te loggen op de MySQL Database
@@ -42,27 +43,34 @@ class Config {
          */
         $this->_errorMode = "prd";
         $this->_rootDirectory = "";
-        $this->_fullUrl = "siteurl"; //zonder / achter de link
-		$this->_logo = "siteurl/logo"; //zonder / achter de link
+        $this->_fullUrl = "https://chameleon.chattersworld.nl"; //zonder / achter de link
+		$this->_logo = "https://chameleon.chattersworld.nl/img/cwo-chameleon2.png"; //zonder / achter de link
+		$this->_irc = "irc.chattersworld.nl"; //IRC url without port
+		$this->_sitename = "Chattersworld Chameleon"; //Naam van de website
+		/**
+		 * KiwiIRC instellingen
+		 */
+		$this->_gateway = "gateway.chattersworld.nl:1085"; //URL van gateway zonder http(s)
+		$this->_file = "https://files.chattersworld.nl/files/"; //Fileupload URL
         /**
          * MySQL gegevens
          */
-        $this->_mysqlHost = "chameleon_db_host";
-        $this->_mysqlUser = "chameleon_db_user";
-        $this->_mysqlPass = "chameleon_db_pass";
-        $this->_mysqlDbName = "chameleon";
+        $this->_mysqlHost = "127.0.0.1";
+        $this->_mysqlUser = "chatters_chameleon";
+        $this->_mysqlPass = "";
+        $this->_mysqlDbName = "chatters_chameleon";
         $this->_mysqlPrefix = "chameleon_";
 
-        $this->_mysqlHostDev = "chameleon_db_dev_host";
-        $this->_mysqlUserDev = "chameleon_db_dev_user";
-        $this->_mysqlPassDev = "chameleon_db_dev_pass";
-        $this->_mysqlDbNameDev = "chameleon";
+        $this->_mysqlHostDev = "127.0.0.1";
+        $this->_mysqlUserDev = "chatters_chameleon";
+        $this->_mysqlPassDev = "";
+        $this->_mysqlDbNameDev = "chatters_chameleon";
         $this->_mysqlPrefixDev = "chameleon_";
 
-        $this->_mysqlAnopeHost = "anope_db_host";
-        $this->_mysqlAnopeUser = "anope_db_user";
-        $this->_mysqlAnopePass = "anope_db_pass";
-        $this->_mysqlAnopeDbName = "Anope_DB";
+        $this->_mysqlAnopeHost = "127.0.0.1";
+        $this->_mysqlAnopeUser = "chatters_anope";
+        $this->_mysqlAnopePass = "";
+        $this->_mysqlAnopeDbName = "anope";
     }
 
     /**
@@ -91,11 +99,35 @@ class Config {
 	public function getLogo() {
         return $this->_logo;
     }
+	public function getIRC() {
+		return $this->_irc;
+    }
+	public function getFile() {
+		return $this->_file;
+    }
+	public function getSiteName() {
+		return $this->_sitename;
+    }
+	public function getGateway() {
+		return $this->_gateway;
+    }
     public function setFullUrl($url) {
         $this->_fullUrl = $url;
     }
 	public function setLogo($logo) {
         $this->_logo = $logo;
+    }
+	public function setIRC($irc) {
+        $this->_irc = $irc;
+    }
+	public function setFile($files) {
+        $this->_file = $files;
+    }
+	public function setGateway($gateway) {
+        $this->_gateway = $gateway;
+    }
+	public function setSiteName($sitename) {
+        $this->_sitename = $sitename;
     }
     public function getMysqlHost() {
         return $this->_mysqlHost;

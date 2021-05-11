@@ -11,9 +11,6 @@ protected $metadata = array();
 public function __construct($location){
     $errno = $errstr = '';
     $t = parse_url($location);
-    if (!array_key_exists('scheme', $t)) {
-        $t['scheme']='http';
-    }
     if (!array_key_exists('port', $t)) {
         $t['port']=80;
     }
@@ -76,10 +73,10 @@ public function __construct($location){
                 $title = $artist = '';
                 foreach ($matches[0] as $nr => $values){
                   $offset = $values[1];
-                  $length = ord($values[0]{0}) +
-                            (ord($values[0]{1}) * 256)+
-                            (ord($values[0]{2}) * 256*256)+
-                            (ord($values[0]{3}) * 256*256*256);
+                  $length = ord($values[0][0]) +
+                            (ord($values[0][1]) * 256)+
+                            (ord($values[0][2]) * 256*256)+
+                            (ord($values[0][3]) * 256*256*256);
                   $info = substr($data, $offset + 4, $length);
                   $seperator = strpos($info, '=');
                   $this->metadata[substr($info, 0, $seperator)] = substr($info, $seperator + 1);

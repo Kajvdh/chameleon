@@ -1,28 +1,29 @@
 <?php
 /*
-  Copyright (C) 2020  Kaj Van der Hallen; Edited by Stanley Kulik (DjSxX)
-
+  Copyright (C) 2015  Kaj Van der Hallen
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
-
   This program is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
-
   You should have received a copy of the GNU General Public License along
   with this program; if not, write to the Free Software Foundation, Inc.,
   51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-
 require("includes.php");
 $database = new Database($config, "anope");
 $aDb = $database->getConnection();
 $database = new Database($config);
 $db = $database->getConnection();
 $smarty->assign('fullurl', $config->getFullUrl());
+$smarty->assign('logo', $config->getLogo());
+$smarty->assign('irc', $config->getIRC());
+$smarty->assign('sitename', $config->getSiteName());
+$smarty->assign('gateway', $config->getGateway());
+$smarty->assign('file', $config->getFile());
 $login = new Login();
 $id = $login->getSession();
 $smarty->assign('page','list');//default
@@ -34,9 +35,13 @@ if ($id) {
     $isGodUser = $member->isGodUser();
     if ($isGodUser) {
         $smarty->assign('god', "true");
+		$smarty->assign('registeredname', 'Stanley Kulik');
+		$smarty->assign('nextduedate', 'Niet');
+		$smarty->assign('productname', 'Chameleon');
     }
 
     $smarty->assign('login',$member->getUsername());
+	// $smarty->assign('loggedin', "true");
 
     $page = 'list';
     if (isset($_GET['page'])) {
@@ -174,6 +179,68 @@ if ($id) {
                     if($chat_name) {
                         $smarty->assign('chat_name',$chat_name);
                     }
+					// html5 kleur
+					$html5color = $chat->getHTML5color();
+                    if($html5color) {
+                        $smarty->assign('html5color',$html5color);
+                    }
+					// volume slider
+					$volslide = $chat->getVolslide();
+                    if($volslide) {
+                        $smarty->assign('volslide',$volslide);
+                    }
+					// titledata
+					$titledata = $chat->getTitledata();
+                    if($titledata) {
+                        $smarty->assign('titledata',$titledata);
+                    }
+					// View Height
+					$viewheight = $chat->getViewheight();
+                    if($viewheight) {
+                        $smarty->assign('viewheight',$viewheight);
+                    }
+					// tags
+					$tags = $chat->getTags();
+                    if($tags) {
+                        $smarty->assign('tags',$tags);
+                    }
+					// html5 bg transparantie
+					$transparantie = $chat->getTransparantie();
+                    if($transparantie) {
+                        $smarty->assign('transparantie',$transparantie);
+                    }
+					// html5 bg transparantie
+					$omswitch = $chat->getOmswitch();
+                    if ($omswitch == "true") {
+                        $smarty->assign('omswitch', "true");
+                    }
+                    else {
+                        $smarty->assign('omswitch', "false");
+                    }
+					// html5 bg transparantie
+					$conflink = $chat->getConflink();
+                    if ($conflink == "true") {
+                        $smarty->assign('conflink', "true");
+                    }
+                    else {
+                        $smarty->assign('conflink', "false");
+                    }
+					// Embedly
+					$embedly = $chat->getEmbedly();
+                    if ($embedly == "true") {
+                        $smarty->assign('embedly', "true");
+                    }
+                    else {
+                        $smarty->assign('embedly', "false");
+                    }
+					// Warnonexit
+					$warn_exit = $chat->getWarnonexit();
+                    if ($warn_exit == "true") {
+                        $smarty->assign('warnonexit', "true");
+                    }
+                    else {
+                        $smarty->assign('warnonexit', "false");
+                    }
                     //Chatstyle
                     $chat_style = $chat->getStyle();
                     if ($chat_style) {
@@ -275,6 +342,14 @@ if ($id) {
                     else {
                         $smarty->assign('radio_enabled', "false");
                     }
+					//stats
+                    $show_stats = $chat->getShowStats();
+                    if ($show_stats == "true") {
+                        $smarty->assign('showstats', "true");
+                    }
+                    else {
+                        $smarty->assign('showstats', "false");
+                    }
                     //Radio name
                     $radio_name = $chat->Radio->getName();
                     if ($radio_name) {
@@ -318,6 +393,48 @@ if ($id) {
                     } else {
                         $smarty->assign('ads_enabled', "false");
                     }
+					//Kiwi Avatar
+					$kiwi_avatar = $chat->getKiwiAvatar();
+                    if ($kiwi_avatar == "true") {
+                        $smarty->assign('kiwi_avatar', "true");
+                    } else {
+                        $smarty->assign('kiwi_avatar', "false");
+                    }
+					//Kiwi Upload
+					$kiwi_upload = $chat->getKiwiUpload();
+                    if ($kiwi_upload == "true") {
+                        $smarty->assign('kiwi_upload', "true");
+                    } else {
+                        $smarty->assign('kiwi_upload', "false");
+                    }
+					//Kiwi Giphy
+					$kiwi_giphy = $chat->getKiwiGiphy();
+                    if ($kiwi_giphy == "true") {
+                        $smarty->assign('kiwi_giphy', "true");
+                    } else {
+                        $smarty->assign('kiwi_giphy', "false");
+                    }
+					//Kiwi Imgur
+					$kiwi_imgur = $chat->getKiwiImgur();
+                    if ($kiwi_imgur == "true") {
+                        $smarty->assign('kiwi_imgur', "true");
+                    } else {
+                        $smarty->assign('kiwi_imgur', "false");
+                    }
+					//Kiwi ASL
+					$kiwi_asl = $chat->getKiwiASL();
+                    if ($kiwi_asl == "true") {
+                        $smarty->assign('kiwi_asl', "true");
+                    } else {
+                        $smarty->assign('kiwi_asl', "false");
+                    }
+					//Chat Redirect
+					$html_redirect = $chat->getHTMLRedirect();
+                    if ($html_redirect == "true") {
+                        $smarty->assign('html_redirect', "true");
+                    } else {
+                        $smarty->assign('html_redirect', "false");
+                    }
                     $smarty->assign('page','edit');
                 }
                 else {
@@ -343,7 +460,7 @@ if ($id) {
             $smarty->assign('chat_style',"blue");
 			$smarty->assign('chat_bgurl',"");
 			$smarty->assign('verzoek_url',"");
-			$smarty->assign('tekstkleur', "#FFF");
+			$smarty->assign('tekstkleur', "#FFFFFF");
 			$smarty->assign('playerkleur', "#800000");
 			$smarty->assign('mountpoint', "/stream");
             $smarty->assign('icon_style',"bolletje");
@@ -359,8 +476,25 @@ if ($id) {
             $smarty->assign('verboseinformation', "false");
             $smarty->assign('radio_enabled', "false");
             $smarty->assign('radio_type', "shoutcast");
-            $smarty->assign('radio_style', "cwflash");
+            $smarty->assign('radio_style', "luna");
             $smarty->assign('ads_enabled', "true");
+			$smarty->assign('kiwi_avatar', "true");
+			$smarty->assign('kiwi_upload', "true");
+			$smarty->assign('kiwi_giphy', "true");
+			$smarty->assign('kiwi_imgur', "true");
+			$smarty->assign('kiwi_asl', "true");
+			$smarty->assign('html_redirect', "true");
+			$smarty->assign('showstats', "false");
+			$smarty->assign('html5color', "#800000");
+			$smarty->assign('transparantie', "25");
+			$smarty->assign('omswitch', "false");
+			$smarty->assign('embedly', "false");
+			$smarty->assign('volslide', "#a7d3ab");
+			$smarty->assign('conflink', "false");
+			$smarty->assign('viewheight', "40%");
+			$smarty->assign('tags', "true");
+			$smarty->assign('warnonexit', "true");
+			$smarty->assign('titledata', "fallback");
 	    $smarty->assign('page','new');
         }
     }
@@ -384,8 +518,13 @@ if ($id) {
         $lastcalleds = array();
         $names = array();
 		$bgurl = array();
+		$bgcolor = array();
 		$chatstyle = array();
 		$playerstyle = array();
+		$html5_color = array();
+		$trans_parantie = array();
+		$om_swtich = array();
+		$em_bedly = array();
         foreach ($chatboxes as $chatbox) {
             $owner = new Member($aDb);
             $owner->getById($chatbox->getOwner());
@@ -394,7 +533,12 @@ if ($id) {
             array_push($calls, $chatbox->getCalls());
             array_push($lastcalleds, $chatbox->getLastCalled());
             array_push($names,$chatbox->getName());
+			array_push($bgcolor,$chatbox->getBgcolor());
 			array_push($bgurl,$chatbox->getBgurl());
+			array_push($html5_color,$chatbox->getHTML5color());
+			array_push($trans_parantie,$chatbox->getTransparantie());
+			array_push($om_swtich,$chatbox->getOmswitch());
+			array_push($em_bedly,$chatbox->getEmbedly());
 			array_push($chatstyle,$chatbox->getStyle());
 			array_push($playerstyle,$chatbox->Radio->getPlayer());
         }
@@ -404,8 +548,13 @@ if ($id) {
         $smarty->assign('lastcalleds', $lastcalleds);
         $smarty->assign('names', $names);
 		$smarty->assign('bgurl', $bgurl);
+		$smarty->assign('bgcolor', $bgcolor);
 		$smarty->assign('chatstyle', $chatstyle);
 		$smarty->assign('playerstyle', $playerstyle);
+		$smarty->assign('html5_color', $html5_color);
+		$smarty->assign('trans_parantie', $trans_parantie);
+		$smarty->assign('om_swtich', $om_swtich);
+		$smarty->assign('em_bedly', $em_bedly);
     }
     else {
         $member = new Member($db);
@@ -415,18 +564,33 @@ if ($id) {
         $names = array();
 		$bgurl = array();
 		$chatstyle = array();
+		$bgcolor = array();
 		$playerstyle = array();
+		$html5_color = array();
+		$trans_parantie = array();
+		$om_swtich = array();
+		$em_bedly = array();
         foreach ($chatboxes as $chatbox) {
             array_push($ids, $chatbox->getId());
             array_push($names, $chatbox->getName());
 			array_push($bgurl,$chatbox->getBgurl());
 			array_push($chatstyle,$chatbox->getStyle());
+			array_push($bgcolor,$chatbox->getBgcolor());
+			array_push($html5_color,$chatbox->getHTML5color());
+			array_push($trans_parantie,$chatbox->getTransparantie());
+			array_push($om_swtich,$chatbox->getOmswitch());
+			array_push($em_bedly,$chatbox->getEmbedly());
 			array_push($playerstyle,$chatbox->Radio->getPlayer());
         }
         $smarty->assign('ids', $ids);
         $smarty->assign('names', $names);
 		$smarty->assign('bgurl', $bgurl);
+		$smarty->assign('bgcolor', $bgcolor);
 		$smarty->assign('chatstyle', $chatstyle);
+		$smarty->assign('html5_color', $html5_color);
+		$smarty->assign('trans_parantie', $trans_parantie);
+		$smarty->assign('om_swtich', $om_swtich);
+		$smarty->assign('em_bedly', $em_bedly);
     }
 
     $smarty->display('mainpanel.tpl');
